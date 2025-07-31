@@ -31,9 +31,7 @@ const chatFlow = ai.defineFlow(
   },
   async (input) => {
     const {output} = await ai.generate({
-        prompt: {
-            messages: input.messages,
-        },
+        prompt: input.messages,
         model: 'googleai/gemini-2.0-flash',
         config: {
             temperature: 0.5,
