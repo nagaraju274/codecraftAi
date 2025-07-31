@@ -18,7 +18,7 @@ export default function MainLayout({
               <span className="sr-only">Toggle Menu</span>
             </SidebarTrigger>
         </header>
-        <div className="p-4 sm:p-6 lg:p-8 h-full flex flex-col pt-0 sm:pt-6">
+        <div className="p-4 sm:p-6 lg:p-8 h-full flex flex-col">
           {children}
         </div>
       </SidebarInset>
