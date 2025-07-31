@@ -1215,31 +1215,33 @@ export default function LearnPage() {
   );
 
   return (
-    <div className="flex flex-col h-full gap-8">
-      <div>
+    <div className="flex flex-col h-full gap-4">
+      <div className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">Learning Paths</h1>
         <p className="text-muted-foreground">
           Our structured learning paths will help you master new skills and advance your career.
         </p>
       </div>
-      <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-        <Input
-          type="search"
-          placeholder="Search for a learning path..."
-          className="pl-10 w-full"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
+      <div className="sticky top-0 bg-background z-10 py-4">
+        <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+            <Input
+              type="search"
+              placeholder="Search for a learning path..."
+              className="pl-10 w-full"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+        </div>
       </div>
-      <ScrollArea className="flex-1">
-        <div className="space-y-4 pr-4">
+      <ScrollArea className="flex-1 -mt-4">
+        <div className="space-y-4 pr-4 pt-4">
           {filteredPaths.map((path, index) => (
             <div key={index} className="p-1 h-full">
               <Card className="hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
                 <CardHeader>
                   <CardTitle className="text-xl font-bold">{path.title}</CardTitle>
-                  <p className="text-muted-foreground pt-2 text-sm">{path.description}</p>
+                  <p className="text-muted-foreground pt-2">{path.description}</p>
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <Accordion type="single" collapsible className="w-full">
