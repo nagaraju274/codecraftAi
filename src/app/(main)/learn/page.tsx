@@ -173,7 +173,7 @@ const learningPaths = [
             title: "Responsive Design with Flexbox and Grid",
             points: [
                 { text: "Learn the principles of responsive design and use media queries to create websites that look great on desktops, tablets, and mobile devices.", resources: [{ name: "Responsive design", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" }] },
-                { text: "Master Flexbox for creating efficient, one-dimensional layouts. Align and distribute items in a row or column with ease.", resources: [{ name: "Flexbox", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" }] },
+                { text: "Master Flexbox for creating efficient, one-dimensional layouts. Align and distribute items in a row or a column with ease.", resources: [{ name: "Flexbox", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" }] },
                 { text: "Use CSS Grid to build complex, two-dimensional layouts, allowing you to control the position of items in both rows and columns simultaneously.", resources: [{ name: "CSS Grid", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids" }] },
             ],
         },
@@ -393,6 +393,395 @@ const learningPaths = [
             { text: "Understand the basics of the TCP/IP protocol suite, how DNS resolution works, and the difference between HTTP and HTTPS.", resources: [{ name: "Computer Networking Tutorial", url: "https://www.geeksforgeeks.org/computer-network-tutorial/" }] },
             { text: "Learn to design and configure isolated network environments in the cloud using Virtual Private Clouds (VPCs) and subnets.", resources: [{ name: "VPC", url: "https://aws.amazon.com/vpc/" }] },
             { text: "Implement network security by configuring firewalls, network access control lists (ACLs), and security groups to control inbound and outbound traffic.", resources: [] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Front-End Developer",
+    description: "Learn to build beautiful and interactive user interfaces for the web.",
+    topics: [
+      {
+        title: "Core Technologies",
+        points: [
+          { text: "Master HTML for structuring web pages.", resources: [{ name: "HTML Tutorial", url: "https://www.w3schools.com/html/" }] },
+          { text: "Learn CSS for styling web pages.", resources: [{ name: "CSS Tutorial", url: "https://www.w3schools.com/css/" }] },
+          { text: "Understand JavaScript for adding interactivity.", resources: [{ name: "JavaScript Tutorial", url: "https://www.w3schools.com/js/" }] },
+        ],
+      },
+      {
+        title: "Frameworks and Libraries",
+        points: [
+          { text: "Learn a modern front-end framework like React, Angular, or Vue.", resources: [{ name: "React", url: "https://reactjs.org/" }, { name: "Angular", url: "https://angular.io/" }, { name: "Vue.js", url: "https://vuejs.org/" }] },
+          { text: "Explore CSS frameworks like Bootstrap or Tailwind CSS.", resources: [{ name: "Bootstrap", url: "https://getbootstrap.com/" }, { name: "Tailwind CSS", url: "https://tailwindcss.com/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Back-End Developer",
+    description: "Learn to build the server-side logic and infrastructure that powers web applications.",
+    topics: [
+      {
+        title: "Server-Side Languages",
+        points: [
+          { text: "Choose a language like Node.js (JavaScript), Python, Java, or Ruby.", resources: [{ name: "Node.js", url: "https://nodejs.org/" }, { name: "Python", url: "https://www.python.org/" }] },
+        ],
+      },
+      {
+        title: "Databases and APIs",
+        points: [
+          { text: "Understand how to work with SQL and NoSQL databases.", resources: [{ name: "SQL Tutorial", url: "https://www.w3schools.com/sql/" }, { name: "MongoDB", url: "https://www.mongodb.com/" }] },
+          { text: "Learn to build RESTful APIs.", resources: [{ name: "REST API Tutorial", url: "https://www.restapitutorial.com/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Database Administrator",
+    description: "Learn to manage and maintain databases to ensure data is secure, accessible, and performs efficiently.",
+    topics: [
+        {
+            title: "Database Fundamentals",
+            points: [
+                { text: "Understand the core concepts of relational (SQL) and non-relational (NoSQL) databases.", resources: [{ name: "SQL vs NoSQL", url: "https://www.mongodb.com/nosql-explained/nosql-vs-sql" }] },
+                { text: "Learn about database design, normalization, and data modeling.", resources: [{ name: "Database Normalization", url: "https://www.guru99.com/database-normalization.html" }] },
+            ]
+        },
+        {
+            title: "SQL and NoSQL Databases",
+            points: [
+                { text: "Gain proficiency in a specific SQL database like PostgreSQL, MySQL, or SQL Server.", resources: [{ name: "PostgreSQL", url: "https://www.postgresql.org/" }, { name: "MySQL", url: "https://www.mysql.com/" }] },
+                { text: "Learn a NoSQL database like MongoDB, Cassandra, or Redis.", resources: [{ name: "MongoDB", url: "https://www.mongodb.com/" }, { name: "Cassandra", url: "https://cassandra.apache.org/_/index.html" }] },
+            ]
+        }
+    ]
+  },
+  {
+    title: "Git Version Control",
+    description: "Master Git for tracking changes in your code and collaborating with others.",
+    topics: [
+      {
+        title: "Git Basics",
+        points: [
+          { text: "Learn basic commands like `git init`, `git add`, `git commit`, and `git push`.", resources: [{ name: "Git Handbook", url: "https://guides.github.com/introduction/git-handbook/" }] },
+          { text: "Understand branching and merging.", resources: [{ name: "Learn Git Branching", url: "https://learngitbranching.js.org/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "SQL",
+    description: "Learn the standard language for managing and querying relational databases.",
+    topics: [
+      {
+        title: "Core Concepts",
+        points: [
+          { text: "Understand tables, rows, columns, and data types.", resources: [{ name: "SQLBolt", url: "https://sqlbolt.com/" }] },
+          { text: "Learn to write queries with `SELECT`, `FROM`, `WHERE`, `GROUP BY`, and `JOIN`.", resources: [{ name: "W3Schools SQL", url: "https://www.w3schools.com/sql/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "C",
+    description: "Learn the foundational C programming language.",
+    topics: [
+      {
+        title: "Fundamentals",
+        points: [
+          { text: "Understand variables, data types, operators, and control flow.", resources: [{ name: "C Tutorial", url: "https://www.cprogramming.com/tutorial/c-tutorial.html" }] },
+          { text: "Learn about pointers, memory management, and file I/O.", resources: [{ name: "GeeksforGeeks C", url: "https://www.geeksforgeeks.org/c-programming-language/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "R",
+    description: "Learn R for statistical computing and data analysis.",
+    topics: [
+      {
+        title: "Basics",
+        points: [
+          { text: "Understand R data structures like vectors, matrices, and data frames.", resources: [{ name: "R for Data Science", url: "https://r4ds.had.co.nz/" }] },
+          { text: "Learn to use packages like dplyr and ggplot2 for data manipulation and visualization.", resources: [{ name: "ggplot2", url: "https://ggplot2.tidyverse.org/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Java",
+    description: "Learn the robust, object-oriented Java programming language.",
+    topics: [
+      {
+        title: "Core Java",
+        points: [
+          { text: "Understand the JVM, syntax, OOP concepts, and collections framework.", resources: [{ name: "Oracle Java Tutorials", url: "https://docs.oracle.com/javase/tutorial/" }] },
+          { text: "Learn about exception handling, multithreading, and I/O.", resources: [{ name: "Baeldung Java", url: "https://www.baeldung.com/java-tutorial" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "C++",
+    description: "Learn the powerful and high-performance C++ programming language.",
+    topics: [
+      {
+        title: "Fundamentals",
+        points: [
+          { text: "Understand syntax, data types, and control structures.", resources: [{ name: "LearnCpp.com", url: "https://www.learncpp.com/" }] },
+          { text: "Master object-oriented programming, templates, and the Standard Template Library (STL).", resources: [{ name: "C++ Reference", url: "https://en.cppreference.com/w/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "C#",
+    description: "Learn the modern, object-oriented C# language from Microsoft.",
+    topics: [
+      {
+        title: "Core C#",
+        points: [
+          { text: "Understand the .NET framework, C# syntax, and OOP.", resources: [{ name: "C# Docs", url: "https://docs.microsoft.com/en-us/dotnet/csharp/" }] },
+          { text: "Learn about LINQ, async programming, and building applications with .NET.", resources: [{ name: "C# Station", url: "http://www.csharp-station.com/Tutorial/CSharp/Lesson01" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "TypeScript",
+    description: "Learn TypeScript to add static types to your JavaScript projects.",
+    topics: [
+      {
+        title: "Basics",
+        points: [
+          { text: "Understand basic types, interfaces, classes, and modules.", resources: [{ name: "TypeScript Handbook", url: "https://www.typescriptlang.org/docs/handbook/intro.html" }] },
+          { text: "Learn about generics, decorators, and advanced types.", resources: [{ name: "TypeScript Deep Dive", url: "https://basarat.gitbook.io/typescript/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Swift",
+    description: "Learn Swift, the modern language for building apps for Apple platforms.",
+    topics: [
+      {
+        title: "Fundamentals",
+        points: [
+          { text: "Understand Swift syntax, optionals, and control flow.", resources: [{ name: "A Swift Tour", url: "https://docs.swift.org/swift-book/GuidedTour/GuidedTour.html" }] },
+          { text: "Learn about UIKit/SwiftUI for building user interfaces.", resources: [{ name: "Hacking with Swift", url: "https://www.hackingwithswift.com/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Kotlin",
+    description: "Learn Kotlin, the modern language for building Android apps.",
+    topics: [
+      {
+        title: "Basics",
+        points: [
+          { text: "Understand Kotlin syntax, null safety, and coroutines for async programming.", resources: [{ name: "Kotlin Docs", url: "https://kotlinlang.org/docs/home.html" }] },
+          { text: "Learn to build Android apps with Kotlin.", resources: [{ name: "Android Kotlin Fundamentals", url: "https://developer.android.com/kotlin/fundamentals" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "PHP",
+    description: "Learn the popular server-side scripting language for web development.",
+    topics: [
+      {
+        title: "Core Concepts",
+        points: [
+          { text: "Understand PHP syntax, variables, and control structures.", resources: [{ name: "PHP The Right Way", url: "https://phptherightway.com/" }] },
+          { text: "Learn about working with databases and a framework like Laravel or Symfony.", resources: [{ name: "Laravel", url: "https://laravel.com/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Ruby",
+    description: "Learn the dynamic, open-source programming language with a focus on simplicity and productivity.",
+    topics: [
+      {
+        title: "Fundamentals",
+        points: [
+          { text: "Understand Ruby syntax and its object-oriented nature.", resources: [{ name: "Ruby in 20 Minutes", url: "https://www.ruby-lang.org/en/documentation/quickstart/" }] },
+          { text: "Learn the Ruby on Rails framework for web development.", resources: [{ name: "Ruby on Rails Guides", url: "https://guides.rubyonrails.org/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Rust",
+    description: "Learn Rust for building reliable and efficient software.",
+    topics: [
+      {
+        title: "Core Concepts",
+        points: [
+          { text: "Understand ownership, borrowing, and lifetimes.", resources: [{ name: "The Rust Book", url: "https://doc.rust-lang.org/book/" }] },
+          { text: "Learn about concurrency, error handling, and building command-line tools.", resources: [{ name: "Rust by Example", url: "https://doc.rust-lang.org/rust-by-example/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Dart",
+    description: "Learn Dart, the language for building mobile, desktop, and web applications with Flutter.",
+    topics: [
+      {
+        title: "Fundamentals",
+        points: [
+          { text: "Understand Dart syntax, types, and asynchronous programming.", resources: [{ name: "A Tour of the Dart Language", url: "https://dart.dev/guides/language/language-tour" }] },
+          { text: "Learn about building UIs with Flutter.", resources: [{ name: "Flutter Docs", url: "https://docs.flutter.dev/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "HTML",
+    description: "Learn the standard markup language for creating web pages.",
+    topics: [
+      {
+        title: "Basics",
+        points: [
+          { text: "Understand elements, tags, and attributes.", resources: [{ name: "MDN HTML Basics", url: "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics" }] },
+          { text: "Learn about semantic HTML, forms, and multimedia.", resources: [{ name: "HTML Dog", url: "https://htmldog.com/guides/html/beginner/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "CSS",
+    description: "Learn the language for styling and laying out web pages.",
+    topics: [
+      {
+        title: "Core Concepts",
+        points: [
+          { text: "Understand selectors, the box model, and typography.", resources: [{ name: "MDN CSS Basics", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps" }] },
+          { text: "Learn about Flexbox, Grid, and responsive design.", resources: [{ name: "CSS-Tricks", url: "https://css-tricks.com/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Bash/Shell Scripting",
+    description: "Learn to automate tasks on the command line.",
+    topics: [
+      {
+        title: "Basics",
+        points: [
+          { text: "Understand commands, pipes, and redirection.", resources: [{ name: "The Bash Guide", url: "https://guide.bash.academy/" }] },
+          { text: "Learn to write scripts with variables, loops, and conditional logic.", resources: [{ name: "Learn Shell", url: "https://www.learnshell.org/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Perl",
+    description: "Learn the versatile, high-level programming language.",
+    topics: [
+      {
+        title: "Fundamentals",
+        points: [
+          { text: "Understand Perl syntax, regular expressions, and data structures.", resources: [{ name: "Learn Perl", url: "https://www.learn-perl.org/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "PowerShell",
+    description: "Learn the command-line shell and scripting language from Microsoft.",
+    topics: [
+      {
+        title: "Basics",
+        points: [
+          { text: "Understand cmdlets, pipelines, and the object-based nature of PowerShell.", resources: [{ name: "PowerShell Docs", url: "https://docs.microsoft.com/en-us/powershell/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "MATLAB",
+    description: "Learn the programming platform for engineers and scientists.",
+    topics: [
+      {
+        title: "Core Concepts",
+        points: [
+          { text: "Understand matrices, plotting, and writing scripts and functions.", resources: [{ name: "MATLAB Onramp", url: "https://www.mathworks.com/learn/tutorials/matlab-onramp.html" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "SAS",
+    description: "Learn the software suite for advanced analytics and data management.",
+    topics: [
+      {
+        title: "Basics",
+        points: [
+          { text: "Understand the DATA step, procedures, and the SAS macro language.", resources: [{ name: "SAS Tutorials", url: "https://www.sas.com/en_us/training/offers/free-sas-training.html" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "SPSS",
+    description: "Learn the software package for statistical analysis.",
+    topics: [
+      {
+        title: "Fundamentals",
+        points: [
+          { text: "Understand data entry, variable types, and running statistical tests through the UI and syntax.", resources: [{ name: "SPSS Tutorials", url: "https://www.spss-tutorials.com/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Prolog",
+    description: "Learn the logic programming language.",
+    topics: [
+      {
+        title: "Core Concepts",
+        points: [
+          { text: "Understand facts, rules, and queries.", resources: [{ name: "Learn Prolog Now!", url: "http://www.learnprolognow.org/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "TensorFlow",
+    description: "Learn the open-source library for machine learning and artificial intelligence.",
+    topics: [
+      {
+        title: "Basics",
+        points: [
+          { text: "Understand tensors, building models with Keras, and training/evaluation.", resources: [{ name: "TensorFlow Core", url: "https://www.tensorflow.org/guide" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "PyTorch",
+    description: "Learn the open-source machine learning library based on the Torch library.",
+    topics: [
+      {
+        title: "Fundamentals",
+        points: [
+          { text: "Understand tensors, building neural networks with `torch.nn`, and automatic differentiation.", resources: [{ name: "PyTorch Tutorials", url: "https://pytorch.org/tutorials/" }] },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Flutter",
+    description: "Learn Google's UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.",
+    topics: [
+      {
+        title: "Core Concepts",
+        points: [
+          { text: "Understand widgets, layouts, and state management.", resources: [{ name: "Flutter Docs", url: "https://docs.flutter.dev/" }] },
         ],
       },
     ],
