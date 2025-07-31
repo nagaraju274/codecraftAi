@@ -153,62 +153,62 @@ const learningPaths = [
     title: "Web Development Foundations",
     description: "Learn the core technologies for building modern websites and web applications.",
     topics: [
-        {
-            title: "HTML5: Structuring the Web",
-            points: [
-                { text: "Learn the fundamental boilerplate required for every HTML page, including `<!DOCTYPE>`, `<html>`, `<head>`, and `<body>` tags.", resources: [{ name: "HTML basics", url: "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics" }] },
-                { text: "Use semantic tags like `<header>`, `<nav>`, `<main>`, `<article>`, and `<footer>` to give your web content meaning and improve SEO.", resources: [{ name: "Semantic HTML", url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element#content_sectioning" }] },
-                { text: "Build interactive forms to collect user data using various input types, labels for accessibility, and buttons for submission.", resources: [{ name: "HTML Forms", url: "https://developer.mozilla.org/en-US/docs/Learn/Forms" }] },
-            ],
-        },
-        {
-            title: "CSS3: Styling and Layouts",
-            points: [
-                { text: "Target HTML elements with CSS using a variety of selectors, including class, ID, attribute, and pseudo-class selectors.", resources: [{ name: "CSS Selectors", url: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors" }] },
-                { text: "Grasp the core concept of the CSS box model, understanding how margin, border, padding, and content work together to size and space elements.", resources: [{ name: "The Box Model", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model" }] },
-                { text: "Learn to control the appearance of text on your website, including font families, sizes, colors, and spacing.", resources: [{ name: "Styling text", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text" }] },
-            ],
-        },
-        {
-            title: "Responsive Design with Flexbox and Grid",
-            points: [
-                { text: "Learn the principles of responsive design and use media queries to create websites that look great on desktops, tablets, and mobile devices.", resources: [{ name: "Responsive design", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" }] },
-                { text: "Master Flexbox for creating efficient, one-dimensional layouts. Align and distribute items in a row or a column with ease.", resources: [{ name: "Flexbox", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" }] },
-                { text: "Use CSS Grid to build complex, two-dimensional layouts, allowing you to control the position of items in both rows and columns simultaneously.", resources: [{ name: "CSS Grid", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids" }] },
-            ],
-        },
-        {
-            title: "Introduction to React",
-            points: [
-                { text: "Understand the core philosophy of React: building user interfaces by breaking them down into small, reusable pieces called components.", resources: [{ name: "Thinking in React", url: "https://react.dev/learn/thinking-in-react" }] },
-                { text: "Get your development environment ready for React development. Learn about modern build tools like Vite and the classic Create React App.", resources: [{ name: "Start a New React Project", url: "https://react.dev/learn/start-a-new-react-project" }] },
-                { text: "Learn JSX, a syntax extension for JavaScript that allows you to write HTML-like markup inside your JavaScript code.", resources: [{ name: "Writing Markup with JSX", url: "https://react.dev/learn/writing-markup-with-jsx" }] },
-            ],
-        },
-        {
-            title: "Components, Props, and State",
-            points: [
-                { text: "Learn to create and compose your own React components, which are the fundamental building blocks of a React application.", resources: [{ name: "Your First Component", url: "https://react.dev/learn/your-first-component" }] },
-                { text: "Understand how to pass data from a parent component to a child component using 'props', making your components dynamic and reusable.", resources: [{ name: "Passing Props to a Component", url: "https://react.dev/learn/passing-props-to-a-component" }] },
-                { text: "Manage data that changes over time within a component using the `useState` hook. Learn how state triggers re-renders to update the UI.", resources: [{ name: "State: A Component's Memory", url: "https://react.dev/learn/state-a-components-memory" }] },
-            ],
-        },
-        {
-            title: "React Hooks",
-            points: [
-                { text: "Use the `useEffect` hook to perform side effects in your components, such as fetching data from an API or setting up subscriptions.", resources: [{ name: "useEffect", url: "https://react.dev/reference/react/useEffect" }] },
-                { text: "Manage application-wide state that needs to be shared between many components without prop drilling by using the `useContext` hook.", resources: [{ name: "useContext", url: "https://react.dev/reference/react/useContext" }] },
-                { text: "Explore other essential hooks like `useRef` for accessing DOM elements directly and `useReducer` for managing complex state logic.", resources: [{ name: "useRef", url: "https://react.dev/reference/react/useRef" }, { name: "useReducer", url: "https://react.dev/reference/react/useReducer" }] },
-            ],
-        },
-        {
-            title: "Building a Simple Web App",
-            points: [
-                { text: "Before writing code, learn to plan your application by breaking down the UI into a component hierarchy.", resources: [] },
-                { text: "Combine your individual components to build out the full user interface of your application, from simple buttons to complex pages.", resources: [] },
-                { text: "Learn how to make HTTP requests from your React app to a public API to fetch and display dynamic data.", resources: [{ name: "Fetching data in React", url: "https://www.robinwieruch.de/react-fetching-data/" }] },
-            ],
-        },
+      {
+        title: "HTML5: Structuring the Web",
+        points: [
+          { text: "Learn the fundamental boilerplate required for every HTML page, including `<!DOCTYPE>`, `<html>`, `<head>`, and `<body>` tags.", resources: [{ name: "HTML basics", url: "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics" }] },
+          { text: "Use semantic tags like `<header>`, `<nav>`, `<main>`, `<article>`, and `<footer>` to give your web content meaning and improve SEO.", resources: [{ name: "Semantic HTML", url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element#content_sectioning" }] },
+          { text: "Build interactive forms to collect user data using various input types, labels for accessibility, and buttons for submission.", resources: [{ name: "HTML Forms", url: "https://developer.mozilla.org/en-US/docs/Learn/Forms" }] },
+        ],
+      },
+      {
+        title: "CSS3: Styling and Layouts",
+        points: [
+          { text: "Target HTML elements with CSS using a variety of selectors, including class, ID, attribute, and pseudo-class selectors.", resources: [{ name: "CSS Selectors", url: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors" }] },
+          { text: "Grasp the core concept of the CSS box model, understanding how margin, border, padding, and content work together to size and space elements.", resources: [{ name: "The Box Model", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model" }] },
+          { text: "Learn to control the appearance of text on your website, including font families, sizes, colors, and spacing.", resources: [{ name: "Styling text", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text" }] },
+        ],
+      },
+      {
+        title: "Responsive Design with Flexbox and Grid",
+        points: [
+          { text: "Learn the principles of responsive design and use media queries to create websites that look great on desktops, tablets, and mobile devices.", resources: [{ name: "Responsive design", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" }] },
+          { text: "Master Flexbox for creating efficient, one-dimensional layouts. Align and distribute items in a row or a column with ease.", resources: [{ name: "Flexbox", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" }] },
+          { text: "Use CSS Grid to build complex, two-dimensional layouts, allowing you to control the position of items in both rows and columns simultaneously.", resources: [{ name: "CSS Grid", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids" }] },
+        ],
+      },
+      {
+        title: "Introduction to React",
+        points: [
+          { text: "Understand the core philosophy of React: building user interfaces by breaking them down into small, reusable pieces called components.", resources: [{ name: "Thinking in React", url: "https://react.dev/learn/thinking-in-react" }] },
+          { text: "Get your development environment ready for React development. Learn about modern build tools like Vite and the classic Create React App.", resources: [{ name: "Start a New React Project", url: "https://react.dev/learn/start-a-new-react-project" }] },
+          { text: "Learn JSX, a syntax extension for JavaScript that allows you to write HTML-like markup inside your JavaScript code.", resources: [{ name: "Writing Markup with JSX", url: "https://react.dev/learn/writing-markup-with-jsx" }] },
+        ],
+      },
+      {
+        title: "Components, Props, and State",
+        points: [
+          { text: "Learn to create and compose your own React components, which are the fundamental building blocks of a React application.", resources: [{ name: "Your First Component", url: "https://react.dev/learn/your-first-component" }] },
+          { text: "Understand how to pass data from a parent component to a child component using 'props', making your components dynamic and reusable.", resources: [{ name: "Passing Props to a Component", url: "https://react.dev/learn/passing-props-to-a-component" }] },
+          { text: "Manage data that changes over time within a component using the `useState` hook. Learn how state triggers re-renders to update the UI.", resources: [{ name: "State: A Component's Memory", url: "https://react.dev/learn/state-a-components-memory" }] },
+        ],
+      },
+      {
+        title: "React Hooks",
+        points: [
+          { text: "Use the `useEffect` hook to perform side effects in your components, such as fetching data from an API or setting up subscriptions.", resources: [{ name: "useEffect", url: "https://react.dev/reference/react/useEffect" }] },
+          { text: "Manage application-wide state that needs to be shared between many components without prop drilling by using the `useContext` hook.", resources: [{ name: "useContext", url: "https://react.dev/reference/react/useContext" }] },
+          { text: "Explore other essential hooks like `useRef` for accessing DOM elements directly and `useReducer` for managing complex state logic.", resources: [{ name: "useRef", url: "https://react.dev/reference/react/useRef" }, { name: "useReducer", url: "https://react.dev/reference/react/useReducer" }] },
+        ],
+      },
+      {
+        title: "Building a Simple Web App",
+        points: [
+          { text: "Before writing code, learn to plan your application by breaking down the UI into a component hierarchy.", resources: [] },
+          { text: "Combine your individual components to build out the full user interface of your application, from simple buttons to complex pages.", resources: [] },
+          { text: "Learn how to make HTTP requests from your React app to a public API to fetch and display dynamic data.", resources: [{ name: "Fetching data in React", url: "https://www.robinwieruch.de/react-fetching-data/" }] },
+        ],
+      },
     ],
   },
   {
@@ -564,13 +564,47 @@ const learningPaths = [
     title: "Git Version Control",
     description: "Master Git for tracking changes in your code and collaborating with others.",
     topics: [
-      {
-        title: "Git Basics",
-        points: [
-          { text: "Learn basic commands like `git init`, `git add`, `git commit`, and `git push`.", resources: [{ name: "Git Handbook", url: "https://guides.github.com/introduction/git-handbook/" }] },
-          { text: "Understand branching and merging.", resources: [{ name: "Learn Git Branching", url: "https://learngitbranching.js.org/" }] },
-        ],
-      },
+        {
+            title: "Git Basics",
+            points: [
+                { text: "Understand what version control is and why Git is the most popular system for it. Learn about the difference between centralized and distributed version control.", resources: [{ name: "About Version Control", url: "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control" }] },
+                { text: "Install Git on your operating system and perform initial configuration of your user name and email.", resources: [{ name: "Getting Started - Installing Git", url: "https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" }] },
+                { text: "Create your first local repository with `git init` and learn the fundamental workflow of staging changes with `git add` and committing them with `git commit`.", resources: [{ name: "Git Basics - Getting a Git Repository", url: "https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository" }] },
+                { text: "Use `git status` to check the state of your working directory and staging area, and `git log` to view the history of commits.", resources: [{ name: "Git Basics - Recording Changes", url: "https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository" }] },
+            ],
+        },
+        {
+            title: "Branching and Merging",
+            points: [
+                { text: "Grasp the concept of branching, which allows you to diverge from the main line of development and work on new features or fixes in isolation.", resources: [{ name: "Git Branching - Branches in a Nutshell", url: "https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell" }] },
+                { text: "Learn how to create new branches with `git branch`, switch between them with `git checkout` (or the newer `git switch`), and merge changes from one branch into another with `git merge`.", resources: [{ name: "Basic Branching and Merging", url: "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging" }] },
+                { text: "Understand what merge conflicts are, why they happen, and learn the process for manually resolving them when they occur.", resources: [{ name: "Basic Merge Conflicts", url: "https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging#_basic_merge_conflicts" }] },
+            ],
+        },
+        {
+            title: "Working with Remote Repositories",
+            points: [
+                { text: "Learn how to connect your local repository to a remote one (like on GitHub or GitLab) using `git remote add`.", resources: [{ name: "Working with Remotes", url: "https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes" }] },
+                { text: "Use `git clone` to create a local copy of a remote repository on your machine.", resources: [{ name: "Cloning an Existing Repository", url: "https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository#_cloning_an_existing_repository" }] },
+                { text: "Use `git push` to upload your local commits to a remote repository, and `git pull` (which is a `git fetch` followed by a `git merge`) to download and integrate changes from a remote repository.", resources: [{ name: "Pushing to Your Remotes", url: "https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes#_pushing_to_your_remotes" }, { name: "Fetching and Pulling", url: "https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes#_fetching_and_pulling_from_your_remotes" }] },
+            ],
+        },
+        {
+            title: "Inspecting History and Undoing Changes",
+            points: [
+                { text: "Learn advanced `git log` options to view commit history in various formats, filter by author or date, and visualize the branch history.", resources: [{ name: "Viewing the Commit History", url: "https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History" }] },
+                { text: "Use `git diff` to see the exact changes between commits, branches, or your working directory and the staging area.", resources: [{ name: "git-diff Documentation", url: "https://git-scm.com/docs/git-diff" }] },
+                { text: "Understand how to undo changes. Use `git checkout -- <file>` to discard changes in your working directory, `git reset` to unstage files or reset a branch to a previous commit, and `git revert` to create a new commit that undoes the changes of a previous one.", resources: [{ name: "Undoing Things", url: "https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things" }] },
+            ],
+        },
+        {
+            title: "Advanced Git",
+            points: [
+                { text: "Learn to use `git rebase` as an alternative to merging for integrating changes, allowing you to maintain a cleaner, more linear project history.", resources: [{ name: "Git Branching - Rebasing", url: "https://git-scm.com/book/en/v2/Git-Branching-Rebasing" }] },
+                { text: "Use `git stash` to temporarily save changes that are not ready to be committed, so you can switch branches and work on something else.", resources: [{ name: "Git Tools - Stashing and Cleaning", url: "https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning" }] },
+                { text: "Learn to use `git tag` to create permanent markers for specific commits, typically used for version releases.", resources: [{ name: "Git Basics - Tagging", url: "https://git-scm.com/book/en/v2/Git-Basics-Tagging" }] },
+            ],
+        },
     ],
   },
   {
