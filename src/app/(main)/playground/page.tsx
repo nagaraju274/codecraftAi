@@ -9,19 +9,24 @@ import { Play, Trash2, Bot } from "lucide-react"
 import { fixCodeError, explainCode } from "@/ai/flows"
 import { useToast } from "@/hooks/use-toast"
 
-const placeholderCode = {
+type SupportedLanguage = "javascript" | "python" | "cpp" | "java" | "go";
+
+const placeholderCode: Record<SupportedLanguage, string> = {
   javascript: `function greet(name) {\n  console.log('Hello, ' + name + '!');\n}\n\ngreet('Student');`,
   python: `def greet(name):\n  print(f"Hello, {name}!")\n\n\ngreet("Student")`,
+  cpp: `#include <iostream>\n\nint main() {\n    std::cout << "Hello, Student!" << std::endl;\n    return 0;\n}`,
+  java: `public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println("Hello, Student!");\n    }\n}`,
+  go: `package main\n\nimport "fmt"\n\nfunc main() {\n\tfmt.Println("Hello, Student!")\n}`,
 }
 
 export default function PlaygroundPage() {
-  const [language, setLanguage] = useState<"javascript" | "python">("javascript")
+  const [language, setLanguage] = useState<SupportedLanguage>("javascript")
   const [code, setCode] = useState(placeholderCode.javascript)
   const [output, setOutput] = useState<string[]>([])
   const [isAiLoading, setIsAiLoading] = useState(false)
   const { toast } = useToast()
 
-  const handleLanguageChange = (value: "javascript" | "python") => {
+  const handleLanguageChange = (value: SupportedLanguage) => {
     setLanguage(value)
     setCode(placeholderCode[value])
     setOutput([])
@@ -29,10 +34,26 @@ export default function PlaygroundPage() {
 
   const runCode = () => {
     setOutput([])
-    const newOutput =
-      language === "javascript"
-        ? ["> console.log('Hello, Student!');", "Hello, Student!"]
-        : ["> python main.py", "Hello, Student!"]
+    let newOutput: string[];
+    switch (language) {
+      case "javascript":
+        newOutput = ["> console.log('Hello, Student!');", "Hello, Student!"];
+        break;
+      case "python":
+        newOutput = ["> python main.py", "Hello, Student!"];
+        break;
+      case "cpp":
+        newOutput = ["> g++ main.cpp && ./a.out", "Hello, Student!"];
+        break;
+      case "java":
+        newOutput = ["> javac HelloWorld.java && java HelloWorld", "Hello, Student!"];
+        break;
+      case "go":
+        newOutput = ["> go run main.go", "Hello, Student!"];
+        break;
+      default:
+        newOutput = [];
+    }
     setOutput(newOutput)
   }
 
@@ -81,13 +102,16 @@ export default function PlaygroundPage() {
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
         <h1 className="text-2xl font-bold self-start">Code Playground</h1>
         <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto">
-          <Select value={language} onValueChange={handleLanguageChange}>
+          <Select value={language} onValueChange={(value) => handleLanguageChange(value as SupportedLanguage)}>
             <SelectTrigger className="w-full sm:w-[180px]">
               <SelectValue placeholder="Select language" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="javascript">JavaScript</SelectItem>
               <SelectItem value="python">Python</SelectItem>
+              <SelectItem value="cpp">C++</SelectItem>
+              <SelectItem value="java">Java</SelectItem>
+              <SelectItem value="go">Go</SelectItem>
             </SelectContent>
           </Select>
         </div>
