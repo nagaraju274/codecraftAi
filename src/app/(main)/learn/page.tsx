@@ -503,21 +503,62 @@ const learningPaths = [
     title: "Database Administrator",
     description: "Learn to manage and maintain databases to ensure data is secure, accessible, and performs efficiently.",
     topics: [
-        {
-            title: "Database Fundamentals",
-            points: [
-                { text: "Understand the core concepts of relational (SQL) and non-relational (NoSQL) databases.", resources: [{ name: "SQL vs NoSQL", url: "https://www.mongodb.com/nosql-explained/nosql-vs-sql" }] },
-                { text: "Learn about database design, normalization, and data modeling.", resources: [{ name: "Database Normalization", url: "https://www.guru99.com/database-normalization.html" }] },
-            ]
-        },
-        {
-            title: "SQL and NoSQL Databases",
-            points: [
-                { text: "Gain proficiency in a specific SQL database like PostgreSQL, MySQL, or SQL Server.", resources: [{ name: "PostgreSQL", url: "https://www.postgresql.org/" }, { name: "MySQL", url: "https://www.mysql.com/" }] },
-                { text: "Learn a NoSQL database like MongoDB, Cassandra, or Redis.", resources: [{ name: "MongoDB", url: "https://www.mongodb.com/" }, { name: "Cassandra", url: "https://cassandra.apache.org/_/index.html" }] },
-            ]
-        }
-    ]
+      {
+        title: "Database Fundamentals",
+        points: [
+          { text: "Understand the core concepts of relational databases, including tables, keys, and relationships, and how they differ from non-relational (NoSQL) models.", resources: [{ name: "Database Concepts", url: "https://www.tutorialspoint.com/dbms/dbms_overview.htm" }] },
+          { text: "Learn data modeling techniques to design efficient and logical database structures.", resources: [{ name: "Data Modeling", url: "https://www.vertabelo.com/blog/data-modeling-basics/" }] },
+          { text: "Master database normalization (1NF, 2NF, 3NF) to organize data, reduce redundancy, and improve data integrity.", resources: [{ name: "Database Normalization", url: "https://www.guru99.com/database-normalization.html" }] },
+        ],
+      },
+      {
+        title: "Proficiency in SQL",
+        points: [
+          { text: "Become an expert in writing complex SQL queries, including advanced joins, subqueries, and window functions.", resources: [{ name: "Advanced SQL", url: "https://www.sql-tutorial.ru/en/book" }] },
+          { text: "Learn Data Definition Language (DDL) to create and manage database objects and Data Manipulation Language (DML) for data handling.", resources: [{ name: "SQL DDL and DML", url: "https://www.geeksforgeeks.org/sql-ddl-dql-dml-dcl-tcl-commands/" }] },
+          { text: "Write and optimize stored procedures and triggers to automate tasks and enforce business rules at the database level.", resources: [{ name: "Stored Procedures", url: "https://www.postgresqltutorial.com/postgresql-stored-procedures/" }] },
+        ],
+      },
+      {
+        title: "Database Management Systems (DBMS)",
+        points: [
+          { text: "Gain deep knowledge of a major relational DBMS like PostgreSQL, MySQL, SQL Server, or Oracle, including their specific architecture and features.", resources: [{ name: "PostgreSQL", url: "https://www.postgresql.org/" }, { name: "MySQL", url: "https://www.mysql.com/" }] },
+          { text: "Get familiar with a leading NoSQL database like MongoDB or Cassandra to handle unstructured data and large-scale applications.", resources: [{ name: "MongoDB", url: "https://www.mongodb.com/" }, { name: "Cassandra", url: "https://cassandra.apache.org/_/index.html" }] },
+        ],
+      },
+      {
+        title: "Backup and Recovery",
+        points: [
+          { text: "Design and implement robust backup strategies (full, differential, incremental) to prevent data loss.", resources: [{ name: "Backup and Recovery", url: "https://www.sqlshack.com/sql-server-backup-and-restore-strategies/" }] },
+          { text: "Master database recovery techniques to restore data quickly and efficiently in case of failure.", resources: [{ name: "Recovery Models", url: "https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/recovery-models-sql-server" }] },
+          { text: "Regularly test your backup and recovery procedures to ensure they are reliable and meet business requirements (RTO/RPO).", resources: [] },
+        ],
+      },
+      {
+        title: "Database Security",
+        points: [
+          { text: "Implement strong user authentication and access control measures to protect sensitive data.", resources: [{ name: "Database Security", url: "https://www.geeksforgeeks.org/database-security/" }] },
+          { text: "Learn to manage database permissions and roles to enforce the principle of least privilege.", resources: [{ name: "Database Roles", url: "https://www.postgresql.org/docs/current/database-roles.html" }] },
+          { text: "Conduct regular security audits to identify and address vulnerabilities. Learn about data encryption for data at rest and in transit.", resources: [{ name: "OWASP Database Security", url: "https://owasp.org/www-community/Database_Security_Cheat_Sheet" }] },
+        ],
+      },
+      {
+        title: "Performance Tuning and Optimization",
+        points: [
+          { text: "Learn how to read and interpret query execution plans to identify performance bottlenecks.", resources: [{ name: "Query Optimization", url: "https://www.red-gate.com/simple-talk/databases/sql-server/performance-sql-server/query-optimization-techniques-in-sql-server-the-basics/" }] },
+          { text: "Master the art of index management—creating, using, and maintaining indexes to speed up query performance.", resources: [{ name: "Database Indexes", url: "https://www.essentialsql.com/what-is-a-database-index/" }] },
+          { text: "Proactively monitor database performance using system views and specialized monitoring tools. Learn how to configure server parameters for optimal efficiency.", resources: [] },
+        ],
+      },
+      {
+        title: "Cloud Database Management",
+        points: [
+          { text: "Gain experience with managed cloud database services like Amazon RDS, Azure SQL Database, or Google Cloud SQL.", resources: [{ name: "Amazon RDS", url: "https://aws.amazon.com/rds/" }, { name: "Google Cloud SQL", url: "https://cloud.google.com/sql" }] },
+          { text: "Understand the architecture and benefits of Database-as-a-Service (DBaaS).", resources: [{ name: "What is DBaaS?", url: "https://www.oracle.com/database/what-is-dbaas/" }] },
+          { text: "Learn to manage databases in a cloud environment, focusing on scalability, high availability, and disaster recovery.", resources: [] },
+        ],
+      },
+    ],
   },
   {
     title: "Git Version Control",
