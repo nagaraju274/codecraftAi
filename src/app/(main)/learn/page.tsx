@@ -1222,7 +1222,7 @@ export default function LearnPage() {
           Our structured learning paths will help you master new skills and advance your career.
         </p>
       </div>
-      <div className="sticky top-0 bg-background z-10 py-4">
+      <div className="py-4">
         <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <Input
@@ -1281,3 +1281,5 @@ export default function LearnPage() {
     </div>
   );
 }
+
+    
