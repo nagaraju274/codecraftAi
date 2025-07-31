@@ -8,10 +8,24 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogCancel,
+} from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Link, Search } from "lucide-react";
+import { Link, Search, Sparkles, Loader } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import ReactMarkdown from "react-markdown";
+import { explainLearningTopic } from "@/ai/flows";
+import { useToast } from "@/hooks/use-toast";
+
 
 const learningPaths = [
   {
@@ -1208,6 +1222,35 @@ const learningPaths = [
 
 export default function LearnPage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [explanation, setExplanation] = useState("");
+  const [explanationTitle, setExplanationTitle] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleExplainTopic = async (topic: (typeof learningPaths)[0]['topics'][0]) => {
+    setIsLoading(true);
+    setExplanation("");
+    setExplanationTitle(topic.title);
+    setIsDialogOpen(true);
+    try {
+      const result = await explainLearningTopic({
+        topicTitle: topic.title,
+        points: topic.points.map(p => p.text),
+      });
+      setExplanation(result.explanation);
+    } catch (e) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed to get explanation from AI.",
+      });
+      setIsDialogOpen(false);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
 
   const filteredPaths = learningPaths.filter(path =>
     path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -1248,7 +1291,13 @@ export default function LearnPage() {
                     {path.topics.map((topic, index) => (
                       <AccordionItem value={`item-${index}`} key={topic.title}>
                         <AccordionTrigger className="text-base font-medium hover:no-underline py-3">
-                            {topic.title}
+                            <div className="flex justify-between items-center w-full pr-2">
+                                <span>{topic.title}</span>
+                                <Button size="sm" variant="ghost" onClick={(e) => { e.stopPropagation(); handleExplainTopic(topic); }}>
+                                    <Sparkles className="h-4 w-4 mr-2" />
+                                    Learn More
+                                </Button>
+                            </div>
                         </AccordionTrigger>
                         <AccordionContent className="text-muted-foreground pt-2 pl-8">
                             <ul className="list-disc pl-5 space-y-4">
@@ -1278,8 +1327,29 @@ export default function LearnPage() {
           ))}
         </div>
       </ScrollArea>
+       <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <AlertDialogContent className="max-w-2xl">
+          <AlertDialogHeader>
+            <AlertDialogTitle>{explanationTitle}</AlertDialogTitle>
+            <AlertDialogDescription asChild>
+                <ScrollArea className="max-h-[60vh] pr-4">
+                  {isLoading ? (
+                    <div className="flex items-center justify-center py-8">
+                      <Loader className="h-8 w-8 animate-spin text-primary" />
+                    </div>
+                  ) : (
+                    <div className="prose prose-sm dark:prose-invert max-w-none">
+                      <ReactMarkdown>{explanation}</ReactMarkdown>
+                    </div>
+                  )}
+                </ScrollArea>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Close</AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }
-
-    
