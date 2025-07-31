@@ -6,7 +6,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronRight } from "lucide-react";
 
 const learningPaths = [
   {
@@ -96,29 +95,26 @@ export default function LearnPage() {
   return (
     <div className="flex flex-col h-full gap-8">
       <div>
-        <h1 className="text-3xl font-bold">Learning Paths</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Learning Paths</h1>
         <p className="text-muted-foreground">
-          Our structured learning paths will help you master new skills.
+          Our structured learning paths will help you master new skills and advance your career.
         </p>
       </div>
-      <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {learningPaths.map((path) => (
-          <Card key={path.title}>
+          <Card key={path.title} className="hover:shadow-md transition-shadow duration-300">
             <CardHeader>
-              <CardTitle>{path.title}</CardTitle>
-              <p className="text-muted-foreground pt-2">{path.description}</p>
+              <CardTitle className="text-xl">{path.title}</CardTitle>
+              <p className="text-muted-foreground pt-2 text-sm">{path.description}</p>
             </CardHeader>
             <CardContent>
               <Accordion type="single" collapsible className="w-full">
                 {path.topics.map((topic, index) => (
                   <AccordionItem value={`item-${index}`} key={topic.title}>
-                    <AccordionTrigger className="hover:no-underline [&[data-state=open]>svg]:hidden text-left">
-                       <div className="flex items-center gap-2">
-                        <ChevronRight className="h-5 w-5" />
-                        <span>{topic.title}</span>
-                       </div>
+                    <AccordionTrigger>
+                        {topic.title}
                     </AccordionTrigger>
-                    <AccordionContent>
+                    <AccordionContent className="text-muted-foreground">
                       {topic.content}
                     </AccordionContent>
                   </AccordionItem>
