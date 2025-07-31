@@ -1290,15 +1290,15 @@ export default function LearnPage() {
                   <Accordion type="single" collapsible className="w-full">
                     {path.topics.map((topic, index) => (
                       <AccordionItem value={`item-${index}`} key={topic.title}>
-                        <AccordionTrigger className="text-base font-medium hover:no-underline py-3">
-                            <div className="flex justify-between items-center w-full pr-2">
+                        <div className="flex justify-between items-center w-full pr-2">
+                            <AccordionTrigger className="text-base font-medium hover:no-underline py-3 flex-1">
                                 <span>{topic.title}</span>
-                                <Button size="sm" variant="ghost" onClick={(e) => { e.stopPropagation(); handleExplainTopic(topic); }}>
-                                    <Sparkles className="h-4 w-4 mr-2" />
-                                    Learn More
-                                </Button>
-                            </div>
-                        </AccordionTrigger>
+                            </AccordionTrigger>
+                            <Button size="sm" variant="ghost" onClick={() => handleExplainTopic(topic)} className="ml-4">
+                                <Sparkles className="h-4 w-4 mr-2" />
+                                Learn More
+                            </Button>
+                        </div>
                         <AccordionContent className="text-muted-foreground pt-2 pl-8">
                             <ul className="list-disc pl-5 space-y-4">
                                 {topic.points.map((point, i) => (
@@ -1353,3 +1353,5 @@ export default function LearnPage() {
     </div>
   );
 }
+
+    
