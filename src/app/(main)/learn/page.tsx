@@ -982,10 +982,42 @@ const learningPaths = [
     description: "Learn the modern, object-oriented C# language from Microsoft.",
     topics: [
       {
-        title: "Core C#",
+        title: "Stage 1: Beginner - C# and .NET Foundations",
         points: [
-          { text: "Understand the .NET framework, C# syntax, and OOP.", resources: [{ name: "C# Docs", url: "https://docs.microsoft.com/en-us/dotnet/csharp/" }] },
-          { text: "Learn about LINQ, async programming, and building applications with .NET.", resources: [{ name: "C# Station", url: "http://www.csharp-station.com/Tutorial/CSharp/Lesson01" }] },
+          { text: "Understand the .NET ecosystem (including .NET Core/5+), the Common Language Runtime (CLR), and how C# code is compiled and executed.", resources: [{ name: ".NET introduction", url: "https://dotnet.microsoft.com/en-us/learn/dotnet/what-is-dotnet" }] },
+          { text: "Set up your environment with the .NET SDK and an IDE like Visual Studio or VS Code with the C# extension.", resources: [{ name: "Install .NET SDK", url: "https://dotnet.microsoft.com/en-us/download" }, { name: "Visual Studio", url: "https://visualstudio.microsoft.com/" }] },
+          { text: "Write your first 'Hello, World!' console application. Learn about the `Main` method, namespaces, and basic program structure.", resources: [{ name: "C# Hello World", url: "https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/hello-world" }] },
+          { text: "Master variables, built-in value types (`int`, `double`, `bool`), and reference types (`string`, `object`).", resources: [{ name: "C# Data Types", url: "https://www.w3schools.com/cs/cs_data_types.php" }] },
+          { text: "Learn control flow statements like `if-else`, `switch`, and loops (`for`, `foreach`, `while`) to add logic to your applications.", resources: [{ name: "Control Flow", url: "https://www.w3schools.com/cs/cs_if_else.php" }] },
+        ],
+      },
+      {
+        title: "Stage 2: Intermediate - Object-Oriented Programming",
+        points: [
+          { text: "Deeply understand classes and objects. Learn about constructors, properties, methods, and the `this` keyword.", resources: [{ name: "Classes and Objects", url: "https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/classes" }] },
+          { text: "Master the four pillars of OOP: Inheritance (creating class hierarchies), Encapsulation (controlling access to data), Polymorphism (using virtual methods and interfaces), and Abstraction.", resources: [{ name: "OOP in C#", url: "https://www.tutorialsteacher.com/csharp/csharp-object-oriented-programming" }] },
+          { text: "Learn to use interfaces to define contracts for classes and abstract classes for creating base classes that cannot be instantiated.", resources: [{ name: "Interfaces", url: "https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interface" }] },
+          { text: "Understand how to handle runtime errors gracefully using `try-catch-finally` blocks.", resources: [{ name: "Exception Handling", url: "https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/exceptions/" }] },
+        ],
+      },
+      {
+        title: "Stage 3: Advanced - Modern C# and .NET Core",
+        points: [
+          { text: "Master Language Integrated Query (LINQ) to write powerful, declarative queries over collections and databases.", resources: [{ name: "LINQ Tutorial", url: "https://www.tutorialsteacher.com/linq/linq-tutorials" }] },
+          { text: "Learn asynchronous programming with `async` and `await` to write responsive and non-blocking I/O operations.", resources: [{ name: "Async/Await", url: "https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/async-scenarios" }] },
+          { text: "Understand delegates and events, which form the basis for event-driven programming in .NET.", resources: [{ name: "Delegates", url: "https://www.w3schools.com/cs/cs_delegates.php" }] },
+          { text: "Learn about generics to create reusable, type-safe classes and methods that can work with any data type.", resources: [{ name: "Generics", url: "https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/generics" }] },
+          { text: "Get familiar with NuGet, the package manager for .NET, to add third-party libraries to your projects.", resources: [{ name: "Intro to NuGet", url: "https://learn.microsoft.com/en-us/nuget/what-is-nuget" }] },
+        ],
+      },
+      {
+        title: "Stage 4: Specializations & Frameworks",
+        points: [
+          { text: "Build web applications and APIs with ASP.NET Core MVC and Razor Pages.", resources: [{ name: "ASP.NET Core", url: "https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core" }] },
+          { text: "Learn to build interactive client-side web UI with C# using Blazor.", resources: [{ name: "Blazor", url: "https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor" }] },
+          { text: "Use Entity Framework (EF) Core, an object-relational mapper (ORM), to interact with databases using C# objects.", resources: [{ name: "EF Core", url: "https://learn.microsoft.com/en-us/ef/core/" }] },
+          { text: "Build cross-platform desktop and mobile apps with .NET MAUI.", resources: [{ name: "MAUI", url: "https://dotnet.microsoft.com/en-us/apps/maui" }] },
+          { text: "Explore game development by learning the Unity engine, which uses C# for scripting.", resources: [{ name: "Unity Learn", url: "https://learn.unity.com/" }] },
         ],
       },
     ],
