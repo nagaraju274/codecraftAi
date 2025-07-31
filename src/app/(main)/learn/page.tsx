@@ -582,13 +582,67 @@ const learningPaths = [
   },
   {
     title: "Java",
-    description: "Learn the robust, object-oriented Java programming language.",
+    description: "Learn the robust, object-oriented Java programming language, a mainstay in enterprise-level applications, Android development, and large-scale systems.",
     topics: [
       {
-        title: "Core Java",
+        title: "Introduction to Java",
         points: [
-          { text: "Understand the JVM, syntax, OOP concepts, and collections framework.", resources: [{ name: "Oracle Java Tutorials", url: "https://docs.oracle.com/javase/tutorial/" }] },
-          { text: "Learn about exception handling, multithreading, and I/O.", resources: [{ name: "Baeldung Java", url: "https://www.baeldung.com/java-tutorial" }] },
+          { text: "Understand the 'Write Once, Run Anywhere' philosophy of Java, thanks to the Java Virtual Machine (JVM). Learn its history and why it's a top choice for enterprise applications.", resources: [{ name: "What is Java?", url: "https://www.oracle.com/java/what-is-java/" }] },
+          { text: "Set up your development environment by installing the Java Development Kit (JDK) and an Integrated Development Environment (IDE) like IntelliJ IDEA or Eclipse.", resources: [{ name: "Install Java JDK", url: "https://www.oracle.com/java/technologies/downloads/" }, { name: "IntelliJ IDEA", url: "https://www.jetbrains.com/idea/" }] },
+          { text: "Compile and run your first 'Hello, World!' application to understand the basic syntax, the `public static void main(String[] args)` method, and the compilation process.", resources: [{ name: "Your First Java Program", url: "https://www.geeksforgeeks.org/java-hello-world-program/" }] },
+        ],
+      },
+      {
+        title: "Java Fundamentals",
+        points: [
+          { text: "Learn about primitive data types (e.g., `int`, `double`, `boolean`, `char`) for storing simple values and reference types for objects.", resources: [{ name: "Java Data Types", url: "https://www.w3schools.com/java/java_data_types.asp" }] },
+          { text: "Understand how to declare and initialize variables. Learn about operators for performing arithmetic, relational, and logical operations.", resources: [{ name: "Variables", url: "https://www.w3schools.com/java/java_variables.asp" }, { name: "Operators", url: "https://www.w3schools.com/java/java_operators.asp" }] },
+          { text: "Master control flow statements like `if-else`, `switch`, `for`, `while`, and `do-while` loops to make decisions and repeat actions in your code.", resources: [{ name: "Java If...Else", url: "https://www.w3schools.com/java/java_if_else.asp" }, { name: "Java Loops", url: "https://www.w3schools.com/java/java_while_loop.asp" }] },
+        ],
+      },
+      {
+        title: "Object-Oriented Programming (OOP) in Java",
+        points: [
+          { text: "Learn to define your own data types by creating classes. Understand how to instantiate objects from classes and the role of constructors.", resources: [{ name: "Java Classes/Objects", url: "https://www.w3schools.com/java/java_classes.asp" }] },
+          { text: "Grasp the four pillars of OOP: Encapsulation (bundling data and methods), Inheritance (creating a new class from an existing one), Polymorphism (an object taking many forms), and Abstraction (hiding complex implementation details).", resources: [{ name: "OOP Concepts", url: "https://www.geeksforgeeks.org/object-oriented-programming-oops-concept-in-java/" }] },
+          { text: "Understand how to use interfaces and abstract classes to define contracts and create flexible, extensible code designs.", resources: [{ name: "Interfaces", url: "https://www.w3schools.com/java/java_interface.asp" }, { name: "Abstract Classes", url: "https://www.w3schools.com/java/java_abstract.asp" }] },
+        ],
+      },
+      {
+        title: "The Collections Framework",
+        points: [
+          { text: "Learn to use the `List` interface and its implementations like `ArrayList` and `LinkedList` for ordered collections of elements.", resources: [{ name: "Java ArrayList", url: "https://www.w3schools.com/java/java_arraylist.asp" }] },
+          { text: "Understand the `Set` interface and its implementations like `HashSet` for storing unique, unordered elements.", resources: [{ name: "Java HashSet", url: "https://www.w3schools.com/java/java_hashset.asp" }] },
+          { text: "Explore the `Map` interface and its implementations like `HashMap` for storing key-value pairs, allowing for efficient data retrieval.", resources: [{ name: "Java HashMap", url: "https://www.w3schools.com/java/java_hashmap.asp" }] },
+        ],
+      },
+      {
+        title: "Exception Handling",
+        points: [
+          { text: "Learn to manage runtime errors gracefully using `try-catch` blocks to prevent your application from crashing.", resources: [{ name: "Java Try...Catch", url: "https://www.w3schools.com/java/java_try_catch.asp" }] },
+          { text: "Understand the difference between checked exceptions (which must be handled) and unchecked exceptions (runtime errors).", resources: [{ name: "Checked vs. Unchecked Exceptions", url: "https://www.geeksforgeeks.org/checked-vs-unchecked-exceptions-in-java/" }] },
+          { text: "Use the `finally` block to ensure that critical cleanup code (like closing a file or database connection) is always executed, whether an exception occurred or not.", resources: [] },
+        ],
+      },
+      {
+        title: "Java I/O",
+        points: [
+          { text: "Learn to read from and write to files using classes from the `java.io` package, such as `FileReader`, `FileWriter`, and the more modern `Files` and `Paths` classes.", resources: [{ name: "Java Files", url: "https://www.w3schools.com/java/java_files.asp" }] },
+          { text: "Understand how to work with input and output streams for handling data flow from various sources, not just files.", resources: [{ name: "I/O Streams", url: "https://docs.oracle.com/javase/tutorial/essential/io/streams.html" }] },
+        ],
+      },
+      {
+        title: "Concurrency and Multithreading",
+        points: [
+          { text: "Grasp the fundamentals of multithreading by extending the `Thread` class or implementing the `Runnable` interface to perform multiple operations simultaneously.", resources: [{ name: "Java Threads", url: "https://www.w3schools.com/java/java_threads.asp" }] },
+          { text: "Learn about thread synchronization and how to use the `synchronized` keyword to prevent race conditions and ensure data consistency in concurrent applications.", resources: [{ name: "Synchronization", url: "https://www.baeldung.com/java-synchronization" }] },
+        ],
+      },
+      {
+        title: "Modern Java (Lambda & Streams)",
+        points: [
+          { text: "Learn to use lambda expressions, a key feature from Java 8, to write more concise and functional code, especially with collections.", resources: [{ name: "Java Lambda Expressions", url: "https://www.w3schools.com/java/java_lambda.asp" }] },
+          { text: "Master the Stream API to perform powerful, SQL-like operations on collections of data. Learn to use methods like `filter`, `map`, and `reduce` to write clean and efficient code.", resources: [{ name: "Java Stream API Tutorial", url: "https://www.baeldung.com/java-8-streams" }] },
         ],
       },
     ],
