@@ -8,14 +8,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Link, Search } from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const learningPaths = [
   {
@@ -1236,58 +1232,50 @@ export default function LearnPage() {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
-      <Carousel
-        opts={{
-          align: "start",
-        }}
-        orientation="vertical"
-        className="w-full"
-      >
-        <CarouselContent className="-mt-1 h-[600px]">
+      <ScrollArea className="flex-1">
+        <div className="space-y-4 pr-4">
           {filteredPaths.map((path, index) => (
-            <CarouselItem key={index} className="pt-1">
-              <div className="p-1 h-full">
-                <Card className="hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
-                  <CardHeader>
-                    <CardTitle className="text-xl font-bold">{path.title}</CardTitle>
-                    <p className="text-muted-foreground pt-2 text-sm">{path.description}</p>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <Accordion type="single" collapsible className="w-full">
-                      {path.topics.map((topic, index) => (
-                        <AccordionItem value={`item-${index}`} key={topic.title}>
-                          <AccordionTrigger className="text-base font-medium hover:no-underline py-3">
-                              {topic.title}
-                          </AccordionTrigger>
-                          <AccordionContent className="text-muted-foreground pt-2 pl-8">
-                              <ul className="list-disc pl-5 space-y-4">
-                                  {topic.points.map((point, i) => (
-                                      <li key={i}>
-                                          <span className="text-base">{point.text}</span>
-                                          {point.resources && point.resources.length > 0 && (
-                                              <div className="mt-2 space-x-4">
-                                                  {point.resources.map((resource, j) => (
-                                                      <a href={resource.url} key={j} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-base inline-flex items-center gap-1">
-                                                          <Link className="h-3 w-3 shrink-0" />
-                                                          {resource.name}
-                                                      </a>
-                                                  ))}
-                                              </div>
-                                          )}
-                                      </li>
-                                  ))}
-                              </ul>
-                          </AccordionContent>
-                        </AccordionItem>
-                      ))}
-                    </Accordion>
-                  </CardContent>
-                </Card>
-              </div>
-            </CarouselItem>
+            <div key={index} className="p-1 h-full">
+              <Card className="hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold">{path.title}</CardTitle>
+                  <p className="text-muted-foreground pt-2 text-sm">{path.description}</p>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <Accordion type="single" collapsible className="w-full">
+                    {path.topics.map((topic, index) => (
+                      <AccordionItem value={`item-${index}`} key={topic.title}>
+                        <AccordionTrigger className="text-base font-medium hover:no-underline py-3">
+                            {topic.title}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-muted-foreground pt-2 pl-8">
+                            <ul className="list-disc pl-5 space-y-4">
+                                {topic.points.map((point, i) => (
+                                    <li key={i}>
+                                        <span className="text-base">{point.text}</span>
+                                        {point.resources && point.resources.length > 0 && (
+                                            <div className="mt-2 space-x-4">
+                                                {point.resources.map((resource, j) => (
+                                                    <a href={resource.url} key={j} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-base inline-flex items-center gap-1">
+                                                        <Link className="h-3 w-3 shrink-0" />
+                                                        {resource.name}
+                                                    </a>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </li>
+                                ))}
+                            </ul>
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </CardContent>
+              </Card>
+            </div>
           ))}
-        </CarouselContent>
-      </Carousel>
+        </div>
+      </ScrollArea>
     </div>
   );
 }
