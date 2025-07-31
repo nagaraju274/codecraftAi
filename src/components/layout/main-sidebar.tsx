@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { BotMessageSquare, FolderKanban, BookOpenCheck, TerminalSquare, UserCircle } from "lucide-react"
+import { BotMessageSquare, FolderKanban, BookOpenCheck, TerminalSquare, UserCircle, LayoutDashboard } from "lucide-react"
 
 import {
   Sidebar,
@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/sidebar"
 
 const mainLinks = [
+  { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/playground", label: "Playground", icon: TerminalSquare },
   { href: "/projects", label: "Projects", icon: FolderKanban },
   { href: "/learn", label: "Learn", icon: BookOpenCheck },
