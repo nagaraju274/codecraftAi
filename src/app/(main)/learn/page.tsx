@@ -1274,23 +1274,23 @@ export default function LearnPage() {
       </div>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {learningPaths.map((path) => (
-          <Card key={path.title} className="hover:shadow-md transition-shadow duration-300">
+          <Card key={path.title} className="hover:shadow-md transition-shadow duration-300 flex flex-col">
             <CardHeader>
-              <CardTitle className="text-xl">{path.title}</CardTitle>
+              <CardTitle className="text-xl font-bold">{path.title}</CardTitle>
               <p className="text-muted-foreground pt-2 text-sm">{path.description}</p>
             </CardHeader>
-            <CardContent>
-              <Accordion type="single" collapsible className="w-full">
+            <CardContent className="flex-grow">
+              <Accordion type="single" collapsible className="w-full space-y-1">
                 {path.topics.map((topic, index) => (
-                  <AccordionItem value={`item-${index}`} key={topic.title}>
-                    <AccordionTrigger>
+                  <AccordionItem value={`item-${index}`} key={topic.title} className="border-b-0">
+                    <AccordionTrigger className="text-sm font-medium hover:no-underline border-b py-2.5">
                         {topic.title}
                     </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
+                    <AccordionContent className="text-muted-foreground pt-2">
                         <ul className="list-disc pl-5 space-y-4">
                             {topic.points.map((point, i) => (
                                 <li key={i}>
-                                    <span>{point.text}</span>
+                                    <span className="text-sm">{point.text}</span>
                                     {point.resources && point.resources.length > 0 && (
                                         <div className="mt-2 space-x-4">
                                             {point.resources.map((resource, j) => (
