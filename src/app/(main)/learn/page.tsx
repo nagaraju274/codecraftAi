@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "lucide-react";
 
 const learningPaths = [
   {
@@ -578,17 +579,22 @@ export default function LearnPage() {
                         {topic.title}
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">
-                        <ul className="list-disc pl-5 space-y-1">
-                            {topic.points.map((point, i) => <li key={i}>{point}</li>)}
+                        <ul className="list-disc pl-5 space-y-2">
+                            {topic.points.map((point, i) => (
+                                <li key={i}>
+                                    {point}
+                                </li>
+                            ))}
                         </ul>
                         {topic.resources && topic.resources.length > 0 && (
                             <div className="mt-4">
-                                <h4 className="font-bold text-foreground">Resources:</h4>
-                                <ul className="list-disc pl-5 space-y-1 mt-1">
+                                <h4 className="font-semibold text-foreground mb-2">Resources:</h4>
+                                <ul className="space-y-1">
                                     {topic.resources.map((resource, i) => (
-                                        <li key={i}>
-                                            <a href={resource.url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                                                {resource.name}
+                                        <li key={i} className="flex items-start">
+                                            <a href={resource.url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline flex items-center gap-2">
+                                                <Link className="h-4 w-4 shrink-0" />
+                                                <span>{resource.name}</span>
                                             </a>
                                         </li>
                                     ))}
