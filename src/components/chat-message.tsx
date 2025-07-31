@@ -3,9 +3,10 @@
 import { Bot, User } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Role } from "genkit"
 
 export interface ChatMessageProps {
-  role: "user" | "model"
+  role: Role
   content: string
 }
 

@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Bot, User, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -17,13 +17,15 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ChatMessage, ChatMessageProps } from "@/components/chat-message";
 import { chat } from "@/ai/flows/chat";
+import { Message } from "genkit";
+
 
 const formSchema = z.object({
   message: z.string().min(1, { message: "Message cannot be empty." }),
 });
 
 export default function ChatPage() {
-  const [messages, setMessages] = useState<ChatMessageProps[]>([]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [isAiLoading, setIsAiLoading] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
@@ -44,9 +46,9 @@ export default function ChatPage() {
   }, [messages]);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const userMessage: ChatMessageProps = {
+    const userMessage: Message = {
       role: "user",
-      content: values.message,
+      content: [{text: values.message}],
     };
     const newMessages = [...messages, userMessage];
     setMessages(newMessages);
@@ -54,22 +56,19 @@ export default function ChatPage() {
 
     try {
       const response = await chat({
-        messages: newMessages.map((m) => ({
-          role: m.role,
-          content: [{ text: m.content }],
-        })),
+        messages: newMessages,
       });
 
-      const aiMessage: ChatMessageProps = {
+      const aiMessage: Message = {
         role: "model",
-        content: response,
+        content: [{text: response}],
       };
       setMessages((prev) => [...prev, aiMessage]);
     } catch (error) {
       console.error("Failed to get AI response", error);
-      const errorMessage: ChatMessageProps = {
+      const errorMessage: Message = {
         role: "model",
-        content: "Sorry, I encountered an error. Please try again.",
+        content: [{text: "Sorry, I encountered an error. Please try again."}],
       };
       setMessages((prev) => [...prev, errorMessage]);
     } finally {
@@ -90,7 +89,7 @@ export default function ChatPage() {
                 </div>
             )}
             {messages.map((message, index) => (
-              <ChatMessage key={index} {...message} />
+              <ChatMessage key={index} role={message.role} content={message.content[0].text || ''} />
             ))}
           </div>
         </ScrollArea>
