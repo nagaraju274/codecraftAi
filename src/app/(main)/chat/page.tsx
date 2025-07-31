@@ -17,12 +17,16 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ChatMessage, ChatMessageProps } from "@/components/chat-message";
 import { chat } from "@/ai/flows/chat";
-import { Message } from "genkit";
-
+import { Role } from "genkit";
 
 const formSchema = z.object({
   message: z.string().min(1, { message: "Message cannot be empty." }),
 });
+
+interface Message {
+    role: Role;
+    content: string;
+}
 
 export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -48,32 +52,33 @@ export default function ChatPage() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const userMessage: Message = {
       role: "user",
-      content: [{text: values.message}],
+      content: values.message,
     };
-    const newMessages = [...messages, userMessage];
-    setMessages(newMessages);
+    
+    setMessages(prev => [...prev, userMessage]);
     setIsAiLoading(true);
+    form.reset();
 
     try {
       const response = await chat({
-        messages: newMessages,
+        history: messages,
+        message: values.message,
       });
 
       const aiMessage: Message = {
         role: "model",
-        content: [{text: response}],
+        content: response,
       };
       setMessages((prev) => [...prev, aiMessage]);
     } catch (error) {
       console.error("Failed to get AI response", error);
       const errorMessage: Message = {
         role: "model",
-        content: [{text: "Sorry, I encountered an error. Please try again."}],
+        content: "Sorry, I encountered an error. Please try again.",
       };
       setMessages((prev) => [...prev, errorMessage]);
     } finally {
       setIsAiLoading(false);
-      form.reset();
     }
   }
 
@@ -89,7 +94,7 @@ export default function ChatPage() {
                 </div>
             )}
             {messages.map((message, index) => (
-              <ChatMessage key={index} role={message.role} content={message.content[0].text || ''} />
+              <ChatMessage key={index} role={message.role} content={message.content} />
             ))}
           </div>
         </ScrollArea>

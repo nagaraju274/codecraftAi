@@ -27,7 +27,7 @@ export function ChatMessage({ role, content }: ChatMessageProps) {
       )}
       <div
         className={cn(
-          "rounded-lg p-3 max-w-xs sm:max-w-sm md:max-w-md",
+          "rounded-lg p-3 max-w-xs sm:max-w-md md:max-w-md",
           role === "user"
             ? "bg-primary text-primary-foreground"
             : "bg-muted"

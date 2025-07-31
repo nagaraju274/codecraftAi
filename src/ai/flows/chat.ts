@@ -8,36 +8,40 @@
  */
 
 import {ai} from '@/ai/genkit';
-import {z, MessageSchema} from 'genkit';
+import {Message, Role, z} from 'genkit';
 
+const ChatHistorySchema = z.object({
+  role: z.enum(['user', 'model']),
+  content: z.string(),
+});
 
 const ChatInputSchema = z.object({
-  messages: z.array(MessageSchema),
+  history: z.array(ChatHistorySchema),
+  message: z.string(),
 });
 export type ChatInput = z.infer<typeof ChatInputSchema>;
 
-const ChatOutputSchema = z.string();
-export type ChatOutput = z.infer<typeof ChatOutputSchema>;
+export type ChatOutput = string;
+
 
 export async function chat(input: ChatInput): Promise<ChatOutput> {
-  return chatFlow(input);
+  const messages: Message[] = input.history.map(item => ({
+    role: item.role,
+    content: [{ text: item.content }],
+  }));
+
+  messages.push({
+    role: 'user',
+    content: [{ text: input.message }],
+  });
+
+  const {output} = await ai.generate({
+      prompt: messages,
+      model: 'googleai/gemini-2.0-flash',
+      config: {
+          temperature: 0.5,
+      }
+  });
+
+  return output?.text ?? "";
 }
-
-const chatFlow = ai.defineFlow(
-  {
-    name: 'chatFlow',
-    inputSchema: ChatInputSchema,
-    outputSchema: ChatOutputSchema,
-  },
-  async (input) => {
-    const {output} = await ai.generate({
-        prompt: input.messages,
-        model: 'googleai/gemini-2.0-flash',
-        config: {
-            temperature: 0.5,
-        }
-    });
-
-    return output?.text ?? "";
-  }
-);
