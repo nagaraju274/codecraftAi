@@ -2,16 +2,15 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { BotMessageSquare, FolderKanban, BookOpenCheck, TerminalSquare, UserCircle } from "lucide-react"
+import { BookOpenCheck, FolderKanban, TerminalSquare, UserCircle } from "lucide-react"
 
 import {
   Sidebar,
-  SidebarHeader,
   SidebarContent,
+  SidebarFooter,
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-  SidebarFooter,
 } from "@/components/ui/sidebar"
 
 const mainLinks = [
@@ -29,13 +28,7 @@ export function MainSidebar() {
 
   return (
     <Sidebar>
-      <SidebarHeader>
-        <Link href="/" className="flex items-center gap-2.5">
-            <BotMessageSquare className="w-8 h-8 text-primary" />
-            <span className="font-bold text-lg group-data-[collapsible=icon]:hidden">CodeCraft AI</span>
-        </Link>
-      </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="pt-4">
         <SidebarMenu>
           {mainLinks.map((link) => (
             <SidebarMenuItem key={link.href}>
