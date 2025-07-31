@@ -454,19 +454,49 @@ const learningPaths = [
     title: "Back-End Developer",
     description: "Learn to build the server-side logic and infrastructure that powers web applications.",
     topics: [
-      {
-        title: "Server-Side Languages",
-        points: [
-          { text: "Choose a language like Node.js (JavaScript), Python, Java, or Ruby.", resources: [{ name: "Node.js", url: "https://nodejs.org/" }, { name: "Python", url: "https://www.python.org/" }] },
-        ],
-      },
-      {
-        title: "Databases and APIs",
-        points: [
-          { text: "Understand how to work with SQL and NoSQL databases.", resources: [{ name: "SQL Tutorial", url: "https://www.w3schools.com/sql/" }, { name: "MongoDB", url: "https://www.mongodb.com/" }] },
-          { text: "Learn to build RESTful APIs.", resources: [{ name: "REST API Tutorial", url: "https://www.restapitutorial.com/" }] },
-        ],
-      },
+        {
+            title: "Choose a Language and Framework",
+            points: [
+                { text: "Select a primary back-end programming language. Popular choices include Node.js (JavaScript), Python, Java, Ruby, Go, and PHP. Your choice will influence the frameworks and libraries you use.", resources: [{ name: "Back-End Developer Languages", url: "https://www.geeksforgeeks.org/best-backend-web-development-frameworks/" }] },
+                { text: "Learn a corresponding framework for your chosen language to streamline development. Examples: Express for Node.js, Django or Flask for Python, Spring for Java, Ruby on Rails for Ruby.", resources: [{ name: "Express.js", url: "https://expressjs.com/" }, { name: "Django", url: "https://www.djangoproject.com/" }, { name: "Spring", url: "https://spring.io/" }] },
+            ],
+        },
+        {
+            title: "Databases",
+            points: [
+                { text: "Understand the fundamentals of relational databases (SQL) and learn how to model data with tables, columns, and relationships.", resources: [{ name: "SQL Tutorial", url: "https://www.w3schools.com/sql/" }] },
+                { text: "Gain practical experience with a specific SQL database like PostgreSQL or MySQL. Learn to write queries to create, read, update, and delete data (CRUD).", resources: [{ name: "PostgreSQL Tutorial", url: "https://www.postgresqltutorial.com/" }] },
+                { text: "Explore non-relational (NoSQL) databases like MongoDB to understand document-based data models, which are often used in modern web applications.", resources: [{ name: "MongoDB University", url: "https://learn.mongodb.com/" }] },
+                { text: "Learn about Object-Relational Mapping (ORM) or Object-Document Mapping (ODM) libraries (e.g., Sequelize for Node.js, SQLAlchemy for Python) to interact with databases using your programming language.", resources: [{ name: "Sequelize", url: "https://sequelize.org/" }, { name: "SQLAlchemy", url: "https://www.sqlalchemy.org/" }] },
+            ],
+        },
+        {
+            title: "APIs (Application Programming Interfaces)",
+            points: [
+                { text: "Learn the principles of REST (Representational State Transfer) to design clean, scalable, and predictable APIs.", resources: [{ name: "What is REST?", url: "https://www.redhat.com/en/topics/api/what-is-rest-api" }] },
+                { text: "Master the use of standard HTTP methods (GET, POST, PUT, DELETE) to represent CRUD operations and understand HTTP status codes for communicating request outcomes.", resources: [{ name: "HTTP Methods", url: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods" }] },
+                { text: "Build API endpoints (routes) that your front-end application or other services can use to access and manipulate data.", resources: [] },
+                { text: "Explore alternative API architectures like GraphQL, which allows clients to request exactly the data they need.", resources: [{ name: "GraphQL", url: "https://graphql.org/" }] },
+            ],
+        },
+        {
+            title: "Authentication and Security",
+            points: [
+                { text: "Implement secure user registration and login systems. Learn to hash and salt user passwords to protect them from breaches.", resources: [{ name: "Password Storage", url: "https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html" }] },
+                { text: "Understand authentication strategies like session-based authentication (using cookies) and token-based authentication (using JSON Web Tokens - JWT).", resources: [{ name: "JWT Introduction", url: "https://jwt.io/introduction" }] },
+                { text: "Learn how to create protected routes that require users to be authenticated and authorized to access specific resources.", resources: [] },
+                { text: "Familiarize yourself with common web security vulnerabilities (like SQL injection, XSS) and how to prevent them.", resources: [{ name: "OWASP Top 10", url: "https://owasp.org/www-project-top-ten/" }] },
+            ],
+        },
+        {
+            title: "Deployment and DevOps",
+            points: [
+                { text: "Learn to use containerization tools like Docker to package your application and its dependencies into a portable container.", resources: [{ name: "Docker Overview", url: "https://docs.docker.com/get-started/overview/" }] },
+                { text: "Get comfortable with a cloud hosting platform like AWS (Amazon Web Services), Google Cloud Platform (GCP), or Heroku to deploy your back-end application.", resources: [{ name: "Deploying with Heroku", url: "https://devcenter.heroku.com/start" }] },
+                { text: "Understand the basics of setting up a web server like Nginx or Apache to act as a reverse proxy for your application.", resources: [{ name: "Nginx Beginner's Guide", url: "https://nginx.org/en/docs/beginners_guide.html" }] },
+                { text: "Learn about Continuous Integration and Continuous Deployment (CI/CD) to automate the process of testing and deploying your code.", resources: [{ name: "What is CI/CD?", url: "https://aws.amazon.com/devops/what-is-cicd/" }] },
+            ],
+        },
     ],
   },
   {
