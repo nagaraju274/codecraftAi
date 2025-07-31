@@ -78,11 +78,11 @@ export default function PlaygroundPage() {
 
   return (
     <div className="flex flex-col h-full gap-4">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Code Playground</h1>
-        <div className="flex items-center gap-4">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <h1 className="text-2xl font-bold self-start">Code Playground</h1>
+        <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto">
           <Select value={language} onValueChange={handleLanguageChange}>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-full sm:w-[180px]">
               <SelectValue placeholder="Select language" />
             </SelectTrigger>
             <SelectContent>
@@ -94,20 +94,20 @@ export default function PlaygroundPage() {
       </div>
       <div className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-4 flex-1">
         <Card className="flex flex-col">
-          <CardHeader className="flex flex-row items-center justify-between">
+          <CardHeader className="flex flex-row items-center justify-between flex-wrap gap-2">
             <CardTitle className="text-lg">Editor</CardTitle>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <Button onClick={runCode} size="sm"><Play className="mr-2 h-4 w-4" />Run</Button>
               <Button onClick={handleFixCode} size="sm" variant="secondary" disabled={isAiLoading}><Bot className="mr-2 h-4 w-4" />{isAiLoading ? 'Fixing...' : 'Fix with AI'}</Button>
               <Button onClick={handleExplainCode} size="sm" variant="secondary" disabled={isAiLoading}><Bot className="mr-2 h-4 w-4" />{isAiLoading ? 'Explaining...' : 'Explain'}</Button>
             </div>
           </CardHeader>
-          <CardContent className="flex-1">
+          <CardContent className="flex-1 flex flex-col">
             <Textarea
               value={code}
               onChange={(e) => setCode(e.target.value)}
               placeholder="Write your code here..."
-              className="h-full font-code text-sm resize-none"
+              className="h-full flex-1 font-code text-sm resize-none"
             />
           </CardContent>
         </Card>
