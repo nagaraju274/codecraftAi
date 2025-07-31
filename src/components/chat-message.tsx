@@ -19,7 +19,7 @@ export function ChatMessage({ role, content }: ChatMessageProps) {
       )}
     >
       {role === "model" && (
-        <Avatar className="h-8 w-8">
+        <Avatar className="h-8 w-8 shrink-0">
           <AvatarFallback>
             <Bot />
           </AvatarFallback>
@@ -27,7 +27,7 @@ export function ChatMessage({ role, content }: ChatMessageProps) {
       )}
       <div
         className={cn(
-          "rounded-lg p-3 max-w-xs sm:max-w-md md:max-w-md",
+          "rounded-lg p-3 max-w-xs sm:max-w-md md:max-w-lg",
           role === "user"
             ? "bg-primary text-primary-foreground"
             : "bg-muted"
@@ -36,7 +36,7 @@ export function ChatMessage({ role, content }: ChatMessageProps) {
         <p className="text-sm whitespace-pre-wrap">{content}</p>
       </div>
       {role === "user" && (
-        <Avatar className="h-8 w-8">
+        <Avatar className="h-8 w-8 shrink-0">
           <AvatarFallback>
             <User />
           </AvatarFallback>

@@ -40,13 +40,20 @@ export default function ChatPage() {
     },
   });
 
-  useEffect(() => {
+  const scrollViewportToBottom = () => {
     if (scrollAreaRef.current) {
-      scrollAreaRef.current.scrollTo({
-        top: scrollAreaRef.current.scrollHeight,
-        behavior: "smooth",
-      });
+        const viewport = scrollAreaRef.current.querySelector('div[data-radix-scroll-area-viewport]');
+        if (viewport) {
+            viewport.scrollTo({
+                top: viewport.scrollHeight,
+                behavior: 'smooth',
+            });
+        }
     }
+  }
+
+  useEffect(() => {
+    scrollViewportToBottom();
   }, [messages]);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
@@ -55,7 +62,8 @@ export default function ChatPage() {
       content: values.message,
     };
     
-    setMessages(prev => [...prev, userMessage]);
+    const newMessages = [...messages, userMessage];
+    setMessages(newMessages);
     setIsAiLoading(true);
     form.reset();
 
@@ -86,11 +94,11 @@ export default function ChatPage() {
     <div className="flex flex-col h-full">
       <h1 className="text-2xl font-bold mb-4">AI Chat</h1>
       <div className="flex-1 flex flex-col border rounded-lg">
-        <ScrollArea className="flex-1">
-          <div className="p-4 space-y-4" ref={scrollAreaRef}>
+        <ScrollArea className="flex-1" ref={scrollAreaRef}>
+          <div className="p-4 space-y-4">
             {messages.length === 0 && (
-                <div className="flex items-center justify-center h-full text-muted-foreground">
-                    <p>Ask me anything to get started!</p>
+                <div className="flex items-center justify-center h-full text-muted-foreground p-8 text-center">
+                    <p>Ask me anything to get started! Try asking "What are data types in Python?"</p>
                 </div>
             )}
             {messages.map((message, index) => (
