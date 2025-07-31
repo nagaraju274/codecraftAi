@@ -475,10 +475,83 @@ const learningPaths = [
     description: "Learn the standard language for managing and querying relational databases.",
     topics: [
       {
-        title: "Core Concepts",
+        title: "Introduction to SQL and Databases",
         points: [
-          { text: "Understand tables, rows, columns, and data types.", resources: [{ name: "SQLBolt", url: "https://sqlbolt.com/" }] },
-          { text: "Learn to write queries with `SELECT`, `FROM`, `WHERE`, `GROUP BY`, and `JOIN`.", resources: [{ name: "W3Schools SQL", url: "https://www.w3schools.com/sql/" }] },
+          { text: "Understand the role of SQL as the standard language for relational database management systems (RDBMS).", resources: [{ name: "What is SQL?", url: "https://www.codecademy.com/articles/what-is-sql" }] },
+          { text: "Learn about the core concepts of relational databases: tables, rows (records), columns (attributes), primary keys, and foreign keys.", resources: [{ name: "Relational Database Concepts", url: "https://www.oracle.com/database/what-is-a-relational-database/" }] },
+          { text: "Set up a local SQL database environment (like PostgreSQL or SQLite) or use an online SQL playground to practice your queries.", resources: [{ name: "SQL Fiddle", url: "http://sqlfiddle.com/" }, { name: "DB Fiddle", url: "https://www.db-fiddle.com/" }] },
+        ],
+      },
+      {
+        title: "Basic Queries with SELECT",
+        points: [
+          { text: "Master the `SELECT` statement to retrieve data from one or more columns in a table.", resources: [{ name: "SQL SELECT Statement", url: "https://www.w3schools.com/sql/sql_select.asp" }] },
+          { text: "Use `WHERE` to filter records based on specific conditions, allowing you to fetch only the data you need.", resources: [{ name: "SQL WHERE Clause", url: "https://www.w3schools.com/sql/sql_where.asp" }] },
+          { text: "Learn to combine filtering conditions using `AND`, `OR`, and `NOT` to create more complex and precise queries.", resources: [{ name: "SQL AND, OR and NOT Operators", url: "https://www.w3schools.com/sql/sql_and_or.asp" }] },
+        ],
+      },
+      {
+        title: "Sorting and Limiting Results",
+        points: [
+          { text: "Use `ORDER BY` to sort the results of your query in ascending (ASC) or descending (DESC) order based on one or more columns.", resources: [{ name: "SQL ORDER BY Keyword", url: "https://www.w3schools.com/sql/sql_orderby.asp" }] },
+          { text: "Learn to use `LIMIT` (or `TOP` / `FETCH FIRST` in other SQL dialects) to restrict the number of rows returned by your query.", resources: [{ name: "SQL LIMIT Clause", url: "https://www.w3schools.com/sql/sql_top.asp" }] },
+        ],
+      },
+      {
+        title: "Aggregate Functions",
+        points: [
+          { text: "Understand how to use aggregate functions to perform a calculation on a set of values and return a single summary value.", resources: [{ name: "SQL Aggregate Functions", url: "https://www.datacamp.com/tutorial/sql-aggregate-functions" }] },
+          { text: "Learn to use `COUNT` to count the number of rows, `SUM` to get the total sum of a numeric column, and `AVG` to calculate the average.", resources: [{ name: "SQL COUNT, AVG and SUM Functions", url: "https://www.w3schools.com/sql/sql_count_avg_sum.asp" }] },
+          { text: "Use `MIN` and `MAX` to find the smallest and largest values in a column, respectively.", resources: [{ name: "SQL MIN and MAX Functions", url: "https://www.w3schools.com/sql/sql_min_max.asp" }] },
+        ],
+      },
+      {
+        title: "Grouping Data",
+        points: [
+          { text: "Master the `GROUP BY` statement to group rows that have the same values in specified columns into summary rows.", resources: [{ name: "SQL GROUP BY Statement", url: "https://www.w3schools.com/sql/sql_groupby.asp" }] },
+          { text: "Learn to use `HAVING` to filter groups based on conditions, which is like a `WHERE` clause for `GROUP BY`.", resources: [{ name: "SQL HAVING Clause", url: "https://www.w3schools.com/sql/sql_having.asp" }] },
+        ],
+      },
+      {
+        title: "Joining Tables",
+        points: [
+          { text: "Understand the concept of joining tables to combine rows from two or more tables based on a related column between them.", resources: [{ name: "SQL Joins", url: "https://www.w3schools.com/sql/sql_join.asp" }] },
+          { text: "Learn `INNER JOIN` to retrieve records that have matching values in both tables.", resources: [{ name: "SQL INNER JOIN", url: "https://www.w3schools.com/sql/sql_join_inner.asp" }] },
+          { text: "Use `LEFT JOIN` (or `LEFT OUTER JOIN`) to retrieve all records from the left table, and the matched records from the right table. The result is NULL from the right side if there is no match.", resources: [{ name: "SQL LEFT JOIN", url: "https://www.w3schools.com/sql/sql_join_left.asp" }] },
+          { text: "Use `RIGHT JOIN` (or `RIGHT OUTER JOIN`) to retrieve all records from the right table, and the matched records from the left table. The result is NULL from the left side when there is no match.", resources: [{ name: "SQL RIGHT JOIN", url: "https://www.w3schools.com/sql/sql_join_right.asp" }] },
+          { text: "Learn `FULL OUTER JOIN` to return all records when there is a match in either left or right table records.", resources: [{ name: "SQL FULL OUTER JOIN", url: "https://www.w3schools.com/sql/sql_join_full.asp" }] },
+        ],
+      },
+      {
+        title: "Subqueries and CTEs",
+        points: [
+          { text: "Learn to write subqueries (a query nested inside another query) to perform more complex data retrieval.", resources: [{ name: "SQL Subqueries", url: "https://www.essentialsql.com/sql-subquery/" }] },
+          { text: "Understand Common Table Expressions (CTEs) using the `WITH` clause to create temporary result sets that you can reference within another SQL statement, improving readability and organization.", resources: [{ name: "SQL WITH Clause (CTEs)", url: "https://www.sqlservertutorial.net/sql-server-basics/sql-server-cte/" }] },
+        ],
+      },
+      {
+        title: "Data Manipulation (DML)",
+        points: [
+          { text: "Use the `INSERT INTO` statement to add new rows of data to a table.", resources: [{ name: "SQL INSERT INTO Statement", url: "https://www.w3schools.com/sql/sql_insert.asp" }] },
+          { text: "Learn the `UPDATE` statement to modify existing records in a table.", resources: [{ name: "SQL UPDATE Statement", url: "https://www.w3schools.com/sql/sql_update.asp" }] },
+          { text: "Master the `DELETE` statement to remove existing records from a table.", resources: [{ name: "SQL DELETE Statement", url: "https://www.w3schools.com/sql/sql_delete.asp" }] },
+        ],
+      },
+      {
+        title: "Data Definition (DDL)",
+        points: [
+          { text: "Learn `CREATE TABLE` to create a new table in your database, defining its columns and data types.", resources: [{ name: "SQL CREATE TABLE", url: "https://www.w3schools.com/sql/sql_create_table.asp" }] },
+          { text: "Use `ALTER TABLE` to add, delete, or modify columns in an existing table.", resources: [{ name: "SQL ALTER TABLE", url: "https://www.w3schools.com/sql/sql_alter.asp" }] },
+          { text: "Understand `DROP TABLE` to remove a table from the database.", resources: [{ name: "SQL DROP TABLE", url: "https://www.w3schools.com/sql/sql_drop_table.asp" }] },
+          { text: "Learn about constraints like `NOT NULL`, `UNIQUE`, `PRIMARY KEY`, `FOREIGN KEY`, and `CHECK` to enforce rules on the data in a table.", resources: [{ name: "SQL Constraints", url: "https://www.w3schools.com/sql/sql_constraints.asp" }] },
+        ],
+      },
+      {
+        title: "Advanced SQL",
+        points: [
+          { text: "Explore window functions (like `ROW_NUMBER`, `RANK`, `LEAD`, `LAG`) that perform calculations across a set of table rows that are somehow related to the current row.", resources: [{ name: "SQL Window Functions", url: "https://learnsql.com/blog/sql-window-functions-tutorial/" }] },
+          { text: "Understand what database transactions are and learn the importance of `COMMIT` and `ROLLBACK` for ensuring data integrity.", resources: [{ name: "SQL Transactions", url: "https://www.geeksforgeeks.org/sql-transaction/" }] },
+          { text: "Learn about database indexing and how `CREATE INDEX` can significantly speed up the performance of your queries.", resources: [{ name: "SQL Indexing", url: "https://www.tutorialspoint.com/sql/sql-indexes.htm" }] },
         ],
       },
     ],
