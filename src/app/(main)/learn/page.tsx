@@ -16,92 +16,66 @@ const learningPaths = [
       {
         title: "Introduction",
         points: [
-            "Learn about the history of Python and its key features.",
-            "Understand why Python is a popular choice for various applications.",
-            "Set up your Python development environment on your local machine.",
+            { text: "Learn about the history of Python and its key features.", resources: [{ name: "Python History", url: "https://en.wikipedia.org/wiki/History_of_Python" }] },
+            { text: "Understand why Python is a popular choice for various applications.", resources: [{ name: "Why Python?", url: "https://www.python.org/doc/essays/blurb/" }] },
+            { text: "Set up your Python development environment on your local machine.", resources: [{ name: "Download Python", url: "https://www.python.org/downloads/" }, { name: "VS Code Setup", url: "https://code.visualstudio.com/docs/python/python-tutorial" }] },
         ],
-        resources: [
-            { name: "Official Python Website", url: "https://python.org" },
-            { name: "The Python Tutorial", url: "https://docs.python.org/3/tutorial/" },
-        ]
       },
       {
         title: "Python Fundamentals",
         points: [
-            "Learn about variables and different data types (integers, floats, strings, booleans).",
-            "Handle user input and display output to the console.",
-            "Perform basic operations on numbers and strings.",
+            { text: "Learn about variables and different data types (integers, floats, strings, booleans).", resources: [{ name: "Data Types", url: "https://www.w3schools.com/python/python_datatypes.asp" }] },
+            { text: "Handle user input and display output to the console.", resources: [{ name: "Input and Output", url: "https://www.geeksforgeeks.org/taking-input-in-python/" }] },
+            { text: "Perform basic operations on numbers and strings.", resources: [{ name: "Operators", url: "https://www.w3schools.com/python/python_operators.asp" }] },
         ],
-        resources: [
-            { name: "W3Schools Python Tutorial", url: "https://w3schools.com/python/" },
-            { name: "GeeksforGeeks Python Basics", url: "https://geeksforgeeks.org/python-basics/" },
-        ]
       },
       {
         title: "Python Flow Control",
         points: [
-            "Control program flow using conditional statements (if, elif, else).",
-            "Create loops (for, while) to execute code repeatedly.",
-            "Use 'break' and 'continue' to control loop behavior.",
+            { text: "Control program flow using conditional statements (if, elif, else).", resources: [{ name: "If...Else", url: "https://www.w3schools.com/python/python_conditions.asp" }] },
+            { text: "Create loops (for, while) to execute code repeatedly.", resources: [{ name: "For Loops", url: "https://www.w3schools.com/python/python_for_loops.asp" }, { name: "While Loops", url: "https://www.w3schools.com/python/python_while_loops.asp" }] },
+            { text: "Use 'break' and 'continue' to control loop behavior.", resources: [{ name: "Break and Continue", url: "https://www.w3schools.com/python/python_for_loops.asp" }] },
         ],
-        resources: [
-            { name: "Python Control Flow Documentation", url: "https://docs.python.org/3/tutorial/controlflow.html" },
-        ]
       },
       {
         title: "Python Data Types",
         points: [
-            "Work with lists to store ordered collections of items.",
-            "Use tuples for immutable sequences of data.",
-            "Understand dictionaries for key-value pair storage and sets for unique elements.",
+            { text: "Work with lists to store ordered collections of items.", resources: [{ name: "Lists", url: "https://www.w3schools.com/python/python_lists.asp" }] },
+            { text: "Use tuples for immutable sequences of data.", resources: [{ name: "Tuples", url: "https://www.w3schools.com/python/python_tuples.asp" }] },
+            { text: "Understand dictionaries for key-value pair storage and sets for unique elements.", resources: [{ name: "Dictionaries", url: "https://www.w3schools.com/python/python_dictionaries.asp" }, { name: "Sets", url: "https://www.w3schools.com/python/python_sets.asp" }] },
         ],
-        resources: [
-            { name: "Python Data Structures Documentation", url: "https://docs.python.org/3/tutorial/datastructures.html" },
-        ]
       },
       {
         title: "Python Functions",
         points: [
-            "Define and call your own custom functions.",
-            "Pass arguments to functions and return values.",
-            "Understand variable scope (local vs. global) and lambda functions.",
+            { text: "Define and call your own custom functions.", resources: [{ name: "Functions", url: "https://www.w3schools.com/python/python_functions.asp" }] },
+            { text: "Pass arguments to functions and return values.", resources: [{ name: "Function Arguments", url: "https://www.w3schools.com/python/python_functions.asp#Arguments" }] },
+            { text: "Understand variable scope (local vs. global) and lambda functions.", resources: [{ name: "Scope", url: "https://www.w3schools.com/python/python_scope.asp" }, { name: "Lambda", url: "https://www.w3schools.com/python/python_lambda.asp" }] },
         ],
-        resources: [
-            { name: "Real Python Functions Guide", url: "https://realpython.com/defining-your-own-python-function/" },
-        ]
       },
       {
         title: "Python Files",
         points: [
-            "Read data from text files.",
-            "Write data to text files.",
-            "Understand file handling modes and best practices for working with files.",
+            { text: "Read data from text files.", resources: [{ name: "Read Files", url: "https://www.w3schools.com/python/python_file_read.asp" }] },
+            { text: "Write data to text files.", resources: [{ name: "Write/Create Files", url: "https://www.w3schools.com/python/python_file_write.asp" }] },
+            { text: "Understand file handling modes and best practices for working with files.", resources: [{ name: "File Handling", url: "https://www.w3schools.com/python/python_file_handling.asp" }] },
         ],
-        resources: [
-            { name: "Python File I/O Tutorial", url: "https://realpython.com/read-write-files-python/" },
-        ]
       },
       {
         title: "Python Exception Handling",
         points: [
-            "Use try-except blocks to handle errors gracefully.",
-            "Catch specific exceptions to handle different error types.",
-            "Use 'finally' to execute cleanup code.",
+            { text: "Use try-except blocks to handle errors gracefully.", resources: [{ name: "Try...Except", url: "https://www.w3schools.com/python/python_try_except.asp" }] },
+            { text: "Catch specific exceptions to handle different error types.", resources: [{ name: "Exception Handling", url: "https://realpython.com/python-exceptions/" }] },
+            { text: "Use 'finally' to execute cleanup code.", resources: [{ name: "Finally", url: "https://www.w3schools.com/python/python_try_except.asp#Finally" }] },
         ],
-        resources: [
-            { name: "Python Errors and Exceptions", url: "https://docs.python.org/3/tutorial/errors.html" },
-        ]
       },
       {
         title: "Python Object and Class",
         points: [
-            "Learn the principles of Object-Oriented Programming (OOP).",
-            "Define classes and create objects (instances).",
-            "Understand concepts like inheritance, encapsulation, and polymorphism.",
+            { text: "Learn the principles of Object-Oriented Programming (OOP).", resources: [{ name: "Python OOP", url: "https://www.w3schools.com/python/python_oop.asp" }] },
+            { text: "Define classes and create objects (instances).", resources: [{ name: "Classes/Objects", url: "https://www.w3schools.com/python/python_classes.asp" }] },
+            { text: "Understand concepts like inheritance, encapsulation, and polymorphism.", resources: [{ name: "Inheritance", url: "https://www.w3schools.com/python/python_inheritance.asp" }] },
         ],
-        resources: [
-            { name: "Python Classes Documentation", url: "https://docs.python.org/3/tutorial/classes.html" },
-        ]
       },
     ],
   },
@@ -112,92 +86,66 @@ const learningPaths = [
         {
             title: "Introduction to JavaScript",
             points: [
-                "Understand the role of JavaScript in web development.",
-                "Learn how JavaScript runs in the browser.",
-                "Write your first 'Hello, World!' script and use the browser console.",
+                { text: "Understand the role of JavaScript in web development.", resources: [{ name: "What is JavaScript?", url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript" }] },
+                { text: "Learn how JavaScript runs in the browser.", resources: [{ name: "How JavaScript works", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction" }] },
+                { text: "Write your first 'Hello, World!' script and use the browser console.", resources: [{ name: "Hello World", url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Hello_world" }] },
             ],
-            resources: [
-                { name: "MDN JavaScript Guide", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" },
-                { name: "freeCodeCamp JavaScript Course", url: "https://freecodecamp.org/learn/javascript-algorithms-and-data-structures/" },
-            ]
         },
         {
             title: "Variables and Data Types",
             points: [
-                "Declare variables using var, let, and const.",
-                "Learn about JavaScript data types: String, Number, Boolean, Null, Undefined, and Object.",
-                "Work with arrays to store lists of data.",
+                { text: "Declare variables using var, let, and const.", resources: [{ name: "Variables", url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables" }] },
+                { text: "Learn about JavaScript data types: String, Number, Boolean, Null, Undefined, and Object.", resources: [{ name: "Data Types", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures" }] },
+                { text: "Work with arrays to store lists of data.", resources: [{ name: "Arrays", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" }] },
             ],
-            resources: [
-                { name: "MDN JavaScript data types", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures" },
-            ]
         },
         {
             title: "Operators and Expressions",
             points: [
-                "Use arithmetic operators for calculations.",
-                "Understand assignment, comparison, and logical operators.",
-                "Combine expressions to create complex logic.",
+                { text: "Use arithmetic operators for calculations.", resources: [{ name: "Arithmetic Operators", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#arithmetic_operators" }] },
+                { text: "Understand assignment, comparison, and logical operators.", resources: [{ name: "Comparison and Logical Operators", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#comparison_operators" }] },
+                { text: "Combine expressions to create complex logic.", resources: [] },
             ],
-            resources: [
-                { name: "MDN Expressions and operators", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators" },
-            ]
         },
         {
             title: "Control Flow (If/Else, Loops)",
             points: [
-                "Make decisions in your code with if/else statements.",
-                "Execute code blocks multiple times using for and while loops.",
-                "Iterate over arrays and other iterable objects.",
+                { text: "Make decisions in your code with if/else statements.", resources: [{ name: "if...else", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else" }] },
+                { text: "Execute code blocks multiple times using for and while loops.", resources: [{ name: "for loop", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for" }, { name: "while loop", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while" }] },
+                { text: "Iterate over arrays and other iterable objects.", resources: [{ name: "Iterating over arrays", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" }] },
             ],
-            resources: [
-                { name: "MDN Control flow and error handling", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling" },
-            ]
         },
         {
             title: "Functions",
             points: [
-                "Create reusable blocks of code with functions.",
-                "Understand function declarations, expressions, and arrow functions.",
-                "Pass parameters to functions and use the return statement.",
+                { text: "Create reusable blocks of code with functions.", resources: [{ name: "Functions", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" }] },
+                { text: "Understand function declarations, expressions, and arrow functions.", resources: [{ name: "Arrow functions", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" }] },
+                { text: "Pass parameters to functions and use the return statement.", resources: [] },
             ],
-            resources: [
-                { name: "MDN Functions", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" },
-            ]
         },
         {
             title: "Objects and Arrays",
             points: [
-                "Create and manipulate objects to store complex data.",
-                "Access object properties using dot and bracket notation.",
-                "Use common array methods like push, pop, forEach, and map.",
+                { text: "Create and manipulate objects to store complex data.", resources: [{ name: "Objects", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects" }] },
+                { text: "Access object properties using dot and bracket notation.", resources: [{ name: "Property accessors", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors" }] },
+                { text: "Use common array methods like push, pop, forEach, and map.", resources: [{ name: "Array methods", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#instance_methods" }] },
             ],
-            resources: [
-                { name: "MDN Working with objects", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects" },
-                { name: "MDN Indexed collections (Arrays)", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections" },
-            ]
         },
         {
             title: "DOM Manipulation",
             points: [
-                "Select HTML elements using querySelector and getElementById.",
-                "Change the content, style, and attributes of elements.",
-                "Create and append new elements to the page dynamically.",
+                { text: "Select HTML elements using querySelector and getElementById.", resources: [{ name: "Introduction to the DOM", url: "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction" }] },
+                { text: "Change the content, style, and attributes of elements.", resources: [{ name: "Modifying the document", url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents" }] },
+                { text: "Create and append new elements to the page dynamically.", resources: [{ name: "createElement", url: "https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement" }, { name: "appendChild", url: "https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild" }] },
             ],
-            resources: [
-                { name: "MDN Introduction to the DOM", url: "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction" },
-            ]
         },
         {
             title: "Asynchronous JavaScript (Promises, async/await)",
             points: [
-                "Understand the concept of asynchronous programming.",
-                "Use Promises to handle operations that take time to complete.",
-                "Write cleaner asynchronous code with async/await syntax.",
+                { text: "Understand the concept of asynchronous programming.", resources: [{ name: "Asynchronous JavaScript", url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous" }] },
+                { text: "Use Promises to handle operations that take time to complete.", resources: [{ name: "Promises", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" }] },
+                { text: "Write cleaner asynchronous code with async/await syntax.", resources: [{ name: "async/await", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function" }] },
             ],
-            resources: [
-                { name: "MDN Asynchronous JavaScript", url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous" },
-            ]
         },
     ],
   },
@@ -208,82 +156,58 @@ const learningPaths = [
         {
             title: "HTML5: Structuring the Web",
             points: [
-                "Learn the basic structure of an HTML document.",
-                "Use semantic tags like <header>, <nav>, <main>, and <footer>.",
-                "Create forms with input fields, labels, and buttons.",
+                { text: "Learn the basic structure of an HTML document.", resources: [{ name: "HTML basics", url: "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics" }] },
+                { text: "Use semantic tags like <header>, <nav>, <main>, and <footer>.", resources: [{ name: "Semantic HTML", url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element#content_sectioning" }] },
+                { text: "Create forms with input fields, labels, and buttons.", resources: [{ name: "HTML Forms", url: "https://developer.mozilla.org/en-US/docs/Learn/Forms" }] },
             ],
-            resources: [
-                { name: "MDN HTML basics", url: "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics" },
-            ]
         },
         {
             title: "CSS3: Styling and Layouts",
             points: [
-                "Apply styles to HTML elements using CSS selectors.",
-                "Understand the box model (margin, border, padding, content).",
-                "Style text with properties for font, color, and spacing.",
+                { text: "Apply styles to HTML elements using CSS selectors.", resources: [{ name: "CSS Selectors", url: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors" }] },
+                { text: "Understand the box model (margin, border, padding, content).", resources: [{ name: "The Box Model", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model" }] },
+                { text: "Style text with properties for font, color, and spacing.", resources: [{ name: "Styling text", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text" }] },
             ],
-            resources: [
-                { name: "MDN CSS first steps", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps" },
-            ]
         },
         {
             title: "Responsive Design with Flexbox and Grid",
             points: [
-                "Build layouts that adapt to different screen sizes.",
-                "Use Flexbox for one-dimensional layouts (rows or columns).",
-                "Use CSS Grid for complex two-dimensional layouts.",
+                { text: "Build layouts that adapt to different screen sizes.", resources: [{ name: "Responsive design", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" }] },
+                { text: "Use Flexbox for one-dimensional layouts (rows or columns).", resources: [{ name: "Flexbox", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" }] },
+                { text: "Use CSS Grid for complex two-dimensional layouts.", resources: [{ name: "CSS Grid", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids" }] },
             ],
-            resources: [
-                { name: "CSS-Tricks: A Complete Guide to Flexbox", url: "https://css-tricks.com/snippets/css/a-guide-to-flexbox/" },
-                { name: "CSS-Tricks: A Complete Guide to Grid", url: "https://css-tricks.com/snippets/css/complete-guide-grid/" },
-            ]
         },
         {
             title: "Introduction to React",
             points: [
-                "Understand the component-based architecture of React.",
-                "Set up a new React project using tools like Create React App.",
-                "Learn JSX syntax to write HTML-like code in JavaScript.",
+                { text: "Understand the component-based architecture of React.", resources: [{ name: "Thinking in React", url: "https://react.dev/learn/thinking-in-react" }] },
+                { text: "Set up a new React project using tools like Create React App.", resources: [{ name: "Start a New React Project", url: "https://react.dev/learn/start-a-new-react-project" }] },
+                { text: "Learn JSX syntax to write HTML-like code in JavaScript.", resources: [{ name: "Writing Markup with JSX", url: "https://react.dev/learn/writing-markup-with-jsx" }] },
             ],
-            resources: [
-                { name: "Official React Tutorial", url: "https://react.dev/learn" },
-            ]
         },
         {
             title: "Components, Props, and State",
             points: [
-                "Create reusable UI components.",
-                "Pass data down to child components using props.",
-                "Manage component-specific data with the useState hook.",
+                { text: "Create reusable UI components.", resources: [{ name: "Your First Component", url: "https://react.dev/learn/your-first-component" }] },
+                { text: "Pass data down to child components using props.", resources: [{ name: "Passing Props to a Component", url: "https://react.dev/learn/passing-props-to-a-component" }] },
+                { text: "Manage component-specific data with the useState hook.", resources: [{ name: "State: A Component's Memory", url: "https://react.dev/learn/state-a-components-memory" }] },
             ],
-            resources: [
-                { name: "React Docs: Your First Component", url: "https://react.dev/learn/your-first-component" },
-                { name: "React Docs: Passing Props to a Component", url: "https://react.dev/learn/passing-props-to-a-component" },
-                { name: "React Docs: State: A Component's Memory", url: "https://react.dev/learn/state-a-components-memory" },
-            ]
         },
         {
             title: "React Hooks",
             points: [
-                "Use the useEffect hook to handle side effects like data fetching.",
-                "Manage global state with the useContext hook.",
-                "Learn about other essential hooks like useRef and useReducer.",
+                { text: "Use the useEffect hook to handle side effects like data fetching.", resources: [{ name: "useEffect", url: "https://react.dev/reference/react/useEffect" }] },
+                { text: "Manage global state with the useContext hook.", resources: [{ name: "useContext", url: "https://react.dev/reference/react/useContext" }] },
+                { text: "Learn about other essential hooks like useRef and useReducer.", resources: [{ name: "useRef", url: "https://react.dev/reference/react/useRef" }, { name: "useReducer", url: "https://react.dev/reference/react/useReducer" }] },
             ],
-            resources: [
-                { name: "React Docs: Hooks", url: "https://react.dev/reference/react" },
-            ]
         },
         {
             title: "Building a Simple Web App",
             points: [
-                "Plan the structure and features of your application.",
-                "Combine components to build a complete user interface.",
-                "Fetch data from a public API and display it in your app.",
+                { text: "Plan the structure and features of your application.", resources: [] },
+                { text: "Combine components to build a complete user interface.", resources: [] },
+                { text: "Fetch data from a public API and display it in your app.", resources: [{ name: "Fetching data in React", url: "https://www.robinwieruch.de/react-fetching-data/" }] },
             ],
-            resources: [
-                { name: "Thinking in React", url: "https://react.dev/learn/thinking-in-react" },
-            ]
         },
     ],
   },
@@ -294,84 +218,58 @@ const learningPaths = [
       {
         title: "Frontend Frameworks (React, Next.js)",
         points: [
-            "Build complex user interfaces with React.",
-            "Learn Next.js for features like server-side rendering and routing.",
-            "Manage application state with tools like Redux or Zustand.",
+            { text: "Build complex user interfaces with React.", resources: [{ name: "React Docs", url: "https://react.dev/" }] },
+            { text: "Learn Next.js for features like server-side rendering and routing.", resources: [{ name: "Next.js Docs", url: "https://nextjs.org/docs" }] },
+            { text: "Manage application state with tools like Redux or Zustand.", resources: [{ name: "Zustand", url: "https://zustand-demo.pmnd.rs/" }, { name: "Redux", url: "https://redux.js.org/" }] },
         ],
-        resources: [
-            { name: "Next.js Docs", url: "https://nextjs.org/docs" },
-            { name: "Zustand Docs", url: "https://docs.pmnd.rs/zustand/getting-started/introduction" },
-        ]
       },
       {
         title: "Backend Development (Node.js, Express)",
         points: [
-            "Create a server using Node.js.",
-            "Build a RESTful API with the Express framework.",
-            "Handle HTTP requests and responses.",
+            { text: "Create a server using Node.js.", resources: [{ name: "Node.js Intro", url: "https://nodejs.org/en/about" }] },
+            { text: "Build a RESTful API with the Express framework.", resources: [{ name: "Express.js", url: "https://expressjs.com/" }] },
+            { text: "Handle HTTP requests and responses.", resources: [{ name: "HTTP Requests", url: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview" }] },
         ],
-        resources: [
-            { name: "Node.js Guides", url: "https://nodejs.org/en/docs/guides" },
-            { name: "Express.js 'Hello World' example", url: "https://expressjs.com/en/starter/hello-world.html" },
-        ]
       },
       {
         title: "Databases (SQL, NoSQL)",
         points: [
-            "Understand the differences between SQL and NoSQL databases.",
-            "Learn basic SQL commands for relational databases (e.g., PostgreSQL).",
-            "Work with a NoSQL database like MongoDB.",
+            { text: "Understand the differences between SQL and NoSQL databases.", resources: [{ name: "SQL vs NoSQL", url: "https://www.mongodb.com/nosql-explained/nosql-vs-sql" }] },
+            { text: "Learn basic SQL commands for relational databases (e.g., PostgreSQL).", resources: [{ name: "PostgreSQL", url: "https://www.postgresql.org/" }] },
+            { text: "Work with a NoSQL database like MongoDB.", resources: [{ name: "MongoDB", url: "https://www.mongodb.com/" }] },
         ],
-        resources: [
-            { name: "PostgreSQL Tutorial", url: "https://postgresqltutorial.com/" },
-            { name: "MongoDB University", url: "https://learn.mongodb.com/" },
-        ]
       },
       {
         title: "APIs and RESTful services",
         points: [
-            "Design and build robust APIs following REST principles.",
-            "Understand HTTP methods (GET, POST, PUT, DELETE).",
-            "Create endpoints for your frontend to consume.",
+            { text: "Design and build robust APIs following REST principles.", resources: [{ name: "REST API Best Practices", url: "https://www.freecodecamp.org/news/rest-api-best-practices-rest-endpoint-design-examples/" }] },
+            { text: "Understand HTTP methods (GET, POST, PUT, DELETE).", resources: [{ name: "HTTP Methods", url: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods" }] },
+            { text: "Create endpoints for your frontend to consume.", resources: [] },
         ],
-        resources: [
-            { name: "Introduction to REST APIs", url: "https://restapitutorial.com/" },
-        ]
       },
       {
         title: "Authentication and Authorization",
         points: [
-            "Implement user login and registration systems.",
-            "Secure your API using JSON Web Tokens (JWT).",
-            "Create protected routes that require authentication.",
+            { text: "Implement user login and registration systems.", resources: [{ name: "Authentication Guide", url: "https://supertokens.com/blog/the-best-way-to-secure-your-website-with-http-only-cookies" }] },
+            { text: "Secure your API using JSON Web Tokens (JWT).", resources: [{ name: "JWT", url: "https://jwt.io/" }] },
+            { text: "Create protected routes that require authentication.", resources: [] },
         ],
-        resources: [
-            { name: "JWT Introduction", url: "https://jwt.io/introduction" },
-            { name: "OAuth 2.0", url: "https://oauth.net/2/" },
-        ]
       },
       {
         title: "Deployment and Hosting",
         points: [
-            "Deploy your frontend application to platforms like Vercel or Netlify.",
-            "Host your backend server on a cloud provider like Heroku or AWS.",
-            "Set up a production database.",
+            { text: "Deploy your frontend application to platforms like Vercel or Netlify.", resources: [{ name: "Vercel", url: "https://vercel.com/" }, { name: "Netlify", url: "https://www.netlify.com/" }] },
+            { text: "Host your backend server on a cloud provider like Heroku or AWS.", resources: [{ name: "Heroku", url: "https://www.heroku.com/" }, { name: "AWS", url: "https://aws.amazon.com/" }] },
+            { text: "Set up a production database.", resources: [] },
         ],
-        resources: [
-            { name: "Vercel Docs", url: "https://vercel.com/docs" },
-            { name: "AWS Getting Started", url: "https://aws.amazon.com/getting-started/" },
-        ]
       },
       {
         title: "Version Control with Git",
         points: [
-            "Track changes in your codebase using Git.",
-            "Collaborate with others using GitHub or GitLab.",
-            "Learn essential Git commands like commit, push, pull, and branch.",
+            { text: "Track changes in your codebase using Git.", resources: [{ name: "Git Introduction", url: "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control" }] },
+            { text: "Collaborate with others using GitHub or GitLab.", resources: [{ name: "GitHub", url: "https://github.com/" }, { name: "GitLab", url: "https://about.gitlab.com/" }] },
+            { text: "Learn essential Git commands like commit, push, pull, and branch.", resources: [{ name: "Basic Git commands", url: "https://www.atlassian.com/git/tutorials/setting-up-a-repository" }] },
         ],
-        resources: [
-            { name: "Git Handbook", url: "https://guides.github.com/introduction/git-handbook/" },
-        ]
       },
     ],
   },
@@ -382,82 +280,58 @@ const learningPaths = [
       {
         title: "Introduction to Mobile Development",
         points: [
-            "Compare native development (Swift/Kotlin) with cross-platform (React Native/Flutter).",
-            "Understand the mobile app ecosystem.",
-            "Choose the right technology stack for your project.",
+            { text: "Compare native development (Swift/Kotlin) with cross-platform (React Native/Flutter).", resources: [{ name: "Native vs Cross-Platform", url: "https://www.geeksforgeeks.org/native-vs-cross-platform-app-development/" }] },
+            { text: "Understand the mobile app ecosystem.", resources: [] },
+            { text: "Choose the right technology stack for your project.", resources: [] },
         ],
-        resources: [
-            { name: "React Native vs. Flutter", url: "https://developer.android.com/stories/cross-platform/react-native-vs-flutter" },
-        ]
       },
       {
         title: "React Native or Flutter Fundamentals",
         points: [
-            "Set up your development environment for your chosen framework.",
-            "Build layouts and user interfaces with pre-built components.",
-            "Handle user input and touch gestures.",
+            { text: "Set up your development environment for your chosen framework.", resources: [{ name: "React Native Setup", url: "https://reactnative.dev/docs/environment-setup" }, { name: "Flutter Setup", url: "https://docs.flutter.dev/get-started/install" }] },
+            { text: "Build layouts and user interfaces with pre-built components.", resources: [{ name: "React Native Components", url: "https://reactnative.dev/docs/components-and-apis" }, { name: "Flutter Widgets", url: "https://docs.flutter.dev/ui" }] },
+            { text: "Handle user input and touch gestures.", resources: [{ name: "React Native Gestures", url: "https://reactnative.dev/docs/handling-touches" }, { name: "Flutter Gestures", url: "https://docs.flutter.dev/development/ui/advanced/gestures" }] },
         ],
-        resources: [
-            { name: "React Native Docs", url: "https://reactnative.dev/docs/getting-started" },
-            { name: "Flutter Docs", url: "https://docs.flutter.dev/" },
-        ]
       },
       {
         title: "State Management",
         points: [
-            "Learn how to manage the state of your application.",
-            "Use state management libraries like Redux, MobX, or Riverpod.",
-            "Keep your UI in sync with your application data.",
+            { text: "Learn how to manage the state of your application.", resources: [{ name: "React State", url: "https://react.dev/learn/managing-state" }, { name: "Flutter State Management", url: "https://docs.flutter.dev/data-and-backend/state-mgmt/options" }] },
+            { text: "Use state management libraries like Redux, MobX, or Riverpod.", resources: [{ name: "Redux", url: "https://redux.js.org/" }, { name: "Riverpod", url: "https://riverpod.dev/" }] },
+            { text: "Keep your UI in sync with your application data.", resources: [] },
         ],
-        resources: [
-            { name: "Flutter State Management", url: "https://docs.flutter.dev/data-and-backend/state-mgmt/options" },
-        ]
       },
       {
         title: "Navigation",
         points: [
-            "Implement navigation between different screens in your app.",
-            "Use stack, tab, and drawer navigators to create user-friendly flows.",
-            "Pass data between screens.",
+            { text: "Implement navigation between different screens in your app.", resources: [{ name: "React Navigation", url: "https://reactnavigation.org/" }, { name: "Flutter Navigation", url: "https://docs.flutter.dev/ui/navigation" }] },
+            { text: "Use stack, tab, and drawer navigators to create user-friendly flows.", resources: [] },
+            { text: "Pass data between screens.", resources: [] },
         ],
-        resources: [
-            { name: "React Navigation", url: "https://reactnavigation.org/" },
-            { name: "Flutter Navigation and routing", url: "https://docs.flutter.dev/ui/navigation" },
-        ]
       },
       {
         title: "Working with APIs",
         points: [
-            "Fetch data from a backend server using HTTP requests.",
-            "Handle API responses and display the data in your app.",
-            "Manage loading and error states.",
+            { text: "Fetch data from a backend server using HTTP requests.", resources: [{ name: "React Native Networking", url: "https://reactnative.dev/docs/network" }, { name: "Flutter Networking", url: "https://docs.flutter.dev/cookbook/networking/fetch-data" }] },
+            { text: "Handle API responses and display the data in your app.", resources: [] },
+            { text: "Manage loading and error states.", resources: [] },
         ],
-        resources: [
-            { name: "Fetching data from the internet", url: "https://docs.flutter.dev/cookbook/networking/fetch-data" },
-        ]
       },
       {
         title: "Push Notifications",
         points: [
-            "Implement push notifications to engage users.",
-            "Use services like Firebase Cloud Messaging (FCM).",
-            "Handle incoming notifications when the app is in different states.",
+            { text: "Implement push notifications to engage users.", resources: [] },
+            { text: "Use services like Firebase Cloud Messaging (FCM).", resources: [{ name: "Firebase Cloud Messaging", url: "https://firebase.google.com/docs/cloud-messaging" }] },
+            { text: "Handle incoming notifications when the app is in different states.", resources: [] },
         ],
-        resources: [
-            { name: "Firebase Cloud Messaging", url: "https://firebase.google.com/docs/cloud-messaging" },
-        ]
       },
       {
         title: "Publishing to App Stores",
         points: [
-            "Prepare your app for release.",
-            "Follow the guidelines for the Apple App Store and Google Play Store.",
-            "Build and submit your app for review.",
+            { text: "Prepare your app for release.", resources: [{ name: "React Native Publishing", url: "https://reactnative.dev/docs/publishing-to-app-store" }, { name: "Flutter Publishing", url: "https://docs.flutter.dev/deployment/android" }] },
+            { text: "Follow the guidelines for the Apple App Store and Google Play Store.", resources: [{ name: "App Store Guidelines", url: "https://developer.apple.com/app-store/review/guidelines/" }, { name: "Play Store Policies", url: "https://play.google.com/about/developer-distribution-agreement.html" }] },
+            { text: "Build and submit your app for review.", resources: [] },
         ],
-        resources: [
-            { name: "Apple App Store Review Guidelines", url: "https://developer.apple.com/app-store/review/guidelines/" },
-            { name: "Google Play Developer Policy Center", url: "https://support.google.com/googleplay/android-developer/answer/9859455" },
-        ]
       },
     ],
   },
@@ -468,87 +342,58 @@ const learningPaths = [
       {
         title: "CI/CD Pipelines (Jenkins, GitHub Actions)",
         points: [
-            "Understand the principles of Continuous Integration and Continuous Delivery.",
-            "Automate the build, test, and deployment processes.",
-            "Create pipelines using tools like Jenkins or GitHub Actions.",
+            { text: "Understand the principles of Continuous Integration and Continuous Delivery.", resources: [{ name: "What is CI/CD?", url: "https://www.redhat.com/en/topics/devops/what-is-ci-cd" }] },
+            { text: "Automate the build, test, and deployment processes.", resources: [] },
+            { text: "Create pipelines using tools like Jenkins or GitHub Actions.", resources: [{ name: "Jenkins", url: "https://www.jenkins.io/" }, { name: "GitHub Actions", url: "https://github.com/features/actions" }] },
         ],
-        resources: [
-            { name: "Jenkins Documentation", url: "https://www.jenkins.io/doc/" },
-            { name: "GitHub Actions Documentation", url: "https://docs.github.com/en/actions" },
-        ]
       },
       {
         title: "Infrastructure as Code (Terraform, Ansible)",
         points: [
-            "Manage your infrastructure using code.",
-            "Use Terraform to provision cloud resources (servers, databases, etc.).",
-            "Use Ansible for configuration management and automation.",
+            { text: "Manage your infrastructure using code.", resources: [{ name: "What is IaC?", url: "https://www.redhat.com/en/topics/automation/what-is-infrastructure-as-code-iac" }] },
+            { text: "Use Terraform to provision cloud resources (servers, databases, etc.).", resources: [{ name: "Terraform", url: "https://www.terraform.io/" }] },
+            { text: "Use Ansible for configuration management and automation.", resources: [{ name: "Ansible", url: "https://www.ansible.com/" }] },
         ],
-        resources: [
-            { name: "Terraform Documentation", url: "https://developer.hashicorp.com/terraform/docs" },
-            { name: "Ansible Documentation", url: "https://docs.ansible.com/" },
-        ]
       },
       {
         title: "Containerization (Docker, Kubernetes)",
         points: [
-            "Package applications into lightweight, portable containers with Docker.",
-            "Orchestrate and manage containers at scale with Kubernetes.",
-            "Understand container networking and storage.",
+            { text: "Package applications into lightweight, portable containers with Docker.", resources: [{ name: "Docker", url: "https://www.docker.com/" }] },
+            { text: "Orchestrate and manage containers at scale with Kubernetes.", resources: [{ name: "Kubernetes", url: "https://kubernetes.io/" }] },
+            { text: "Understand container networking and storage.", resources: [] },
         ],
-        resources: [
-            { name: "Docker Documentation", url: "https://docs.docker.com/" },
-            { name: "Kubernetes Documentation", url: "https://kubernetes.io/docs/home/" },
-        ]
       },
       {
         title: "Cloud Platforms (AWS, GCP, Azure)",
         points: [
-            "Gain expertise in a major cloud provider.",
-            "Learn about core services for compute, storage, networking, and databases.",
-            "Understand cloud security and cost management.",
+            { text: "Gain expertise in a major cloud provider.", resources: [{ name: "AWS", url: "https://aws.amazon.com/" }, { name: "GCP", url: "https://cloud.google.com/" }, { name: "Azure", url: "https://azure.microsoft.com/" }] },
+            { text: "Learn about core services for compute, storage, networking, and databases.", resources: [] },
+            { text: "Understand cloud security and cost management.", resources: [] },
         ],
-        resources: [
-            { name: "AWS Documentation", url: "https://docs.aws.amazon.com/" },
-            { name: "Google Cloud Documentation", url: "https://cloud.google.com/docs" },
-            { name: "Microsoft Azure Documentation", url: "https://learn.microsoft.com/en-us/azure/" },
-        ]
       },
       {
         title: "Monitoring and Logging",
         points: [
-            "Monitor the health and performance of your systems.",
-            "Use tools like Prometheus for metrics and Grafana for visualization.",
-            "Centralize logs with the ELK Stack (Elasticsearch, Logstash, Kibana).",
+            { text: "Monitor the health and performance of your systems.", resources: [] },
+            { text: "Use tools like Prometheus for metrics and Grafana for visualization.", resources: [{ name: "Prometheus", url: "https://prometheus.io/" }, { name: "Grafana", url: "https://grafana.com/" }] },
+            { text: "Centralize logs with the ELK Stack (Elasticsearch, Logstash, Kibana).", resources: [{ name: "ELK Stack", url: "https://www.elastic.co/what-is/elk-stack" }] },
         ],
-        resources: [
-            { name: "Prometheus Documentation", url: "https://prometheus.io/docs/introduction/overview/" },
-            { name: "Grafana Documentation", url: "https://grafana.com/docs/" },
-            { name: "Elastic Stack", url: "https://www.elastic.co/elastic-stack" },
-        ]
       },
       {
         title: "Scripting (Bash, Python)",
         points: [
-            "Automate repetitive tasks using scripts.",
-            "Write Bash scripts for system administration.",
-            "Use Python for more complex automation and scripting needs.",
+            { text: "Automate repetitive tasks using scripts.", resources: [] },
+            { text: "Write Bash scripts for system administration.", resources: [{ name: "Bash Scripting", url: "https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html" }] },
+            { text: "Use Python for more complex automation and scripting needs.", resources: [{ name: "Automate the Boring Stuff with Python", url: "https://automatetheboringstuff.com/" }] },
         ],
-        resources: [
-            { name: "Bash Scripting Tutorial", url: "https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html" },
-            { name: "Automate the Boring Stuff with Python", url: "https://automatetheboringstuff.com/" },
-        ]
       },
       {
         title: "Networking Fundamentals",
         points: [
-            "Understand core networking concepts (TCP/IP, DNS, HTTP/S).",
-            "Configure virtual private clouds (VPCs) and subnets.",
-            "Secure your network with firewalls and security groups.",
+            { text: "Understand core networking concepts (TCP/IP, DNS, HTTP/S).", resources: [{ name: "Computer Networking Tutorial", url: "https://www.geeksforgeeks.org/computer-network-tutorial/" }] },
+            { text: "Configure virtual private clouds (VPCs) and subnets.", resources: [{ name: "VPC", url: "https://aws.amazon.com/vpc/" }] },
+            { text: "Secure your network with firewalls and security groups.", resources: [] },
         ],
-        resources: [
-            { name: "An Introduction to Computer Networks", url: "https://intronetworks.cs.princeton.edu/" },
-        ]
       },
     ],
   },
@@ -579,28 +424,23 @@ export default function LearnPage() {
                         {topic.title}
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground">
-                        <ul className="list-disc pl-5 space-y-2">
+                        <ul className="list-disc pl-5 space-y-4">
                             {topic.points.map((point, i) => (
                                 <li key={i}>
-                                    {point}
+                                    <span>{point.text}</span>
+                                    {point.resources && point.resources.length > 0 && (
+                                        <div className="mt-2 space-x-4">
+                                            {point.resources.map((resource, j) => (
+                                                <a href={resource.url} key={j} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-sm inline-flex items-center gap-1">
+                                                    <Link className="h-3 w-3 shrink-0" />
+                                                    {resource.name}
+                                                </a>
+                                            ))}
+                                        </div>
+                                    )}
                                 </li>
                             ))}
                         </ul>
-                        {topic.resources && topic.resources.length > 0 && (
-                            <div className="mt-4">
-                                <h4 className="font-semibold text-foreground mb-2">Resources:</h4>
-                                <ul className="space-y-1">
-                                    {topic.resources.map((resource, i) => (
-                                        <li key={i} className="flex items-start">
-                                            <a href={resource.url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline flex items-center gap-2">
-                                                <Link className="h-4 w-4 shrink-0" />
-                                                <span>{resource.name}</span>
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        )}
                     </AccordionContent>
                   </AccordionItem>
                 ))}
