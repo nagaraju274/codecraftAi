@@ -25,7 +25,7 @@ const formSchema = z.object({
 export default function ChatPage() {
   const [messages, setMessages] = useState<ChatMessageProps[]>([]);
   const [isAiLoading, setIsAiLoading] = useState(false);
-  const scrollAreaViewport = useRef<HTMLDivElement>(null);
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -35,9 +35,9 @@ export default function ChatPage() {
   });
 
   useEffect(() => {
-    if (scrollAreaViewport.current) {
-      scrollAreaViewport.current.scrollTo({
-        top: scrollAreaViewport.current.scrollHeight,
+    if (scrollAreaRef.current) {
+      scrollAreaRef.current.scrollTo({
+        top: scrollAreaRef.current.scrollHeight,
         behavior: "smooth",
       });
     }
@@ -81,8 +81,8 @@ export default function ChatPage() {
     <div className="flex flex-col h-full">
       <h1 className="text-2xl font-bold mb-4">AI Chat</h1>
       <div className="flex-1 flex flex-col border rounded-lg">
-        <ScrollArea className="flex-1" viewportRef={scrollAreaViewport}>
-          <div className="p-4 space-y-4">
+        <ScrollArea className="flex-1">
+          <div className="p-4 space-y-4" ref={scrollAreaRef}>
             {messages.length === 0 && (
                 <div className="flex items-center justify-center h-full text-muted-foreground">
                     <p>Ask me anything to get started!</p>
