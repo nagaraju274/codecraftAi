@@ -48,12 +48,13 @@ export default function ChatPage() {
       role: "user",
       content: values.message,
     };
-    setMessages((prev) => [...prev, userMessage]);
+    const newMessages = [...messages, userMessage];
+    setMessages(newMessages);
     setIsAiLoading(true);
 
     try {
       const response = await chat({
-        messages: [...messages, userMessage].map((m) => ({
+        messages: newMessages.map((m) => ({
           role: m.role,
           content: [{ text: m.content }],
         })),
