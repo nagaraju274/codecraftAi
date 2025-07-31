@@ -402,18 +402,50 @@ const learningPaths = [
     description: "Learn to build beautiful and interactive user interfaces for the web.",
     topics: [
       {
-        title: "Core Technologies",
+        title: "Core Web Technologies",
         points: [
-          { text: "Master HTML for structuring web pages.", resources: [{ name: "HTML Tutorial", url: "https://www.w3schools.com/html/" }] },
-          { text: "Learn CSS for styling web pages.", resources: [{ name: "CSS Tutorial", url: "https://www.w3schools.com/css/" }] },
-          { text: "Understand JavaScript for adding interactivity.", resources: [{ name: "JavaScript Tutorial", url: "https://www.w3schools.com/js/" }] },
+            { text: "Master HTML for structuring web pages. This includes understanding tags, attributes, and the overall document structure.", resources: [{ name: "HTML Tutorial", url: "https://www.w3schools.com/html/" }, { name: "MDN HTML Basics", url: "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics" }] },
+            { text: "Learn CSS for styling web pages. This covers everything from colors and fonts to complex layouts and animations.", resources: [{ name: "CSS Tutorial", url: "https://www.w3schools.com/css/" }, { name: "MDN CSS First Steps", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps" }] },
+            { text: "Understand JavaScript for adding interactivity. Learn the fundamentals of the language to bring your web pages to life.", resources: [{ name: "JavaScript Tutorial", url: "https://www.w3schools.com/js/" }, { name: "MDN JavaScript basics", url: "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics" }] },
+        ],
+      },
+      {
+        title: "Advanced CSS and Layout",
+        points: [
+            { text: "Learn modern layout techniques with Flexbox for one-dimensional layouts and CSS Grid for two-dimensional layouts.", resources: [{ name: "CSS Flexbox Guide", url: "https://css-tricks.com/snippets/css/a-guide-to-flexbox/" }, { name: "CSS Grid Guide", url: "https://css-tricks.com/snippets/css/complete-guide-grid/" }] },
+            { text: "Master responsive design to ensure your websites look great on all devices, from mobile phones to desktops.", resources: [{ name: "Responsive Design", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" }] },
+            { text: "Explore CSS preprocessors like Sass or LESS to write more maintainable and powerful CSS with features like variables, nesting, and mixins.", resources: [{ name: "Sass Basics", url: "https://sass-lang.com/guide" }] },
+        ],
+      },
+      {
+        title: "JavaScript Deep Dive",
+        points: [
+            { text: "Grasp core JavaScript concepts like scope, closures, and the 'this' keyword to write more predictable and robust code.", resources: [{ name: "JavaScript Scope", url: "https://www.w3schools.com/js/js_scope.asp" }] },
+            { text: "Learn how to manipulate the Document Object Model (DOM) to dynamically update the content and structure of your web pages.", resources: [{ name: "DOM Introduction", url: "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction" }] },
+            { text: "Understand asynchronous JavaScript using Promises and async/await to handle operations like API calls without blocking the main thread.", resources: [{ name: "Asynchronous JavaScript", url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous" }] },
         ],
       },
       {
         title: "Frameworks and Libraries",
         points: [
-          { text: "Learn a modern front-end framework like React, Angular, or Vue.", resources: [{ name: "React", url: "https://reactjs.org/" }, { name: "Angular", url: "https://angular.io/" }, { name: "Vue.js", url: "https://vuejs.org/" }] },
-          { text: "Explore CSS frameworks like Bootstrap or Tailwind CSS.", resources: [{ name: "Bootstrap", url: "https://getbootstrap.com/" }, { name: "Tailwind CSS", url: "https://tailwindcss.com/" }] },
+            { text: "Learn a modern front-end framework like React (the most popular), Angular, or Vue to build complex, component-based user interfaces.", resources: [{ name: "React", url: "https://reactjs.org/" }, { name: "Angular", url: "https://angular.io/" }, { name: "Vue.js", url: "https://vuejs.org/" }] },
+            { text: "Explore component libraries and UI frameworks like Material-UI, Ant Design, or ShadCN UI to quickly build beautiful and consistent UIs.", resources: [{ name: "ShadCN UI", url: "https://ui.shadcn.com/" }] },
+            { text: "Get comfortable with a CSS framework like Bootstrap or Tailwind CSS to streamline your styling workflow.", resources: [{ name: "Bootstrap", url: "https://getbootstrap.com/" }, { name: "Tailwind CSS", url: "https://tailwindcss.com/" }] },
+        ],
+      },
+      {
+        title: "Build Tools and Tooling",
+        points: [
+            { text: "Understand the role of package managers like npm or Yarn for managing project dependencies.", resources: [{ name: "npm Docs", url: "https://docs.npmjs.com/" }] },
+            { text: "Learn to use build tools and bundlers like Vite or Webpack to compile, bundle, and optimize your code for production.", resources: [{ name: "Vite", url: "https://vitejs.dev/" }, { name: "Webpack", url: "https://webpack.js.org/" }] },
+            { text: "Use linters like ESLint and formatters like Prettier to enforce code quality and maintain a consistent style across your projects.", resources: [{ name: "ESLint", url: "https://eslint.org/" }, { name: "Prettier", url: "https://prettier.io/" }] },
+        ],
+      },
+      {
+        title: "Web Performance and Accessibility",
+        points: [
+            { text: "Learn techniques for optimizing website performance, such as code splitting, lazy loading, and image optimization.", resources: [{ name: "Web Performance", url: "https://developer.mozilla.org/en-US/docs/Learn/Performance" }] },
+            { text: "Understand the importance of web accessibility (a11y) and learn how to write semantic HTML and use ARIA attributes to make your sites usable for everyone.", resources: [{ name: "Accessibility", url: "https://developer.mozilla.org/en-US/docs/Web/Accessibility" }] },
         ],
       },
     ],
