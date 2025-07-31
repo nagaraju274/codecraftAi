@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Link } from "lucide-react";
+import { Link, ChevronRight } from "lucide-react";
 
 const learningPaths = [
   {
@@ -917,67 +917,6 @@ const learningPaths = [
     ],
   },
   {
-    title: "C++",
-    description: "Learn the powerful and high-performance C++ programming language.",
-    topics: [
-      {
-        title: "Stage 1: The Basics (C++ Foundations)",
-        points: [
-          { text: "Get your development environment ready. Install a C++ compiler (like g++ or Clang) and a good code editor (like VS Code) or an IDE (like Visual Studio or CLion).", resources: [{ name: "Compiler Setup", url: "https://www.learncpp.com/cpp-tutorial/installing-an-integrated-development-environment-ide/" }] },
-          { text: "Write, compile, and run your first 'Hello, World!' program. Understand the roles of `main()`, iostream, and the basic compilation process.", resources: [{ name: "Hello, World!", url: "https://www.learncpp.com/cpp-tutorial/writing-your-first-program/" }] },
-          { text: "Learn fundamental syntax, how to declare and initialize variables, and the basic data types (`int`, `double`, `char`, `bool`, etc.).", resources: [{ name: "Variables & Types", url: "https://www.learncpp.com/cpp-tutorial/introduction-to-variables/" }] },
-          { text: "Master operators (arithmetic, comparison, logical) and control flow (if/else, switch, for/while loops) to give your programs logic.", resources: [{ name: "Control Flow", url: "https://www.cplusplus.com/doc/tutorial/control/" }] },
-          { text: "Learn to define and call functions to organize your code into reusable blocks. Understand parameters, return values, and function overloading.", resources: [{ name: "Functions", url: "https://www.learncpp.com/cpp-tutorial/introduction-to-functions/" }] },
-        ],
-      },
-      {
-        title: "Stage 2: Core C++ Features",
-        points: [
-          { text: "Dive deep into pointers and references, a core feature of C++. Understand memory addresses, dereferencing, and the difference between pointer and reference types.", resources: [{ name: "Pointers", url: "https://www.learncpp.com/cpp-tutorial/introduction-to-pointers/" }, { name: "References", url: "https://www.learncpp.com/cpp-tutorial/references/" }] },
-          { text: "Learn how to work with arrays and C-style strings. Understand how arrays decay into pointers and the importance of null-terminated strings.", resources: [{ name: "Arrays", url: "https://www.learncpp.com/cpp-tutorial/introduction-to-arrays/" }] },
-          { text: "Understand how memory is organized into the stack (for static allocation) and the heap (for dynamic allocation). Learn to use `new` and `delete` to manage memory manually.", resources: [{ name: "Memory Management", url: "https://www.learncpp.com/cpp-tutorial/the-stack-and-the-heap/" }] },
-          { text: "Learn to use structs and enums to create your own custom data types for grouping related data.", resources: [{ name: "Structs", url: "https://www.learncpp.com/cpp-tutorial/introduction-to-structs-members-and-member-selection/" }] },
-        ],
-      },
-      {
-        title: "Stage 3: Object-Oriented Programming (OOP) in C++",
-        points: [
-          { text: "Learn to define classes and create objects. Understand the difference between `struct` and `class`, and the concepts of public/private access specifiers.", resources: [{ name: "Classes & Objects", url: "https://www.learncpp.com/cpp-tutorial/introduction-to-classes-and-class-members/" }] },
-          { text: "Master constructors for object initialization and destructors for cleanup. Learn about different types of constructors (default, parameterized, copy).", resources: [{ name: "Constructors", url: "https://www.learncpp.com/cpp-tutorial/constructors-and-initialization/" }] },
-          { text: "Explore the core OOP principles: Encapsulation, Abstraction, Inheritance (how classes can inherit from others), and Polymorphism (using virtual functions for dynamic behavior).", resources: [{ name: "OOP in C++", url: "https://www.geeksforgeeks.org/object-oriented-programming-in-cpp/" }] },
-          { text: "Learn about operator overloading, which allows you to define custom behavior for operators like `+`, `-`, or `<<` with your classes.", resources: [{ name: "Operator Overloading", url: "https://www.learncpp.com/cpp-tutorial/introduction-to-operator-overloading/" }] },
-        ],
-      },
-      {
-        title: "Stage 4: The Standard Template Library (STL)",
-        points: [
-          { text: "Get introduced to the STL, a powerful library of template classes and functions. Master sequential containers like `std::vector`, `std::list`, and `std::deque`.", resources: [{ name: "STL Containers", url: "https://www.cplusplus.com/reference/stl/" }] },
-          { text: "Learn to use associative containers like `std::map` (for key-value pairs) and `std::set` (for unique elements).", resources: [] },
-          { text: "Understand iterators, which act like pointers to container elements, and learn how to use them to traverse containers.", resources: [{ name: "Iterators", url: "https://www.learncpp.com/cpp-tutorial/introduction-to-iterators/" }] },
-          { text: "Explore the STL algorithms library, which provides a rich set of functions for operations like sorting (`std::sort`), searching, and transforming data in containers.", resources: [{ name: "STL Algorithms", url: "https://www.cplusplus.com/reference/algorithm/" }] },
-        ],
-      },
-      {
-        title: "Stage 5: Modern C++ (C++11/14/17/20)",
-        points: [
-          { text: "Learn about smart pointers (`std::unique_ptr`, `std::shared_ptr`) which automate memory management and help prevent memory leaks (RAII).", resources: [{ name: "Smart Pointers", url: "https://www.learncpp.com/cpp-tutorial/introduction-to-smart-pointers/" }] },
-          { text: "Master move semantics and rvalue references, a key feature for writing highly efficient code by avoiding unnecessary copies.", resources: [{ name: "Move Semantics", url: "https://www.learncpp.com/cpp-tutorial/move-constructors-and-move-assignment/" }] },
-          { text: "Use lambda expressions to write concise, anonymous functions, especially useful with STL algorithms.", resources: [{ name: "Lambda Functions", url: "https://www.learncpp.com/cpp-tutorial/introduction-to-lambdas-anonymous-functions/" }] },
-          { text: "Explore other modern features like range-based for loops, the `auto` keyword for type inference, and features from C++17 and C++20 (like `std::optional`, concepts, and ranges).", resources: [] },
-        ],
-      },
-      {
-        title: "Stage 6: Advanced Topics & Specializations",
-        points: [
-          { text: "Learn to write your own generic code using templates for functions and classes.", resources: [{ name: "Templates", url: "https://www.learncpp.com/cpp-tutorial/introduction-to-function-templates/" }] },
-          { text: "Learn to handle errors gracefully using exception handling (`try`, `catch`, `throw`).", resources: [{ name: "Exception Handling", url: "https://www.learncpp.com/cpp-tutorial/basic-exception-handling/" }] },
-          { text: "Get an introduction to multithreading with `std::thread` and learn about synchronization primitives like `std::mutex` and `std::atomic`.", resources: [{ name: "Concurrency", url: "https://www.cplusplus.com/reference/thread/thread/" }] },
-          { text: "Learn to use build systems like CMake to manage complex projects with multiple files and dependencies.", resources: [{ name: "CMake Tutorial", url: "https://cmake.org/cmake/help/latest/guide/tutorial/index.html" }] },
-        ],
-      },
-    ]
-  },
-  {
     title: "C#",
     description: "Learn the modern, object-oriented C# language from Microsoft.",
     topics: [
@@ -1280,13 +1219,16 @@ export default function LearnPage() {
               <p className="text-muted-foreground pt-2 text-sm">{path.description}</p>
             </CardHeader>
             <CardContent className="flex-grow">
-              <Accordion type="single" collapsible className="w-full space-y-1">
+              <Accordion type="single" collapsible className="w-full">
                 {path.topics.map((topic, index) => (
-                  <AccordionItem value={`item-${index}`} key={topic.title} className="border-b-0">
-                    <AccordionTrigger className="text-sm font-medium hover:no-underline border-b py-2.5">
-                        {topic.title}
+                  <AccordionItem value={`item-${index}`} key={topic.title}>
+                    <AccordionTrigger className="text-sm font-medium hover:no-underline py-3">
+                        <div className="flex items-center gap-2">
+                            <ChevronRight className="h-4 w-4 shrink-0 transition-transform duration-200" />
+                            {topic.title}
+                        </div>
                     </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground pt-2">
+                    <AccordionContent className="text-muted-foreground pt-2 pl-8">
                         <ul className="list-disc pl-5 space-y-4">
                             {topic.points.map((point, i) => (
                                 <li key={i}>
