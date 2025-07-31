@@ -1223,10 +1223,7 @@ export default function LearnPage() {
                 {path.topics.map((topic, index) => (
                   <AccordionItem value={`item-${index}`} key={topic.title}>
                     <AccordionTrigger className="text-sm font-medium hover:no-underline py-3">
-                        <div className="flex items-center gap-2">
-                            <ChevronRight className="h-4 w-4 shrink-0 transition-transform duration-200" />
-                            {topic.title}
-                        </div>
+                        {topic.title}
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground pt-2 pl-8">
                         <ul className="list-disc pl-5 space-y-4">
