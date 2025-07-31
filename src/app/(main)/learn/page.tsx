@@ -1,4 +1,6 @@
+"use client";
 
+import { useState } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -13,7 +15,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Link } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Link, Search } from "lucide-react";
 
 const learningPaths = [
   {
@@ -592,7 +595,7 @@ const learningPaths = [
             title: "Working with Remote Repositories",
             points: [
                 { text: "Learn how to connect your local repository to a remote one (like on GitHub or GitLab) using `git remote add`.", resources: [{ name: "Working with Remotes", url: "https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes" }] },
-                { text: "Use `git clone` to create a local copy of a remote repository on your machine.", resources: [{ name: "Cloning an Existing Repository", url: "https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository#_cloning_an_existing_repository" }] },
+                { text: "Use `git clone` to create a local copy of a remote repository on your machine.", resources: [{ name: "Cloning an Existing Repository", url: "https://git-scm.com/book/en-v2/Git-Basics-Getting-a-Git-Repository#_cloning_an_existing_repository" }] },
                 { text: "Use `git push` to upload your local commits to a remote repository, and `git pull` (which is a `git fetch` followed by a `git merge`) to download and integrate changes from a remote repository.", resources: [{ name: "Pushing to Your Remotes", url: "https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes#_pushing_to_your_remotes" }, { name: "Fetching and Pulling", url: "https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes#_fetching_and_pulling_from_your_remotes" }] },
             ],
         },
@@ -1208,8 +1211,14 @@ const learningPaths = [
   },
 ];
 
-
 export default function LearnPage() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredPaths = learningPaths.filter(path =>
+    path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    path.description.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="flex flex-col h-full gap-8">
       <div>
@@ -1217,6 +1226,16 @@ export default function LearnPage() {
         <p className="text-muted-foreground">
           Our structured learning paths will help you master new skills and advance your career.
         </p>
+      </div>
+      <div className="relative">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+        <Input
+          type="search"
+          placeholder="Search for a learning path..."
+          className="pl-10 w-full"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
       </div>
       <Carousel
         opts={{
@@ -1226,7 +1245,7 @@ export default function LearnPage() {
         className="w-full"
       >
         <CarouselContent className="-mt-1 h-[600px]">
-          {learningPaths.map((path, index) => (
+          {filteredPaths.map((path, index) => (
             <CarouselItem key={index} className="pt-1">
               <div className="p-1 h-full">
                 <Card className="hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
