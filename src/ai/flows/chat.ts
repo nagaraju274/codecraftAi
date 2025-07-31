@@ -11,12 +11,12 @@ import {ai} from '@/ai/genkit';
 import {z, MessageSchema} from 'genkit';
 
 
-export const ChatInputSchema = z.object({
+const ChatInputSchema = z.object({
   messages: z.array(MessageSchema),
 });
 export type ChatInput = z.infer<typeof ChatInputSchema>;
 
-export const ChatOutputSchema = z.string();
+const ChatOutputSchema = z.string();
 export type ChatOutput = z.infer<typeof ChatOutputSchema>;
 
 export async function chat(input: ChatInput): Promise<ChatOutput> {
