@@ -781,59 +781,72 @@ const learningPaths = [
     title: "R",
     description: "Learn R, the premier language for statistical computing, data analysis, and graphical representation.",
     topics: [
-        {
-            title: "Introduction to R",
-            points: [
-                { text: "Understand why R is a dominant language in data science and academia for statistical analysis and visualization.", resources: [{ name: "What is R?", url: "https://www.r-project.org/about.html" }] },
-                { text: "Install R and RStudio, the premier integrated development environment (IDE) that makes working with R much more efficient.", resources: [{ name: "Install R", url: "https://cran.r-project.org/" }, { name: "Install RStudio Desktop", url: "https://posit.co/download/rstudio-desktop/" }] },
-                { text: "Familiarize yourself with the RStudio interface, including the console for running commands, the script editor for writing code, the environment pane for viewing objects, and the plots pane for visualizations.", resources: [{ name: "RStudio IDE", url: "https://r-for-beginners.com/rstudio-ide" }] },
-            ],
-        },
-        {
-            title: "R Fundamentals",
-            points: [
-                { text: "Learn the basic syntax of R, including how to use it as a calculator, assign values to variables, and use comments to document your code.", resources: [{ name: "R Basic Syntax", url: "https://www.tutorialspoint.com/r/r_basic_syntax.htm" }] },
-                { text: "Explore R's main data types, including numeric (for numbers), character (for text), logical (for TRUE/FALSE), and complex.", resources: [{ name: "R Data Types", url: "https://www.w3schools.com/r/r_data_types.asp" }] },
-                { text: "Understand how to work with packages, the collections of functions and data sets that extend R's capabilities. Learn to install (`install.packages()`) and load (`library()`) packages.", resources: [{ name: "R Packages", url: "https://www.datacamp.com/tutorial/r-packages-guide" }] },
-            ],
-        },
-        {
-            title: "R Data Structures",
-            points: [
-                { text: "Master vectors, the fundamental R data structure, which are one-dimensional arrays that can hold elements of the same type. Learn about atomic vectors and vectorization.", resources: [{ name: "R Vectors", url: "https://www.w3schools.com/r/r_vectors.asp" }] },
-                { text: "Learn to work with matrices (two-dimensional arrays) and arrays (which can have more than two dimensions).", resources: [{ name: "R Matrices", url: "https://www.w3schools.com/r/r_matrices.asp" }] },
-                { text: "Understand lists, which are a versatile data structure that can hold a collection of different types of objects.", resources: [{ name: "R Lists", url: "https://www.w3schools.com/r/r_lists.asp" }] },
-                { text: "Grasp data frames, the most important data structure for data analysis in R. They are two-dimensional, table-like structures where each column can have a different data type.", resources: [{ name: "R Data Frames", url: "https://www.w3schools.com/r/r_data_frames.asp" }] },
-                { text: "Learn about factors, which are used to represent categorical data and are important for statistical modeling.", resources: [{ name: "R Factors", url: "https://www.w3schools.com/r/r_factors.asp" }] },
-            ],
-        },
-        {
-            title: "Data Manipulation with dplyr",
-            points: [
-                { text: "Learn about the Tidyverse, a collection of R packages designed for data science that share an underlying design philosophy, grammar, and data structures.", resources: [{ name: "Tidyverse", url: "https://www.tidyverse.org/" }] },
-                { text: "Use `filter()` to select a subset of rows in a data frame based on their values.", resources: [{ name: "Filter Rows with dplyr", url: "https://dplyr.tidyverse.org/reference/filter.html" }] },
-                { text: "Use `select()` to pick columns by name, and `arrange()` to reorder the rows of a data frame.", resources: [{ name: "Select Columns", url: "https://dplyr.tidyverse.org/reference/select.html" }, { name: "Arrange Rows", url: "https://dplyr.tidyverse.org/reference/arrange.html" }] },
-                { text: "Use `mutate()` to add new variables that are functions of existing variables.", resources: [{ name: "Create New Variables with mutate", url: "https://dplyr.tidyverse.org/reference/mutate.html" }] },
-                { text: "Collapse many values down to a single summary using `summarise()`, often used in combination with `group_by()` to perform operations by group.", resources: [{ name: "Summarise Data", url: "https://dplyr.tidyverse.org/reference/summarise.html" }, { name: "Group By", url: "https://dplyr.tidyverse.org/reference/group_by.html" }] },
-            ],
-        },
-        {
-            title: "Data Visualization with ggplot2",
-            points: [
-                { text: "Understand the 'Grammar of Graphics', the philosophy behind ggplot2, which allows you to build plots layer by layer.", resources: [{ name: "Introduction to ggplot2", url: "https://ggplot2.tidyverse.org/articles/ggplot2-specs.html" }] },
-                { text: "Create your first plot by defining the aesthetic mappings (`aes()`), which describe how variables in the data are mapped to visual properties of the plot.", resources: [{ name: "Getting started with ggplot2", url: "https://r-graph-gallery.com/2-introduction-to-ggplot2.html" }] },
-                { text: "Learn to add and customize geometric objects (`geoms`) like points, lines, and bars, which are the visual elements that represent your data.", resources: [{ name: "ggplot2 geoms", url: "https://ggplot2.tidyverse.org/reference/index.html#section-geoms" }] },
-                { text: "Enhance your plots by customizing scales, themes, labels, and titles to create publication-quality graphics.", resources: [{ name: "Themes", url: "https://ggplot2.tidyverse.org/reference/theme.html" }, { name: "Labels", url: "https://ggplot2.tidyverse.org/reference/labs.html" }] },
-            ],
-        },
-        {
-            title: "Control Flow and Functions",
-            points: [
-                { text: "Control program execution with conditional `if...else` statements.", resources: [{ name: "R if...else", url: "https://www.w3schools.com/r/r_if_else.asp" }] },
-                { text: "Learn to use `for` and `while` loops to repeat tasks.", resources: [{ name: "R for Loop", url: "https://www.w3schools.com/r/r_for_loop.asp" }, { name: "R while Loop", url: "https://www.w3schools.com/r/r_while_loop.asp" }] },
-                { text: "Write your own functions to make your code more modular and reusable.", resources: [{ name: "R Functions", url: "https://www.w3schools.com/r/r_functions.asp" }] },
-            ],
-        },
+      {
+        title: "Foundations of R (Beginner)",
+        points: [
+          { text: "Install R and RStudio, the premier integrated development environment (IDE) that makes working with R much more efficient.", resources: [{ name: "Install R", url: "https://cran.r-project.org/" }, { name: "Install RStudio", url: "https://posit.co/download/rstudio-desktop/" }] },
+          { text: "Familiarize yourself with the RStudio interface, including the console, script editor, environment pane, and plots pane.", resources: [{ name: "RStudio IDE", url: "https://r-for-beginners.com/rstudio-ide" }] },
+          { text: "Learn to execute basic commands and run scripts.", resources: [{ name: "R Basic Syntax", url: "https://www.tutorialspoint.com/r/r_basic_syntax.htm" }] },
+          { text: "Understand variables and R's main data types, including numeric, character, and logical.", resources: [{ name: "R Data Types", url: "https://www.w3schools.com/r/r_data_types.asp" }] },
+          { text: "Master R's fundamental data structures: vectors, lists, matrices, arrays, and factors.", resources: [{ name: "R Data Structures", url: "https://www.datamentor.io/r-programming/data-structures/" }] },
+          { text: "Learn to use arithmetic, logical, and relational operators to perform calculations and comparisons.", resources: [{ name: "R Operators", url: "https://www.w3schools.com/r/r_operators.asp" }] },
+        ],
+      },
+      {
+        title: "Control Flow and Functions",
+        points: [
+          { text: "Control program execution with conditional statements like `if`, `else`, and `ifelse`.", resources: [{ name: "R if...else", url: "https://www.w3schools.com/r/r_if_else.asp" }] },
+          { text: "Learn to use `for`, `while`, and `repeat` loops to iterate and perform repetitive tasks.", resources: [{ name: "R Loops", url: "https://www.w3schools.com/r/r_for_loop.asp" }] },
+          { text: "Use `break` and `next` to control loop execution.", resources: [{ name: "R break/next", url: "https://www.w3schools.com/r/r_break.asp" }] },
+          { text: "Write your own custom functions to make your code modular. Understand function arguments and return values.", resources: [{ name: "R Functions", url: "https://www.w3schools.com/r/r_functions.asp" }] },
+        ],
+      },
+      {
+        title: "Data Input & Output",
+        points: [
+          { text: "Learn to read data from various file formats like CSV, Excel, and JSON.", resources: [] },
+          { text: "Use functions like `read.csv()`, `read.table()`, `readxl::read_excel()`, and `jsonlite::fromJSON()` to import data.", resources: [{ name: "Data Import", url: "https://r-coder.com/data-import-r/" }] },
+          { text: "Learn to save your data into different formats using functions like `write.csv()`.", resources: [{ name: "Data Export", url: "https://r-coder.com/data-export-r/" }] },
+        ],
+      },
+      {
+        title: "Data Manipulation (Intermediate)",
+        points: [
+          { text: "Master the use of Data Frames and Tibbles, the primary data structures for analysis in R.", resources: [{ name: "R Data Frames", url: "https://www.w3schools.com/r/r_data_frames.asp" }] },
+          { text: "Learn the core verbs of the `dplyr` package for data manipulation: `filter()`, `select()`, `mutate()`, `arrange()`, `summarise()`, and `group_by()`.", resources: [{ name: "dplyr Tutorial", url: "https://www.datacamp.com/tutorial/dplyr-tutorial-for-beginners" }] },
+          { text: "Use the `tidyr` package to reshape your data with functions like `pivot_longer()` and `pivot_wider()`.", resources: [{ name: "Tidy Data", url: "https://tidyr.tidyverse.org/" }] },
+          { text: "Clean your data by handling missing values (`na.omit()`, `is.na()`) and performing string operations with `stringr`.", resources: [{ name: "stringr", url: "https://stringr.tidyverse.org/" }] },
+          { text: "Handle date and time data effectively using the `lubridate` package.", resources: [{ name: "lubridate", url: "https://lubridate.tidyverse.org/" }] },
+        ],
+      },
+      {
+        title: "Data Visualization",
+        points: [
+          { text: "Learn the basics of plotting with R's built-in plotting functions.", resources: [{ name: "Base R Plotting", url: "https://www.datacamp.com/tutorial/r-base-plot" }] },
+          { text: "Master `ggplot2` and its 'Grammar of Graphics' to create complex, layered visualizations.", resources: [{ name: "ggplot2", url: "https://ggplot2.tidyverse.org/" }] },
+          { text: "Learn to use various geoms like `geom_point()`, `geom_bar()`, and `geom_histogram()`, and facet your plots with `facet_wrap()`.", resources: [{ name: "ggplot2 Geoms", url: "https://ggplot2.tidyverse.org/reference/index.html#section-geoms" }] },
+        ],
+      },
+      {
+        title: "Statistical Analysis & ML (Advanced)",
+        points: [
+          { text: "Calculate descriptive statistics to summarize your data.", resources: [{ name: "Descriptive Statistics", url: "http://www.sthda.com/english/articles/2-r-basics/28-r-basics-easy-and-fast/" }] },
+          { text: "Perform hypothesis testing, including t-tests and chi-square tests, and conduct Analysis of Variance (ANOVA).", resources: [{ name: "Hypothesis Testing", url: "https://www.datacamp.com/tutorial/hypothesis-testing-in-r" }] },
+          { text: "Build linear and logistic regression models to understand relationships in your data.", resources: [{ name: "Linear Regression", url: "http://www.sthda.com/english/articles/40-regression-analysis/167-simple-linear-regression-in-r/" }] },
+          { text: "Get introduced to machine learning in R using frameworks like `caret` or `tidymodels`.", resources: [{ name: "tidymodels", url: "https://www.tidymodels.org/" }] },
+          { text: "Build supervised models (Random Forest, SVM) and unsupervised models (k-means clustering, PCA).", resources: [{ name: "Machine Learning in R", url: "https://www.datacamp.com/tutorial/machine-learning-in-r" }] },
+          { text: "Evaluate your models using metrics like the confusion matrix, ROC curves, and AUC.", resources: [{ name: "Model Evaluation", url: "https://www.datacamp.com/tutorial/roc-curves-and-auc-r" }] },
+        ],
+      },
+      {
+        title: "Specializations & Projects",
+        points: [
+          { text: "Build interactive web applications directly from your R code using the `Shiny` package.", resources: [{ name: "Shiny", url: "https://shiny.posit.co/" }] },
+          { text: "Learn to create dynamic reports and documents with R Markdown and `knitr`.", resources: [{ name: "R Markdown", url: "https://rmarkdown.rstudio.com/" }] },
+          { text: "Explore using R with big data technologies like Apache Spark via `sparklyr`.", resources: [{ name: "sparklyr", url: "https://spark.rstudio.com/" }] },
+          { text: "Apply your skills to real-world datasets. Perform an Exploratory Data Analysis (EDA), build a predictive model, and create a data visualization dashboard.", resources: [{ name: "Kaggle", url: "https://www.kaggle.com/" }] },
+        ],
+      },
     ],
   },
   {
