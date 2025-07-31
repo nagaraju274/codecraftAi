@@ -33,28 +33,42 @@ export default function PlaygroundPage() {
   }
 
   const runCode = () => {
-    setOutput([])
-    let newOutput: string[];
-    switch (language) {
-      case "javascript":
-        newOutput = ["> console.log('Hello, Student!');", "Hello, Student!"];
-        break;
-      case "python":
-        newOutput = ["> python main.py", "Hello, Student!"];
-        break;
-      case "cpp":
-        newOutput = ["> g++ main.cpp && ./a.out", "Hello, Student!"];
-        break;
-      case "java":
-        newOutput = ["> javac HelloWorld.java && java HelloWorld", "Hello, Student!"];
-        break;
-      case "go":
-        newOutput = ["> go run main.go", "Hello, Student!"];
-        break;
-      default:
-        newOutput = [];
+    setOutput([]);
+    if (language === 'javascript') {
+      const newOutput: string[] = [];
+      const originalLog = console.log;
+      newOutput.push(`> node main.js`);
+      console.log = (...args) => {
+        newOutput.push(args.map(arg => typeof arg === 'string' ? arg : JSON.stringify(arg)).join(' '));
+      };
+      try {
+        new Function(code)();
+      } catch (error: any) {
+        newOutput.push(`Error: ${error.message}`);
+      } finally {
+        console.log = originalLog;
+        setOutput(newOutput);
+      }
+    } else {
+      let newOutput: string[];
+      switch (language) {
+        case "python":
+          newOutput = ["> python main.py", "Hello, Student!"];
+          break;
+        case "cpp":
+          newOutput = ["> g++ main.cpp && ./a.out", "Hello, Student!"];
+          break;
+        case "java":
+          newOutput = ["> javac HelloWorld.java && java HelloWorld", "Hello, Student!"];
+          break;
+        case "go":
+          newOutput = ["> go run main.go", "Hello, Student!"];
+          break;
+        default:
+          newOutput = [];
+      }
+      setOutput(newOutput);
     }
-    setOutput(newOutput)
   }
 
   const handleFixCode = async () => {
