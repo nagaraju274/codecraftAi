@@ -49,6 +49,45 @@ const learningPaths = [
         "Building a Simple Web App",
     ],
   },
+  {
+    title: "Full Stack Web Development",
+    description: "Become a full-stack developer by mastering both front-end and back-end technologies.",
+    topics: [
+      "Frontend Frameworks (React, Next.js)",
+      "Backend Development (Node.js, Express)",
+      "Databases (SQL, NoSQL)",
+      "APIs and RESTful services",
+      "Authentication and Authorization",
+      "Deployment and Hosting",
+      "Version Control with Git",
+    ],
+  },
+  {
+    title: "Mobile App Development",
+    description: "Build applications for iOS and Android using modern cross-platform frameworks.",
+    topics: [
+      "Introduction to Mobile Development",
+      "React Native or Flutter Fundamentals",
+      "State Management",
+      "Navigation",
+      "Working with APIs",
+      "Push Notifications",
+      "Publishing to App Stores",
+    ],
+  },
+  {
+    title: "DevOps Engineer",
+    description: "Learn the practices and tools to automate and streamline the software development lifecycle.",
+    topics: [
+      "CI/CD Pipelines (Jenkins, GitHub Actions)",
+      "Infrastructure as Code (Terraform, Ansible)",
+      "Containerization (Docker, Kubernetes)",
+      "Cloud Platforms (AWS, GCP, Azure)",
+      "Monitoring and Logging",
+      "Scripting (Bash, Python)",
+      "Networking Fundamentals",
+    ],
+  },
 ];
 
 
