@@ -427,9 +427,9 @@ const learningPaths = [
       {
         title: "JavaScript Deep Dive",
         points: [
-            { text: "Grasp core JavaScript concepts like scope, closures, and the 'this' keyword to write more predictable and robust code.", resources: [{ name: "JavaScript Scope", url: "https://www.w3schools.com/js/js_scope.asp" }] },
-            { text: "Learn how to manipulate the Document Object Model (DOM) to dynamically update the content and structure of your web pages.", resources: [{ name: "DOM Introduction", url: "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction" }] },
-            { text: "Understand asynchronous JavaScript using Promises and async/await to handle operations like API calls without blocking the main thread.", resources: [{ name: "Asynchronous JavaScript", url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous" }] },
+          { text: "Grasp core JavaScript concepts like scope, closures, and the 'this' keyword to write more predictable and robust code.", resources: [{ name: "JavaScript Scope", url: "https://www.w3schools.com/js/js_scope.asp" }] },
+          { text: "Learn how to manipulate the Document Object Model (DOM) to dynamically update the content and structure of your web pages.", resources: [{ name: "DOM Introduction", url: "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction" }] },
+          { text: "Understand asynchronous JavaScript using Promises and async/await to handle operations like API calls without blocking the main thread.", resources: [{ name: "Asynchronous JavaScript", url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous" }] },
         ],
       },
       {
@@ -1222,11 +1222,12 @@ export default function LearnPage() {
         opts={{
           align: "start",
         }}
+        orientation="vertical"
         className="w-full"
       >
-        <CarouselContent>
+        <CarouselContent className="-mt-1 h-[600px]">
           {learningPaths.map((path, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={index} className="pt-1">
               <div className="p-1 h-full">
                 <Card className="hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
                   <CardHeader>
