@@ -169,6 +169,60 @@ const learningPaths = [
     ],
   },
   {
+    title: "TypeScript Roadmap",
+    description: "Master TypeScript to build scalable and robust applications with the safety of static types.",
+    topics: [
+      {
+        title: "Introduction to TypeScript",
+        points: [
+          { text: "Understand what TypeScript is, its relationship with JavaScript, and the benefits of using a typed superset.", resources: [{ name: "TypeScript for JavaScript Programmers", url: "https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html" }] },
+          { text: "Set up a new project with TypeScript, including installing the compiler and configuring the essential `tsconfig.json` file.", resources: [{ name: "TypeScript Setup", url: "https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html" }] },
+          { text: "Learn the basic workflow of writing TypeScript code and compiling it down to plain JavaScript.", resources: [] },
+        ],
+      },
+      {
+        title: "Basic Types",
+        points: [
+          { text: "Explore TypeScript's core data types, including `string`, `number`, and `boolean`, and see how type inference works.", resources: [{ name: "The Basics", url: "https://www.typescriptlang.org/docs/handbook/2/basic-types.html" }] },
+          { text: "Learn to define the shape of arrays and tuples for ordered data structures.", resources: [{ name: "Object Types", url: "https://www.typescriptlang.org/docs/handbook/2/objects.html" }] },
+          { text: "Understand the special types `any`, `unknown`, `never`, and `void` and when to use (and avoid) them.", resources: [] },
+        ],
+      },
+      {
+        title: "Functions",
+        points: [
+          { text: "Learn how to explicitly type function parameters and return values to create predictable and self-documenting functions.", resources: [{ name: "More on Functions", url: "https://www.typescriptlang.org/docs/handbook/2/functions.html" }] },
+          { text: "Implement optional and default parameters to make your functions more flexible.", resources: [] },
+          { text: "Use function overloads to define multiple function signatures for a single function body.", resources: [] },
+        ],
+      },
+      {
+        title: "Interfaces and Type Aliases",
+        points: [
+          { text: "Use the `interface` keyword to define the shape of objects and create contracts for your code.", resources: [{ name: "Interfaces", url: "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#interfaces" }] },
+          { text: "Use the `type` keyword to create custom type aliases for cleaner and more reusable code.", resources: [{ name: "Type Aliases", url: "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases" }] },
+          { text: "Understand the key differences between interfaces and type aliases and when to use each.", resources: [{ name: "Differences", url: "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces" }] },
+        ],
+      },
+      {
+        title: "Generics",
+        points: [
+          { text: "Grasp the concept of generics to write flexible, reusable components that can work over a variety of types.", resources: [{ name: "Generics", url: "https://www.typescriptlang.org/docs/handbook/2/generics.html" }] },
+          { text: "Create generic functions, interfaces, and classes to build highly adaptable and type-safe code.", resources: [] },
+          { text: "Use generic constraints to narrow down the types that can be used with a generic component.", resources: [{ name: "Generic Constraints", url: "https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints" }] },
+        ],
+      },
+      {
+        title: "Advanced Types",
+        points: [
+          { text: "Learn to use union types to allow a variable to be one of several types.", resources: [{ name: "Unions", url: "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#unions" }] },
+          { text: "Use intersection types to combine multiple types into a single one.", resources: [{ name: "Intersections", url: "https://www.typescriptlang.org/docs/handbook/2/objects.html#intersection-types" }] },
+          { text: "Master utility types like `Partial<T>`, `Readonly<T>`, `Pick<T, K>`, and `Omit<T, K>` to transform existing types.", resources: [{ name: "Utility Types", url: "https://www.typescriptlang.org/docs/handbook/utility-types.html" }] },
+        ],
+      },
+    ],
+  },
+  {
     title: "Web Development Foundations",
     description: "Learn the core technologies for building modern websites and web applications.",
     topics: [
