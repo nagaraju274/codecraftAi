@@ -169,60 +169,6 @@ const learningPaths = [
     ],
   },
   {
-    title: "TypeScript Roadmap",
-    description: "Master TypeScript to build scalable and robust applications with the safety of static types.",
-    topics: [
-      {
-        title: "Introduction to TypeScript",
-        points: [
-          { text: "Understand what TypeScript is, its relationship with JavaScript, and the benefits of using a typed superset.", resources: [{ name: "TypeScript for JavaScript Programmers", url: "https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html" }] },
-          { text: "Set up a new project with TypeScript, including installing the compiler and configuring the essential `tsconfig.json` file.", resources: [{ name: "TypeScript Setup", url: "https://www.typescriptlang.org/docs/handbook/typescript-tooling-in-5-minutes.html" }] },
-          { text: "Learn the basic workflow of writing TypeScript code and compiling it down to plain JavaScript.", resources: [] },
-        ],
-      },
-      {
-        title: "Basic Types",
-        points: [
-          { text: "Explore TypeScript's core data types, including `string`, `number`, and `boolean`, and see how type inference works.", resources: [{ name: "The Basics", url: "https://www.typescriptlang.org/docs/handbook/2/basic-types.html" }] },
-          { text: "Learn to define the shape of arrays and tuples for ordered data structures.", resources: [{ name: "Object Types", url: "https://www.typescriptlang.org/docs/handbook/2/objects.html" }] },
-          { text: "Understand the special types `any`, `unknown`, `never`, and `void` and when to use (and avoid) them.", resources: [] },
-        ],
-      },
-      {
-        title: "Functions",
-        points: [
-          { text: "Learn how to explicitly type function parameters and return values to create predictable and self-documenting functions.", resources: [{ name: "More on Functions", url: "https://www.typescriptlang.org/docs/handbook/2/functions.html" }] },
-          { text: "Implement optional and default parameters to make your functions more flexible.", resources: [] },
-          { text: "Use function overloads to define multiple function signatures for a single function body.", resources: [] },
-        ],
-      },
-      {
-        title: "Interfaces and Type Aliases",
-        points: [
-          { text: "Use the `interface` keyword to define the shape of objects and create contracts for your code.", resources: [{ name: "Interfaces", url: "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#interfaces" }] },
-          { text: "Use the `type` keyword to create custom type aliases for cleaner and more reusable code.", resources: [{ name: "Type Aliases", url: "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases" }] },
-          { text: "Understand the key differences between interfaces and type aliases and when to use each.", resources: [{ name: "Differences", url: "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces" }] },
-        ],
-      },
-      {
-        title: "Generics",
-        points: [
-          { text: "Grasp the concept of generics to write flexible, reusable components that can work over a variety of types.", resources: [{ name: "Generics", url: "https://www.typescriptlang.org/docs/handbook/2/generics.html" }] },
-          { text: "Create generic functions, interfaces, and classes to build highly adaptable and type-safe code.", resources: [] },
-          { text: "Use generic constraints to narrow down the types that can be used with a generic component.", resources: [{ name: "Generic Constraints", url: "https://www.typescriptlang.org/docs/handbook/2/generics.html#generic-constraints" }] },
-        ],
-      },
-      {
-        title: "Advanced Types",
-        points: [
-          { text: "Learn to use union types to allow a variable to be one of several types.", resources: [{ name: "Unions", url: "https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#unions" }] },
-          { text: "Use intersection types to combine multiple types into a single one.", resources: [{ name: "Intersections", url: "https://www.typescriptlang.org/docs/handbook/2/objects.html#intersection-types" }] },
-          { text: "Master utility types like `Partial<T>`, `Readonly<T>`, `Pick<T, K>`, and `Omit<T, K>` to transform existing types.", resources: [{ name: "Utility Types", url: "https://www.typescriptlang.org/docs/handbook/utility-types.html" }] },
-        ],
-      },
-    ],
-  },
-  {
     title: "Web Development Foundations",
     description: "Learn the core technologies for building modern websites and web applications.",
     topics: [
@@ -1036,13 +982,60 @@ const learningPaths = [
   },
   {
     title: "Swift",
-    description: "Learn Swift, the modern language for building apps for Apple platforms.",
+    description: "Learn Swift, the modern, powerful, and intuitive language for building apps for Apple platforms (iOS, macOS, watchOS, and tvOS).",
     topics: [
       {
-        title: "Fundamentals",
+        title: "Swift Fundamentals",
         points: [
-          { text: "Understand Swift syntax, optionals, and control flow.", resources: [{ name: "A Swift Tour", url: "https://docs.swift.org/swift-book/GuidedTour/GuidedTour.html" }] },
-          { text: "Learn about UIKit/SwiftUI for building user interfaces.", resources: [{ name: "Hacking with Swift", url: "https://www.hackingwithswift.com/" }] },
+          { text: "Learn the basics of Swift, including constants, variables, and data types like Int, Double, String, and Bool.", resources: [{ name: "The Basics", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics" }] },
+          { text: "Master control flow with conditional statements (if, switch) and loops (for-in, while) to control the execution of your code.", resources: [{ name: "Control Flow", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow" }] },
+          { text: "Understand how to work with collection types, including Arrays, Sets, and Dictionaries, for storing collections of values.", resources: [{ name: "Collection Types", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/collectiontypes" }] },
+          { text: "Grasp the concept of optionals and learn how to safely work with values that might be absent using optional binding and optional chaining.", resources: [{ name: "Optionals", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics#Optionals" }] },
+        ],
+      },
+      {
+        title: "Functions and Closures",
+        points: [
+          { text: "Learn to define and call functions to create reusable blocks of code. Understand parameters, return values, and function argument labels.", resources: [{ name: "Functions", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions" }] },
+          { text: "Explore closures, which are self-contained blocks of functionality that can be passed around and used in your code, similar to lambdas in other languages.", resources: [{ name: "Closures", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures" }] },
+        ],
+      },
+      {
+        title: "Object-Oriented Swift",
+        points: [
+          { text: "Learn to define custom types using Classes and Structures. Understand their differences and when to use each.", resources: [{ name: "Classes and Structures", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures" }] },
+          { text: "Define properties to store values and computed properties to calculate values. Also, understand how to use property observers.", resources: [{ name: "Properties", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties" }] },
+          { text: "Understand inheritance to build class hierarchies, and learn how to use protocols to define a 'blueprint' of methods, properties, and other requirements.", resources: [{ name: "Inheritance", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/inheritance" }, { name: "Protocols", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols" }] },
+        ],
+      },
+      {
+        title: "Introduction to SwiftUI",
+        points: [
+          { text: "Learn the fundamentals of SwiftUI, Apple's declarative UI framework for building apps on all Apple platforms.", resources: [{ name: "SwiftUI Tutorials", url: "https://developer.apple.com/tutorials/swiftui" }] },
+          { text: "Build user interfaces using a hierarchy of Views, such as Text, Image, and Button. Learn to compose complex views from simple ones.", resources: [{ name: "Views and Controls", url: "https://developer.apple.com/documentation/swiftui/views-and-controls" }] },
+          { text: "Use stacks (VStack, HStack, ZStack) and spacers to arrange views and create sophisticated layouts.", resources: [{ name: "Layout and Presentation", url: "https://developer.apple.com/documentation/swiftui/layout-and-presentation" }] },
+        ],
+      },
+      {
+        title: "State Management in SwiftUI",
+        points: [
+          { text: "Learn to manage the state of your views using property wrappers like @State, @Binding, @StateObject, and @ObservedObject.", resources: [{ name: "State and Data Flow", url: "https://developer.apple.com/documentation/swiftui/state-and-data-flow" }] },
+          { text: "Understand how SwiftUI automatically updates the view when the state changes, keeping your UI consistent with your data.", resources: [] },
+        ],
+      },
+      {
+        title: "Navigation and Data Flow",
+        points: [
+          { text: "Implement navigation in your app using `NavigationStack` to create hierarchical navigation and `TabView` for tab-based interfaces.", resources: [{ name: "Navigation", url: "https://developer.apple.com/documentation/swiftui/navigation" }] },
+          { text: "Learn how to pass data between views, present modal sheets, and show alerts to the user.", resources: [] },
+        ],
+      },
+      {
+        title: "Networking and Concurrency",
+        points: [
+          { text: "Learn to fetch data from a remote API using `URLSession`.", resources: [{ name: "Fetching Website Data", url: "https://developer.apple.com/documentation/foundation/urlsession" }] },
+          { text: "Understand modern concurrency in Swift with `async/await` to write asynchronous code that is easy to read and maintain.", resources: [{ name: "Concurrency", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/" }] },
+          { text: "Parse JSON data from an API into your Swift data models using the `Codable` protocol.", resources: [{ name: "Encoding and Decoding", url: "https://developer.apple.com/documentation/swift/encoding-and-decoding-custom-types" }] },
         ],
       },
     ],
@@ -1395,4 +1388,5 @@ export default function LearnPage() {
   );
 }
 
+    
     
