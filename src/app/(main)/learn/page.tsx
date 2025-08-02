@@ -1095,14 +1095,70 @@ const learningPaths = [
     ],
   },
   {
-    title: "PHP",
-    description: "Learn the popular server-side scripting language for web development.",
+    title: "PHP for Web Development",
+    description: "A comprehensive guide to learning PHP, from the basics to building dynamic web applications with a modern framework.",
     topics: [
       {
-        title: "Core Concepts",
+        title: "Introduction to PHP",
         points: [
-          { text: "Understand PHP syntax, variables, and control structures.", resources: [{ name: "PHP The Right Way", url: "https://phptherightway.com/" }] },
-          { text: "Learn about working with databases and a framework like Laravel or Symfony.", resources: [{ name: "Laravel", url: "https://laravel.com/" }] },
+          { text: "Learn about the history of PHP and its role in server-side web development.", resources: [{ name: "What is PHP?", url: "https://www.php.net/manual/en/intro-whatis.php" }] },
+          { text: "Set up a local development environment using tools like XAMPP, MAMP, or Docker to run a web server, database, and PHP.", resources: [{ name: "PHP Installation", url: "https://www.php.net/manual/en/install.php" }] },
+          { text: "Write your first PHP script to understand basic syntax, tags, and how to display output in the browser.", resources: [{ name: "Basic Syntax", url: "https://www.php.net/manual/en/language.basic-syntax.php" }] },
+        ],
+      },
+      {
+        title: "PHP Fundamentals",
+        points: [
+          { text: "Understand how to declare and use variables, and learn about PHP's data types, including strings, integers, floats, booleans, and arrays.", resources: [{ name: "Variables", url: "https://www.php.net/manual/en/language.variables.php" }, { name: "Types", url: "https://www.php.net/manual/en/language.types.php" }] },
+          { text: "Master operators for performing arithmetic, assignment, comparison, and logical operations.", resources: [{ name: "Operators", url: "https://www.php.net/manual/en/language.operators.php" }] },
+          { text: "Learn about associative arrays for key-value pair storage and indexed arrays for ordered lists.", resources: [{ name: "Arrays", url: "https://www.php.net/manual/en/language.types.array.php" }] },
+        ],
+      },
+      {
+        title: "Control Structures and Functions",
+        points: [
+          { text: "Use conditional statements like `if`, `elseif`, `else`, and `switch` to make decisions in your code.", resources: [{ name: "Control Structures", url: "https://www.php.net/manual/en/language.control-structures.php" }] },
+          { text: "Learn how to use loops like `for`, `foreach`, `while`, and `do-while` to execute repetitive tasks.", resources: [{ name: "Loops", url: "https://www.php.net/manual/en/language.control-structures.php" }] },
+          { text: "Define and call your own functions to create reusable and organized code. Understand parameters, return values, and variable scope.", resources: [{ name: "Functions", url: "https://www.php.net/manual/en/language.functions.php" }] },
+        ],
+      },
+      {
+        title: "Working with Forms and Superglobals",
+        points: [
+          { text: "Learn how to build HTML forms and process the submitted data in PHP.", resources: [{ name: "Handling Forms", url: "https://www.w3schools.com/php/php_forms.asp" }] },
+          { text: "Understand and use PHP's superglobal arrays like `$_GET`, `$_POST`, and `$_SESSION` to access user input and manage session data.", resources: [{ name: "Superglobals", url: "https://www.php.net/manual/en/language.variables.superglobals.php" }] },
+          { text: "Learn the importance of validating and sanitizing user input to prevent common security vulnerabilities.", resources: [{ name: "Data Filtering", url: "https://www.php.net/manual/en/book.filter.php" }] },
+        ],
+      },
+      {
+        title: "Object-Oriented PHP (OOP)",
+        points: [
+          { text: "Learn to define classes and create objects. Understand properties, methods, and constructors.", resources: [{ name: "Classes and Objects", url: "https://www.php.net/manual/en/language.oop5.basic.php" }] },
+          { text: "Grasp key OOP concepts like inheritance, encapsulation (public, private, protected), and polymorphism.", resources: [{ name: "Inheritance", url: "https://www.php.net/manual/en/language.oop5.inheritance.php" }] },
+          { text: "Explore advanced OOP features like interfaces, abstract classes, and traits to write robust and maintainable code.", resources: [{ name: "Interfaces", url: "https://www.php.net/manual/en/language.oop5.interfaces.php" }, { name: "Traits", url: "https://www.php.net/manual/en/language.oop5.traits.php" }] },
+        ],
+      },
+      {
+        title: "Working with Databases",
+        points: [
+          { text: "Learn how to connect to a MySQL or MariaDB database from PHP using modern extensions like PDO or MySQLi.", resources: [{ name: "PDO", url: "https://www.php.net/manual/en/book.pdo.php" }] },
+          { text: "Master performing CRUD (Create, Read, Update, Delete) operations on your database.", resources: [{ name: "MySQL with PHP", url: "https://www.w3schools.com/php/php_mysql_intro.asp" }] },
+          { text: "Understand the importance of using prepared statements to prevent SQL injection attacks.", resources: [{ name: "Prepared Statements", url: "https://www.php.net/manual/en/pdo.prepared-statements.php" }] },
+        ],
+      },
+      {
+        title: "Dependency Management with Composer",
+        points: [
+          { text: "Learn about Composer, the standard dependency manager for PHP, and why it's essential for modern development.", resources: [{ name: "Composer", url: "https://getcomposer.org/" }] },
+          { text: "Understand how to use the `composer.json` file to declare project dependencies and manage autoloading.", resources: [{ name: "Basic Usage", url: "https://getcomposer.org/doc/01-basic-usage.md" }] },
+        ],
+      },
+      {
+        title: "Introduction to a Modern Framework (Laravel)",
+        points: [
+          { text: "Understand the benefits of using a PHP framework like Laravel for building web applications.", resources: [{ name: "Laravel", url: "https://laravel.com/" }] },
+          { text: "Learn the fundamentals of Laravel, including routing, controllers, and Blade templates for building views.", resources: [{ name: "Laravel The Basics", url: "https://laravel.com/docs/11.x/routing" }] },
+          { text: "Explore Eloquent, Laravel's powerful Object-Relational Mapper (ORM), for interacting with your database in an object-oriented way.", resources: [{ name: "Eloquent ORM", url: "https://laravel.com/docs/11.x/eloquent" }] },
         ],
       },
     ],
