@@ -914,7 +914,7 @@ const learningPaths = [
       {
         title: "Specializations & Projects",
         points: [
-          { text: "Build interactive web applications directly from your R code using the `Shiny` package.", resources: [{ name: "Shiny", url: "https://shiny.posit.co/" }] },
+          { text: "Build interactive web applications directly from your code using the `Shiny` package.", resources: [{ name: "Shiny", url: "https://shiny.posit.co/" }] },
           { text: "Learn to create dynamic reports and documents with R Markdown and `knitr`.", resources: [{ name: "R Markdown", url: "https://rmarkdown.rstudio.com/" }] },
           { text: "Explore using R with big data technologies like Apache Spark via `sparklyr`.", resources: [{ name: "sparklyr", url: "https://spark.rstudio.com/" }] },
           { text: "Apply your skills to real-world datasets. Perform an Exploratory Data Analysis (EDA), build a predictive model, and create a data visualization dashboard.", resources: [{ name: "Kaggle", url: "https://www.kaggle.com/" }] },
@@ -1030,19 +1030,6 @@ const learningPaths = [
           { text: "Use Entity Framework (EF) Core, an object-relational mapper (ORM), to interact with databases using C# objects.", resources: [{ name: "EF Core", url: "https://learn.microsoft.com/en-us/ef/core/" }] },
           { text: "Build cross-platform desktop and mobile apps with .NET MAUI.", resources: [{ name: "MAUI", url: "https://dotnet.microsoft.com/en-us/apps/maui" }] },
           { text: "Explore game development by learning the Unity engine, which uses C# for scripting.", resources: [{ name: "Unity Learn", url: "https://learn.unity.com/" }] },
-        ],
-      },
-    ],
-  },
-  {
-    title: "TypeScript",
-    description: "Learn TypeScript to add static types to your JavaScript projects.",
-    topics: [
-      {
-        title: "Basics",
-        points: [
-          { text: "Understand basic types, interfaces, classes, and modules.", resources: [{ name: "TypeScript Handbook", url: "https://www.typescriptlang.org/docs/handbook/intro.html" }] },
-          { text: "Learn about generics, decorators, and advanced types.", resources: [{ name: "TypeScript Deep Dive", url: "https://basarat.gitbook.io/typescript/" }] },
         ],
       },
     ],
