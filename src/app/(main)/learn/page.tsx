@@ -1042,13 +1042,54 @@ const learningPaths = [
   },
   {
     title: "Kotlin",
-    description: "Learn Kotlin, the modern language for building Android apps.",
+    description: "Learn Kotlin, the modern, official language for Android development.",
     topics: [
       {
-        title: "Basics",
+        title: "Kotlin Fundamentals",
         points: [
-          { text: "Understand Kotlin syntax, null safety, and coroutines for async programming.", resources: [{ name: "Kotlin Docs", url: "https://kotlinlang.org/docs/home.html" }] },
-          { text: "Learn to build Android apps with Kotlin.", resources: [{ name: "Android Kotlin Fundamentals", url: "https://developer.android.com/kotlin/fundamentals" }] },
+          { text: "Learn about Kotlin's advantages, such as its conciseness and null safety, and set up your development environment with IntelliJ IDEA or Android Studio.", resources: [{ name: "Get Started with Kotlin", url: "https://kotlinlang.org/docs/home.html" }] },
+          { text: "Master basic syntax, variables (val vs. var), and fundamental types like Int, Double, String, and Boolean.", resources: [{ name: "Basic Syntax", url: "https://kotlinlang.org/docs/basic-syntax.html" }] },
+          { text: "Understand Kotlin's powerful null safety features, including nullable types (?) and the safe call operator (?.) to prevent null pointer exceptions.", resources: [{ name: "Null Safety", url: "https://kotlinlang.org/docs/null-safety.html" }] },
+        ],
+      },
+      {
+        title: "Control Flow and Functions",
+        points: [
+          { text: "Use conditional expressions like if-else and when to control the flow of your program.", resources: [{ name: "Control Flow", url: "https://kotlinlang.org/docs/control-flow.html" }] },
+          { text: "Learn to use for and while loops for iteration. Discover how to work with ranges and progressions.", resources: [] },
+          { text: "Define functions with default arguments and named parameters. Explore higher-order functions and lambda expressions.", resources: [{ name: "Functions", url: "https://kotlinlang.org/docs/functions.html" }, { name: "Lambdas", url: "https://kotlinlang.org/docs/lambdas.html" }] },
+        ],
+      },
+      {
+        title: "Object-Oriented Kotlin",
+        points: [
+          { text: "Learn to create classes and objects. Understand constructors, properties, and initialization.", resources: [{ name: "Classes", url: "https://kotlinlang.org/docs/classes.html" }] },
+          { text: "Explore inheritance and learn how to use open classes and override methods. Understand the role of abstract classes.", resources: [{ name: "Inheritance", url: "https://kotlinlang.org/docs/inheritance.html" }] },
+          { text: "Grasp the power of data classes for creating concise, immutable data holders and sealed classes for representing restricted class hierarchies.", resources: [{ name: "Data Classes", url: "https://kotlinlang.org/docs/data-classes.html" }, { name: "Sealed Classes", url: "https://kotlinlang.org/docs/sealed-classes.html" }] },
+        ],
+      },
+      {
+        title: "Advanced Features",
+        points: [
+          { text: "Learn how to work with collections like lists, sets, and maps, and use powerful extension functions to manipulate them.", resources: [{ name: "Collections", url: "https://kotlinlang.org/docs/collections-overview.html" }] },
+          { text: "Understand generics to create reusable, type-safe components.", resources: [{ name: "Generics", url: "https://kotlinlang.org/docs/generics.html" }] },
+          { text: "Explore delegation to easily reuse and compose behavior in your classes.", resources: [{ name: "Delegation", url: "https://kotlinlang.org/docs/delegation.html" }] },
+        ],
+      },
+      {
+        title: "Coroutines and Concurrency",
+        points: [
+          { text: "Grasp the basics of asynchronous programming with Kotlin Coroutines to write non-blocking code in a sequential style.", resources: [{ name: "Coroutines Basics", url: "https://kotlinlang.org/docs/coroutines-basics.html" }] },
+          { text: "Learn about suspending functions, coroutine builders (like launch and async), and dispatchers for controlling execution threads.", resources: [] },
+          { text: "Understand how to manage coroutine lifecycles and handle exceptions effectively.", resources: [{ name: "Coroutine Context and Dispatchers", url: "https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html" }] },
+        ],
+      },
+      {
+        title: "Android Development with Kotlin",
+        points: [
+          { text: "Get started with Android development by setting up Android Studio and creating your first Kotlin-based Android project.", resources: [{ name: "Build your first Android app", url: "https://developer.android.com/training/basics/firstapp" }] },
+          { text: "Learn to build modern, declarative UIs for your Android apps using Jetpack Compose.", resources: [{ name: "Jetpack Compose", url: "https://developer.android.com/jetpack/compose" }] },
+          { text: "Explore the fundamentals of the Android Architecture Components (ViewModel, LiveData, Room) to build robust and maintainable apps.", resources: [{ name: "Guide to app architecture", url: "https://developer.android.com/jetpack/guide" }] },
         ],
       },
     ],
