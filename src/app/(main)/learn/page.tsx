@@ -1508,12 +1508,65 @@ const learningPaths = [
   },
   {
     title: "Perl",
-    description: "Learn the versatile, high-level programming language.",
+    description: "Learn Perl, the versatile, high-level 'Swiss Army chainsaw' of scripting languages, renowned for its powerful text processing capabilities.",
     topics: [
       {
-        title: "Fundamentals",
+        title: "Introduction to Perl",
         points: [
-          { text: "Understand Perl syntax, regular expressions, and data structures.", resources: [{ name: "Learn Perl", url: "https://www.learn-perl.org/" }] },
+          { text: "Discover Perl's history and its design philosophy of 'There's More Than One Way To Do It' (TMTOWTDI).", resources: [{ name: "What is Perl?", url: "https://www.perl.org/about.html" }] },
+          { text: "Install Perl on your system and set up a development environment.", resources: [{ name: "Get Perl", url: "https://www.perl.org/get.html" }] },
+          { text: "Write your first 'Hello, World!' script to understand basic syntax, the `print` function, and how to execute a Perl program.", resources: [{ name: "Perl Hello World", url: "https://www.geeksforgeeks.org/hello-world-in-perl/" }] },
+        ],
+      },
+      {
+        title: "Perl Fundamentals",
+        points: [
+          { text: "Learn about Perl's three main data types: scalars (`$`), arrays (`@`), and hashes (`%`).", resources: [{ name: "Perl Data Types", url: "https://www.tutorialspoint.com/perl/perl_data_types.htm" }] },
+          { text: "Understand the difference between lexical (`my`) and global (`our`) variables.", resources: [{ name: "Variable Scoping", url: "https://learn.perl.org/docs/perl-best-practices/variables.html" }] },
+          { text: "Master Perl's rich set of operators, including string, numeric, and logical operators.", resources: [{ name: "Perl Operators", url: "https://www.tutorialspoint.com/perl/perl_operators.htm" }] },
+        ],
+      },
+      {
+        title: "Control Flow",
+        points: [
+          { text: "Control program flow with `if`, `elsif`, `else`, and `unless` conditional statements.", resources: [{ name: "Perl Conditionals", url: "https://www.perltutorial.org/perl-if/" }] },
+          { text: "Use loops like `for`, `foreach`, `while`, and `until` to perform repetitive tasks.", resources: [{ name: "Perl Loops", url: "https://www.perltutorial.org/perl-for-loop/" }] },
+          { text: "Learn about loop control statements like `next` (continue) and `last` (break).", resources: [] },
+        ],
+      },
+      {
+        title: "Subroutines (Functions)",
+        points: [
+          { text: "Learn how to define and call your own subroutines to create modular and reusable code.", resources: [{ name: "Perl Subroutines", url: "https://www.perltutorial.org/perl-subroutine/" }] },
+          { text: "Understand how to pass arguments to subroutines and how to return values.", resources: [{ name: "Arguments & Return Values", url: "https://learn.perl.org/docs/perl-for-beginners/subroutines.html" }] },
+        ],
+      },
+      {
+        title: "Regular Expressions",
+        points: [
+          { text: "Grasp the basics of regular expressions, one of Perl's most powerful features for pattern matching and text manipulation.", resources: [{ name: "Perl Regex Tutorial", url: "https://www.perltutorial.org/perl-regular-expression/" }] },
+          { text: "Learn to use the match (`m//`), substitute (`s///`), and transliterate (`tr///`) operators.", resources: [{ name: "Regex Operators", url: "https://www.tutorialspoint.com/perl/perl_regular_expressions.htm" }] },
+        ],
+      },
+      {
+        title: "File I/O",
+        points: [
+          { text: "Learn how to open, read from, write to, and close files using filehandles.", resources: [{ name: "Perl File I/O", url: "https://www.perltutorial.org/perl-file-io/" }] },
+          { text: "Understand the diamond operator (`<>`) for reading from multiple files specified on the command line.", resources: [] },
+        ],
+      },
+      {
+        title: "Object-Oriented Perl",
+        points: [
+          { text: "Learn the basics of object-oriented programming in Perl, including creating classes (packages), objects (blessed references), and methods.", resources: [{ name: "Perl OOP Tutorial", url: "https://www.perltutorial.org/perl-oop/" }] },
+          { text: "Explore modern OO systems for Perl like Moo or Moose for more advanced features.", resources: [{ name: "Moo/Moose", url: "https://metacpan.org/pod/Moo" }] },
+        ],
+      },
+      {
+        title: "Using CPAN Modules",
+        points: [
+          { text: "Discover the Comprehensive Perl Archive Network (CPAN), a vast repository of reusable Perl modules.", resources: [{ name: "CPAN", url: "https://www.cpan.org/" }] },
+          { text: "Learn how to use the `cpan` client to install and manage modules for your projects.", resources: [{ name: "Installing Modules", url: "https://www.cpan.org/modules/INSTALL.html" }] },
         ],
       },
     ],
