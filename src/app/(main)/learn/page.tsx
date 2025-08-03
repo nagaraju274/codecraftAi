@@ -1216,13 +1216,62 @@ const learningPaths = [
   },
   {
     title: "Rust",
-    description: "Learn Rust for building reliable and efficient software.",
+    description: "Learn Rust, a language empowering everyone to build reliable and efficient software.",
     topics: [
       {
-        title: "Core Concepts",
+        title: "Getting Started with Rust",
         points: [
-          { text: "Understand ownership, borrowing, and lifetimes.", resources: [{ name: "The Rust Book", url: "https://doc.rust-lang.org/book/" }] },
-          { text: "Learn about concurrency, error handling, and building command-line tools.", resources: [{ name: "Rust by Example", url: "https://doc.rust-lang.org/rust-by-example/" }] },
+          { text: "Understand Rust's core strengths: performance, reliability, and productivity. Learn about its key features like the ownership system.", resources: [{ name: "What is Rust?", url: "https://www.rust-lang.org/learn" }] },
+          { text: "Install Rust using `rustup`, the official toolchain installer, and set up your development environment.", resources: [{ name: "Installation", url: "https://www.rust-lang.org/tools/install" }] },
+          { text: "Write, compile, and run your first 'Hello, World!' program using Cargo, Rust's build system and package manager.", resources: [{ name: "Hello, World!", url: "https://doc.rust-lang.org/book/ch01-02-hello-world.html" }] },
+        ],
+      },
+      {
+        title: "Common Programming Concepts",
+        points: [
+          { text: "Learn about variables, mutability, and how Rust handles constants and shadowing.", resources: [{ name: "Variables and Mutability", url: "https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html" }] },
+          { text: "Explore Rust's scalar data types (integers, floats, booleans, characters) and compound types (tuples, arrays).", resources: [{ name: "Data Types", url: "https://doc.rust-lang.org/book/ch03-02-data-types.html" }] },
+          { text: "Understand how to define and call functions, including functions with parameters and return values.", resources: [{ name: "Functions", url: "https://doc.rust-lang.org/book/ch03-03-how-functions-work.html" }] },
+          { text: "Master control flow using `if` expressions and various loops (`loop`, `while`, `for`).", resources: [{ name: "Control Flow", url: "https://doc.rust-lang.org/book/ch03-05-control-flow.html" }] },
+        ],
+      },
+      {
+        title: "Understanding Ownership",
+        points: [
+          { text: "Grasp Rust's most unique feature: the ownership system. Learn about the stack, the heap, and Rust's rules for managing memory safety.", resources: [{ name: "What is Ownership?", url: "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html" }] },
+          { text: "Learn how to pass data without transferring ownership using references and borrowing.", resources: [{ name: "References and Borrowing", url: "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html" }] },
+          { text: "Understand slices, which let you reference a contiguous sequence of elements in a collection rather than the whole collection.", resources: [{ name: "The Slice Type", url: "https://doc.rust-lang.org/book/ch04-03-slices.html" }] },
+        ],
+      },
+      {
+        title: "Using Structs",
+        points: [
+          { text: "Learn to create custom data types by defining and instantiating structs.", resources: [{ name: "Defining and Instantiating Structs", url: "https://doc.rust-lang.org/book/ch05-01-defining-structs.html" }] },
+          { text: "Define methods on structs using `impl` blocks to specify the behavior associated with a struct type.", resources: [{ name: "Method Syntax", url: "https://doc.rust-lang.org/book/ch05-03-method-syntax.html" }] },
+        ],
+      },
+      {
+        title: "Enums and Pattern Matching",
+        points: [
+          { text: "Learn how to use enums to define a type that can have one of a few different variants.", resources: [{ name: "Enums", url: "https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html" }] },
+          { text: "Master the powerful `match` control flow operator that allows you to compare a value against a series of patterns and execute code based on which pattern matches.", resources: [{ name: "The match Control Flow Construct", url: "https://doc.rust-lang.org/book/ch06-02-match.html" }] },
+          { text: "Use `if let` for a more concise way to handle a single pattern from a `match`.", resources: [{ name: "Concise Control Flow with if let", url: "https://doc.rust-lang.org/book/ch06-03-if-let.html" }] },
+        ],
+      },
+      {
+        title: "Error Handling",
+        points: [
+          { text: "Understand Rust's approach to error handling, distinguishing between recoverable errors with `Result<T, E>` and unrecoverable errors with the `panic!` macro.", resources: [{ name: "Unrecoverable Errors with panic!", url: "https://doc.rust-lang.org/book/ch09-01-unrecoverable-errors-with-panic.html" }] },
+          { text: "Learn to return and handle recoverable errors using the `Result` enum.", resources: [{ name: "Recoverable Errors with Result", url: "https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html" }] },
+        ],
+      },
+      {
+        title: "Advanced Topics",
+        points: [
+          { text: "Explore generics to reduce code duplication by writing code that can work over a variety of concrete data types.", resources: [{ name: "Generic Data Types", url: "https://doc.rust-lang.org/book/ch10-01-syntax.html" }] },
+          { text: "Learn about traits, which define shared functionality that different types can implement.", resources: [{ name: "Traits: Defining Shared Behavior", url: "https://doc.rust-lang.org/book/ch10-02-traits.html" }] },
+          { text: "Understand lifetimes, which are a way of ensuring that references are valid for as long as we need them to be.", resources: [{ name: "Validating References with Lifetimes", url: "https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html" }] },
+          { text: "Learn how to use Rust's concurrency features to run code in parallel, including using threads and message-passing.", resources: [{ name: "Fearless Concurrency", url: "https://doc.rust-lang.org/book/ch16-00-concurrency.html" }] },
         ],
       },
     ],
