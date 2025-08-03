@@ -1455,13 +1455,53 @@ const learningPaths = [
   },
   {
     title: "Bash/Shell Scripting",
-    description: "Learn to automate tasks on the command line.",
+    description: "Learn to automate tasks, manage systems, and master the command line with Bash.",
     topics: [
       {
-        title: "Basics",
+        title: "Introduction to the Command Line",
         points: [
-          { text: "Understand commands, pipes, and redirection.", resources: [{ name: "The Bash Guide", url: "https://guide.bash.academy/" }] },
-          { text: "Learn to write scripts with variables, loops, and conditional logic.", resources: [{ name: "Learn Shell", url: "https://www.learnshell.org/" }] },
+          { text: "Understand what a shell is and the basics of the command-line interface (CLI). Learn about the Bash shell.", resources: [{ name: "What is the Shell?", url: "https://linuxcommand.org/lc3_lts0020.php" }] },
+          { text: "Master essential navigation commands like `ls` (list files), `cd` (change directory), and `pwd` (print working directory).", resources: [{ name: "Basic Navigation", url: "https://www.digitalocean.com/community/tutorials/basic-linux-navigation-and-file-management" }] },
+          { text: "Learn how to create, view, move, copy, and delete files and directories using `touch`, `cat`, `less`, `mv`, `cp`, `rm`, and `mkdir`.", resources: [{ name: "File Manipulation", url: "https://www.geeksforgeeks.org/basic-file-manipulation-commands-in-linux/" }] },
+        ],
+      },
+      {
+        title: "Pipes, Redirection, and Permissions",
+        points: [
+          { text: "Learn to chain commands together using pipes (`|`) to create powerful command combinations.", resources: [{ name: "Pipes in Linux", url: "https://www.geeksforgeeks.org/piping-in-linux/" }] },
+          { text: "Understand how to redirect standard output (`>`), standard error (`2>`), and append output (`>>`) to files.", resources: [{ name: "I/O Redirection", url: "https://www.tldp.org/LDP/abs/html/io-redirection.html" }] },
+          { text: "Grasp the Linux file permission system and learn how to use `chmod` to change permissions.", resources: [{ name: "File Permissions", url: "https://www.linux.com/training-tutorials/understanding-linux-file-permissions/" }] },
+        ],
+      },
+      {
+        title: "Scripting Fundamentals",
+        points: [
+          { text: "Learn how to write your first shell script, including the `shebang` (`#!/bin/bash`), and how to make it executable.", resources: [{ name: "Writing Your First Script", url: "https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_02_01.html" }] },
+          { text: "Understand how to declare and use variables. Learn the difference between single and double quotes for variable expansion.", resources: [{ name: "Variables", url: "https://www.shellscript.sh/variables.html" }] },
+          { text: "Learn to read input from the user and how to work with command-line arguments (`$1`, `$2`, etc.).", resources: [{ name: "Command Line Arguments", url: "https://www.geeksforgeeks.org/command-line-arguments-in-shell-script/" }] },
+        ],
+      },
+      {
+        title: "Control Structures",
+        points: [
+          { text: "Use `if`, `else`, and `elif` statements, along with test conditions (`[ ]` and `[[ ]]`), to make decisions in your scripts.", resources: [{ name: "Conditional Statements", url: "https://www.geeksforgeeks.org/bash-scripting-if-else-statements/" }] },
+          { text: "Learn to use `for` loops to iterate over a list of items and `while` loops to repeat actions as long as a condition is true.", resources: [{ name: "For Loops", url: "https://www.cyberciti.biz/faq/bash-for-loop/" }, { name: "While Loops", url: "https://www.cyberciti.biz/faq/bash-while-loop/" }] },
+          { text: "Use the `case` statement as a cleaner alternative to complex `if-elif-else` structures.", resources: [{ name: "Case Statement", url: "https://www.geeksforgeeks.org/case-statement-in-shell-scripting/" }] },
+        ],
+      },
+      {
+        title: "Functions and Text Processing",
+        points: [
+          { text: "Learn to define and call functions to make your scripts more modular and reusable.", resources: [{ name: "Bash Functions", url: "https://www.shellscript.sh/functions.html" }] },
+          { text: "Master text processing utilities like `grep` for searching text, `sed` for stream editing, and `awk` for pattern scanning and processing.", resources: [{ name: "grep", url: "https://www.gnu.org/software/grep/manual/grep.html" }, { name: "sed", url: "https://www.gnu.org/software/sed/manual/sed.html" }, { name: "awk", url: "https://www.gnu.org/software/gawk/manual/gawk.html" }] },
+        ],
+      },
+      {
+        title: "Advanced Scripting",
+        points: [
+          { text: "Learn how to handle errors and debug your scripts using techniques like setting `set -e` (exit on error) and `set -x` (debug mode).", resources: [{ name: "Debugging Bash Scripts", url: "https://www.shellscript.sh/debugging.html" }] },
+          { text: "Understand process management commands like `ps` (list processes), `kill` (terminate processes), and how to run commands in the background (`&`).", resources: [{ name: "Process Management", url: "https://www.geeksforgeeks.org/process-management-in-linux/" }] },
+          { text: "Explore job scheduling with `cron` to automate running your scripts at specific times.", resources: [{ name: "Cron Jobs", url: "https://www.ostechnix.com/a-beginners-guide-to-cron-jobs-in-linux/" }] },
         ],
       },
     ],
