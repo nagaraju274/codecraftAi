@@ -984,114 +984,114 @@ const learningPaths = [
     title: "Swift",
     description: "Learn Swift, the modern, powerful, and intuitive language for building apps for Apple platforms (iOS, macOS, watchOS, and tvOS).",
     topics: [
-      {
-        title: "Swift Fundamentals",
-        points: [
-          { text: "Learn the basics of Swift, including constants, variables, and data types like Int, Double, String, and Bool.", resources: [{ name: "The Basics", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics" }] },
-          { text: "Master control flow with conditional statements (if, switch) and loops (for-in, while) to control the execution of your code.", resources: [{ name: "Control Flow", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow" }] },
-          { text: "Understand how to work with collection types, including Arrays, Sets, and Dictionaries, for storing collections of values.", resources: [{ name: "Collection Types", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/collectiontypes" }] },
-          { text: "Grasp the concept of optionals and learn how to safely work with values that might be absent using optional binding and optional chaining.", resources: [{ name: "Optionals", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics#Optionals" }] },
-        ],
-      },
-      {
-        title: "Functions and Closures",
-        points: [
-          { text: "Learn to define and call functions to create reusable blocks of code. Understand parameters, return values, and function argument labels.", resources: [{ name: "Functions", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions" }] },
-          { text: "Explore closures, which are self-contained blocks of functionality that can be passed around and used in your code, similar to lambdas in other languages.", resources: [{ name: "Closures", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures" }] },
-        ],
-      },
-      {
-        title: "Object-Oriented Swift",
-        points: [
-          { text: "Learn to define custom types using Classes and Structures. Understand their differences and when to use each.", resources: [{ name: "Classes and Structures", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures" }] },
-          { text: "Define properties to store values and computed properties to calculate values. Also, understand how to use property observers.", resources: [{ name: "Properties", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties" }] },
-          { text: "Understand inheritance to build class hierarchies, and learn how to use protocols to define a 'blueprint' of methods, properties, and other requirements.", resources: [{ name: "Inheritance", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/inheritance" }, { name: "Protocols", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols" }] },
-        ],
-      },
-      {
-        title: "Introduction to SwiftUI",
-        points: [
-          { text: "Learn the fundamentals of SwiftUI, Apple's declarative UI framework for building apps on all Apple platforms.", resources: [{ name: "SwiftUI Tutorials", url: "https://developer.apple.com/tutorials/swiftui" }] },
-          { text: "Build user interfaces using a hierarchy of Views, such as Text, Image, and Button. Learn to compose complex views from simple ones.", resources: [{ name: "Views and Controls", url: "https://developer.apple.com/documentation/swiftui/views-and-controls" }] },
-          { text: "Use stacks (VStack, HStack, ZStack) and spacers to arrange views and create sophisticated layouts.", resources: [{ name: "Layout and Presentation", url: "https://developer.apple.com/documentation/swiftui/layout-and-presentation" }] },
-        ],
-      },
-      {
-        title: "State Management in SwiftUI",
-        points: [
-          { text: "Learn to manage the state of your views using property wrappers like @State, @Binding, @StateObject, and @ObservedObject.", resources: [{ name: "State and Data Flow", url: "https://developer.apple.com/documentation/swiftui/state-and-data-flow" }] },
-          { text: "Understand how SwiftUI automatically updates the view when the state changes, keeping your UI consistent with your data.", resources: [] },
-        ],
-      },
-      {
-        title: "Navigation and Data Flow",
-        points: [
-          { text: "Implement navigation in your app using `NavigationStack` to create hierarchical navigation and `TabView` for tab-based interfaces.", resources: [{ name: "Navigation", url: "https://developer.apple.com/documentation/swiftui/navigation" }] },
-          { text: "Learn how to pass data between views, present modal sheets, and show alerts to the user.", resources: [] },
-        ],
-      },
-      {
-        title: "Networking and Concurrency",
-        points: [
-          { text: "Learn to fetch data from a remote API using `URLSession`.", resources: [{ name: "Fetching Website Data", url: "https://developer.apple.com/documentation/foundation/urlsession" }] },
-          { text: "Understand modern concurrency in Swift with `async/await` to write asynchronous code that is easy to read and maintain.", resources: [{ name: "Concurrency", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/" }] },
-          { text: "Parse JSON data from an API into your Swift data models using the `Codable` protocol.", resources: [{ name: "Encoding and Decoding", url: "https://developer.apple.com/documentation/swift/encoding-and-decoding-custom-types" }] },
-        ],
-      },
+        {
+            title: "Swift Fundamentals",
+            points: [
+                { text: "Learn the basics of Swift, including constants, variables, and data types like Int, Double, String, and Bool.", resources: [{ name: "The Basics", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics" }] },
+                { text: "Master control flow with conditional statements (if, switch) and loops (for-in, while) to control the execution of your code.", resources: [{ name: "Control Flow", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow" }] },
+                { text: "Understand how to work with collection types, including Arrays, Sets, and Dictionaries, for storing collections of values.", resources: [{ name: "Collection Types", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/collectiontypes" }] },
+                { text: "Grasp the concept of optionals and learn how to safely work with values that might be absent using optional binding and optional chaining.", resources: [{ name: "Optionals", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics#Optionals" }] },
+            ],
+        },
+        {
+            title: "Functions and Closures",
+            points: [
+                { text: "Learn to define and call functions to create reusable blocks of code. Understand parameters, return values, and function argument labels.", resources: [{ name: "Functions", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions" }] },
+                { text: "Explore closures, which are self-contained blocks of functionality that can be passed around and used in your code, similar to lambdas in other languages.", resources: [{ name: "Closures", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures" }] },
+            ],
+        },
+        {
+            title: "Object-Oriented Swift",
+            points: [
+                { text: "Learn to define custom types using Classes and Structures. Understand their differences and when to use each.", resources: [{ name: "Classes and Structures", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures" }] },
+                { text: "Define properties to store values and computed properties to calculate values. Also, understand how to use property observers.", resources: [{ name: "Properties", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties" }] },
+                { text: "Understand inheritance to build class hierarchies, and learn how to use protocols to define a 'blueprint' of methods, properties, and other requirements.", resources: [{ name: "Inheritance", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/inheritance" }, { name: "Protocols", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols" }] },
+            ],
+        },
+        {
+            title: "Introduction to SwiftUI",
+            points: [
+                { text: "Learn the fundamentals of SwiftUI, Apple's declarative UI framework for building apps on all Apple platforms.", resources: [{ name: "SwiftUI Tutorials", url: "https://developer.apple.com/tutorials/swiftui" }] },
+                { text: "Build user interfaces using a hierarchy of Views, such as Text, Image, and Button. Learn to compose complex views from simple ones.", resources: [{ name: "Views and Controls", url: "https://developer.apple.com/documentation/swiftui/views-and-controls" }] },
+                { text: "Use stacks (VStack, HStack, ZStack) and spacers to arrange views and create sophisticated layouts.", resources: [{ name: "Layout and Presentation", url: "https://developer.apple.com/documentation/swiftui/layout-and-presentation" }] },
+            ],
+        },
+        {
+            title: "State Management in SwiftUI",
+            points: [
+                { text: "Learn to manage the state of your views using property wrappers like @State, @Binding, @StateObject, and @ObservedObject.", resources: [{ name: "State and Data Flow", url: "https://developer.apple.com/documentation/swiftui/state-and-data-flow" }] },
+                { text: "Understand how SwiftUI automatically updates the view when the state changes, keeping your UI consistent with your data.", resources: [] },
+            ],
+        },
+        {
+            title: "Navigation and Data Flow",
+            points: [
+                { text: "Implement navigation in your app using `NavigationStack` to create hierarchical navigation and `TabView` for tab-based interfaces.", resources: [{ name: "Navigation", url: "https://developer.apple.com/documentation/swiftui/navigation" }] },
+                { text: "Learn how to pass data between views, present modal sheets, and show alerts to the user.", resources: [] },
+            ],
+        },
+        {
+            title: "Networking and Concurrency",
+            points: [
+                { text: "Learn to fetch data from a remote API using `URLSession`.", resources: [{ name: "Fetching Website Data", url: "https://developer.apple.com/documentation/foundation/urlsession" }] },
+                { text: "Understand modern concurrency in Swift with `async/await` to write asynchronous code that is easy to read and maintain.", resources: [{ name: "Concurrency", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/" }] },
+                { text: "Parse JSON data from an API into your Swift data models using the `Codable` protocol.", resources: [{ name: "Encoding and Decoding", url: "https://developer.apple.com/documentation/swift/encoding-and-decoding-custom-types" }] },
+            ],
+        },
     ],
   },
   {
     title: "Kotlin",
     description: "Learn Kotlin, the modern, official language for Android development.",
     topics: [
-      {
-        title: "Kotlin Fundamentals",
-        points: [
-          { text: "Learn about Kotlin's advantages, such as its conciseness and null safety, and set up your development environment with IntelliJ IDEA or Android Studio.", resources: [{ name: "Get Started with Kotlin", url: "https://kotlinlang.org/docs/home.html" }] },
-          { text: "Master basic syntax, variables (val vs. var), and fundamental types like Int, Double, String, and Boolean.", resources: [{ name: "Basic Syntax", url: "https://kotlinlang.org/docs/basic-syntax.html" }] },
-          { text: "Understand Kotlin's powerful null safety features, including nullable types (?) and the safe call operator (?.) to prevent null pointer exceptions.", resources: [{ name: "Null Safety", url: "https://kotlinlang.org/docs/null-safety.html" }] },
-        ],
-      },
-      {
-        title: "Control Flow and Functions",
-        points: [
-          { text: "Use conditional expressions like if-else and when to control the flow of your program.", resources: [{ name: "Control Flow", url: "https://kotlinlang.org/docs/control-flow.html" }] },
-          { text: "Learn to use for and while loops for iteration. Discover how to work with ranges and progressions.", resources: [] },
-          { text: "Define functions with default arguments and named parameters. Explore higher-order functions and lambda expressions.", resources: [{ name: "Functions", url: "https://kotlinlang.org/docs/functions.html" }, { name: "Lambdas", url: "https://kotlinlang.org/docs/lambdas.html" }] },
-        ],
-      },
-      {
-        title: "Object-Oriented Kotlin",
-        points: [
-          { text: "Learn to create classes and objects. Understand constructors, properties, and initialization.", resources: [{ name: "Classes", url: "https://kotlinlang.org/docs/classes.html" }] },
-          { text: "Explore inheritance and learn how to use open classes and override methods. Understand the role of abstract classes.", resources: [{ name: "Inheritance", url: "https://kotlinlang.org/docs/inheritance.html" }] },
-          { text: "Grasp the power of data classes for creating concise, immutable data holders and sealed classes for representing restricted class hierarchies.", resources: [{ name: "Data Classes", url: "https://kotlinlang.org/docs/data-classes.html" }, { name: "Sealed Classes", url: "https://kotlinlang.org/docs/sealed-classes.html" }] },
-        ],
-      },
-      {
-        title: "Advanced Features",
-        points: [
-          { text: "Learn how to work with collections like lists, sets, and maps, and use powerful extension functions to manipulate them.", resources: [{ name: "Collections", url: "https://kotlinlang.org/docs/collections-overview.html" }] },
-          { text: "Understand generics to create reusable, type-safe components.", resources: [{ name: "Generics", url: "https://kotlinlang.org/docs/generics.html" }] },
-          { text: "Explore delegation to easily reuse and compose behavior in your classes.", resources: [{ name: "Delegation", url: "https://kotlinlang.org/docs/delegation.html" }] },
-        ],
-      },
-      {
-        title: "Coroutines and Concurrency",
-        points: [
-          { text: "Grasp the basics of asynchronous programming with Kotlin Coroutines to write non-blocking code in a sequential style.", resources: [{ name: "Coroutines Basics", url: "https://kotlinlang.org/docs/coroutines-basics.html" }] },
-          { text: "Learn about suspending functions, coroutine builders (like launch and async), and dispatchers for controlling execution threads.", resources: [] },
-          { text: "Understand how to manage coroutine lifecycles and handle exceptions effectively.", resources: [{ name: "Coroutine Context and Dispatchers", url: "https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html" }] },
-        ],
-      },
-      {
-        title: "Android Development with Kotlin",
-        points: [
-          { text: "Get started with Android development by setting up Android Studio and creating your first Kotlin-based Android project.", resources: [{ name: "Build your first Android app", url: "https://developer.android.com/training/basics/firstapp" }] },
-          { text: "Learn to build modern, declarative UIs for your Android apps using Jetpack Compose.", resources: [{ name: "Jetpack Compose", url: "https://developer.android.com/jetpack/compose" }] },
-          { text: "Explore the fundamentals of the Android Architecture Components (ViewModel, LiveData, Room) to build robust and maintainable apps.", resources: [{ name: "Guide to app architecture", url: "https://developer.android.com/jetpack/guide" }] },
-        ],
-      },
+        {
+            title: "Kotlin Fundamentals",
+            points: [
+                { text: "Learn about Kotlin's advantages, such as its conciseness and null safety, and set up your development environment with IntelliJ IDEA or Android Studio.", resources: [{ name: "Get Started with Kotlin", url: "https://kotlinlang.org/docs/home.html" }] },
+                { text: "Master basic syntax, variables (val vs. var), and fundamental types like Int, Double, String, and Boolean.", resources: [{ name: "Basic Syntax", url: "https://kotlinlang.org/docs/basic-syntax.html" }] },
+                { text: "Understand Kotlin's powerful null safety features, including nullable types (?) and the safe call operator (?.) to prevent null pointer exceptions.", resources: [{ name: "Null Safety", url: "https://kotlinlang.org/docs/null-safety.html" }] },
+            ],
+        },
+        {
+            title: "Control Flow and Functions",
+            points: [
+                { text: "Use conditional expressions like if-else and when to control the flow of your program.", resources: [{ name: "Control Flow", url: "https://kotlinlang.org/docs/control-flow.html" }] },
+                { text: "Learn to use for and while loops for iteration. Discover how to work with ranges and progressions.", resources: [] },
+                { text: "Define functions with default arguments and named parameters. Explore higher-order functions and lambda expressions.", resources: [{ name: "Functions", url: "https://kotlinlang.org/docs/functions.html" }, { name: "Lambdas", url: "https://kotlinlang.org/docs/lambdas.html" }] },
+            ],
+        },
+        {
+            title: "Object-Oriented Kotlin",
+            points: [
+                { text: "Learn to create classes and objects. Understand constructors, properties, and initialization.", resources: [{ name: "Classes", url: "https://kotlinlang.org/docs/classes.html" }] },
+                { text: "Explore inheritance and learn how to use open classes and override methods. Understand the role of abstract classes.", resources: [{ name: "Inheritance", url: "https://kotlinlang.org/docs/inheritance.html" }] },
+                { text: "Grasp the power of data classes for creating concise, immutable data holders and sealed classes for representing restricted class hierarchies.", resources: [{ name: "Data Classes", url: "https://kotlinlang.org/docs/data-classes.html" }, { name: "Sealed Classes", url: "https://kotlinlang.org/docs/sealed-classes.html" }] },
+            ],
+        },
+        {
+            title: "Advanced Features",
+            points: [
+                { text: "Learn how to work with collections like lists, sets, and maps, and use powerful extension functions to manipulate them.", resources: [{ name: "Collections", url: "https://kotlinlang.org/docs/collections-overview.html" }] },
+                { text: "Understand generics to create reusable, type-safe components.", resources: [{ name: "Generics", url: "https://kotlinlang.org/docs/generics.html" }] },
+                { text: "Explore delegation to easily reuse and compose behavior in your classes.", resources: [{ name: "Delegation", url: "https://kotlinlang.org/docs/delegation.html" }] },
+            ],
+        },
+        {
+            title: "Coroutines and Concurrency",
+            points: [
+                { text: "Grasp the basics of asynchronous programming with Kotlin Coroutines to write non-blocking code in a sequential style.", resources: [{ name: "Coroutines Basics", url: "https://kotlinlang.org/docs/coroutines-basics.html" }] },
+                { text: "Learn about suspending functions, coroutine builders (like launch and async), and dispatchers for controlling execution threads.", resources: [] },
+                { text: "Understand how to manage coroutine lifecycles and handle exceptions effectively.", resources: [{ name: "Coroutine Context and Dispatchers", url: "https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html" }] },
+            ],
+        },
+        {
+            title: "Android Development with Kotlin",
+            points: [
+                { text: "Get started with Android development by setting up Android Studio and creating your first Kotlin-based Android project.", resources: [{ name: "Build your first Android app", url: "https://developer.android.com/training/basics/firstapp" }] },
+                { text: "Learn to build modern, declarative UIs for your Android apps using Jetpack Compose.", resources: [{ name: "Jetpack Compose", url: "https://developer.android.com/jetpack/compose" }] },
+                { text: "Explore the fundamentals of the Android Architecture Components (ViewModel, LiveData, Room) to build robust and maintainable apps.", resources: [{ name: "Guide to app architecture", url: "https://developer.android.com/jetpack/guide" }] },
+            ],
+        },
     ],
   },
   {
@@ -1164,16 +1164,54 @@ const learningPaths = [
     ],
   },
   {
-    title: "Ruby",
-    description: "Learn the dynamic, open-source programming language with a focus on simplicity and productivity.",
+    title: "Ruby on Rails",
+    description: "Learn Ruby, the dynamic, open-source programming language with a focus on simplicity and productivity, and its most popular framework, Rails.",
     topics: [
-      {
-        title: "Fundamentals",
-        points: [
-          { text: "Understand Ruby syntax and its object-oriented nature.", resources: [{ name: "Ruby in 20 Minutes", url: "https://www.ruby-lang.org/en/documentation/quickstart/" }] },
-          { text: "Learn the Ruby on Rails framework for web development.", resources: [{ name: "Ruby on Rails Guides", url: "https://guides.rubyonrails.org/" }] },
-        ],
-      },
+        {
+            title: "Ruby Fundamentals",
+            points: [
+                { text: "Learn the basic syntax of Ruby, including variables, data types (numbers, strings, booleans), and how to work with the interactive Ruby shell (IRB).", resources: [{ name: "Ruby in Twenty Minutes", url: "https://www.ruby-lang.org/en/documentation/quickstart/" }] },
+                { text: "Understand control flow structures like `if/else` conditionals and loops (`while`, `for`, `.each`) to add logic to your programs.", resources: [] },
+                { text: "Master Ruby's core data structures: Arrays for ordered lists and Hashes for key-value pairs.", resources: [{ name: "Ruby Arrays", url: "https://ruby-doc.org/core-3.1.2/Array.html" }, { name: "Ruby Hashes", url: "https://ruby-doc.org/core-3.1.2/Hash.html" }] },
+            ],
+        },
+        {
+            title: "Object-Oriented Programming in Ruby",
+            points: [
+                { text: "Grasp the concept that everything in Ruby is an object. Learn to define your own classes and create instances (objects).", resources: [{ name: "Ruby Classes", url: "https://www.ruby-lang.org/en/documentation/ruby-from-other-languages/to-ruby-from-python/" }] },
+                { text: "Understand how to use inheritance to create specialized classes from more general ones and how to use modules (mixins) to share functionality between classes.", resources: [{ name: "Inheritance", url: "https://www.learnrubyonline.org/en/Inheritance" }] },
+            ],
+        },
+        {
+            title: "Blocks, Procs, and Lambdas",
+            points: [
+                { text: "Learn about Ruby's powerful and unique feature: blocks. Understand how they are used with methods like `.each` and `.map` to iterate and transform data.", resources: [{ name: "Ruby Blocks", url: "https://www.rubyguides.com/2016/02/ruby-blocks-procs-lambdas/" }] },
+                { text: "Understand the difference between Procs and Lambdas, which allow you to store blocks of code in variables and pass them around.", resources: [] },
+            ],
+        },
+        {
+            title: "Introduction to Ruby on Rails",
+            points: [
+                { text: "Understand the Model-View-Controller (MVC) architecture, the core design pattern behind Rails.", resources: [{ name: "Rails MVC", url: "https://guides.rubyonrails.org/getting_started.html#the-mvc-architecture" }] },
+                { text: "Set up a new Rails application and learn the function of the key files and directories.", resources: [{ name: "Getting Started with Rails", url: "https://guides.rubyonrails.org/getting_started.html" }] },
+            ],
+        },
+        {
+            title: "Routing, Controllers, and Views",
+            points: [
+                { text: "Learn how to define routes in `config/routes.rb` to map incoming requests to controller actions.", resources: [{ name: "Rails Routing", url: "https://guides.rubyonrails.org/routing.html" }] },
+                { text: "Create controller actions to handle requests, interact with models, and render views.", resources: [] },
+                { text: "Use Embedded Ruby (ERB) to write dynamic views, combining HTML with Ruby code to display data.", resources: [{ name: "Action View Overview", url: "https://guides.rubyonrails.org/action_view_overview.html" }] },
+            ],
+        },
+        {
+            title: "Active Record (Models)",
+            points: [
+                { text: "Learn the basics of Active Record, the Object-Relational Mapping (ORM) library in Rails that connects your Ruby objects to database tables.", resources: [{ name: "Active Record Basics", url: "https://guides.rubyonrails.org/active_record_basics.html" }] },
+                { text: "Use database migrations to manage your database schema in a version-controlled way.", resources: [{ name: "Active Record Migrations", url: "https://guides.rubyonrails.org/active_record_migrations.html" }] },
+                { text: "Define associations (like `has_many`, `belongs_to`) to create relationships between your models.", resources: [{ name: "Active Record Associations", url: "https://guides.rubyonrails.org/association_basics.html" }] },
+            ],
+        },
     ],
   },
   {
@@ -1484,6 +1522,3 @@ export default function LearnPage() {
     </div>
   );
 }
-
-    
-    
