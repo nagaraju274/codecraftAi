@@ -1715,13 +1715,55 @@ const learningPaths = [
     ],
   },
   {
-    title: "SPSS",
-    description: "Learn the software package for statistical analysis.",
+    title: "SPSS for Statistical Analysis",
+    description: "Learn to use SPSS, the powerful software package for statistical analysis, through its user-friendly interface and syntax-based commands.",
     topics: [
       {
-        title: "Fundamentals",
+        title: "SPSS Fundamentals",
         points: [
-          { text: "Understand data entry, variable types, and running statistical tests through the UI and syntax.", resources: [{ name: "SPSS Tutorials", url: "https://www.spss-tutorials.com/" }] },
+          { text: "Familiarize yourself with the SPSS interface, including the Data View and Variable View, and learn how to enter data manually.", resources: [{ name: "SPSS Interface Tour", url: "https://www.spss-tutorials.com/spss-data-editor-window/" }] },
+          { text: "Understand how to define variable properties, such as variable type, labels, and value labels for categorical data.", resources: [{ name: "SPSS Variable View", url: "https://www.spss-tutorials.com/spss-variable-view-a-quick-tour/" }] },
+          { text: "Learn how to import data from other formats like Excel and CSV files.", resources: [{ name: "Importing Data", url: "https://www.spss-tutorials.com/importing-data-into-spss/" }] },
+        ],
+      },
+      {
+        title: "Data Management and Manipulation",
+        points: [
+          { text: "Learn to compute new variables based on existing ones using the 'Compute Variable' dialog.", resources: [{ name: "Computing Variables", url: "https://www.spss-tutorials.com/spss-compute-command/" }] },
+          { text: "Recode variables to group values or reverse-code scales using the 'Recode into Different Variables' feature.", resources: [{ name: "Recoding Variables", url: "https://www.spss-tutorials.com/spss-recode-command/" }] },
+          { text: "Learn how to select a subset of cases for analysis using the 'Select Cases' functionality.", resources: [{ name: "Selecting Cases", url: "https://www.spss-tutorials.com/spss-select-cases-command/" }] },
+        ],
+      },
+      {
+        title: "Descriptive Statistics",
+        points: [
+          { text: "Generate frequency tables and bar charts for categorical variables to understand their distributions.", resources: [{ name: "Frequency Tables", url: "https://www.spss-tutorials.com/spss-frequencies-command/" }] },
+          { text: "Calculate descriptive statistics (mean, median, standard deviation) and create histograms for continuous variables.", resources: [{ name: "Descriptive Statistics", url: "https://www.spss-tutorials.com/spss-descriptives-command/" }] },
+          { text: "Use the 'Explore' procedure to examine distributions and test for normality.", resources: [{ name: "Explore Command", url: "https://www.spss-tutorials.com/spss-explore-command/" }] },
+        ],
+      },
+      {
+        title: "Common Statistical Tests",
+        points: [
+          { text: "Perform Independent and Paired-Samples T-Tests to compare the means of two groups.", resources: [{ name: "T-Tests", url: "https://www.spss-tutorials.com/spss-t-test/" }] },
+          { text: "Conduct a One-Way ANOVA to compare the means of three or more groups.", resources: [{ name: "One-Way ANOVA", url: "https://www.spss-tutorials.com/spss-one-way-anova/" }] },
+          { text: "Use the Chi-Square test to examine the relationship between two categorical variables.", resources: [{ name: "Chi-Square Test", url: "https://www.spss-tutorials.com/spss-chi-square-independence-test/" }] },
+          { text: "Learn to calculate Pearson correlations to measure the linear relationship between two continuous variables.", resources: [{ name: "Correlations", url: "https://www.spss-tutorials.com/spss-correlation-analysis/" }] },
+        ],
+      },
+      {
+        title: "Introduction to Regression",
+        points: [
+          { text: "Perform a simple linear regression to model the relationship between a predictor and an outcome variable.", resources: [{ name: "Simple Linear Regression", url: "https://www.spss-tutorials.com/spss-simple-linear-regression-tutorial/" }] },
+          { text: "Conduct a multiple linear regression to model the relationship between multiple predictors and an outcome variable.", resources: [{ name: "Multiple Regression", url: "https://www.spss-tutorials.com/spss-multiple-regression-analysis/" }] },
+        ],
+      },
+      {
+        title: "Using SPSS Syntax",
+        points: [
+          { text: "Understand the basics of SPSS command syntax for automating your analyses.", resources: [{ name: "SPSS Syntax Introduction", url: "https://www.spss-tutorials.com/spss-syntax-a-brief-introduction/" }] },
+          { text: "Learn how to paste syntax from the dialog boxes to create a record of your analysis and make it reproducible.", resources: [] },
+          { text: "Write and run basic syntax commands to perform data management and analysis tasks.", resources: [] },
         ],
       },
     ],
