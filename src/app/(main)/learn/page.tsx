@@ -1277,7 +1277,7 @@ const learningPaths = [
     ],
   },
   {
-    title: "Dart",
+    title: "Dart for Cross-Platform Development",
     description: "Learn Dart, the language for building mobile, desktop, and web applications with Flutter.",
     topics: [
       {
@@ -1663,13 +1663,53 @@ const learningPaths = [
     ],
   },
   {
-    title: "SAS",
-    description: "Learn the software suite for advanced analytics and data management.",
+    title: "SAS Programming for Data Analysis",
+    description: "Learn the fundamentals of SAS, the powerful software suite for advanced analytics, business intelligence, data management, and predictive analytics.",
     topics: [
       {
-        title: "Basics",
+        title: "Introduction to the SAS Environment",
         points: [
-          { text: "Understand the DATA step, procedures, and the SAS macro language.", resources: [{ name: "SAS Tutorials", url: "https://www.sas.com/en_us/training/offers/free-sas-training.html" }] },
+          { text: "Understand the SAS Windowing Environment (Editor, Log, Output) and the modern SAS Studio interface.", resources: [{ name: "Getting Started with SAS", url: "https://www.sas.com/en_us/training/offers/free-sas-training.html" }] },
+          { text: "Learn basic concepts like SAS libraries (librefs), datasets, variables, and observations.", resources: [] },
+          { text: "Write and submit your first simple SAS program and learn how to interpret the SAS log to check for errors and notes.", resources: [] },
+        ],
+      },
+      {
+        title: "The DATA Step",
+        points: [
+          { text: "Master the DATA step, the core of SAS programming used for creating and modifying datasets.", resources: [{ name: "DATA Step Concepts", url: "https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lesteps/n1iud5c010w90nn1q28p8a4yq2s0.htm" }] },
+          { text: "Learn to read raw data files (e.g., CSV, text) into SAS datasets using the `INFILE` and `INPUT` statements.", resources: [{ name: "INPUT Statement", url: "https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmts/n06e1exz6p8j68n1m9gftf0e8a71.htm" }] },
+          { text: "Create and modify variables, use assignment statements, and apply formats and informats to your data.", resources: [] },
+        ],
+      },
+      {
+        title: "Data Manipulation and Functions",
+        points: [
+          { text: "Learn to filter data using `IF-THEN/ELSE` logic and the `WHERE` statement or dataset option.", resources: [{ name: "IF-THEN/ELSE", url: "https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lestmts/n0nrclpsxvpf2qn171nwws5o3jve.htm" }] },
+          { text: "Explore SAS's extensive library of functions for character, numeric, and date manipulation.", resources: [{ name: "SAS Functions", url: "https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/lefunctions/titlepage.htm" }] },
+          { text: "Understand how to combine datasets by concatenating (stacking) and merging (joining).", resources: [{ name: "Merging Data", url: "https://stats.idre.ucla.edu/sas/modules/how-to-merge-datasets/" }] },
+        ],
+      },
+      {
+        title: "SAS Procedures (PROCs)",
+        points: [
+          { text: "Understand the role of procedures (PROCs) in SAS for analyzing and presenting data.", resources: [] },
+          { text: "Learn essential procedures like `PROC PRINT` to display data, `PROC SORT` to order data, and `PROC CONTENTS` to view dataset metadata.", resources: [{ name: "Base SAS Procedures", url: "https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/proc/titlepage.htm" }] },
+          { text: "Use `PROC FREQ` to create frequency tables and `PROC MEANS` or `PROC SUMMARY` to calculate descriptive statistics.", resources: [{ name: "PROC FREQ", url: "https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/proc/n02z7pdrqj8i0un1i3y6ytw1v5n1.htm" }] },
+        ],
+      },
+      {
+        title: "Output and Reporting",
+        points: [
+          { text: "Learn to generate detailed reports with `PROC REPORT` and `PROC TABULATE`.", resources: [{ name: "PROC REPORT", url: "https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/proc/p1wgi5td0un60qn1n0g9x4l6plqj.htm" }] },
+          { text: "Use the Output Delivery System (ODS) to create high-quality output in formats like HTML, PDF, and RTF.", resources: [{ name: "ODS Basics", url: "https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/odsuser/n1v6dy4bku04oan1kfis8rxr6i19.htm" }] },
+        ],
+      },
+      {
+        title: "Advanced Topics: Macros and SQL",
+        points: [
+          { text: "Get an introduction to the SAS Macro facility for writing flexible and reusable code and automating repetitive tasks.", resources: [{ name: "SAS Macro Language", url: "https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/mcrolref/titlepage.htm" }] },
+          { text: "Learn how to use `PROC SQL` to query and combine your data using the syntax of Structured Query Language within SAS.", resources: [{ name: "PROC SQL", url: "https://documentation.sas.com/doc/en/pgmsascdc/9.4_3.5/sqlproc/titlepage.htm" }] },
         ],
       },
     ],
