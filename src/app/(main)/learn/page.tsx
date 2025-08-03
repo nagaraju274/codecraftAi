@@ -1618,13 +1618,46 @@ const learningPaths = [
     ],
   },
   {
-    title: "MATLAB",
-    description: "Learn the programming platform for engineers and scientists.",
+    title: "MATLAB for Engineers and Scientists",
+    description: "Learn the high-performance language for technical computing, used extensively by engineers and scientists.",
     topics: [
       {
-        title: "Core Concepts",
+        title: "Introduction to the MATLAB Environment",
         points: [
-          { text: "Understand matrices, plotting, and writing scripts and functions.", resources: [{ name: "MATLAB Onramp", url: "https://www.mathworks.com/learn/tutorials/matlab-onramp.html" }] },
+          { text: "Familiarize yourself with the MATLAB desktop, including the Command Window, Workspace, Current Folder, and Editor.", resources: [{ name: "MATLAB Environment", url: "https://www.mathworks.com/help/matlab/learn_matlab/desktop.html" }] },
+          { text: "Learn how to use MATLAB as a calculator, defining variables and using basic arithmetic operators.", resources: [{ name: "Entering Commands", url: "https://www.mathworks.com/help/matlab/learn_matlab/entering-commands.html" }] },
+        ],
+      },
+      {
+        title: "Matrices and Arrays",
+        points: [
+          { text: "Understand that the fundamental data type in MATLAB is the array. Learn how to create row vectors, column vectors, and matrices.", resources: [{ name: "Creating Matrices", url: "https://www.mathworks.com/help/matlab/learn_matlab/creating-matrices-and-arrays.html" }] },
+          { text: "Perform matrix and array operations, including addition, subtraction, and element-wise operations.", resources: [{ name: "Array Indexing", url: "https://www.mathworks.com/help/matlab/learn_matlab/array-indexing.html" }] },
+          { text: "Learn about matrix multiplication, division, and inverse operations, which are fundamental to linear algebra.", resources: [{ name: "Matrix Operations", url: "https://www.mathworks.com/help/matlab/learn_matlab/matrix-and-array-operations.html" }] },
+        ],
+      },
+      {
+        title: "Data Visualization",
+        points: [
+          { text: "Create 2-D plots using the `plot` function to visualize your data. Learn to add titles, labels, and legends to your graphs.", resources: [{ name: "2-D Plots", url: "https://www.mathworks.com/help/matlab/learn_matlab/plots.html" }] },
+          { text: "Explore other types of plots, including bar charts, histograms, and scatter plots, to represent different kinds of data.", resources: [] },
+          { text: "Learn to create 3-D plots using functions like `surf` and `mesh` to visualize data in three dimensions.", resources: [{ name: "3-D Plots", url: "https://www.mathworks.com/help/matlab/visualize/creating-3-d-plots.html" }] },
+        ],
+      },
+      {
+        title: "Programming with MATLAB",
+        points: [
+          { text: "Learn to write scripts to automate sequences of commands. Understand the difference between scripts and functions.", resources: [{ name: "Scripts and Functions", url: "https://www.mathworks.com/help/matlab/learn_matlab/scripts-and-functions.html" }] },
+          { text: "Use relational and logical operators to make decisions in your code.", resources: [{ name: "Logical Operations", url: "https://www.mathworks.com/help/matlab/learn_matlab/logical-operations.html" }] },
+          { text: "Control the flow of your programs with conditional statements (`if/else`) and loops (`for`, `while`).", resources: [{ name: "Control Flow", url: "https://www.mathworks.com/help/matlab/control-flow.html" }] },
+        ],
+      },
+      {
+        title: "Data Analysis",
+        points: [
+          { text: "Learn to import data from various file types, such as text files, spreadsheets, and MAT-files.", resources: [{ name: "Data Import and Export", url: "https://www.mathworks.com/help/matlab/import_export/supported-file-formats.html" }] },
+          { text: "Perform basic statistical analysis, including calculating mean, standard deviation, and correlation.", resources: [{ name: "Descriptive Statistics", url: "https://www.mathworks.com/help/matlab/data_analysis/descriptive-statistics.html" }] },
+          { text: "Explore data fitting techniques to model the relationship between variables, including polynomial and linear regression.", resources: [{ name: "Curve Fitting", url: "https://www.mathworks.com/help/curvefit/curve-fitting.html" }] },
         ],
       },
     ],
