@@ -1281,10 +1281,33 @@ const learningPaths = [
     description: "Learn Dart, the language for building mobile, desktop, and web applications with Flutter.",
     topics: [
       {
-        title: "Fundamentals",
+        title: "Dart Fundamentals",
         points: [
-          { text: "Understand Dart syntax, types, and asynchronous programming.", resources: [{ name: "A Tour of the Dart Language", url: "https://dart.dev/guides/language/language-tour" }] },
-          { text: "Learn about building UIs with Flutter.", resources: [{ name: "Flutter Docs", url: "https://docs.flutter.dev/" }] },
+          { text: "Understand Dart's core principles, including its type system, variables, and basic operators.", resources: [{ name: "A Tour of the Dart Language", url: "https://dart.dev/guides/language/language-tour" }] },
+          { text: "Learn about control flow statements like if/else, for loops, and while loops to add logic to your applications.", resources: [{ name: "Control Flow Statements", url: "https://dart.dev/language/control-flow" }] },
+          { text: "Explore Dart's collection types: Lists, Sets, and Maps, for storing groups of objects.", resources: [{ name: "Collections", url: "https://dart.dev/language/collections" }] },
+        ],
+      },
+      {
+        title: "Functions and OOP",
+        points: [
+          { text: "Learn how to define and use functions. Understand parameters, return values, and anonymous functions (lambdas).", resources: [{ name: "Functions", url: "https://dart.dev/language/functions" }] },
+          { text: "Grasp the fundamentals of Object-Oriented Programming in Dart, including classes, objects, inheritance, and mixins.", resources: [{ name: "Classes", url: "https://dart.dev/language/classes" }] },
+        ],
+      },
+      {
+        title: "Asynchronous Programming",
+        points: [
+          { text: "Understand how to write asynchronous code using Futures and the `async` and `await` keywords.", resources: [{ name: "Asynchrony support", url: "https://dart.dev/language/async" }] },
+          { text: "Learn about Streams for handling sequences of asynchronous events.", resources: [] },
+        ],
+      },
+      {
+        title: "Introduction to Flutter",
+        points: [
+          { text: "Learn what Flutter is and why it's a powerful framework for building cross-platform applications.", resources: [{ name: "What is Flutter?", url: "https://docs.flutter.dev/overview" }] },
+          { text: "Set up your development environment for Flutter, including the Flutter SDK and an editor like VS Code or Android Studio.", resources: [{ name: "Install Flutter", url: "https://docs.flutter.dev/get-started/install" }] },
+          { text: "Build your first Flutter app and understand the basic project structure.", resources: [{ name: "Write your first Flutter app", url: "https://docs.flutter.dev/get-started/codelab" }] },
         ],
       },
     ],
