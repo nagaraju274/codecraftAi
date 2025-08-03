@@ -1401,14 +1401,54 @@ const learningPaths = [
     ],
   },
   {
-    title: "CSS",
-    description: "Learn the language for styling and laying out web pages.",
+    title: "CSS: Styling the Web",
+    description: "Learn the language for styling and laying out web pages, from basic selectors to advanced layouts and animations.",
     topics: [
       {
-        title: "Core Concepts",
+        title: "CSS Fundamentals",
         points: [
-          { text: "Understand selectors, the box model, and typography.", resources: [{ name: "MDN CSS Basics", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps" }] },
-          { text: "Learn about Flexbox, Grid, and responsive design.", resources: [{ name: "CSS-Tricks", url: "https://css-tricks.com/" }] },
+          { text: "Learn how to apply CSS to HTML using different methods: inline, internal, and external stylesheets.", resources: [{ name: "How to Add CSS", url: "https://www.w3schools.com/css/css_howto.asp" }] },
+          { text: "Master CSS selectors (element, class, ID, attribute) to target specific HTML elements for styling.", resources: [{ name: "CSS Selectors", url: "https://www.w3schools.com/cssref/css_selectors.php" }] },
+          { text: "Grasp the core concept of the CSS box model, understanding how margin, border, padding, and content define the space an element occupies.", resources: [{ name: "The Box Model", url: "https://www.w3schools.com/css/css_boxmodel.asp" }] },
+        ],
+      },
+      {
+        title: "Colors, Backgrounds, and Borders",
+        points: [
+          { text: "Learn how to apply colors to text and element backgrounds using various formats like keywords, hexadecimal, RGB, and HSL.", resources: [{ name: "CSS Colors", url: "https://www.w3schools.com/css/css_colors.asp" }] },
+          { text: "Explore how to set background images, control their repetition, and position them within an element.", resources: [{ name: "Backgrounds", url: "https://www.w3schools.com/css/css_background.asp" }] },
+          { text: "Master styling borders by controlling their width, style (solid, dashed, etc.), and color.", resources: [{ name: "Borders", url: "https://www.w3schools.com/css/css_border.asp" }] },
+        ],
+      },
+      {
+        title: "Typography and Text Styling",
+        points: [
+          { text: "Learn how to control the appearance of text, including font family, size, weight, and style.", resources: [{ name: "CSS Fonts", url: "https://www.w3schools.com/css/css_font.asp" }] },
+          { text: "Master text alignment, decoration (like underline), transformation (like uppercase), and spacing (letter and word spacing).", resources: [{ name: "Text Styling", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text" }] },
+        ],
+      },
+      {
+        title: "Modern CSS Layouts",
+        points: [
+          { text: "Learn Flexbox for creating efficient, one-dimensional layouts. Align and distribute items in a row or a column with ease.", resources: [{ name: "Flexbox", url: "https://css-tricks.com/snippets/css/a-guide-to-flexbox/" }] },
+          { text: "Use CSS Grid to build complex, two-dimensional layouts, allowing you to control the position of items in both rows and columns simultaneously.", resources: [{ name: "CSS Grid", url: "https://css-tricks.com/snippets/css/complete-guide-grid/" }] },
+          { text: "Understand the different positioning schemes in CSS: static, relative, absolute, fixed, and sticky.", resources: [{ name: "Positioning", url: "https://www.w3schools.com/css/css_positioning.asp" }] },
+        ],
+      },
+      {
+        title: "Responsive Design",
+        points: [
+          { text: "Learn the principles of responsive design and use media queries to apply different styles for different screen sizes and devices.", resources: [{ name: "Media Queries", url: "https://www.w3schools.com/css/css_rwd_mediaqueries.asp" }] },
+          { text: "Understand the mobile-first approach to design, where you start with styles for small screens and add complexity for larger ones.", resources: [{ name: "Mobile-First", url: "https://www.freecodecamp.org/news/taking-a-mobile-first-approach-to-responsive-web-design/" }] },
+          { text: "Use responsive units like percentages, `vw` (viewport width), and `vh` (viewport height) to create fluid layouts.", resources: [{ name: "Responsive Units", url: "https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units" }] },
+        ],
+      },
+      {
+        title: "Transitions and Animations",
+        points: [
+          { text: "Add smooth visual effects to property changes using the `transition` property.", resources: [{ name: "Transitions", url: "https://www.w3schools.com/css/css3_transitions.asp" }] },
+          { text: "Create complex, multi-step animations using `@keyframes` rules.", resources: [{ name: "Animations", url: "https://www.w3schools.com/css/css3_animations.asp" }] },
+          { text: "Learn to use the `transform` property to translate, rotate, scale, and skew elements in 2D and 3D space.", resources: [{ name: "Transforms", url: "https://www.w3schools.com/css/css3_2d_transforms.asp" }] },
         ],
       },
     ],
