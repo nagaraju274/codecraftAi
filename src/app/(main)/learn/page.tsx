@@ -1572,13 +1572,47 @@ const learningPaths = [
     ],
   },
   {
-    title: "PowerShell",
-    description: "Learn the command-line shell and scripting language from Microsoft.",
+    title: "PowerShell for Automation and Administration",
+    description: "Learn the command-line shell and scripting language from Microsoft to automate tasks and manage systems.",
     topics: [
       {
-        title: "Basics",
+        title: "Introduction to PowerShell",
         points: [
-          { text: "Understand cmdlets, pipelines, and the object-based nature of PowerShell.", resources: [{ name: "PowerShell Docs", url: "https://docs.microsoft.com/en-us/powershell/" }] },
+          { text: "Understand what PowerShell is, its core concepts (cmdlets, objects, pipeline), and its role in system administration.", resources: [{ name: "What is PowerShell?", url: "https://learn.microsoft.com/en-us/powershell/scripting/overview" }] },
+          { text: "Learn to use the integrated help system with `Get-Help` to discover commands and understand their usage.", resources: [{ name: "Discovering commands", url: "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/05-discovering-commands" }] },
+        ],
+      },
+      {
+        title: "Core Concepts",
+        points: [
+          { text: "Master working with cmdlets and understanding the Verb-Noun naming convention.", resources: [{ name: "Understanding cmdlets", url: "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/04-cmdlets" }] },
+          { text: "Grasp the power of the pipeline to chain commands together, passing objects from one cmdlet to the next.", resources: [{ name: "The Pipeline", url: "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/06-pipeline" }] },
+          { text: "Learn how to filter (`Where-Object`) and select (`Select-Object`) objects in the pipeline.", resources: [{ name: "Filtering and Selecting", url: "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/07-working-with-objects" }] },
+        ],
+      },
+      {
+        title: "PowerShell Scripting",
+        points: [
+          { text: "Learn how to declare and use variables, and understand PowerShell's data types.", resources: [{ name: "Variables", url: "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_variables" }] },
+          { text: "Use control flow operators like `if`, `else`, and `switch` to make decisions in your scripts.", resources: [{ name: "If/Else", url: "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_if" }] },
+          { text: "Learn to use loops like `ForEach-Object`, `for`, and `while` to perform repetitive tasks.", resources: [{ name: "Loops", url: "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_loops" }] },
+          { text: "Write your own functions to create reusable and modular scripts.", resources: [{ name: "Functions", url: "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions" }] },
+        ],
+      },
+      {
+        title: "Advanced Topics",
+        points: [
+          { text: "Learn to handle errors in your scripts using `Try-Catch-Finally` blocks.", resources: [{ name: "Error Handling", url: "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally" }] },
+          { text: "Explore PowerShell Remoting to run commands and scripts on remote computers.", resources: [{ name: "Running Remote Commands", url: "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/08-running-remote-commands" }] },
+          { text: "Understand how to work with different data formats like CSV, JSON, and XML.", resources: [{ name: "Working with data", url: "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/13-working-with-data" }] },
+        ],
+      },
+      {
+        title: "Administration and Modules",
+        points: [
+          { text: "Learn how to find, install, and use modules from the PowerShell Gallery to extend PowerShell's capabilities.", resources: [{ name: "PowerShellGet", url: "https://learn.microsoft.com/en-us/powershell/module/powershellget" }] },
+          { text: "Use PowerShell to manage Windows systems, including working with services, processes, and the event log.", resources: [] },
+          { text: "Get an introduction to managing Active Directory with the dedicated PowerShell module.", resources: [{ name: "Active Directory Cmdlets", url: "https://learn.microsoft.com/en-us/powershell/module/activedirectory" }] },
         ],
       },
     ],
@@ -1740,7 +1774,7 @@ export default function LearnPage() {
                     {path.topics.map((topic, index) => (
                       <AccordionItem value={`item-${index}`} key={topic.title}>
                         <div className="flex justify-between items-center w-full pr-2">
-                            <AccordionTrigger className="text-base font-medium hover:no-underline py-3 flex-1">
+                            <AccordionTrigger className="text-base font-medium hover:no-underline py-3 flex-1 text-left">
                                 <span>{topic.title}</span>
                             </AccordionTrigger>
                             <Button size="sm" variant="ghost" onClick={() => handleExplainTopic(topic)} className="ml-4">
