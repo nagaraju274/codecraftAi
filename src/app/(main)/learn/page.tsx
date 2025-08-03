@@ -1283,31 +1283,57 @@ const learningPaths = [
       {
         title: "Dart Fundamentals",
         points: [
-          { text: "Understand Dart's core principles, including its type system, variables, and basic operators.", resources: [{ name: "A Tour of the Dart Language", url: "https://dart.dev/guides/language/language-tour" }] },
-          { text: "Learn about control flow statements like if/else, for loops, and while loops to add logic to your applications.", resources: [{ name: "Control Flow Statements", url: "https://dart.dev/language/control-flow" }] },
-          { text: "Explore Dart's collection types: Lists, Sets, and Maps, for storing groups of objects.", resources: [{ name: "Collections", url: "https://dart.dev/language/collections" }] },
+            { text: "Understand Dart's core principles, including its type system, variables (var, final, const), and basic operators.", resources: [{ name: "A Tour of the Dart Language", url: "https://dart.dev/guides/language/language-tour" }] },
+            { text: "Learn about control flow statements like if/else, for loops, and while loops to add logic to your applications.", resources: [{ name: "Control Flow Statements", url: "https://dart.dev/language/control-flow" }] },
+            { text: "Explore Dart's collection types: Lists, Sets, and Maps, for storing groups of objects.", resources: [{ name: "Collections", url: "https://dart.dev/language/collections" }] },
+            { text: "Grasp Dart's powerful null safety features to prevent null reference errors.", resources: [{ name: "Null Safety", url: "https://dart.dev/null-safety" }] },
         ],
       },
       {
-        title: "Functions and OOP",
+        title: "Functions and Object-Oriented Programming",
         points: [
           { text: "Learn how to define and use functions. Understand parameters, return values, and anonymous functions (lambdas).", resources: [{ name: "Functions", url: "https://dart.dev/language/functions" }] },
-          { text: "Grasp the fundamentals of Object-Oriented Programming in Dart, including classes, objects, inheritance, and mixins.", resources: [{ name: "Classes", url: "https://dart.dev/language/classes" }] },
+          { text: "Grasp the fundamentals of Object-Oriented Programming in Dart, including classes, objects, and constructors.", resources: [{ name: "Classes", url: "https://dart.dev/language/classes" }] },
+          { text: "Explore inheritance, abstract classes, and mixins to create reusable and well-structured code.", resources: [{ name: "Inheritance", url: "https://dart.dev/language/inheritance" }] },
         ],
       },
       {
         title: "Asynchronous Programming",
         points: [
           { text: "Understand how to write asynchronous code using Futures and the `async` and `await` keywords.", resources: [{ name: "Asynchrony support", url: "https://dart.dev/language/async" }] },
-          { text: "Learn about Streams for handling sequences of asynchronous events.", resources: [] },
+          { text: "Learn about Streams for handling sequences of asynchronous events, such as user input or file I/O.", resources: [] },
         ],
       },
       {
         title: "Introduction to Flutter",
         points: [
-          { text: "Learn what Flutter is and why it's a powerful framework for building cross-platform applications.", resources: [{ name: "What is Flutter?", url: "https://docs.flutter.dev/overview" }] },
+          { text: "Learn what Flutter is and why it's a powerful framework for building cross-platform applications from a single codebase.", resources: [{ name: "What is Flutter?", url: "https://docs.flutter.dev/overview" }] },
           { text: "Set up your development environment for Flutter, including the Flutter SDK and an editor like VS Code or Android Studio.", resources: [{ name: "Install Flutter", url: "https://docs.flutter.dev/get-started/install" }] },
-          { text: "Build your first Flutter app and understand the basic project structure.", resources: [{ name: "Write your first Flutter app", url: "https://docs.flutter.dev/get-started/codelab" }] },
+          { text: "Build your first Flutter app and understand the basic project structure and the 'everything is a widget' concept.", resources: [{ name: "Write your first Flutter app", url: "https://docs.flutter.dev/get-started/codelab" }] },
+        ],
+      },
+      {
+        title: "Flutter Widgets and Layouts",
+        points: [
+            { text: "Explore fundamental widgets like `Text`, `Image`, `Icon`, and `Container`.", resources: [{ name: "Basic Widgets", url: "https://docs.flutter.dev/ui/widgets/basics" }] },
+            { text: "Learn how to arrange widgets on the screen using layout widgets like `Row`, `Column`, `Stack`, and `Expanded`.", resources: [{ name: "Layouts in Flutter", url: "https://docs.flutter.dev/ui/layout" }] },
+            { text: "Build interactive elements using widgets like `Button` and `TextField` to handle user input.", resources: [{ name: "Interactive Widgets", url: "https://docs.flutter.dev/ui/widgets/interactive" }] },
+        ],
+      },
+      {
+        title: "State Management in Flutter",
+        points: [
+            { text: "Understand the difference between stateless and stateful widgets and when to use each.", resources: [{ name: "Adding interactivity", url: "https://docs.flutter.dev/ui/interactive" }] },
+            { text: "Learn about lifting state up and using callbacks to manage state in simple applications.", resources: [] },
+            { text: "Explore popular state management solutions like Provider and Riverpod for more complex applications.", resources: [{ name: "State Management Options", url: "https://docs.flutter.dev/data-and-backend/state-mgmt/options" }] },
+        ],
+      },
+      {
+        title: "Navigation and Routing",
+        points: [
+            { text: "Learn to navigate between different screens (or 'routes') using the `Navigator` widget.", resources: [{ name: "Navigation and Routing", url: "https://docs.flutter.dev/ui/navigation" }] },
+            { text: "Understand how to pass data between screens to build multi-page applications.", resources: [] },
+            { text: "Explore named routes for a more organized approach to navigation in larger apps.", resources: [] },
         ],
       },
     ],
