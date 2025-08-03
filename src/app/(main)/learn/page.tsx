@@ -1336,17 +1336,66 @@ const learningPaths = [
             { text: "Explore named routes for a more organized approach to navigation in larger apps.", resources: [] },
         ],
       },
+      {
+        title: "Working with Device Features",
+        points: [
+            { text: "Learn how to make HTTP requests to a web server to fetch data.", resources: [{ name: "Networking", url: "https://docs.flutter.dev/data-and-backend/networking" }] },
+            { text: "Use packages from pub.dev to access device hardware like the camera or GPS.", resources: [{ name: "Packages", url: "https://pub.dev/" }] },
+            { text: "Learn how to store data locally on the device using shared_preferences or a local database like SQLite.", resources: [{ name: "Data persistence", url: "https://docs.flutter.dev/data-and-backend/persistence" }] },
+        ],
+      },
     ],
   },
   {
-    title: "HTML",
-    description: "Learn the standard markup language for creating web pages.",
+    title: "HTML: The Language of the Web",
+    description: "Master the fundamental language for creating and structuring web pages.",
     topics: [
       {
-        title: "Basics",
+        title: "Introduction to HTML",
         points: [
-          { text: "Understand elements, tags, and attributes.", resources: [{ name: "MDN HTML Basics", url: "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics" }] },
-          { text: "Learn about semantic HTML, forms, and multimedia.", resources: [{ name: "HTML Dog", url: "https://htmldog.com/guides/html/beginner/" }] },
+          { text: "Understand what HTML is and its essential role in creating web pages.", resources: [{ name: "HTML Introduction", url: "https://www.w3schools.com/html/html_intro.asp" }] },
+          { text: "Learn about the history of HTML and its evolution over the years.", resources: [{ name: "HTML History", url: "https://en.wikipedia.org/wiki/HTML#History" }] },
+          { text: "Set up a basic HTML file and understand the essential document structure, including `<!DOCTYPE>`, `<html>`, `<head>`, and `<body>` tags.", resources: [{ name: "HTML Basic", url: "https://www.w3schools.com/html/html_basic.asp" }] },
+        ],
+      },
+      {
+        title: "Essential HTML Tags",
+        points: [
+          { text: "Learn to use heading tags (`<h1>` to `<h6>`) for structuring content and paragraph tags (`<p>`) for text.", resources: [{ name: "Headings & Paragraphs", url: "https://www.w3schools.com/html/html_headings.asp" }] },
+          { text: "Understand how to create links with the anchor tag (`<a>`) and add images to your page with the image tag (`<img>`).", resources: [{ name: "Links", url: "https://www.w3schools.com/html/html_links.asp" }, { name: "Images", url: "https://www.w3schools.com/html/html_images.asp" }] },
+          { text: "Master creating ordered (`<ol>`), unordered (`<ul>`), and description (`<dl>`) lists.", resources: [{ name: "Lists", url: "https://www.w3schools.com/html/html_lists.asp" }] },
+        ],
+      },
+      {
+        title: "Semantic HTML",
+        points: [
+          { text: "Understand the importance of semantic HTML for accessibility, SEO, and maintainability.", resources: [{ name: "Semantic HTML", url: "https://www.w3schools.com/html/html5_semantic_elements.asp" }] },
+          { text: "Learn to use structural elements like `<header>`, `<footer>`, `<nav>`, `<main>`, `<article>`, and `<section>` to define the layout of your page.", resources: [{ name: "Layout Elements", url: "https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure" }] },
+          { text: "Use other semantic elements like `<figure>`, `<figcaption>`, and `<aside>` to give more meaning to your content.", resources: [] },
+        ],
+      },
+      {
+        title: "HTML Forms",
+        points: [
+          { text: "Learn how to create forms using the `<form>` tag and various input types like text, password, checkbox, radio, and submit.", resources: [{ name: "HTML Forms", url: "https://www.w3schools.com/html/html_forms.asp" }] },
+          { text: "Use the `<label>` tag to associate text with form controls for better accessibility.", resources: [{ name: "Form Elements", url: "https://www.w3schools.com/html/html_form_elements.asp" }] },
+          { text: "Explore more advanced form elements like `<textarea>`, `<select>`, `<option>`, and `<button>`.", resources: [] },
+        ],
+      },
+      {
+        title: "Tables",
+        points: [
+          { text: "Learn how to structure tabular data using `<table>`, `<tr>` (table row), `<th>` (table header), and `<td>` (table data) tags.", resources: [{ name: "HTML Tables", url: "https://www.w3schools.com/html/html_tables.asp" }] },
+          { text: "Understand how to use `<thead>`, `<tbody>`, and `<tfoot>` for better table structure.", resources: [] },
+          { text: "Explore how to merge cells using the `colspan` and `rowspan` attributes.", resources: [] },
+        ],
+      },
+      {
+        title: "Multimedia",
+        points: [
+          { text: "Learn how to embed audio and video content in your web pages using the `<audio>` and `<video>` tags.", resources: [{ name: "HTML Media", url: "https://www.w3schools.com/html/html_media.asp" }] },
+          { text: "Understand how to provide different source files for better browser compatibility and how to add controls and subtitles.", resources: [] },
+          { text: "Learn how to embed content from other websites (like YouTube videos) using the `<iframe>` tag.", resources: [{ name: "Iframes", url: "https://www.w3schools.com/html/html_iframe.asp" }] },
         ],
       },
     ],
