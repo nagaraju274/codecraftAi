@@ -5,57 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Image from "next/image";
-
-const projects = [
-  {
-    id: "todo-app",
-    title: "To-Do List Application",
-    description: "Build a classic to-do list app to manage your daily tasks. This project is perfect for learning the fundamentals of state management in a React application.",
-    image: "/images/project-todo.png",
-    tags: ["React", "State Management", "UI/UX"],
-    aiHint: "task list",
-  },
-  {
-    id: "weather-app",
-    title: "Weather Forecast App",
-    description: "Create an application that fetches and displays weather data from a third-party API. You'll learn how to handle asynchronous data and present it in a user-friendly interface.",
-    image: "/images/project-weather.png",
-    tags: ["React", "API Integration", "Async"],
-    aiHint: "weather forecast",
-  },
-  {
-    id: "blog-platform",
-    title: "Personal Blog Platform",
-    description: "Develop a simple but functional blog where you can create, edit, and delete posts. This project introduces concepts of routing and data persistence.",
-    image: "/images/project-blog.png",
-    tags: ["Next.js", "Routing", "Full-Stack"],
-    aiHint: "writing blog",
-  },
-  {
-    id: "image-recognizer",
-    title: "AI Image Recognizer",
-    description: "Dive into the world of AI by building an application that can identify objects in images using a machine learning model. A great introduction to Genkit.",
-    image: "/images/project-ai.png",
-    tags: ["Genkit", "AI", "Image Recognition"],
-    aiHint: "artificial intelligence",
-  },
-    {
-    id: "portfolio-generator",
-    title: "AI Portfolio Generator",
-    description: "Build a tool that generates a personal portfolio website based on user input. This project combines form handling with dynamic content generation using AI.",
-    image: "/images/project-portfolio.png",
-    tags: ["Next.js", "Genkit", "AI", "Web Development"],
-    aiHint: "personal website",
-  },
-  {
-    id: "recipe-finder",
-    title: "Recipe Finder App",
-    description: "Create an app that helps users discover new recipes based on ingredients they have. This project focuses on searching, filtering, and displaying data from a collection.",
-    image: "/images/project-recipe.png",
-    tags: ["React", "Data Filtering", "UI Design"],
-    aiHint: "cooking recipe",
-  },
-];
+import { projects } from './projects-data';
 
 
 export default function ProjectsPage() {

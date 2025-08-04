@@ -4,6 +4,7 @@ export const projects = [
     id: "todo-app",
     title: "To-Do List Application",
     description: "Build a classic to-do list app to manage your daily tasks. This project is perfect for learning the fundamentals of state management in a React application.",
+    aiHint: "task list",
     tags: ["React", "State Management", "UI/UX"],
     steps: [
       {
@@ -173,7 +174,8 @@ const handleDeleteTask = (id) => {
   {
     id: "weather-app",
     title: "Weather Forecast App",
-    description: "Create an application that fetches and displays weather data from a third-party API.",
+    description: "Create an application that fetches and displays weather data from a third-party API. You'll learn how to handle asynchronous data and present it in a user-friendly interface.",
+    aiHint: "weather forecast",
     tags: ["React", "API Integration", "Async"],
     steps: [
         {
@@ -301,7 +303,8 @@ const handleSearch = async () => {
   {
     id: "blog-platform",
     title: "Personal Blog Platform",
-    description: "Develop a simple but functional blog where you can create, edit, and delete posts.",
+    description: "Develop a simple but functional blog where you can create, edit, and delete posts. This project introduces concepts of routing and data persistence.",
+    aiHint: "writing blog",
     tags: ["Next.js", "Routing", "Full-Stack"],
     steps: [
         {
@@ -420,6 +423,7 @@ export default function PostPage({ params }: { params: { postId: string }}) {
     id: "image-recognizer",
     title: "AI Image Recognizer",
     description: "Dive into the world of AI by building an application that can identify objects in images using a machine learning model.",
+    aiHint: "artificial intelligence",
     tags: ["Genkit", "AI", "Image Recognition"],
     steps: [
       {
@@ -589,6 +593,7 @@ const handleRecognize = async () => {
     id: "portfolio-generator",
     title: "AI Portfolio Generator",
     description: "Build a tool that generates a personal portfolio website based on user input. This project combines form handling with dynamic content generation using AI.",
+    aiHint: "personal website",
     tags: ["Next.js", "Genkit", "AI", "Web Development"],
     steps: [
        {
@@ -718,6 +723,7 @@ const handleGenerate = async () => {
     id: "recipe-finder",
     title: "Recipe Finder App",
     description: "Create an app that helps users discover new recipes based on ingredients they have. This project focuses on searching, filtering, and displaying data from a collection.",
+    aiHint: "cooking recipe",
     tags: ["React", "Data Filtering", "UI Design"],
     steps: [
         {
@@ -826,6 +832,405 @@ const filteredRecipes = searchQuery.trim() === ''
 )}`,
             hint: "Conditional rendering is key here. A simple check like `array.length === 0` is all you need to decide whether to show the results grid or the 'no results' message."
         }
+    ]
+  },
+  {
+    id: "ecommerce-cart",
+    title: "E-commerce Shopping Cart",
+    description: "Build a functional shopping cart for an e-commerce site. Learn how to manage state for products, cart items, and totals.",
+    aiHint: "online shopping",
+    tags: ["React", "State Management", "E-commerce"],
+    steps: [
+      {
+        title: "Project Setup",
+        description: "Create the main page and mock data for products.",
+        details: "<p>First, we'll set up the page for our app and create a mock data file containing a list of products. Each product will have an id, name, and price.</p>",
+        code: `// src/lib/product-data.ts
+export interface Product {
+  id: number;
+  name: string;
+  price: number;
+}
+export const products: Product[] = [
+  { id: 1, name: 'Wireless Headphones', price: 99.99 },
+  { id: 2, name: 'Smartwatch', price: 199.99 },
+  { id: 3, name: 'Portable Speaker', price: 49.99 },
+  { id: 4, name: 'Coffee Maker', price: 79.99 },
+];
+
+// src/app/cart/page.tsx
+export default function CartPage() {
+  return <h1>E-commerce Cart</h1>
+}
+`,
+        hint: "Start by defining a clear `Product` interface. This will help ensure your data is consistent and prevent common errors as your application grows."
+      },
+      {
+        title: "Display Products",
+        description: "Create the UI to display the list of available products.",
+        details: "<p>Let's build the UI to show the products for sale. We will map over our products data and display each one in a card with its name, price, and an 'Add to Cart' button.</p>",
+        code: `// src/app/cart/page.tsx
+"use client";
+import { useState } from 'react';
+import { products, Product } from '@/lib/product-data';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+
+export default function CartPage() {
+  return (
+    <div className="container mx-auto py-10">
+      <h1 className="text-3xl font-bold mb-6">Products</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {products.map(product => (
+          <Card key={product.id}>
+            <CardHeader>
+              <CardTitle>{product.name}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-lg font-semibold">\${product.price.toFixed(2)}</p>
+            </CardContent>
+            <CardFooter>
+              <Button>Add to Cart</Button>
+            </CardFooter>
+          </Card>
+        ))}
+      </div>
+    </div>
+  )
+}`,
+        hint: "Use `toFixed(2)` to ensure your prices are always displayed in a standard currency format, like `49.99` instead of `49.9`."
+      },
+      {
+        title: "Manage Cart State",
+        description: "Use the `useState` hook to manage the items in the shopping cart.",
+        details: "<p>Now for the core logic. We need to create a state variable to hold the items in the cart. This will be an array of objects, where each object contains the product and its quantity.</p>",
+        code: `// Inside CartPage component
+interface CartItem {
+  product: Product;
+  quantity: number;
+}
+
+const [cartItems, setCartItems] = useState<CartItem[]>([]);
+`,
+        hint: "It's a good idea to create a separate interface for `CartItem`. This makes it clear that a cart item is different from a product, as it includes additional information like quantity."
+      },
+      {
+        title: "Implement 'Add to Cart'",
+        description: "Write the logic to add products to the cart or update their quantity if already present.",
+        details: "<p>Let's make the 'Add to Cart' button functional. When clicked, it should check if the product is already in the cart. If it is, we increase the quantity. If not, we add it as a new item.</p>",
+        code: `const handleAddToCart = (product: Product) => {
+  setCartItems(prevItems => {
+    const existingItem = prevItems.find(item => item.product.id === product.id);
+    if (existingItem) {
+      return prevItems.map(item =>
+        item.product.id === product.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    }
+    return [...prevItems, { product, quantity: 1 }];
+  });
+};
+
+// Update the button's onClick in the product mapping:
+// <Button onClick={() => handleAddToCart(product)}>Add to Cart</Button>
+`,
+        hint: "When updating state based on the previous state, always use the callback form of the state setter function (e.g., `setMyState(prevState => ...)`). This prevents issues with stale state."
+      },
+      {
+        title: "Display Shopping Cart",
+        description: "Create a separate section to display the items currently in the cart.",
+        details: "<p>Users need to see what's in their cart. We'll create a new section that lists all the items in `cartItems`, showing their name, price, quantity, and a subtotal for each item. We'll also calculate and display the grand total.</p>",
+        code: `// Add this section below the products grid
+<div className="mt-12">
+  <h2 className="text-2xl font-bold mb-4">Shopping Cart</h2>
+  <Card>
+    <CardContent className="p-6 space-y-4">
+      {cartItems.length === 0 ? (
+        <p className="text-muted-foreground">Your cart is empty.</p>
+      ) : (
+        cartItems.map(item => (
+          <div key={item.product.id} className="flex justify-between items-center">
+            <div>
+              <p className="font-semibold">{item.product.name}</p>
+              <p className="text-sm text-muted-foreground">
+                \${item.product.price.toFixed(2)} x {item.quantity}
+              </p>
+            </div>
+            <p className="font-semibold">\${(item.product.price * item.quantity).toFixed(2)}</p>
+          </div>
+        ))
+      )}
+      <div className="border-t pt-4 mt-4">
+        <div className="flex justify-between font-bold text-lg">
+          <p>Total:</p>
+          <p>\${cartItems.reduce((total, item) => total + item.product.price * item.quantity, 0).toFixed(2)}</p>
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+</div>
+`,
+        hint: "The `reduce` array method is perfect for calculating the total price. It iterates over the cart items and accumulates a single value (the total)."
+      }
+    ]
+  },
+  {
+    id: "markdown-editor",
+    title: "Markdown Note-Taker",
+    description: "Create a real-time Markdown editor with a live preview pane. A great way to learn about text processing and UI updates.",
+    aiHint: "writing notes",
+    tags: ["React", "UI", "Text Editing"],
+    steps: [
+      {
+        title: "Project Setup",
+        description: "Create the main page for the Markdown editor.",
+        details: "<p>We'll start by setting up the main page for our application. This will serve as the container for our editor and preview components.</p>",
+        code: `// src/app/markdown/page.tsx
+"use client";
+import { useState } from 'react';
+
+export default function MarkdownPage() {
+  return <h1>Markdown Editor</h1>
+}
+`,
+        hint: "Keep the initial setup simple. A single page component is all you need to get started before building out the more complex editor UI."
+      },
+      {
+        title: "Build the Layout",
+        description: "Create a two-pane layout for the editor and the live preview.",
+        details: "<p>The core of this application is a side-by-side view. We'll create a layout with two main sections: a `Textarea` for users to write Markdown, and a `div` where the rendered HTML will be displayed.</p>",
+        code: `// src/app/markdown/page.tsx
+"use client";
+import { useState } from 'react';
+import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent } from '@/components/ui/card';
+
+export default function MarkdownPage() {
+  const [markdown, setMarkdown] = useState('# Hello, Markdown!');
+
+  return (
+    <div className="container mx-auto py-10 h-[calc(100vh-5rem)] flex flex-col">
+      <h1 className="text-3xl font-bold mb-4">Real-time Markdown Editor</h1>
+      <div className="grid md:grid-cols-2 gap-6 flex-1">
+        <Card className="flex flex-col">
+          <CardContent className="p-0 flex-1">
+            <Textarea 
+              value={markdown}
+              onChange={(e) => setMarkdown(e.target.value)}
+              className="h-full w-full resize-none border-0 rounded-md p-4"
+              placeholder="Type your markdown here..."
+            />
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="p-4">
+            {/* Rendered HTML will go here */}
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  )
+}
+`,
+        hint: "Using a CSS Grid layout (`grid-cols-2`) is a simple and robust way to create the two-pane view. Make sure the parent container has a defined height so the panes can fill the available space."
+      },
+      {
+        title: "Add Markdown Parsing",
+        description: "Integrate a library to convert the Markdown text to HTML.",
+        details: "<p>To convert the user's text into formatted HTML, we need a Markdown parser. We'll add the `react-markdown` library to our project, which is a popular and easy-to-use solution for this.</p>",
+        code: `// You will need to install react-markdown:
+// npm install react-markdown
+
+// src/app/markdown/page.tsx
+// ...
+import ReactMarkdown from 'react-markdown';
+
+// ... inside MarkdownPage component
+// ... inside the second CardContent
+<div className="prose dark:prose-invert max-w-none">
+  <ReactMarkdown>{markdown}</ReactMarkdown>
+</div>
+`,
+        hint: "The `prose` classes from the `@tailwindcss/typography` plugin are fantastic for instantly styling the HTML output of a Markdown parser. It provides sensible defaults for headings, paragraphs, lists, and more."
+      },
+      {
+        title: "Style the Preview Pane",
+        description: "Apply styling to the rendered HTML to make it look like a formatted document.",
+        details: "<p>Raw HTML doesn't look great. We will use the `@tailwindcss/typography` plugin to automatically style the output from `react-markdown`. This will give us clean, readable formatting for headings, lists, code blocks, and more, without writing custom CSS.</p>",
+        code: `// This is already done in the previous step's code.
+// The key is adding the "prose" class to the container of the rendered markdown.
+
+<div className="prose dark:prose-invert max-w-none">
+  <ReactMarkdown>{markdown}</ReactMarkdown>
+</div>
+`,
+        hint: "`prose-invert` is a useful variant that automatically adjusts the typography colors for dark mode, ensuring your preview looks great in either theme."
+      }
+    ]
+  },
+  {
+    id: "ai-chat-app",
+    title: "AI Chat Application",
+    description: "Build a simple chat interface that communicates with an AI chatbot using Genkit. Learn about managing conversational state.",
+    aiHint: "chatbot conversation",
+    tags: ["Genkit", "AI", "Chat", "State Management"],
+    steps: [
+      {
+        title: "Setup Chat AI Flow",
+        description: "Create a Genkit flow for handling chat conversations.",
+        details: "<p>First, we need the AI brain. We'll create a Genkit flow that takes a user's message and returns a conversational response. This flow will be the backend for our chatbot.</p>",
+        code: `// src/ai/flows/chat.ts
+'use server';
+import { ai } from '@/ai/genkit';
+import { z } from 'zod';
+
+export const ChatInputSchema = z.object({
+  message: z.string().describe("The user's message."),
+});
+export type ChatInput = z.infer<typeof ChatInputSchema>;
+
+export const ChatOutputSchema = z.object({
+  response: z.string().describe("The AI's response."),
+});
+export type ChatOutput = z.infer<typeof ChatOutputSchema>;
+
+const chatPrompt = ai.definePrompt({
+    name: 'chatPrompt',
+    input: { schema: ChatInputSchema },
+    output: { schema: ChatOutputSchema },
+    prompt: \`
+      You are a helpful assistant. Respond to the user's message in a conversational way.
+      User: {{{message}}}
+      AI: 
+    \`,
+});
+
+export const chatFlow = ai.defineFlow(
+  {
+    name: 'chatFlow',
+    inputSchema: ChatInputSchema,
+    outputSchema: ChatOutputSchema,
+  },
+  async (input) => {
+    const { output } = await chatPrompt(input);
+    return output!;
+  }
+);
+`,
+        hint: "A good prompt is key. Clearly define the AI's persona ('You are a helpful assistant') and provide a structure for the conversation (User: ..., AI: ...) to guide the model's responses."
+      },
+      {
+        title: "Build the Chat UI",
+        description: "Create the user interface for sending and displaying chat messages.",
+        details: "<p>Now, let's build the chat window. We need a message display area that shows the conversation history and an input area at the bottom for the user to type and send new messages.</p>",
+        code: `// src/app/chat/page.tsx
+"use client";
+import { useState } from 'react';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { ScrollArea } from '@/components/ui/scroll-area';
+
+export default function ChatPage() {
+  return (
+    <div className="flex justify-center items-center h-full pt-10">
+      <Card className="w-full max-w-2xl h-[70vh] flex flex-col">
+        <CardHeader>
+          <CardTitle>AI Chatbot</CardTitle>
+        </CardHeader>
+        <CardContent className="flex-1 overflow-hidden">
+          <ScrollArea className="h-full pr-4">
+            {/* Messages will go here */}
+          </ScrollArea>
+        </CardContent>
+        <CardFooter className="pt-4">
+          <div className="flex w-full items-center space-x-2">
+            <Input placeholder="Type a message..." />
+            <Button>Send</Button>
+          </div>
+        </CardFooter>
+      </Card>
+    </div>
+  )
+}
+`,
+        hint: "For a chat window, it's important that the message area is scrollable. Wrapping the message list in ShadCN's `<ScrollArea>` component is an easy way to achieve this."
+      },
+      {
+        title: "Manage Conversation State",
+        description: "Use `useState` to manage the list of messages and the user's input.",
+        details: "<p>A chat app needs to keep track of the conversation. We'll use a state variable to store an array of message objects. Each object will contain the text of the message and who sent it (the user or the AI).</p>",
+        code: `// Inside ChatPage component
+interface Message {
+  text: string;
+  sender: 'user' | 'ai';
+}
+
+const [messages, setMessages] = useState<Message[]>([]);
+const [input, setInput] = useState('');
+
+// Update the input to be a controlled component:
+// <Input value={input} onChange={e => setInput(e.target.value)} ... />
+`,
+        hint: "Creating a `Message` interface helps keep your state organized and makes it easier to style messages differently based on the `sender`."
+      },
+      {
+        title: "Implement Send Message",
+        description: "Write the logic to send a user's message to the AI and display the response.",
+        details: "<p>This is where we connect the UI to our AI flow. When the user sends a message, we'll add it to our messages state, then call the Genkit flow. When the AI responds, we'll add its message to the state as well.</p>",
+        code: `// Add to ChatPage component
+import { chatFlow } from '@/ai/flows/chat'; // Update this import
+const [loading, setLoading] = useState(false);
+
+const handleSendMessage = async () => {
+  if (input.trim() === '') return;
+
+  const userMessage: Message = { text: input, sender: 'user' };
+  setMessages(prev => [...prev, userMessage]);
+  setInput('');
+  setLoading(true);
+
+  try {
+    const result = await chatFlow({ message: input });
+    const aiMessage: Message = { text: result.response, sender: 'ai' };
+    setMessages(prev => [...prev, aiMessage]);
+  } catch (error) {
+    const errorMessage: Message = { text: 'Sorry, I had a problem responding.', sender: 'ai' };
+    setMessages(prev => [...prev, errorMessage]);
+  } finally {
+    setLoading(false);
+  }
+};
+
+// Add to Send button's onClick and Input's onKeyDown for Enter key
+`,
+        hint: "To provide a good user experience, add the user's message to the UI immediately, before you even get a response from the AI. This makes the chat feel instant."
+      },
+      {
+        title: "Display the Conversation",
+        description: "Map over the messages array to render the conversation in the UI.",
+        details: "<p>Let's display the messages. We will map over the `messages` state array and render each message, styling them differently based on whether the sender is the 'user' or the 'ai'.</p>",
+        code: `// Inside the <ScrollArea>
+<div className="space-y-4">
+  {messages.map((msg, index) => (
+    <div key={index} className={\`flex \${msg.sender === 'user' ? 'justify-end' : 'justify-start'}\`}>
+      <div className={\`rounded-lg px-4 py-2 \${msg.sender === 'user' ? 'bg-primary text-primary-foreground' : 'bg-muted'}\`}>
+        {msg.text}
+      </div>
+    </div>
+  ))}
+  {loading && (
+    <div className="flex justify-start">
+      <div className="rounded-lg px-4 py-2 bg-muted">
+        Typing...
+      </div>
+    </div>
+  )}
+</div>
+`,
+        hint: "Use conditional classes with `justify-end` or `justify-start` to easily align user and AI messages to the right and left sides of the chat window, respectively."
+      }
     ]
   },
 ];
