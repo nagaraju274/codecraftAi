@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { Play, Trash2, Bot, Loader } from "lucide-react"
-import { fixCodeError, explainCode } from "@/ai/flows"
+import { fixCodeError, explainCode, runPythonCode } from "@/ai/flows"
 import { useToast } from "@/hooks/use-toast"
 
 type SupportedLanguage = "javascript" | "python" ;
@@ -31,7 +31,7 @@ export default function PlaygroundPage() {
     setOutput([])
   }
 
-  const runCode = () => {
+  const runCode = async () => {
     setOutput([]);
     setIsRunning(true);
     if (language === 'javascript') {
@@ -48,11 +48,30 @@ export default function PlaygroundPage() {
       } finally {
         console.log = originalLog;
         setOutput(newOutput);
+        setIsRunning(false);
       }
-    } else {
-        setOutput([`> ${language} main.${language === 'python' ? 'py' : ''}`, `Execution for ${language} is not implemented yet.`]);
+    } else if (language === 'python') {
+        try {
+            const result = await runPythonCode({ code });
+            const newOutput = [`> python main.py`];
+            if (result.stdout) {
+                newOutput.push(...result.stdout.split('\n'));
+            }
+            if (result.stderr) {
+                newOutput.push(...result.stderr.split('\n'));
+            }
+            setOutput(newOutput);
+        } catch (e) {
+            toast({
+                variant: "destructive",
+                title: "Error",
+                description: "Failed to run Python code.",
+            });
+            setOutput([`> python main.py`, `Error running python code.`]);
+        } finally {
+            setIsRunning(false);
+        }
     }
-    setIsRunning(false);
   }
 
   const handleFixCode = async () => {
