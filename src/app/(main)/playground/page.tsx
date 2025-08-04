@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
-import { Play, Trash2, Bot } from "lucide-react"
+import { Play, Trash2, Bot, Loader } from "lucide-react"
 import { fixCodeError, explainCode } from "@/ai/flows"
 import { useToast } from "@/hooks/use-toast"
 
@@ -136,8 +136,14 @@ export default function PlaygroundPage() {
             <CardTitle className="text-lg">Editor</CardTitle>
             <div className="flex items-center gap-2 flex-wrap">
               <Button onClick={runCode} size="sm"><Play className="mr-2 h-4 w-4" />Run</Button>
-              <Button onClick={handleFixCode} size="sm" variant="secondary" disabled={isAiLoading}><Bot className="mr-2 h-4 w-4" />{isAiLoading ? 'Fixing...' : 'Fix with AI'}</Button>
-              <Button onClick={handleExplainCode} size="sm" variant="secondary" disabled={isAiLoading}><Bot className="mr-2 h-4 w-4" />{isAiLoading ? 'Explaining...' : 'Explain'}</Button>
+              <Button onClick={handleFixCode} size="sm" variant="secondary" disabled={isAiLoading}>
+                {isAiLoading ? <Loader className="mr-2 h-4 w-4 animate-spin" /> : <Bot className="mr-2 h-4 w-4" />}
+                Fix with AI
+              </Button>
+              <Button onClick={handleExplainCode} size="sm" variant="secondary" disabled={isAiLoading}>
+                 {isAiLoading ? <Loader className="mr-2 h-4 w-4 animate-spin" /> : <Bot className="mr-2 h-4 w-4" />}
+                Explain
+              </Button>
             </div>
           </CardHeader>
           <CardContent className="flex-1 flex flex-col">
