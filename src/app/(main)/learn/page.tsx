@@ -1856,27 +1856,29 @@ export default function LearnPage() {
   );
 
   return (
-    <div className="flex flex-col h-full gap-4">
-      <div className="space-y-2">
+    <div className="flex flex-col h-full">
+      <div className="p-4 space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">Learning Paths</h1>
         <p className="text-muted-foreground">
           Our structured learning paths will help you master new skills and advance your career.
         </p>
       </div>
-      <div className="py-4">
-        <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-            <Input
-              type="search"
-              placeholder="Search for a learning path..."
-              className="pl-10 w-full"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
+      <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm px-4">
+        <div className="py-4">
+            <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <Input
+                  type="search"
+                  placeholder="Search for a learning path..."
+                  className="pl-10 w-full"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+            </div>
         </div>
       </div>
-      <ScrollArea className="flex-1 -mt-4">
-        <div className="space-y-4 pr-4 pt-4">
+      <ScrollArea className="flex-1">
+        <div className="space-y-4 p-4 pt-0">
           {filteredPaths.map((path, index) => (
             <div key={index} className="p-1 h-full">
               <Card className="hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
