@@ -34,7 +34,7 @@ const projects = [
   {
     id: "image-recognizer",
     title: "AI Image Recognizer",
-    description: "Dive into the world of AI by building an application that can identify objects in images using a machine learning model. A great introduction to GenAI.",
+    description: "Dive into the world of AI by building an application that can identify objects in images using a machine learning model. A great introduction to Genkit.",
     image: "/images/project-ai.png",
     tags: ["Genkit", "AI", "Image Recognition"],
     aiHint: "artificial intelligence",
