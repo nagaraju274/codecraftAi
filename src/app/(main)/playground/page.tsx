@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState } from "react"
@@ -9,14 +10,11 @@ import { Play, Trash2, Bot, Loader } from "lucide-react"
 import { fixCodeError, explainCode } from "@/ai/flows"
 import { useToast } from "@/hooks/use-toast"
 
-type SupportedLanguage = "javascript" | "python" | "cpp" | "java" | "go";
+type SupportedLanguage = "javascript" | "python" ;
 
 const placeholderCode: Record<SupportedLanguage, string> = {
   javascript: `function greet(name) {\n  console.log('Hello, ' + name + '!');\n}\n\ngreet('Student');`,
   python: `def greet(name):\n  print(f"Hello, {name}!")\n\n\ngreet("Student")`,
-  cpp: `#include <iostream>\n\nint main() {\n    std::cout << "Hello, Student!" << std::endl;\n    return 0;\n}`,
-  java: `public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println("Hello, Student!");\n    }\n}`,
-  go: `package main\n\nimport "fmt"\n\nfunc main() {\n\tfmt.Println("Hello, Student!")\n}`,
 }
 
 export default function PlaygroundPage() {
@@ -24,6 +22,7 @@ export default function PlaygroundPage() {
   const [code, setCode] = useState(placeholderCode.javascript)
   const [output, setOutput] = useState<string[]>([])
   const [isAiLoading, setIsAiLoading] = useState(false)
+  const [isRunning, setIsRunning] = useState(false)
   const { toast } = useToast()
 
   const handleLanguageChange = (value: SupportedLanguage) => {
@@ -34,6 +33,7 @@ export default function PlaygroundPage() {
 
   const runCode = () => {
     setOutput([]);
+    setIsRunning(true);
     if (language === 'javascript') {
       const newOutput: string[] = [];
       const originalLog = console.log;
@@ -50,25 +50,9 @@ export default function PlaygroundPage() {
         setOutput(newOutput);
       }
     } else {
-      let newOutput: string[];
-      switch (language) {
-        case "python":
-          newOutput = ["> python main.py", "Hello, Student!"];
-          break;
-        case "cpp":
-          newOutput = ["> g++ main.cpp && ./a.out", "Hello, Student!"];
-          break;
-        case "java":
-          newOutput = ["> javac HelloWorld.java && java HelloWorld", "Hello, Student!"];
-          break;
-        case "go":
-          newOutput = ["> go run main.go", "Hello, Student!"];
-          break;
-        default:
-          newOutput = [];
-      }
-      setOutput(newOutput);
+        setOutput([`> ${language} main.${language === 'python' ? 'py' : ''}`, `Execution for ${language} is not implemented yet.`]);
     }
+    setIsRunning(false);
   }
 
   const handleFixCode = async () => {
@@ -123,9 +107,6 @@ export default function PlaygroundPage() {
             <SelectContent>
               <SelectItem value="javascript">JavaScript</SelectItem>
               <SelectItem value="python">Python</SelectItem>
-              <SelectItem value="cpp">C++</SelectItem>
-              <SelectItem value="java">Java</SelectItem>
-              <SelectItem value="go">Go</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -135,7 +116,10 @@ export default function PlaygroundPage() {
           <CardHeader className="flex flex-row items-center justify-between flex-wrap gap-2">
             <CardTitle className="text-lg">Editor</CardTitle>
             <div className="flex items-center gap-2 flex-wrap">
-              <Button onClick={runCode} size="sm"><Play className="mr-2 h-4 w-4" />Run</Button>
+              <Button onClick={runCode} size="sm" disabled={isRunning}>
+                {isRunning ? <Loader className="mr-2 h-4 w-4 animate-spin" /> : <Play className="mr-2 h-4 w-4" />}
+                Run
+              </Button>
               <Button onClick={handleFixCode} size="sm" variant="secondary" disabled={isAiLoading}>
                 {isAiLoading ? <Loader className="mr-2 h-4 w-4 animate-spin" /> : <Bot className="mr-2 h-4 w-4" />}
                 Fix with AI
