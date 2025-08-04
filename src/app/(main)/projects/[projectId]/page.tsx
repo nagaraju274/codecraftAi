@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, useParams } from 'next/navigation';
 import { projects } from '../projects-data';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -20,8 +20,10 @@ import {
 } from "@/components/ui/dialog"
 
 
-export default function ProjectBuildPage({ params }: { params: { projectId: string } }) {
-  const project = projects.find(p => p.id === params.projectId);
+export default function ProjectBuildPage() {
+  const params = useParams();
+  const projectId = params.projectId as string;
+  const project = projects.find(p => p.id === projectId);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
 
   if (!project) {
