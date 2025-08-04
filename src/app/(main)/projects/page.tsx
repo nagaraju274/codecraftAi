@@ -82,7 +82,7 @@ export default function ProjectsPage() {
                 </div>
                 <div className="p-6">
                     <CardTitle className="text-xl">{project.title}</CardTitle>
-                    <CardDescription className="pt-2 h-24 overflow-hidden">{project.description}</CardDescription>
+                    <CardDescription className="pt-2">{project.description}</CardDescription>
                 </div>
             </CardHeader>
             <CardContent className="flex-grow">
