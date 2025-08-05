@@ -115,7 +115,7 @@ export default function PlaygroundPage() {
 
 
   return (
-    <div className="flex flex-col h-full gap-4">
+    <div className="flex flex-col h-[calc(100vh-10rem)] gap-4">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
         <h1 className="text-2xl font-bold self-start">Code Playground</h1>
         <div className="flex items-center gap-2 sm:gap-4 w-full sm:w-auto">
