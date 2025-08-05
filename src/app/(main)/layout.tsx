@@ -3,6 +3,7 @@ import { SidebarProvider, SidebarInset, SidebarTrigger } from '@/components/ui/s
 import { Button } from '@/components/ui/button';
 import { BotMessageSquare, PanelLeft } from 'lucide-react';
 import Link from 'next/link';
+import { Footer } from '@/components/layout/footer';
 
 export default function MainLayout({
   children,
@@ -13,18 +14,21 @@ export default function MainLayout({
     <SidebarProvider>
       <MainSidebar />
       <SidebarInset>
-        <header className="sticky top-0 z-10 flex h-14 items-center gap-4 border-b bg-background px-4 sm:px-6">
-            <SidebarTrigger size="icon" variant="outline" className="md:hidden">
-              <PanelLeft className="h-5 w-5" />
-              <span className="sr-only">Toggle Menu</span>
-            </SidebarTrigger>
-            <Link href="/" className="flex items-center gap-2.5">
-                <BotMessageSquare className="w-8 h-8 text-primary" />
-                <span className="font-bold text-lg">CodeCraft AI</span>
-            </Link>
-        </header>
-        <div className="p-4 sm:p-6 lg:p-8 h-[calc(100vh-3.5rem)] flex flex-col">
-          {children}
+        <div className="flex flex-col min-h-screen">
+            <header className="sticky top-0 z-10 flex h-14 items-center gap-4 border-b bg-background px-4 sm:px-6">
+                <SidebarTrigger size="icon" variant="outline" className="md:hidden">
+                <PanelLeft className="h-5 w-5" />
+                <span className="sr-only">Toggle Menu</span>
+                </SidebarTrigger>
+                <Link href="/" className="flex items-center gap-2.5">
+                    <BotMessageSquare className="w-8 h-8 text-primary" />
+                    <span className="font-bold text-lg">CodeCraft AI</span>
+                </Link>
+            </header>
+            <main className="flex-1 p-4 sm:p-6 lg:p-8">
+              {children}
+            </main>
+            <Footer />
         </div>
       </SidebarInset>
     </SidebarProvider>
