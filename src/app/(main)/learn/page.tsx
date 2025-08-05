@@ -1770,12 +1770,51 @@ const learningPaths = [
   },
   {
     title: "Prolog",
-    description: "Learn the logic programming language.",
+    description: "Learn the logic programming language, renowned for its role in artificial intelligence and computational linguistics.",
     topics: [
       {
-        title: "Core Concepts",
+        title: "Introduction to Logic Programming",
         points: [
-          { text: "Understand facts, rules, and queries.", resources: [{ name: "Learn Prolog Now!", url: "http://www.learnprolognow.org/" }] },
+          { text: "Understand the declarative nature of logic programming and how it differs from imperative languages.", resources: [] },
+          { text: "Learn about the history of Prolog and its applications in AI, expert systems, and natural language processing.", resources: [{ name: "History of Prolog", url: "https://en.wikipedia.org/wiki/Prolog#History" }] },
+          { text: "Set up a Prolog environment, such as SWI-Prolog, and learn how to use the interactive interpreter.", resources: [{ name: "SWI-Prolog", url: "https://www.swi-prolog.org/" }] },
+        ],
+      },
+      {
+        title: "Facts, Rules, and Queries",
+        points: [
+          { text: "Learn to define facts, which are the basic truths of a Prolog program.", resources: [] },
+          { text: "Understand how to create rules to define relationships and make logical inferences.", resources: [{ name: "Learn Prolog Now!", url: "http://www.learnprolognow.org/lpnpage.php?pagetype=html&pageid=lpn-htmlse4" }] },
+          { text: "Master the art of asking questions (queries) to the Prolog system to retrieve information.", resources: [] },
+        ],
+      },
+      {
+        title: "Unification and Backtracking",
+        points: [
+          { text: "Grasp the concept of unification, the process by which Prolog matches queries with facts and rules.", resources: [] },
+          { text: "Understand backtracking, Prolog's mechanism for exploring different possible solutions to a query.", resources: [{ name: "Backtracking", url: "https://www.youtube.com/watch?v=S-yX_Q3xY6E" }] },
+        ],
+      },
+      {
+        title: "Recursion",
+        points: [
+          { text: "Learn how to use recursion to define complex relationships and solve problems that have a repetitive structure.", resources: [{ name: "Recursion in Prolog", url: "https://www.cs.toronto.edu/~hoey/csc384/s07/lectures/l9-prolog2.pdf" }] },
+          { text: "Understand how to define a base case and a recursive step to ensure that your recursive rules terminate.", resources: [] },
+        ],
+      },
+      {
+        title: "Lists and Data Structures",
+        points: [
+          { text: "Learn to work with lists, one of the most common data structures in Prolog.", resources: [{ name: "Lists in Prolog", url: "http://www.learnprolognow.org/lpnpage.php?pagetype=html&pageid=lpn-htmlse17" }] },
+          { text: "Understand how to use the head/tail pattern `[H|T]` for recursive list processing.", resources: [] },
+          { text: "Explore how to implement common list operations like `append`, `member`, and `reverse`.", resources: [] },
+        ],
+      },
+      {
+        title: "Controlling Backtracking with Cut",
+        points: [
+          { text: "Learn about the 'cut' operator (`!`) and how it can be used to prune the search space and control backtracking.", resources: [{ name: "The Cut", url: "http://www.learnprolognow.org/lpnpage.php?pagetype=html&pageid=lpn-htmlse25" }] },
+          { text: "Understand the difference between green cuts (for efficiency) and red cuts (which change the logic of the program).", resources: [] },
         ],
       },
     ],
