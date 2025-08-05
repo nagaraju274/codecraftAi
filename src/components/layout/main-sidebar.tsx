@@ -1,8 +1,9 @@
+
 "use client"
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { BookOpenCheck, FolderKanban, TerminalSquare, UserCircle } from "lucide-react"
+import { BookOpenCheck, FolderKanban, TerminalSquare, LayoutDashboard } from "lucide-react"
 
 import {
   Sidebar,
@@ -20,7 +21,7 @@ const mainLinks = [
 ]
 
 const bottomLinks = [
-    { href: "/profile", label: "Dashboard", icon: UserCircle },
+    { href: "/profile", label: "Dashboard", icon: LayoutDashboard },
 ]
 
 export function MainSidebar() {
