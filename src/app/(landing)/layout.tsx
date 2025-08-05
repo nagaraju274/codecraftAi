@@ -1,5 +1,9 @@
 import Link from 'next/link';
 import { BotMessageSquare } from 'lucide-react';
+import { MainSidebar } from '@/components/layout/main-sidebar';
+import { SidebarProvider, SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
+import { Button } from '@/components/ui/button';
+import { PanelLeft } from 'lucide-react';
 
 export default function LandingLayout({
   children,
