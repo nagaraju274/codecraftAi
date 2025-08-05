@@ -20,7 +20,7 @@ const mainLinks = [
 ]
 
 const bottomLinks = [
-    { href: "/profile", label: "Profile", icon: UserCircle },
+    { href: "/profile", label: "Dashboard", icon: UserCircle },
 ]
 
 export function MainSidebar() {
