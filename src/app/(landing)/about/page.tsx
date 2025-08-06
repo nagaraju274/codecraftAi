@@ -47,7 +47,7 @@ export default function AboutPage() {
             <div className="mt-8">
                 <h3 className="text-2xl font-semibold">Our Mission</h3>
                 <p className="mt-3 text-lg text-muted-foreground">
-                    Our mission at Mine-Yours is to bridge the gap between academic learning and real-world application. We are a student-led hybrid software company passionate about building innovative tech products while offering our skills through professional freelance services. We thrive on turning fresh ideas into tangible, high-quality software solutions.
+                    At Mine-Yours, our mission is to solve real-world problems through innovative software products and to empower individuals and startups by offering reliable, accessible, and affordable technical services. We believe that everyone with an idea deserves the technology to build it. Whether it’s a ride-sharing solution, an AI-powered pet care app, or a student from a small town looking to launch a startup — we are here to say: 🧠 “Our innovation is yours to use. Your ideas are ours to support.”
                 </p>
             </div>
             
