@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'CodeCraft AI',
-  description: 'Learn to Code. Build with AI.',
+  title: 'CodeCraft AI - The Future of Your Code, Reimagined',
+  description: 'CodeCraft AI: Learn to code and build with AI. A product developed by Mine-Yours, a student-led hybrid software startup.',
 };
 
 export default function RootLayout({
