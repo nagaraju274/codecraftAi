@@ -55,11 +55,7 @@ export default function AboutPage() {
              <div className="mt-12">
                 <h3 className="text-2xl font-semibold">Our Story</h3>
                 <div className="mt-3 text-lg text-muted-foreground space-y-4">
-                  <p>In a small room in Hyderabad, a group of ten passionate students — each with dreams bigger than their skills — decided to build more than just projects. They built a vision.</p>
-                  <p>“Mine-Yours” was born from a simple but powerful idea: “My ideas are solutions to your problems.”</p>
-                  <p>The ‘Mine’ represents our original innovations — products that solve real-world problems like rural transportation, agricultural support, pet care, and digital education. The ‘Yours’ symbolizes the services we offer — helping others turn their ideas into reality through web and app development, AI integration, UI/UX, branding, and tech consulting.</p>
-                  <p>What started as a student-driven initiative is growing into a next-generation software company — one that doesn’t just serve clients or users, but supports innovators like us, who only needed a hand to turn dreams into software.</p>
-                  <p>We’re not just building tech — we’re building a movement of creators, collaborators, and problem-solvers.</p>
+                  <p>In a small room in Hyderabad, a group of ten passionate students — each with dreams bigger than their skills — decided to build more than just projects. They built a vision. “Mine-Yours” was born from a simple but powerful idea: “My ideas are solutions to your problems.” The ‘Mine’ represents our original innovations — products that solve real-world problems like rural transportation, agricultural support, pet care, and digital education. The ‘Yours’ symbolizes the services we offer — helping others turn their ideas into reality through web and app development, AI integration, UI/UX, branding, and tech consulting. What started as a student-driven initiative is growing into a next-generation software company — one that doesn’t just serve clients or users, but supports innovators like us, who only needed a hand to turn dreams into software. We’re not just building tech — we’re building a movement of creators, collaborators, and problem-solvers.</p>
                 </div>
             </div>
 
