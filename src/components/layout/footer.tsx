@@ -5,6 +5,15 @@ export function Footer() {
     return (
        <footer className="bg-muted text-muted-foreground">
         <div className="container mx-auto px-4 sm:px-6 py-12">
+          
+          <div className="text-center mb-12">
+            <h3 className="text-lg font-semibold text-foreground">Built with passion by Mine-Yours</h3>
+            <p className="text-sm text-muted-foreground">Student-led. Vision-driven.</p>
+            <Link href="/about" className="text-sm text-primary hover:underline mt-2 inline-block">
+                Learn more about our story &rarr;
+            </Link>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="space-y-4">
               <Link href="/" className="flex items-center gap-2.5 text-foreground">
