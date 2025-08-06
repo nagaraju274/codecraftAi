@@ -25,18 +25,20 @@ const features = [
 export default function LandingPage() {
   return (
     <div className="flex flex-col">
-      <section className="py-20 md:py-32 bg-secondary/50">
-        <div className="container mx-auto px-4 sm:px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground">Learn to Code, Build with AI</h1>
-          <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
-            CodeCraft AI is your personal coding tutor. Master new skills with interactive lessons, build real projects with AI assistance, and accelerate your development journey.
+      <section className="bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/20 dark:to-background">
+        <div className="container mx-auto px-4 sm:px-6 py-24 md:py-40 text-center">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-foreground leading-tight">
+            The Future of Your Code, Reimagined.
+          </h1>
+          <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
+            Experience seamless, smart, and accelerated development with our next-generation coding platform. Your perfect project is just a prompt away.
           </p>
-          <div className="mt-8">
-            <Button asChild size="lg">
-              <Link href="/playground">
-                Get Started
-                <ArrowRight className="ml-2" />
-              </Link>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button asChild size="lg" className="w-full sm:w-auto">
+              <Link href="/playground">Get Started</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
+              <Link href="#features">Explore More Products</Link>
             </Button>
           </div>
         </div>

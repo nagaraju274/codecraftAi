@@ -11,10 +11,13 @@ export default function LandingLayout({
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-10 w-full bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto flex h-14 items-center px-4 sm:px-6">
-            <Link href="/" className="flex items-center gap-2.5">
-                <BotMessageSquare className="w-8 h-8 text-primary" />
-                <span className="font-bold text-lg">CodeCraft AI</span>
-            </Link>
+            <div className="flex flex-col items-start">
+                <Link href="/" className="flex items-center gap-2.5">
+                    <BotMessageSquare className="w-8 h-8 text-primary" />
+                    <span className="font-bold text-lg">CodeCraft AI</span>
+                </Link>
+                <p className="text-xs text-muted-foreground ml-1">by Mine-Yours</p>
+            </div>
         </div>
       </header>
       <main className="flex-1">{children}</main>
