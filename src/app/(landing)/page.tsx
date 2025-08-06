@@ -94,7 +94,7 @@ export default function LandingPage() {
             </p>
             <div className="mt-8">
                 <Button asChild size="lg">
-                <Link href="#">
+                <Link href="/about">
                     Visit Mine-Yours
                     <ArrowRight className="ml-2" />
                 </Link>
