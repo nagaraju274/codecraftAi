@@ -23,7 +23,7 @@ export function Footer() {
             <div>
               <h4 className="font-semibold text-foreground mb-4">Company</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="#" className="hover:text-foreground">About Mine-Yours</Link></li>
+                <li><Link href="/about" className="hover:text-foreground">About Mine-Yours</Link></li>
                 <li><Link href="#" className="hover:text-foreground">Careers</Link></li>
                 <li><Link href="#" className="hover:text-foreground">Blog</Link></li>
                 <li><a href="mailto:contact@mine-yours.com" className="flex items-center gap-2 hover:text-foreground"><Mail className="h-4 w-4" />Contact</a></li>
