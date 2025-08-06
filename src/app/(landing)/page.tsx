@@ -31,7 +31,7 @@ export default function LandingPage() {
             The Future of Your Code, Reimagined.
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
-            Experience seamless, smart, and accelerated development with our next-generation coding platform. Your perfect project is just a prompt away.
+            Experience seamless, smart, and accelerated development with our next-generation coding platform.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="lg" className="w-full sm:w-auto">
