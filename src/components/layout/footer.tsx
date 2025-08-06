@@ -11,7 +11,9 @@ export function Footer() {
                   <BotMessageSquare className="w-8 h-8 text-primary" />
                   <span className="font-bold text-lg">CodeCraft AI</span>
               </Link>
-              <p className="text-sm">by Mine-Yours</p>
+              <p className="text-sm">
+                Mine-Yours is a dynamic, student-led software company where innovation meets opportunity. We're passionate about building cutting-edge tech products while also offering our expertise through professional freelance services, bringing fresh ideas to life.
+              </p>
               <div className="flex space-x-4">
                 <Link href="#" className="hover:text-foreground"><Twitter className="h-5 w-5" /></Link>
                 <Link href="#" className="hover:text-foreground"><Linkedin className="h-5 w-5" /></Link>
