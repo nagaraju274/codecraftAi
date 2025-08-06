@@ -9,7 +9,7 @@ export default function LandingLayout({
 }) {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="sticky top-0 z-10 w-full bg-background/80 backdrop-blur-sm">
+      <header className="sticky top-0 z-10 w-full bg-background/80 backdrop-blur-sm shadow-md">
         <div className="container mx-auto flex h-14 items-center px-4 sm:px-6">
             <div className="flex flex-col items-start">
                 <Link href="/" className="flex items-center gap-2.5">
