@@ -75,9 +75,8 @@ export default function LandingPage() {
                   </div>
                   <CardTitle className="mt-4">{feature.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="flex-grow">
                   <p className="text-muted-foreground">{feature.description}</p>
-
                 </CardContent>
               </Card>
             ))}
