@@ -45,7 +45,7 @@ export function Footer() {
             </div>
           </div>
           <div className="mt-12 border-t border-border pt-6 text-center text-sm">
-            <p>Made by Mine-Yours</p>
+            <p>🚀 Made with ❤️ by Mine-Yours</p>
           </div>
         </div>
        </footer>
