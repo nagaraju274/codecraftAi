@@ -6,11 +6,6 @@ import Link from 'next/link';
 
 const otherProducts = [
     {
-        name: "Ride-Partner",
-        description: "A next-generation ride-sharing platform.",
-        href: "/ride-partner"
-    },
-    {
         name: "AI Project Builder",
         description: "Build functional applications with AI-guided assistance.",
         href: "/projects"
@@ -67,7 +62,7 @@ export default function AboutPage() {
              {/* Other Products */}
             <div className="mt-16">
                 <h3 className="text-2xl font-semibold mb-8">Discover Our Other Innovations</h3>
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 gap-6">
                     {otherProducts.map((product) => (
                       <Card key={product.name} className="text-left">
                         <CardHeader>
