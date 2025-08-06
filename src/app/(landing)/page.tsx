@@ -77,9 +77,29 @@ export default function LandingPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">{feature.description}</p>
+
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 p-12 rounded-2xl text-center">
+            <h2 className="text-3xl md:text-4xl font-bold">Explore More Innovations</h2>
+            <p className="mt-2 max-w-xl mx-auto text-muted-foreground">
+              Mine-Yours is where student-led creativity meets professional execution. Discover our full range of products and freelance services.
+            </p>
+            <div className="mt-8">
+                <Button asChild size="lg">
+                <Link href="#">
+                    Visit Mine-Yours
+                    <ArrowRight className="ml-2" />
+                </Link>
+                </Button>
+            </div>
           </div>
         </div>
       </section>
