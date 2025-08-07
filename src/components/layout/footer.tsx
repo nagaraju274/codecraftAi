@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Github, Linkedin, Mail, Twitter, BotMessageSquare } from 'lucide-react';
 
@@ -40,11 +41,11 @@ export function Footer() {
              <div>
               <h4 className="font-semibold text-foreground mb-4">Resources</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="#" className="hover:text-foreground">Career Blog</Link></li>
-                <li><Link href="#" className="hover:text-foreground">Resume Guide</Link></li>
-                <li><Link href="#" className="hover:text-foreground">Interview Tips</Link></li>
-                <li><Link href="#" className="hover:text-foreground">Job Search Tips</Link></li>
-                <li><Link href="#" className="hover:text-foreground">Career Advice</Link></li>
+                <li><Link href="/learn" className="hover:text-foreground">Learning Paths</Link></li>
+                <li><Link href="/projects" className="hover:text-foreground">Project Builder</Link></li>
+                <li><Link href="/playground" className="hover:text-foreground">Code Playground</Link></li>
+                <li><Link href="#" className="hover:text-foreground">Documentation</Link></li>
+                <li><Link href="#" className="hover:text-foreground">Community Forum</Link></li>
               </ul>
             </div>
             <div>
