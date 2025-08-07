@@ -3,12 +3,11 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { BookOpenCheck, FolderKanban, TerminalSquare, LayoutDashboard, Home, Info } from "lucide-react"
+import { BookOpenCheck, FolderKanban, TerminalSquare, Home } from "lucide-react"
 
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
@@ -19,11 +18,6 @@ const mainLinks = [
   { href: "/playground", label: "Playground", icon: TerminalSquare },
   { href: "/projects", label: "Projects", icon: FolderKanban },
   { href: "/learn", label: "Learn", icon: BookOpenCheck },
-]
-
-const bottomLinks = [
-    { href: "/profile", label: "Dashboard", icon: LayoutDashboard },
-    { href: "/about", label: "About Us", icon: Info },
 ]
 
 export function MainSidebar() {
@@ -61,20 +55,6 @@ export function MainSidebar() {
           ))}
         </SidebarMenu>
       </SidebarContent>
-      <SidebarFooter>
-         <SidebarMenu>
-            {bottomLinks.map((link) => (
-                <SidebarMenuItem key={link.href}>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith(link.href)} tooltip={link.label}>
-                        <Link href={link.href}>
-                            <link.icon className="h-5 w-5" />
-                            <span>{link.label}</span>
-                        </Link>
-                    </SidebarMenuButton>
-                </SidebarMenuItem>
-            ))}
-         </SidebarMenu>
-      </SidebarFooter>
     </Sidebar>
   )
 }
