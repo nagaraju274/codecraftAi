@@ -24,7 +24,7 @@ export default function MainLayout({
         <div className="flex flex-col min-h-screen">
             <header className="sticky top-0 z-10 flex h-16 items-center justify-between gap-4 border-b bg-background px-4 sm:px-6 shadow-md">
                 <div className="flex items-center gap-4">
-                    <SidebarTrigger size="icon" variant="outline" className="md:hidden">
+                    <SidebarTrigger size="icon" variant="outline">
                         <PanelLeft className="h-5 w-5" />
                         <span className="sr-only">Toggle Menu</span>
                     </SidebarTrigger>
