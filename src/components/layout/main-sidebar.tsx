@@ -3,7 +3,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { BookOpenCheck, FolderKanban, TerminalSquare, Home } from "lucide-react"
+import { LayoutDashboard } from "lucide-react"
 
 import {
   Sidebar,
@@ -11,13 +11,10 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-  SidebarHeader,
 } from "@/components/ui/sidebar"
 
 const mainLinks = [
-  { href: "/playground", label: "Playground", icon: TerminalSquare },
-  { href: "/projects", label: "Projects", icon: FolderKanban },
-  { href: "/learn", label: "Learn", icon: BookOpenCheck },
+    { href: "/profile", label: "Dashboard", icon: LayoutDashboard },
 ]
 
 export function MainSidebar() {
@@ -26,18 +23,6 @@ export function MainSidebar() {
   return (
     <Sidebar collapsible="offcanvas">
       <SidebarContent className="pt-4">
-         <SidebarHeader>
-            <SidebarMenu>
-                <SidebarMenuItem>
-                    <SidebarMenuButton href="/" asChild isActive={pathname === "/"}>
-                        <Link href="/">
-                            <Home className="h-5 w-5" />
-                            <span>Home</span>
-                        </Link>
-                    </SidebarMenuButton>
-                </SidebarMenuItem>
-            </SidebarMenu>
-         </SidebarHeader>
         <SidebarMenu>
           {mainLinks.map((link) => (
             <SidebarMenuItem key={link.href}>
