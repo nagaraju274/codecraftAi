@@ -44,8 +44,8 @@ export function Footer() {
                 <li><Link href="/learn" className="hover:text-foreground">Learning Paths</Link></li>
                 <li><Link href="/projects" className="hover:text-foreground">Project Builder</Link></li>
                 <li><Link href="/playground" className="hover:text-foreground">Code Playground</Link></li>
-                <li><Link href="#" className="hover:text-foreground">Documentation</Link></li>
-                <li><Link href="#" className="hover:text-foreground">Community Forum</Link></li>
+                <li><Link href="/documentation" className="hover:text-foreground">Documentation</Link></li>
+                <li><Link href="/community" className="hover:text-foreground">Community Forum</Link></li>
               </ul>
             </div>
             <div>
