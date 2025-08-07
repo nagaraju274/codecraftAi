@@ -5,8 +5,8 @@ export function Footer() {
     return (
        <footer className="bg-muted text-muted-foreground">
         <div className="container mx-auto px-4 sm:px-6 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="space-y-4 md:col-span-2 lg:col-span-1">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            <div className="space-y-4 md:col-span-3 lg:col-span-1">
               <Link href="/" className="flex items-center gap-2.5 text-foreground">
                   <BotMessageSquare className="w-8 h-8 text-primary" />
                   <span className="font-bold text-lg">CodeCraft AI</span>
@@ -35,6 +35,16 @@ export function Footer() {
                 <li><Link href="#" className="hover:text-foreground">Careers</Link></li>
                 <li><Link href="#" className="hover:text-foreground">Blog</Link></li>
                 <li><a href="mailto:contact@mine-yours.com" className="flex items-center gap-2 hover:text-foreground"><Mail className="h-4 w-4" />Contact</a></li>
+              </ul>
+            </div>
+             <div>
+              <h4 className="font-semibold text-foreground mb-4">Resources</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="#" className="hover:text-foreground">Career Blog</Link></li>
+                <li><Link href="#" className="hover:text-foreground">Resume Guide</Link></li>
+                <li><Link href="#" className="hover:text-foreground">Interview Tips</Link></li>
+                <li><Link href="#" className="hover:text-foreground">Job Search Tips</Link></li>
+                <li><Link href="#" className="hover:text-foreground">Career Advice</Link></li>
               </ul>
             </div>
             <div>
