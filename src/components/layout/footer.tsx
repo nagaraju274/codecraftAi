@@ -5,29 +5,28 @@ export function Footer() {
     return (
        <footer className="bg-muted text-muted-foreground">
         <div className="container mx-auto px-4 sm:px-6 py-12">
-          
-          <div className="text-center mb-12">
-            <h3 className="text-lg font-semibold text-foreground">Built with passion by Mine-Yours</h3>
-            <p className="text-sm text-muted-foreground">Student-led. Vision-driven.</p>
-            <Link href="/about" className="text-sm text-primary hover:underline mt-2 inline-block">
-                Learn more about our story &rarr;
-            </Link>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="space-y-4">
+            <div className="space-y-4 md:col-span-2 lg:col-span-1">
               <Link href="/" className="flex items-center gap-2.5 text-foreground">
                   <BotMessageSquare className="w-8 h-8 text-primary" />
                   <span className="font-bold text-lg">CodeCraft AI</span>
               </Link>
               <p className="text-sm">
-                Mine-Yours is a dynamic, student-led software company where innovation meets opportunity. We're passionate about building cutting-edge tech products while also offering our expertise through professional freelance services, bringing fresh ideas to life.
+                A revolutionary platform designed to empower the next generation of developers through AI-powered tools and guided learning.
               </p>
               <div className="flex space-x-4">
                 <Link href="#" className="hover:text-foreground"><Twitter className="h-5 w-5" /></Link>
                 <Link href="#" className="hover:text-foreground"><Linkedin className="h-5 w-5" /></Link>
                 <Link href="#" className="hover:text-foreground"><Github className="h-5 w-5" /></Link>
               </div>
+            </div>
+            <div>
+              <h4 className="font-semibold text-foreground mb-4">Products</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/playground" className="hover:text-foreground">Interactive Playground</Link></li>
+                <li><Link href="/projects" className="hover:text-foreground">AI Project Builder</Link></li>
+                <li><Link href="/learn" className="hover:text-foreground">Guided Learning Paths</Link></li>
+              </ul>
             </div>
             <div>
               <h4 className="font-semibold text-foreground mb-4">Company</h4>
@@ -39,14 +38,6 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-foreground mb-4">Products</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/playground" className="hover:text-foreground">Interactive Playground</Link></li>
-                <li><Link href="/projects" className="hover:text-foreground">AI Project Builder</Link></li>
-                <li><Link href="/learn" className="hover:text-foreground">Guided Learning Paths</Link></li>
-              </ul>
-            </div>
-            <div>
               <h4 className="font-semibold text-foreground mb-4">Services</h4>
               <ul className="space-y-2 text-sm">
                 <li><Link href="#" className="hover:text-foreground">Freelance Offerings</Link></li>
@@ -54,7 +45,7 @@ export function Footer() {
             </div>
           </div>
           <div className="mt-12 border-t border-border pt-6 text-center text-sm">
-            <p>🚀 Made with ❤️ by Mine-Yours</p>
+            <p>Built with ❤️ by Mine-Yours. All rights reserved.</p>
           </div>
         </div>
        </footer>
