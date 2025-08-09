@@ -46,9 +46,13 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-foreground mb-4">Services</h4>
+              <h4 className="font-semibold text-foreground mb-4">Support</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="#" className="hover:text-foreground">Freelance Offerings</Link></li>
+                <li><Link href="#" className="hover:text-foreground">Help Center</Link></li>
+                <li><Link href="#" className="hover:text-foreground">Contact Us</Link></li>
+                <li><Link href="#" className="hover:text-foreground">Privacy Policy</Link></li>
+                <li><Link href="#" className="hover:text-foreground">Terms of Service</Link></li>
+                <li><a href="mailto:support@careercraft.com" className="flex items-center gap-2 hover:text-foreground"><Mail className="h-4 w-4" />support@careercraft.com</a></li>
               </ul>
             </div>
           </div>
