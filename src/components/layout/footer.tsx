@@ -52,7 +52,6 @@ export function Footer() {
                 <li><Link href="#" className="hover:text-foreground">Contact Us</Link></li>
                 <li><Link href="#" className="hover:text-foreground">Privacy Policy</Link></li>
                 <li><Link href="#" className="hover:text-foreground">Terms of Service</Link></li>
-                <li><a href="mailto:support@careercraft.com" className="flex items-center gap-2 hover:text-foreground"><Mail className="h-4 w-4" />support@careercraft.com</a></li>
               </ul>
             </div>
           </div>
