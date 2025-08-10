@@ -14,7 +14,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
+import { ArrowUpDown, ChevronDown, MoreHorizontal, Database } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -38,13 +38,14 @@ import {
 } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { users, User } from "@/lib/user-data";
+import { users as mockUsers, User } from "@/lib/user-data";
+import { useToast } from "@/hooks/use-toast";
 
 const ClientSideDate = ({ dateString }: { dateString: string }) => {
   const [formattedDate, setFormattedDate] = React.useState("");
 
   React.useEffect(() => {
-    setFormattedDate(new Date(dateString).toLocaleDate-String());
+    setFormattedDate(new Date(dateString).toLocaleDateString());
   }, [dateString]);
 
   return <div>{formattedDate}</div>;
@@ -144,7 +145,9 @@ const columns: ColumnDef<User>[] = [
 ];
 
 export default function UserManagementPage() {
-  const [data, setData] = React.useState<User[]>(users);
+  const [data, setData] = React.useState<User[]>([]);
+  const { toast } = useToast();
+  const [isSeeding, setIsSeeding] = React.useState(false);
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] =
@@ -170,11 +173,53 @@ export default function UserManagementPage() {
     },
   });
 
+  const handleSeedDatabase = async () => {
+    setIsSeeding(true);
+    let successCount = 0;
+    let errorCount = 0;
+
+    for (const user of mockUsers) {
+      try {
+        const response = await fetch('/api/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(user),
+        });
+        if (response.ok) {
+          successCount++;
+        } else {
+          errorCount++;
+        }
+      } catch (error) {
+        errorCount++;
+        console.error("Failed to seed user:", user, error);
+      }
+    }
+
+    setIsSeeding(false);
+    toast({
+      title: "Database Seeding Complete",
+      description: `${successCount} users added successfully. ${errorCount} failed.`,
+    });
+    // Optionally, fetch users again to show them in the table
+  };
+
+
   return (
     <Card>
       <CardHeader>
-        <CardTitle>User Management</CardTitle>
-        <CardDescription>Monitor, manage, and moderate your users.</CardDescription>
+        <div className="flex justify-between items-center">
+          <div>
+            <CardTitle>User Management</CardTitle>
+            <CardDescription>Monitor, manage, and moderate your users.</CardDescription>
+          </div>
+          <Button onClick={handleSeedDatabase} disabled={isSeeding}>
+            <Database className="mr-2 h-4 w-4" />
+            {isSeeding ? 'Seeding...' : 'Seed Database'}
+          </Button>
+        </div>
       </CardHeader>
       <CardContent>
         <div className="flex items-center py-4">
@@ -256,7 +301,7 @@ export default function UserManagementPage() {
                     colSpan={columns.length}
                     className="h-24 text-center"
                   >
-                    No results.
+                    No results. Click "Seed Database" to populate users.
                   </TableCell>
                 </TableRow>
               )}
