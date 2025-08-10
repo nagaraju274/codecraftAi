@@ -13,12 +13,17 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Separator } from '@/components/ui/separator';
+import { auth } from '@/lib/firebase';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { useToast } from '@/hooks/use-toast';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,6 +44,45 @@ export default function LoginPage() {
     // setError("Invalid email or password.");
     
     setLoading(false);
+  };
+
+  const handleGoogleSignIn = async () => {
+    setLoading(true);
+    setError('');
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      
+      // Send user data to your backend to save to MongoDB
+      const response = await fetch('/api/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+            name: user.displayName, 
+            email: user.email, 
+            role: 'user', 
+            status: 'active' 
+        }),
+      });
+
+      if (response.ok || response.status === 409) { // 409 is conflict, meaning user exists
+        toast({
+          title: "Login Successful",
+          description: "Welcome back!",
+        });
+        window.location.href = '/profile';
+      } else {
+        const data = await response.json();
+        throw new Error(data.message || "Failed to save user data.");
+      }
+
+    } catch (error: any) {
+      setError(error.message);
+      console.error("Google Sign-In Error:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -83,6 +127,10 @@ export default function LoginPage() {
               {loading ? "Logging in..." : "Login"}
             </Button>
           </form>
+           <Separator className="my-4" />
+          <Button variant="outline" className="w-full" onClick={handleGoogleSignIn} disabled={loading}>
+            Continue with Google
+          </Button>
           <div className="mt-4 text-center text-sm">
             Don&apos;t have an account?{" "}
             <Link href="/signup" className="underline">
