@@ -1,4 +1,6 @@
 
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -30,6 +32,24 @@ import {
     DropdownMenuLabel,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge";
 
 // Mock data
@@ -70,14 +90,49 @@ export default function ContentManagementPage() {
                         <CardTitle>Learning Roadmaps</CardTitle>
                         <CardDescription>Manage the structured learning paths for users.</CardDescription>
                     </div>
-                    <Button asChild size="sm" className="ml-auto gap-1">
-                        <a href="#">
+                    <Dialog>
+                      <DialogTrigger asChild>
+                         <Button size="sm" className="ml-auto gap-1">
                             <PlusCircle className="h-3.5 w-3.5" />
                             <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
                                 Add Roadmap
                             </span>
-                        </a>
-                    </Button>
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>Add New Roadmap</DialogTitle>
+                          <DialogDescription>
+                            Fill in the details for the new learning roadmap.
+                          </DialogDescription>
+                        </DialogHeader>
+                        <div className="grid gap-4 py-4">
+                          <div className="grid grid-cols-4 items-center gap-4">
+                            <Label htmlFor="title" className="text-right">
+                              Title
+                            </Label>
+                            <Input id="title" placeholder="E.g., Web Development Foundations" className="col-span-3" />
+                          </div>
+                          <div className="grid grid-cols-4 items-center gap-4">
+                            <Label htmlFor="status" className="text-right">
+                              Status
+                            </Label>
+                             <Select>
+                                <SelectTrigger className="col-span-3">
+                                  <SelectValue placeholder="Select status" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="draft">Draft</SelectItem>
+                                  <SelectItem value="published">Published</SelectItem>
+                                </SelectContent>
+                              </Select>
+                          </div>
+                        </div>
+                        <DialogFooter>
+                          <Button type="submit">Save Roadmap</Button>
+                        </DialogFooter>
+                      </DialogContent>
+                    </Dialog>
                 </CardHeader>
                 <CardContent className="flex-1">
                     <Table>
