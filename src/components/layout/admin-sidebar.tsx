@@ -23,7 +23,7 @@ const mainLinks = [
 ]
 
 const settingsLinks = [
-    { href: "/admin/settings", label: "Settings", icon: Settings, disabled: true },
+    { href: "/admin/settings", label: "Settings", icon: Settings, disabled: false },
 ]
 
 export function AdminSidebar() {
