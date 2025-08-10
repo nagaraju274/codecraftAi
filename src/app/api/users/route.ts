@@ -16,9 +16,18 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const newUser: Omit<User, 'id'> = await request.json();
+    const { name, email, role, status } = await request.json();
     const { db } = await connectToDatabase();
     
+    // In a real app, you would hash the password here before saving
+    // For now, we are omitting it from the database record for security
+    const newUser: Omit<User, 'id' | 'lastLogin'> = {
+        name,
+        email,
+        role,
+        status,
+    };
+
     const result = await db.collection('users').insertOne({
         ...newUser,
         id: crypto.randomUUID(), // Generate a random ID
