@@ -19,7 +19,7 @@ import {
 const mainLinks = [
     { href: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
     { href: "/admin/users", label: "User Management", icon: Users },
-    { href: "/admin/content", label: "Content", icon: BookCopy, disabled: true },
+    { href: "/admin/content", label: "Content", icon: BookCopy, disabled: false },
 ]
 
 const settingsLinks = [
