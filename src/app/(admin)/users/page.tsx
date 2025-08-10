@@ -218,7 +218,7 @@ export default function UserManagementPage() {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(user),
+          body: JSON.stringify({...user, password: 'password123'}), // Add a dummy password for seeding
         });
         if (response.ok) {
           successCount++;
