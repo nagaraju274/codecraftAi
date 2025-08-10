@@ -26,12 +26,20 @@ export default function LandingLayout({
                 </Link>
                 <p className="text-xs text-muted-foreground ml-1">by Mine-Yours</p>
             </div>
-            <nav className="hidden md:flex gap-4">
+            <nav className="hidden md:flex items-center gap-2">
                 {navLinks.map(link => (
                     <Button asChild variant="ghost" key={link.href}>
                         <Link href={link.href}>{link.label}</Link>
                     </Button>
                 ))}
+                 <div className="flex items-center gap-2 ml-4">
+                    <Button asChild variant="outline">
+                        <Link href="/login">Login</Link>
+                    </Button>
+                    <Button asChild>
+                        <Link href="/signup">Sign Up</Link>
+                    </Button>
+                </div>
             </nav>
         </div>
       </header>

@@ -148,11 +148,44 @@ export default function UserManagementPage() {
   const [data, setData] = React.useState<User[]>([]);
   const { toast } = useToast();
   const [isSeeding, setIsSeeding] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+  
+  const fetchUsers = React.useCallback(async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/users');
+      if (response.ok) {
+        const users = await response.json();
+        setData(users);
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Error fetching users",
+          description: "Could not load user data.",
+        });
+        setData([]);
+      }
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Network Error",
+        description: "Failed to connect to the server.",
+      });
+      setData([]);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [toast]);
+
+  React.useEffect(() => {
+    fetchUsers();
+  }, [fetchUsers]);
+
 
   const table = useReactTable({
     data,
@@ -203,7 +236,7 @@ export default function UserManagementPage() {
       title: "Database Seeding Complete",
       description: `${successCount} users added successfully. ${errorCount} failed.`,
     });
-    // Optionally, fetch users again to show them in the table
+    fetchUsers();
   };
 
 
@@ -279,7 +312,13 @@ export default function UserManagementPage() {
               ))}
             </TableHeader>
             <TableBody>
-              {table.getRowModel().rows?.length ? (
+              {isLoading ? (
+                <TableRow>
+                  <TableCell colSpan={columns.length} className="h-24 text-center">
+                    Loading users...
+                  </TableCell>
+                </TableRow>
+              ) : table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
                   <TableRow
                     key={row.id}
