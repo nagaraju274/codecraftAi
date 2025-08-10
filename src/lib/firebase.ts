@@ -5,12 +5,12 @@ import { getAuth } from "firebase/auth";
 // TODO: Add your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDKp7Hkew-H3JnkcWuUZ7Xk_DW8S18vG_g",
+  authDomain: "codecraft-ai-pbimz.firebaseapp.com",
+  projectId: "codecraft-ai-pbimz",
+  storageBucket: "codecraft-ai-pbimz.firebasestorage.app",
+  messagingSenderId: "487214446820",
+  appId: "1:487214446820:web:4c1caeb010669fbd06d4f1"
 };
 
 // Initialize Firebase

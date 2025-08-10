@@ -17,7 +17,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const { name, email, role, status } = await request.json();
+    const { name, email, role, status, password } = await request.json();
     const { db } = await connectToDatabase();
 
     // Check if user already exists
