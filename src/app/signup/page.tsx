@@ -38,7 +38,7 @@ export default function SignupPage() {
         body: JSON.stringify({ 
             name, 
             email, 
-            password,
+            password, // Password is sent for email signup
             role: 'user', 
             status: 'active' 
         }),
@@ -82,7 +82,7 @@ export default function SignupPage() {
         }),
       });
 
-      if (response.ok || response.status === 409) {
+      if (response.ok) {
         toast({
           title: "Account Ready",
           description: "You're all set! Welcome.",

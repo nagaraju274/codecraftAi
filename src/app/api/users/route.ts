@@ -19,31 +19,38 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { name, email, role, status } = body;
-    const { db } = await connectToDatabase();
-
-    // Check if user already exists
-    const existingUser = await db.collection('users').findOne({ email });
-    if (existingUser) {
-      return NextResponse.json({ message: 'User with this email already exists.' }, { status: 409 });
+    
+    if (!email || !name) {
+        return NextResponse.json({ message: 'Missing required fields: name and email' }, { status: 400 });
     }
     
-    const newUser: Omit<User, 'id' | '_id' | 'lastLogin'> = {
+    const { db } = await connectToDatabase();
+    const usersCollection = db.collection<User>('users');
+
+    // Check if user already exists
+    const existingUser = await usersCollection.findOne({ email });
+    if (existingUser) {
+      // If user exists, return their data instead of an error.
+      // This handles both new sign-ups and logins for existing users via OAuth.
+      return NextResponse.json(existingUser, { status: 200 });
+    }
+    
+    const newUser: Omit<User, '_id'> = {
+        id: new ObjectId().toHexString(), // Generate a new string ID
         name,
         email,
         role: role || 'user',
         status: status || 'active',
+        lastLogin: new Date().toISOString(),
     };
 
-    const result = await db.collection('users').insertOne({
-        ...newUser,
-        id: new ObjectId().toHexString(), // Generate a new ID
-        lastLogin: new Date().toISOString(),
-    });
+    const result = await usersCollection.insertOne(newUser as User);
+    
+    const createdUser = await usersCollection.findOne({ _id: result.insertedId });
 
-    return NextResponse.json({ message: 'User created', userId: result.insertedId }, { status: 201 });
+    return NextResponse.json(createdUser, { status: 201 });
   } catch (error) {
     console.error('Failed to create user:', error);
     return NextResponse.json({ message: 'Failed to create user' }, { status: 500 });
   }
 }
-

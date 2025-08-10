@@ -66,7 +66,7 @@ export default function LoginPage() {
         }),
       });
 
-      if (response.ok || response.status === 409) { // 409 is conflict, meaning user exists
+      if (response.ok) { 
         toast({
           title: "Login Successful",
           description: "Welcome back!",
@@ -74,7 +74,7 @@ export default function LoginPage() {
         window.location.href = '/profile';
       } else {
         const data = await response.json();
-        throw new Error(data.message || "Failed to save user data.");
+        throw new Error(data.message || "Failed to log in with Google.");
       }
 
     } catch (error: any) {
