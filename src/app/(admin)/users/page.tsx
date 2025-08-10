@@ -40,6 +40,16 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { users, User } from "@/lib/user-data";
 
+const ClientSideDate = ({ dateString }: { dateString: string }) => {
+  const [formattedDate, setFormattedDate] = React.useState("");
+
+  React.useEffect(() => {
+    setFormattedDate(new Date(dateString).toLocaleDate-String());
+  }, [dateString]);
+
+  return <div>{formattedDate}</div>;
+};
+
 const columns: ColumnDef<User>[] = [
   {
     id: "select",
@@ -100,7 +110,7 @@ const columns: ColumnDef<User>[] = [
   {
     accessorKey: "lastLogin",
     header: "Last Login",
-    cell: ({ row }) => <div>{new Date(row.getValue("lastLogin")).toLocaleDateString()}</div>,
+    cell: ({ row }) => <ClientSideDate dateString={row.getValue("lastLogin")} />,
   },
   {
     id: "actions",
