@@ -17,7 +17,8 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const { name, email, role, status, password } = await request.json();
+    const body = await request.json();
+    const { name, email, role, status } = body;
     const { db } = await connectToDatabase();
 
     // Check if user already exists
@@ -29,8 +30,8 @@ export async function POST(request: Request) {
     const newUser: Omit<User, 'id' | '_id' | 'lastLogin'> = {
         name,
         email,
-        role,
-        status,
+        role: role || 'user',
+        status: status || 'active',
     };
 
     const result = await db.collection('users').insertOne({
@@ -45,3 +46,4 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: 'Failed to create user' }, { status: 500 });
   }
 }
+
