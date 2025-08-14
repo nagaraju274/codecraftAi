@@ -45,6 +45,9 @@ export function Footer() {
                 <li><Link href="/community" className="hover:text-foreground">Community Forum</Link></li>
                 <li><Link href="#" className="hover:text-foreground">Cheat Sheets</Link></li>
                 <li><Link href="#" className="hover:text-foreground">Glossary</Link></li>
+                <li><Link href="#" className="hover:text-foreground">Study Plan Generator</Link></li>
+                <li><Link href="#" className="hover:text-foreground">Time Management</Link></li>
+                <li><Link href="#" className="hover:text-foreground">Growth Mindset & Motivation</Link></li>
               </ul>
             </div>
             <div>
