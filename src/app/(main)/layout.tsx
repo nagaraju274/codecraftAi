@@ -1,7 +1,8 @@
+
 import { MainSidebar } from '@/components/layout/main-sidebar';
 import { SidebarProvider, SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
 import { Button } from '@/components/ui/button';
-import { BotMessageSquare, PanelLeft } from 'lucide-react';
+import { BotMessageSquare, PanelLeft, User } from 'lucide-react';
 import Link from 'next/link';
 import { Footer } from '@/components/layout/footer';
 
@@ -34,6 +35,12 @@ export default function MainLayout({
                     </Link>
                 </div>
                 <nav className="hidden md:flex items-center gap-4">
+                    <Button asChild variant="ghost">
+                      <Link href="/profile">
+                        <User className="h-5 w-5" />
+                        <span className="sr-only">Profile</span>
+                      </Link>
+                    </Button>
                     {navLinks.map(link => (
                         <Button asChild variant="ghost" key={link.href}>
                             <Link href={link.href}>{link.label}</Link>
