@@ -31,35 +31,21 @@ export default function SignupPage() {
     setLoading(true);
     setError('');
 
-    try {
-      const response = await fetch('/api/users', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-            name, 
-            email, 
-            password, // Password is sent for email signup
-            role: 'user', 
-            status: 'active' 
-        }),
-      });
+    // Here you would typically call an API route to handle signup
+    console.log("Signing up with:", { name, email, password });
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    toast({
+        title: "Account Created",
+        description: "Your account has been successfully created. Please login.",
+    });
 
-      if (response.ok) {
-        toast({
-          title: "Account Created",
-          description: "Your account has been successfully created. Please login.",
-        });
-        // Redirect to login page
-        window.location.href = '/login';
-      } else {
-        const data = await response.json();
-        setError(data.message || "Failed to create account.");
-      }
-    } catch (err) {
-      setError("An unexpected error occurred. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+    // On successful signup, you would redirect the user
+    window.location.href = '/login';
+    
+    setLoading(false);
   };
 
   const handleGoogleSignIn = async () => {
@@ -70,28 +56,11 @@ export default function SignupPage() {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       
-      const response = await fetch('/api/users', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-            name: user.displayName, 
-            email: user.email, 
-            // No password needed for OAuth
-            role: 'user', 
-            status: 'active' 
-        }),
+      toast({
+        title: "Account Ready",
+        description: `Welcome, ${user.displayName}! You're all set.`,
       });
-
-      if (response.ok) {
-        toast({
-          title: "Account Ready",
-          description: "You're all set! Welcome.",
-        });
-        window.location.href = '/profile';
-      } else {
-        const data = await response.json();
-        throw new Error(data.message || "Failed to create account with Google.");
-      }
+      window.location.href = '/profile';
 
     } catch (error: any) {
       setError(error.message);

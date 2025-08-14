@@ -14,7 +14,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ArrowUpDown, ChevronDown, MoreHorizontal, Database } from "lucide-react";
+import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -39,7 +39,6 @@ import {
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { users as mockUsers, User } from "@/lib/user-data";
-import { useToast } from "@/hooks/use-toast";
 
 const ClientSideDate = ({ dateString }: { dateString: string }) => {
   const [formattedDate, setFormattedDate] = React.useState("");
@@ -145,47 +144,12 @@ const columns: ColumnDef<User>[] = [
 ];
 
 export default function UserManagementPage() {
-  const [data, setData] = React.useState<User[]>([]);
-  const { toast } = useToast();
-  const [isSeeding, setIsSeeding] = React.useState(false);
-  const [isLoading, setIsLoading] = React.useState(true);
+  const [data] = React.useState<User[]>(mockUsers as User[]);
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
-  
-  const fetchUsers = React.useCallback(async () => {
-    setIsLoading(true);
-    try {
-      const response = await fetch('/api/users');
-      if (response.ok) {
-        const users = await response.json();
-        setData(users);
-      } else {
-        toast({
-          variant: "destructive",
-          title: "Error fetching users",
-          description: "Could not load user data.",
-        });
-        setData([]);
-      }
-    } catch (error) {
-      toast({
-        variant: "destructive",
-        title: "Network Error",
-        description: "Failed to connect to the server.",
-      });
-      setData([]);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [toast]);
-
-  React.useEffect(() => {
-    fetchUsers();
-  }, [fetchUsers]);
-
 
   const table = useReactTable({
     data,
@@ -206,53 +170,11 @@ export default function UserManagementPage() {
     },
   });
 
-  const handleSeedDatabase = async () => {
-    setIsSeeding(true);
-    let successCount = 0;
-    let errorCount = 0;
-
-    for (const user of mockUsers) {
-      try {
-        const response = await fetch('/api/users', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({...user, password: 'password123'}), // Add a dummy password for seeding
-        });
-        if (response.ok) {
-          successCount++;
-        } else {
-          errorCount++;
-        }
-      } catch (error) {
-        errorCount++;
-        console.error("Failed to seed user:", user, error);
-      }
-    }
-
-    setIsSeeding(false);
-    toast({
-      title: "Database Seeding Complete",
-      description: `${successCount} users added successfully. ${errorCount} failed.`,
-    });
-    fetchUsers();
-  };
-
-
   return (
     <Card>
       <CardHeader>
-        <div className="flex justify-between items-center">
-          <div>
-            <CardTitle>User Management</CardTitle>
-            <CardDescription>Monitor, manage, and moderate your users.</CardDescription>
-          </div>
-          <Button onClick={handleSeedDatabase} disabled={isSeeding}>
-            <Database className="mr-2 h-4 w-4" />
-            {isSeeding ? 'Seeding...' : 'Seed Database'}
-          </Button>
-        </div>
+        <CardTitle>User Management</CardTitle>
+        <CardDescription>Monitor, manage, and moderate your users.</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="flex items-center py-4">
@@ -312,13 +234,7 @@ export default function UserManagementPage() {
               ))}
             </TableHeader>
             <TableBody>
-              {isLoading ? (
-                <TableRow>
-                  <TableCell colSpan={columns.length} className="h-24 text-center">
-                    Loading users...
-                  </TableCell>
-                </TableRow>
-              ) : table.getRowModel().rows?.length ? (
+              {table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
                   <TableRow
                     key={row.id}
@@ -340,7 +256,7 @@ export default function UserManagementPage() {
                     colSpan={columns.length}
                     className="h-24 text-center"
                   >
-                    No results. Click "Seed Database" to populate users.
+                    No results.
                   </TableCell>
                 </TableRow>
               )}

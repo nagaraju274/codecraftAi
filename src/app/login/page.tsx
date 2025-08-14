@@ -54,29 +54,13 @@ export default function LoginPage() {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       
-      // Send user data to your backend to save to MongoDB
-      const response = await fetch('/api/users', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-            name: user.displayName, 
-            email: user.email, 
-            role: 'user', 
-            status: 'active' 
-        }),
+      // On successful login, redirect the user
+      toast({
+        title: "Login Successful",
+        description: `Welcome back, ${user.displayName}!`,
       });
-
-      if (response.ok) { 
-        toast({
-          title: "Login Successful",
-          description: "Welcome back!",
-        });
-        window.location.href = '/profile';
-      } else {
-        const data = await response.json();
-        throw new Error(data.message || "Failed to log in with Google.");
-      }
-
+      window.location.href = '/profile';
+      
     } catch (error: any) {
       setError(error.message);
       console.error("Google Sign-In Error:", error);
