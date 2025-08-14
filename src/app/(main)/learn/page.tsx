@@ -20,7 +20,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Link, Search, Sparkles, Loader } from "lucide-react";
+import { Link, Search, Sparkles, Loader, CheckSquare } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import ReactMarkdown from "react-markdown";
 import { explainLearningTopic } from "@/ai/flows";
@@ -98,6 +98,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Simple Calculator", description: "Create a command-line program that takes two numbers and an operator (+, -, *, /) as input and prints the result." },
+        { title: "Guess the Number Game", description: "Write a program where the computer picks a random number and the user has to guess it. The program should give hints like 'too high' or 'too low'." },
+        { title: "To-Do List Manager", description: "Build a simple to-do list application that can add tasks, view all tasks, and mark tasks as complete. Store the tasks in a list." }
+    ]
   },
   {
     title: "JavaScript for Beginners",
@@ -168,6 +173,11 @@ const learningPaths = [
             ],
         },
     ],
+    assignments: [
+        { title: "Tip Calculator", description: "Build a simple UI with an input for the bill amount and buttons for different tip percentages. Calculate and display the tip amount and total bill." },
+        { title: "Simple Quiz App", description: "Create a quiz with multiple-choice questions. Use JavaScript to check the answers and display the final score at the end." },
+        { title: "Basic Image Carousel", description: "Build an image slider with 'Next' and 'Previous' buttons to cycle through a collection of images using DOM manipulation." }
+    ]
   },
   {
     title: "Web Development Foundations",
@@ -230,6 +240,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Personal Portfolio Page", description: "Build a single-page portfolio using HTML and CSS. Use Flexbox or Grid to create a responsive layout for your projects and contact information." },
+        { title: "Interactive To-Do List", description: "Create a to-do list application using React. Users should be able to add tasks, mark them as complete, and delete them. Manage the list of tasks using the `useState` hook." },
+        { title: "Simple Weather App", description: "Build a React component that fetches and displays the current weather for a city using a free weather API. Use the `useEffect` hook to handle the data fetching." }
+    ]
   },
   {
     title: "Full Stack Web Development",
@@ -292,6 +307,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Blog API", description: "Build a RESTful API using Node.js and Express that allows users to create, read, update, and delete blog posts. Store the posts in memory or a JSON file." },
+        { title: "Full-Stack To-Do App", description: "Create a React frontend and a Node.js backend for a to-do list application. The frontend should make API calls to the backend to manage tasks, which are stored in a database like PostgreSQL." },
+        { title: "User Authentication Service", description: "Implement a simple user login and registration system. Build an API with endpoints for signup and login, and protect another endpoint that can only be accessed by authenticated users using JWTs." }
+    ]
   },
   {
     title: "Mobile App Development",
@@ -354,6 +374,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Multi-Screen App", description: "Build a simple two-screen app using either React Native or Flutter. The first screen should have a button that navigates to the second screen, passing a piece of data to be displayed." },
+        { title: "Quote of the Day App", description: "Create an app that fetches a random quote from a public API and displays it. Include a button to fetch a new quote." },
+        { title: "Basic Contact List", description: "Design an app that displays a list of contacts (from a hardcoded array). Tapping on a contact should navigate to a detail screen showing more information about that person." }
+    ]
   },
   {
     title: "DevOps Engineer",
@@ -416,6 +441,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Dockerize an Application", description: "Take a simple web application (e.g., a Node.js or Python app) and write a Dockerfile to containerize it. Build the image and run it locally." },
+        { title: "Simple CI Pipeline", description: "Using GitHub Actions, create a basic Continuous Integration (CI) pipeline for a project. The pipeline should trigger on a push, install dependencies, and run tests." },
+        { title: "Automated Backup Script", description: "Write a Bash or Python script that creates a compressed archive of a specified directory and saves it to a backup folder with a timestamp in the filename." }
+    ]
   },
   {
     title: "Front-End Developer",
@@ -469,6 +499,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Responsive Landing Page", description: "Build a single landing page for a fictional product from scratch using HTML and CSS. It must be fully responsive on mobile, tablet, and desktop screens using Flexbox or Grid." },
+        { title: "JavaScript Quiz App", description: "Create a multiple-choice quiz using vanilla JavaScript. The app should display questions, track the user's score, and show the final result at the end." },
+        { title: "React API Data Display", description: "Build a React application that fetches data from a public API (e.g., a movie or character API) and displays the results in a nicely styled grid or list." }
+    ]
   },
   {
     title: "Back-End Developer",
@@ -518,6 +553,11 @@ const learningPaths = [
             ],
         },
     ],
+    assignments: [
+        { title: "URL Shortener API", description: "Using Node.js/Express or Python/Flask, build a REST API that takes a long URL and returns a unique short URL. When a user visits the short URL, they should be redirected to the original long URL." },
+        { title: "Database-Backed Blog API", description: "Create a REST API for a blog. It should have endpoints for creating, reading, updating, and deleting posts. All post data must be stored in a SQL database like PostgreSQL." },
+        { title: "Basic User Authentication", description: "Build an API with two endpoints: `/register` and `/login`. The register endpoint should save a new user with a hashed password to a database. The login endpoint should authenticate the user and return a JWT." }
+    ]
   },
   {
     title: "Database Administrator",
@@ -579,6 +619,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Design a University Database", description: "Create a data model (ER diagram) for a university system, including tables for Students, Courses, and Instructors. Define primary keys, foreign keys, and relationships. Write the SQL `CREATE TABLE` statements for your design." },
+        { title: "Backup and Restore Simulation", description: "Using a local PostgreSQL or MySQL instance, create a sample database with a few tables and some data. Perform a full backup of the database. Then, delete a table and practice restoring the database from your backup file." },
+        { title: "Query Optimization Challenge", description: "Given a sample database with a poorly performing query, use the `EXPLAIN` command to analyze its execution plan. Then, add an appropriate index to the table to improve the query's performance and verify the improvement." }
+    ]
   },
   {
     title: "Git Version Control",
@@ -626,6 +671,11 @@ const learningPaths = [
             ],
         },
     ],
+    assignments: [
+        { title: "Create and Manage a Repository", description: "Initialize a new Git repository for a project, create a file, stage it, and commit it with a message. Then, create a new branch, make a change, commit it, and merge it back into the main branch." },
+        { title: "Collaborate with a Remote Repository", description: "Create a repository on GitHub. Push your local repository to GitHub. Then, make a change on the GitHub website and pull that change back down to your local machine." },
+        { title: "Fix a Mistake", description: "In your local repository, make a commit that you 'regret'. Then, use `git revert` to create a new commit that undoes the changes from the previous one, preserving the project history." }
+    ]
   },
   {
     title: "SQL",
@@ -712,6 +762,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Query a Sample Database", description: "Given a sample database (e.g., of customers and orders), write SQL queries to find: all customers from a specific country, the total number of orders, and the customer who has spent the most money." },
+        { title: "Create and Populate Tables", description: "Write the SQL `CREATE TABLE` statements for a 'Products' table and a 'Categories' table. The Products table should have a foreign key that links to the Categories table. Then, write `INSERT` statements to add a few sample products and categories." },
+        { title: "Analyze Data with GROUP BY", description: "Using a sample database, write a query that uses `GROUP BY` and an aggregate function (like `COUNT` or `AVG`) to find the number of products in each category or the average product price per category." }
+    ]
   },
   {
     title: "C",
@@ -796,6 +851,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "String Reverser", description: "Write a C function that takes a string (a character array) as input and reverses it in place without creating a new array." },
+        { title: "Simple Linked List", description: "Implement a basic singly linked list using structs and pointers. Write functions to add a new node to the end of the list and to print all the values in the list." },
+        { title: "File Word Count", description: "Write a program that opens a text file, reads its contents, and counts the total number of words in the file. A word can be defined as any sequence of characters separated by whitespace." }
+    ]
   },
   {
     title: "R",
@@ -868,6 +928,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Explore a Dataset with dplyr", description: "Using a built-in R dataset like `iris` or `mtcars`, use `dplyr` verbs to find the average measurement for each species/category, filter for specific conditions, and arrange the results." },
+        { title: "Create a Custom Plot with ggplot2", description: "Choose a dataset and create a scatter plot or bar chart using `ggplot2`. Customize the plot by adding a title, changing axis labels, and applying a different color scheme." },
+        { title: "Write a Data Cleaning Function", description: "Write an R function that takes a data frame as input and returns a cleaned version. The function should replace all missing values (NA) in a specific column with the mean or median of that column." }
+    ]
   },
   {
     title: "Java",
@@ -935,6 +1000,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Bank Account Class", description: "Create a `BankAccount` class with properties for account number and balance, and methods for `deposit()` and `withdraw()`. Ensure that the balance cannot go below zero." },
+        { title: "Word Frequency Counter", description: "Write a Java program that reads a text file and uses a `HashMap` to count the frequency of each word. Print the words and their counts." },
+        { title: "Contact List", description: "Create a `Contact` class and then write a program that manages a list of contacts in an `ArrayList`. The program should allow adding a new contact and displaying all contacts." }
+    ]
   },
   {
     title: "C#",
@@ -980,6 +1050,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Student and Course Classes", description: "Create a `Student` class and a `Course` class. A student should have a name and a list of courses they are enrolled in. A course should have a name and a list of enrolled students. Create methods to enroll a student in a course." },
+        { title: "LINQ Query Practice", description: "Given a list of numbers, use LINQ to find all the even numbers, sort them in descending order, and select the top 5." },
+        { title: "Simple Web API", description: "Using ASP.NET Core, create a minimal API with two endpoints. One endpoint should return 'Hello, World!', and the other should accept a name in the URL and return 'Hello, [name]!'." }
+    ]
   },
   {
     title: "Swift",
@@ -1040,6 +1115,11 @@ const learningPaths = [
             ],
         },
     ],
+    assignments: [
+        { title: "Tip Calculator UI", description: "Using SwiftUI, build a user interface for a tip calculator. It should have a text field for the bill amount, a picker for the tip percentage, and a text view to display the total amount." },
+        { title: "To-Do List App", description: "Create a simple to-do list app. Users should be able to add new tasks to a list and see them displayed on the screen. Manage the list of tasks using an array and the `@State` property wrapper." },
+        { title: "Simple Master-Detail View", description: "Build an app that displays a list of items (e.g., names of cities). When a user taps an item, it should navigate to a new screen that shows more details about that item." }
+    ]
   },
   {
     title: "Kotlin",
@@ -1094,6 +1174,11 @@ const learningPaths = [
             ],
         },
     ],
+    assignments: [
+        { title: "Filter a List of Objects", description: "Create a `data class` for a `Person` (with name and age). Then, create a list of `Person` objects and use a collection function (like `.filter()`) to find all the people who are 18 or older." },
+        { title: "Simple Counter App", description: "Using Jetpack Compose, build a simple Android app with a button and a text field. Each time the button is clicked, the number in the text field should increment." },
+        { title: "Asynchronous Data Fetch", description: "Write a function that simulates a network call using `delay()` inside a coroutine. The function should return a string after 2 seconds, and your main code should launch the coroutine and print the result." }
+    ]
   },
   {
     title: "PHP for Web Development",
@@ -1163,6 +1248,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Simple Contact Form", description: "Create an HTML form with fields for name, email, and message. Write a PHP script that validates the input and displays the submitted data back to the user." },
+        { title: "PHP Function for Factorial", description: "Write a PHP function that takes an integer as input and returns its factorial. Include error handling for negative numbers." },
+        { title: "Basic 'Guestbook' Page", description: "Using PHP and PDO, create a simple guestbook. It should have a form to submit a name and a message, which gets saved to a MySQL database. The page should also display all the messages from the database." }
+    ]
   },
   {
     title: "Ruby on Rails",
@@ -1214,6 +1304,11 @@ const learningPaths = [
             ],
         },
     ],
+    assignments: [
+        { title: "Ruby Word Counter", description: "Write a Ruby script that reads a sentence and returns a hash where the keys are the words and the values are their frequencies." },
+        { title: "Simple Blog with Rails", description: "Generate a new Rails application with a 'Post' model (with title and body attributes). Create the necessary routes, controller actions, and views to allow users to create new posts and see a list of all posts." },
+        { title: "Two-Model Association", description: "In a Rails app, create two models: `Author` and `Book`. Set up a `has_many` / `belongs_to` association between them. Use the Rails console to create an author and assign a new book to them." }
+    ]
   },
   {
     title: "Rust",
@@ -1276,6 +1371,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Temperature Converter", description: "Write a Rust function that takes a temperature in Celsius and returns the equivalent in Fahrenheit. Practice using functions and basic data types." },
+        { title: "Area of a Rectangle", description: "Define a `Rectangle` struct with `width` and `height` fields. Implement a method on the struct called `area` that calculates and returns the rectangle's area." },
+        { title: "Traffic Light Enum", description: "Create an `enum` called `TrafficLight` with variants `Red`, `Yellow`, and `Green`. Write a function that takes a `TrafficLight` and returns how long a car should wait (e.g., 60 for Red, 5 for Yellow, 0 for Green) using a `match` expression." }
+    ]
   },
   {
     title: "Dart for Cross-Platform Development",
@@ -1346,6 +1446,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Sum of a List", description: "Write a Dart function that takes a `List<int>` and returns the sum of all its elements." },
+        { title: "User Profile Class", description: "Create a `User` class in Dart with properties for `name` (String) and `age` (int). Add a method `sayHello()` that prints 'Hello, my name is [name]'. Create an instance of the class and call the method." },
+        { title: "Static Flutter Layout", description: "Using Flutter, build a simple screen layout that displays a user profile picture (using a `CircleAvatar`), with their name and a short bio underneath. Use a `Column` to arrange the widgets vertically." }
+    ]
   },
   {
     title: "HTML: The Language of the Web",
@@ -1400,6 +1505,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Simple Recipe Page", description: "Create an HTML page for a recipe. It should include a main heading for the recipe name, an image of the dish, an unordered list for ingredients, and an ordered list for the steps." },
+        { title: "Basic Contact Form", description: "Build an HTML form that collects a user's name, email, and a message. Use appropriate `<label>` tags for all inputs." },
+        { title: "Recreate a Simple Table", description: "Find a simple table of data online (e.g., a list of countries and their capitals) and recreate its structure using HTML `<table>`, `<tr>`, `<th>`, and `<td>` tags." }
+    ]
   },
   {
     title: "CSS: Styling the Web",
@@ -1453,6 +1563,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Style a Blog Post", description: "Take a simple HTML structure for a blog post and use CSS to style it. Set the font sizes for headings and paragraphs, add colors, and control the spacing to make it readable." },
+        { title: "Create a Centered Card Layout", description: "Using Flexbox, create a layout that perfectly centers a card element (a `div` with a border and shadow) both horizontally and vertically on the page." },
+        { title: "Button Hover Effect", description: "Style a button element. Then, use CSS transitions and the `:hover` pseudo-class to make its background color and text color change smoothly when the user hovers over it." }
+    ]
   },
   {
     title: "Bash/Shell Scripting",
@@ -1506,6 +1621,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Greeting Script", description: "Write a Bash script that takes a person's name as a command-line argument and prints a personalized greeting, e.g., 'Hello, [Name]!'." },
+        { title: "File Backup Script", description: "Write a script that creates a new directory named 'backups' if it doesn't exist. Then, it should copy a specified file into that backup directory." },
+        { title: "Numbered Line Printer", description: "Create a script that reads a text file and prints each line preceded by its line number. Use a `while` loop and the `read` command." }
+    ]
   },
   {
     title: "Perl",
@@ -1571,6 +1691,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Array Sum", description: "Write a Perl subroutine that takes an array of numbers as an argument and returns their sum." },
+        { title: "Count Log Entries", description: "Write a Perl script that reads a log file and uses a regular expression to count how many lines contain the word 'Error'." },
+        { title: "Hash to Key-Value String", description: "Write a script that takes a hash and prints its contents as a formatted string, e.g., 'key1=value1, key2=value2'." }
+    ]
   },
   {
     title: "PowerShell for Automation and Administration",
@@ -1617,6 +1742,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Get Running Processes", description: "Write a PowerShell script that gets all the running processes on your computer, filters them to show only those consuming more than 100MB of memory, and sorts the result by memory usage." },
+        { title: "Check Service Status", description: "Create a script that checks if a specific Windows service (e.g., 'Spooler') is running. If it's running, it should print 'Service is running'; otherwise, it should print 'Service is stopped'." },
+        { title: "Export Data to CSV", description: "Write a script that retrieves a list of all services on the system and exports their Name, Status, and StartType to a CSV file." }
+    ]
   },
   {
     title: "MATLAB for Engineers and Scientists",
@@ -1662,6 +1792,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Vector Operations", description: "Create two vectors in MATLAB. Calculate their sum, the element-wise product, and the dot product." },
+        { title: "Plot a Sine Wave", description: "Create a vector of values from 0 to 2*pi. Calculate the sine of these values and create a 2D plot of the results. Add a title and labels for the x and y axes." },
+        { title: "Simple MATLAB Function", description: "Write a MATLAB function that takes a vector of numbers as input and returns the average of those numbers without using the built-in `mean` function." }
+    ]
   },
   {
     title: "SAS Programming for Data Analysis",
@@ -1714,6 +1849,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Create and Print a Dataset", description: "Write a DATA step to create a SAS dataset with a few variables (e.g., Name, Age, Score). Then, use `PROC PRINT` to display the contents of your new dataset." },
+        { title: "Filter with IF and WHERE", description: "Using a built-in SAS dataset like `sashelp.class`, create a new dataset that includes only the female students who are older than 13. Do this once using an `IF` statement in a DATA step, and once using a `WHERE` statement in a PROC step." },
+        { title: "Calculate Descriptive Statistics", description: "Using `sashelp.cars`, run `PROC MEANS` to calculate the mean, median, minimum, and maximum horsepower for all cars. Then, use a `BY` statement to get the same statistics for each car `Type` (e.g., Sedan, SUV)." }
+    ]
   },
   {
     title: "SPSS for Statistical Analysis",
@@ -1768,6 +1908,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Enter and Define Data", description: "Create a new SPSS data file. Define three variables: `ID` (Numeric), `Gender` (String, with value labels for 'Male' and 'Female'), and `Score` (Numeric). Manually enter data for 5 fictional participants." },
+        { title: "Analyze Frequencies and Descriptives", description: "Using your created dataset, run the 'Frequencies' procedure on the `Gender` variable and the 'Descriptives' procedure on the `Score` variable. Interpret the output tables." },
+        { title: "Run an Independent-Samples T-Test", description: "Using the same dataset, perform an independent-samples t-test to see if there is a statistically significant difference in `Score` between the male and female groups." }
+    ]
   },
   {
     title: "Prolog",
@@ -1819,6 +1964,11 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Family Tree", description: "Create a set of Prolog facts representing a family tree (e.g., `parent(charles, william)`). Write rules to define relationships like `grandparent`, `sibling`, and `ancestor`." },
+        { title: "List Membership", description: "Write a recursive Prolog rule `is_member(X, List)` that succeeds if `X` is an element of `List`." },
+        { title: "Sum of a List", description: "Write a recursive rule `sum_list(List, Sum)` that calculates the sum of a list of numbers." }
+    ]
   },
   {
     title: "TensorFlow",
@@ -1831,6 +1981,10 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Create a Tensor", description: "Create a 2x2 TensorFlow tensor with constant values and print it." },
+        { title: "Simple Keras Model", description: "Define a simple sequential model using Keras with one dense layer." }
+    ]
   },
   {
     title: "PyTorch",
@@ -1843,6 +1997,10 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Tensor Operations", description: "Create two 2x2 PyTorch tensors and perform addition and matrix multiplication." },
+        { title: "Basic Neural Network", description: "Define a simple neural network class in PyTorch that inherits from `torch.nn.Module`." }
+    ]
   },
   {
     title: "Flutter",
@@ -1855,6 +2013,10 @@ const learningPaths = [
         ],
       },
     ],
+    assignments: [
+        { title: "Build a Layout", description: "Create a simple Flutter screen with a column containing an icon, some text, and a button." },
+        { title: "Stateful Counter", description: "Build a stateful widget that displays a number and a button. Pressing the button should increment the number." }
+    ]
   },
 ];
 
@@ -1961,6 +2123,26 @@ export default function LearnPage() {
                           </AccordionContent>
                         </AccordionItem>
                       ))}
+                        {path.assignments && path.assignments.length > 0 && (
+                            <AccordionItem value="assignments">
+                                <AccordionTrigger className="text-base font-medium hover:no-underline py-3 flex-1 text-left text-primary">
+                                    <div className="flex items-center gap-2">
+                                        <CheckSquare className="h-5 w-5" />
+                                        <span>Practice Assignments</span>
+                                    </div>
+                                </AccordionTrigger>
+                                <AccordionContent className="text-muted-foreground pt-2 pl-8">
+                                    <ul className="list-decimal pl-5 space-y-4">
+                                        {path.assignments.map((assignment, i) => (
+                                            <li key={i}>
+                                                <h4 className="font-semibold text-foreground">{assignment.title}</h4>
+                                                <p>{assignment.description}</p>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </AccordionContent>
+                            </AccordionItem>
+                        )}
                     </Accordion>
                   </CardContent>
                 </Card>
