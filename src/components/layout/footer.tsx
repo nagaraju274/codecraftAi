@@ -43,11 +43,11 @@ export function Footer() {
               <ul className="space-y-2 text-sm">
                 <li><Link href="/documentation" className="hover:text-foreground">Documentation</Link></li>
                 <li><Link href="/community" className="hover:text-foreground">Community Forum</Link></li>
-                <li><Link href="#" className="hover:text-foreground">Cheat Sheets</Link></li>
-                <li><Link href="#" className="hover:text-foreground">Glossary</Link></li>
-                <li><Link href="#" className="hover:text-foreground">Study Plan Generator</Link></li>
-                <li><Link href="#" className="hover:text-foreground">Time Management</Link></li>
-                <li><Link href="#" className="hover:text-foreground">Growth Mindset & Motivation</Link></li>
+                <li><Link href="/cheatsheets" className="hover:text-foreground">Cheat Sheets</Link></li>
+                <li><Link href="/glossary" className="hover:text-foreground">Glossary</Link></li>
+                <li><Link href="/study-plan" className="hover:text-foreground">Study Plan Generator</Link></li>
+                <li><Link href="/time-management" className="hover:text-foreground">Time Management</Link></li>
+                <li><Link href="/growth-mindset" className="hover:text-foreground">Growth Mindset & Motivation</Link></li>
               </ul>
             </div>
             <div>
