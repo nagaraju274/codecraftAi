@@ -129,9 +129,15 @@ export default function GrowthMindsetPage() {
                 <span>A Developer's Mantra</span>
             </CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="space-y-6">
             <blockquote className="border-l-4 border-primary pl-4 italic text-lg">
                 "This bug is not a reflection of my intelligence. It's a puzzle, and I have the tools and the capacity to solve it. Every error message is a clue, and every attempt is progress."
+            </blockquote>
+            <blockquote className="border-l-4 border-primary pl-4 italic text-lg">
+                "I am not a 'JavaScript developer' or a 'Python developer'. I am a problem solver who uses technology as a tool. The languages and frameworks will change, but my ability to learn and adapt is my greatest asset."
+            </blockquote>
+            <blockquote className="border-l-4 border-primary pl-4 italic text-lg">
+                "Code that is 'good enough' and shipped is infinitely more valuable than 'perfect' code that never gets deployed. I will embrace iteration and continuous improvement over the illusion of perfection."
             </blockquote>
         </CardContent>
       </Card>
