@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { BotMessageSquare } from 'lucide-react';
 import { Footer } from '@/components/layout/footer';
 import { Button } from '@/components/ui/button';
+import { AuthButtons } from '@/components/layout/auth-buttons';
 
 const navLinks = [
     { href: "/learn", label: "Learn" },
@@ -33,12 +34,7 @@ export default function LandingLayout({
                     </Button>
                 ))}
                  <div className="flex items-center gap-2 ml-4">
-                    <Button asChild variant="outline">
-                        <Link href="/login">Login</Link>
-                    </Button>
-                    <Button asChild>
-                        <Link href="/signup">Sign Up</Link>
-                    </Button>
+                    <AuthButtons />
                 </div>
             </nav>
         </div>
