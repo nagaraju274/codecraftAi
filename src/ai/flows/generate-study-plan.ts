@@ -23,7 +23,10 @@ const GenerateStudyPlanOutputSchema = z.object({
     week: z.number().describe('The week number of the study plan.'),
     topic: z.string().describe('The main topic or theme for the week.'),
     tasks: z.array(z.string()).describe('A list of specific tasks or sub-topics to cover during the week.'),
-    resources: z.array(z.string()).describe('A list of suggested resources, like articles, tutorials, or project ideas.'),
+    resources: z.array(z.object({
+        name: z.string().describe('The display name of the resource.'),
+        url: z.string().describe('The URL for the resource. If a direct link isn\'t available, provide a Google search URL.'),
+    })).describe('A list of suggested resources with clickable links.'),
   })).describe('A structured, week-by-week study plan.'),
 });
 export type GenerateStudyPlanOutput = z.infer<typeof GenerateStudyPlanOutputSchema>;
@@ -46,7 +49,8 @@ const prompt = ai.definePrompt({
   Your Task:
   Create a detailed, week-by-week study plan for a duration of 4 weeks.
   The plan should be realistic given the user's weekly time commitment.
-  For each week, provide a main topic, a list of specific learning tasks, and a list of suggested resources (e.g., "Read the official documentation on X", "Build a small project using Y", "Watch a tutorial on Z").
+  For each week, provide a main topic, a list of specific learning tasks, and a list of suggested resources.
+  For each resource, provide a name and a full URL. If a direct link isn't available (e.g., for a book chapter or a general concept), create a Google search URL for it (e.g., "https://www.google.com/search?q=...").
   Structure your output according to the provided JSON schema. Ensure the tasks and topics are appropriate for the user's specified skill level.
   `,
 });

@@ -9,14 +9,14 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { generateStudyPlan } from '@/ai/flows/generate-study-plan';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, BookOpen } from 'lucide-react';
+import { Loader2, BookOpen, Link as LinkIcon } from 'lucide-react';
 import { AuthGuard } from '@/components/auth/auth-guard';
 
 interface StudyPlanWeek {
     week: number;
     topic: string;
     tasks: string[];
-    resources: string[];
+    resources: { name: string; url: string }[];
 }
 
 export default function StudyPlanPage() {
@@ -145,8 +145,15 @@ export default function StudyPlanPage() {
                                                         {week.tasks.map((task, i) => <li key={i}>{task}</li>)}
                                                     </ul>
                                                      <h4 className="font-semibold mt-3">Suggested Resources:</h4>
-                                                    <ul className="list-disc list-inside text-muted-foreground space-y-1 mt-1">
-                                                        {week.resources.map((resource, i) => <li key={i}>{resource}</li>)}
+                                                    <ul className="list-none text-muted-foreground space-y-1 mt-1">
+                                                        {week.resources.map((resource, i) => (
+                                                            <li key={i}>
+                                                                <a href={resource.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-primary hover:underline">
+                                                                    <LinkIcon className="h-3 w-3" />
+                                                                    <span>{resource.name}</span>
+                                                                </a>
+                                                            </li>
+                                                        ))}
                                                     </ul>
                                                 </div>
                                             </div>
