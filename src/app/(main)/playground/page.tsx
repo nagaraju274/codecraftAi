@@ -62,13 +62,13 @@ export default function PlaygroundPage() {
                 newOutput.push(...result.stderr.split('\n'));
             }
             setOutput(newOutput);
-        } catch (e) {
+        } catch (e: any) {
             toast({
                 variant: "destructive",
                 title: "Error",
                 description: "Failed to run Python code.",
             });
-            setOutput([`> python main.py`, `Error running python code.`]);
+            setOutput([`> python main.py`, e.message || `Error running python code.`]);
         } finally {
             setIsRunning(false);
         }

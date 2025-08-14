@@ -44,7 +44,7 @@ const runPythonCodeFlow = ai.defineFlow(
     } catch (e: any) {
       return {
         stdout: '',
-        stderr: e.message,
+        stderr: e.stack || e.message,
       };
     }
   }
