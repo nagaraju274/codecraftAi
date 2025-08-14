@@ -25,6 +25,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import ReactMarkdown from "react-markdown";
 import { explainLearningTopic } from "@/ai/flows";
 import { useToast } from "@/hooks/use-toast";
+import { AuthGuard } from "@/components/auth/auth-guard";
 
 
 const learningPaths = [
@@ -1895,100 +1896,102 @@ export default function LearnPage() {
   );
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="p-4 space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">Learning Paths</h1>
-        <p className="text-muted-foreground">
-          Our structured learning paths will help you master new skills and advance your career.
-        </p>
-      </div>
-      <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm px-4">
-        <div className="py-4">
-            <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                <Input
-                  type="search"
-                  placeholder="Search for a learning path..."
-                  className="pl-10 w-full"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-            </div>
+    <AuthGuard>
+      <div className="flex flex-col h-full">
+        <div className="p-4 space-y-2">
+          <h1 className="text-3xl font-bold tracking-tight">Learning Paths</h1>
+          <p className="text-muted-foreground">
+            Our structured learning paths will help you master new skills and advance your career.
+          </p>
         </div>
-      </div>
-      <ScrollArea className="flex-1">
-        <div className="space-y-4 p-4 pt-0">
-          {filteredPaths.map((path, index) => (
-            <div key={index} className="p-1 h-full">
-              <Card className="hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold">{path.title}</CardTitle>
-                  <p className="text-muted-foreground pt-2">{path.description}</p>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <Accordion type="single" collapsible className="w-full">
-                    {path.topics.map((topic, index) => (
-                      <AccordionItem value={`item-${index}`} key={topic.title}>
-                        <div className="flex justify-between items-center w-full pr-2">
-                            <AccordionTrigger className="text-base font-medium hover:no-underline py-3 flex-1 text-left">
-                                <span>{topic.title}</span>
-                            </AccordionTrigger>
-                            <Button size="sm" variant="ghost" onClick={() => handleExplainTopic(topic)} className="ml-4">
-                                <Sparkles className="h-4 w-4 mr-2" />
-                                Learn More
-                            </Button>
-                        </div>
-                        <AccordionContent className="text-muted-foreground pt-2 pl-8">
-                            <ul className="list-disc pl-5 space-y-4">
-                                {topic.points.map((point, i) => (
-                                    <li key={i}>
-                                        <span className="text-base">{point.text}</span>
-                                        {point.resources && point.resources.length > 0 && (
-                                            <div className="mt-2 space-x-4">
-                                                {point.resources.map((resource, j) => (
-                                                    <a href={resource.url} key={j} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-base inline-flex items-center gap-1">
-                                                        <Link className="h-3 w-3 shrink-0" />
-                                                        {resource.name}
-                                                    </a>
-                                                ))}
-                                            </div>
-                                        )}
-                                    </li>
-                                ))}
-                            </ul>
-                        </AccordionContent>
-                      </AccordionItem>
-                    ))}
-                  </Accordion>
-                </CardContent>
-              </Card>
-            </div>
-          ))}
+        <div className="sticky top-0 z-10 bg-background/95 backdrop-blur-sm px-4">
+          <div className="py-4">
+              <div className="relative">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                  <Input
+                    type="search"
+                    placeholder="Search for a learning path..."
+                    className="pl-10 w-full"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+              </div>
+          </div>
         </div>
-      </ScrollArea>
-       <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <AlertDialogContent className="max-w-2xl">
-          <AlertDialogHeader>
-            <AlertDialogTitle>{explanationTitle}</AlertDialogTitle>
-            <AlertDialogDescription asChild>
-                <ScrollArea className="max-h-[60vh] pr-4">
-                  {isLoading ? (
-                    <div className="flex items-center justify-center py-8">
-                      <Loader className="h-8 w-8 animate-spin text-primary" />
-                    </div>
-                  ) : (
-                    <div className="prose prose-sm dark:prose-invert max-w-none">
-                      <ReactMarkdown>{explanation}</ReactMarkdown>
-                    </div>
-                  )}
-                </ScrollArea>
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Close</AlertDialogCancel>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-    </div>
+        <ScrollArea className="flex-1">
+          <div className="space-y-4 p-4 pt-0">
+            {filteredPaths.map((path, index) => (
+              <div key={index} className="p-1 h-full">
+                <Card className="hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
+                  <CardHeader>
+                    <CardTitle className="text-xl font-bold">{path.title}</CardTitle>
+                    <p className="text-muted-foreground pt-2">{path.description}</p>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <Accordion type="single" collapsible className="w-full">
+                      {path.topics.map((topic, index) => (
+                        <AccordionItem value={`item-${index}`} key={topic.title}>
+                          <div className="flex justify-between items-center w-full pr-2">
+                              <AccordionTrigger className="text-base font-medium hover:no-underline py-3 flex-1 text-left">
+                                  <span>{topic.title}</span>
+                              </AccordionTrigger>
+                              <Button size="sm" variant="ghost" onClick={() => handleExplainTopic(topic)} className="ml-4">
+                                  <Sparkles className="h-4 w-4 mr-2" />
+                                  Learn More
+                              </Button>
+                          </div>
+                          <AccordionContent className="text-muted-foreground pt-2 pl-8">
+                              <ul className="list-disc pl-5 space-y-4">
+                                  {topic.points.map((point, i) => (
+                                      <li key={i}>
+                                          <span className="text-base">{point.text}</span>
+                                          {point.resources && point.resources.length > 0 && (
+                                              <div className="mt-2 space-x-4">
+                                                  {point.resources.map((resource, j) => (
+                                                      <a href={resource.url} key={j} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline text-base inline-flex items-center gap-1">
+                                                          <Link className="h-3 w-3 shrink-0" />
+                                                          {resource.name}
+                                                      </a>
+                                                  ))}
+                                              </div>
+                                          )}
+                                      </li>
+                                  ))}
+                              </ul>
+                          </AccordionContent>
+                        </AccordionItem>
+                      ))}
+                    </Accordion>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </ScrollArea>
+         <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+          <AlertDialogContent className="max-w-2xl">
+            <AlertDialogHeader>
+              <AlertDialogTitle>{explanationTitle}</AlertDialogTitle>
+              <AlertDialogDescription asChild>
+                  <ScrollArea className="max-h-[60vh] pr-4">
+                    {isLoading ? (
+                      <div className="flex items-center justify-center py-8">
+                        <Loader className="h-8 w-8 animate-spin text-primary" />
+                      </div>
+                    ) : (
+                      <div className="prose prose-sm dark:prose-invert max-w-none">
+                        <ReactMarkdown>{explanation}</ReactMarkdown>
+                      </div>
+                    )}
+                  </ScrollArea>
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Close</AlertDialogCancel>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+      </div>
+    </AuthGuard>
   );
 }
