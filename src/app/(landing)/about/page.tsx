@@ -86,9 +86,9 @@ export default function AboutPage() {
                     Whether you have a project in mind or want to learn more about our work, we'd love to connect.
                  </p>
                 <Button asChild size="lg" className="mt-6">
-                    <a href="mailto:contact@mine-yours.com">
+                    <Link href="/contact">
                         Contact Us <ArrowRight className="ml-2"/>
-                    </a>
+                    </Link>
                 </Button>
             </div>
         </section>
