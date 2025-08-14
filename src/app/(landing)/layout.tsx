@@ -21,7 +21,7 @@ export default function LandingLayout({
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-10 w-full bg-background/80 backdrop-blur-sm shadow-md">
         <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 flex-shrink-0">
                  <div className="flex flex-col items-start">
                     <Link href="/" className="flex items-center gap-2.5">
                         <BotMessageSquare className="w-8 h-8 text-primary" />
