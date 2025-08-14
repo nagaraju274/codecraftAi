@@ -1,8 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
-import { BookOpenCheck, FolderKanban, UserCircle } from "lucide-react";
+import { BookOpenCheck, FolderKanban, UserCircle, Settings } from "lucide-react";
 import Link from "next/link";
 
 const learningProgress = [
@@ -76,7 +76,7 @@ export default function ProfilePage() {
 
         </div>
         <div className="lg:col-span-1">
-             <Card>
+             <Card className="flex flex-col">
                 <CardHeader className="flex flex-col gap-4 items-center text-center">
                     <Avatar className="h-24 w-24">
                       <AvatarImage src="https://placehold.co/96x96.png" alt="@student" data-ai-hint="user avatar" />
@@ -89,9 +89,17 @@ export default function ProfilePage() {
                       <p className="text-muted-foreground">student@example.com</p>
                     </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground text-center">Customize your profile and manage account settings here.</p>
+                <CardContent className="text-center flex-grow">
+                  <p className="text-sm text-muted-foreground">Customize your profile and manage account settings here.</p>
                 </CardContent>
+                 <CardFooter>
+                    <Button asChild className="w-full" variant="outline">
+                        <Link href="/admin/settings">
+                            <Settings className="mr-2 h-4 w-4" />
+                            Manage Account
+                        </Link>
+                    </Button>
+                 </CardFooter>
               </Card>
         </div>
       </div>
