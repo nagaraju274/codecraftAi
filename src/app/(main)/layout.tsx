@@ -1,15 +1,16 @@
 
 import { Button } from '@/components/ui/button';
-import { BotMessageSquare, PanelLeft, User } from 'lucide-react';
+import { BotMessageSquare, PanelLeft, User, MessageCircleQuestion } from 'lucide-react';
 import Link from 'next/link';
 import { Footer } from '@/components/layout/footer';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 
 const navLinks = [
-    { href: "/learn", label: "Learn" },
-    { href: "/projects", label: "Projects" },
-    { href: "/playground", label: "Playground" },
-    { href: "/community", label: "Community" },
+    { href: "/learn", label: "Learn", icon: null },
+    { href: "/projects", label: "Projects", icon: null },
+    { href: "/playground", label: "Playground", icon: null },
+    { href: "/ask-a-mentor", label: "Ask a Mentor", icon: MessageCircleQuestion },
+    { href: "/community", label: "Community", icon: null },
 ];
 
 export default function MainLayout({
@@ -33,7 +34,8 @@ export default function MainLayout({
                             <SheetTitle className="sr-only">Main Menu</SheetTitle>
                             <nav className="grid gap-4 py-6">
                                 {navLinks.map(link => (
-                                    <Link href={link.href} key={link.href} className="text-lg font-medium hover:text-primary transition-colors">
+                                    <Link href={link.href} key={link.href} className="text-lg font-medium hover:text-primary transition-colors flex items-center gap-2">
+                                        {link.icon && <link.icon className="h-5 w-5" />}
                                         {link.label}
                                     </Link>
                                 ))}
@@ -49,7 +51,10 @@ export default function MainLayout({
             <nav className="hidden md:flex items-center gap-4">
                 {navLinks.map(link => (
                     <Button asChild variant="ghost" key={link.href}>
-                        <Link href={link.href}>{link.label}</Link>
+                        <Link href={link.href} className="flex items-center gap-2">
+                           {link.icon && <link.icon className="h-5 w-5" />}
+                           {link.label}
+                        </Link>
                     </Button>
                 ))}
                 <Button asChild variant="ghost">
