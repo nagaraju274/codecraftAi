@@ -3,7 +3,7 @@ import { BotMessageSquare, PanelLeft } from 'lucide-react';
 import { Footer } from '@/components/layout/footer';
 import { Button } from '@/components/ui/button';
 import { AuthButtons } from '@/components/layout/auth-buttons';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 
 const navLinks = [
     { href: "/learn", label: "Learn" },
@@ -51,6 +51,7 @@ export default function LandingLayout({
                         </Button>
                     </SheetTrigger>
                     <SheetContent side="left">
+                        <SheetTitle className="sr-only">Main Menu</SheetTitle>
                         <nav className="grid gap-4 py-6">
                              {navLinks.map(link => (
                                 <Link href={link.href} key={link.href} className="text-lg font-medium hover:text-primary transition-colors">
