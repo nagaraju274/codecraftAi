@@ -7,6 +7,7 @@ import { fixCodeError } from './fix-code-error';
 import { generateCode } from './generate-code-from-prompt';
 import { suggestNextSteps } from './suggest-next-steps';
 import { askMentor } from './ask-a-mentor';
+import { generateStudyPlan } from './generate-study-plan';
 
 export {
     explainCode,
@@ -15,4 +16,5 @@ export {
     generateCode,
     suggestNextSteps,
     askMentor,
+    generateStudyPlan,
 };

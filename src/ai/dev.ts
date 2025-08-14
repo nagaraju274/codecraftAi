@@ -8,3 +8,4 @@ import '@/ai/flows/fix-code-error.ts';
 import '@/ai/flows/suggest-next-steps.ts';
 import '@/ai/flows/generate-code-from-prompt.ts';
 import '@/ai/flows/ask-a-mentor.ts';
+import '@/ai/flows/generate-study-plan.ts';
