@@ -4,6 +4,7 @@ export const projects = [
     id: "todo-app",
     title: "To-Do List Application",
     description: "Build a classic to-do list app to manage your daily tasks. This project is perfect for learning the fundamentals of state management in a React application.",
+    imageUrl: "/projects/todo-app.png",
     aiHint: "task list",
     tags: ["React", "State Management", "UI/UX"],
     steps: [
@@ -175,6 +176,7 @@ const handleDeleteTask = (id) => {
     id: "weather-app",
     title: "Weather Forecast App",
     description: "Create an application that fetches and displays weather data from a third-party API. You'll learn how to handle asynchronous data and present it in a user-friendly interface.",
+    imageUrl: "/projects/weather-app.png",
     aiHint: "weather forecast",
     tags: ["React", "API Integration", "Async"],
     steps: [
@@ -304,6 +306,7 @@ const handleSearch = async () => {
     id: "blog-platform",
     title: "Personal Blog Platform",
     description: "Develop a simple but functional blog where you can create, edit, and delete posts. This project introduces concepts of routing and data persistence.",
+    imageUrl: "/projects/blog-platform.png",
     aiHint: "writing blog",
     tags: ["Next.js", "Routing", "Full-Stack"],
     steps: [
@@ -423,6 +426,7 @@ export default function PostPage({ params }: { params: { postId: string }}) {
     id: "image-recognizer",
     title: "AI Image Recognizer",
     description: "Dive into the world of AI by building an application that can identify objects in images using a machine learning model.",
+    imageUrl: "/projects/image-recognizer.png",
     aiHint: "artificial intelligence",
     tags: ["Genkit", "AI", "Image Recognition"],
     steps: [
@@ -593,6 +597,7 @@ const handleRecognize = async () => {
     id: "portfolio-generator",
     title: "AI Portfolio Generator",
     description: "Build a tool that generates a personal portfolio website based on user input. This project combines form handling with dynamic content generation using AI.",
+    imageUrl: "/projects/portfolio-generator.png",
     aiHint: "personal website",
     tags: ["Next.js", "Genkit", "AI", "Web Development"],
     steps: [
@@ -723,6 +728,7 @@ const handleGenerate = async () => {
     id: "recipe-finder",
     title: "Recipe Finder App",
     description: "Create an app that helps users discover new recipes based on ingredients they have. This project focuses on searching, filtering, and displaying data from a collection.",
+    imageUrl: "/projects/recipe-finder.png",
     aiHint: "cooking recipe",
     tags: ["React", "Data Filtering", "UI Design"],
     steps: [
@@ -838,6 +844,7 @@ const filteredRecipes = searchQuery.trim() === ''
     id: "ecommerce-cart",
     title: "E-commerce Shopping Cart",
     description: "Build a functional shopping cart for an e-commerce site. Learn how to manage state for products, cart items, and totals.",
+    imageUrl: "/projects/ecommerce-cart.png",
     aiHint: "online shopping",
     tags: ["React", "State Management", "E-commerce"],
     steps: [
@@ -979,6 +986,7 @@ const [cartItems, setCartItems] = useState<CartItem[]>([]);
     id: "markdown-editor",
     title: "Markdown Note-Taker",
     description: "Create a real-time Markdown editor with a live preview pane. A great way to learn about text processing and UI updates.",
+    imageUrl: "/projects/markdown-editor.png",
     aiHint: "writing notes",
     tags: ["React", "UI", "Text Editing"],
     steps: [
@@ -1073,6 +1081,7 @@ import ReactMarkdown from 'react-markdown';
     id: "ai-chat-app",
     title: "AI Chat Application",
     description: "Build a simple chat interface that communicates with an AI chatbot using Genkit. Learn about managing conversational state.",
+    imageUrl: "/projects/ai-chat-app.png",
     aiHint: "chatbot conversation",
     tags: ["Genkit", "AI", "Chat", "State Management"],
     steps: [

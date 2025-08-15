@@ -27,7 +27,7 @@ export default function ProjectsPage() {
               <CardHeader className="p-0">
                   <div className="aspect-video relative">
                       <Image 
-                          src={`https://placehold.co/600x400.png?text=${encodeURIComponent(project.title)}`}
+                          src={project.imageUrl}
                           alt={project.title}
                           fill
                           className="object-cover rounded-t-lg"
