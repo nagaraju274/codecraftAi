@@ -43,10 +43,13 @@ export default function MainLayout({
                         </SheetContent>
                     </Sheet>
                 </div>
-                <Link href="/" className="flex items-center gap-2.5">
-                    <BotMessageSquare className="w-8 h-8 text-primary" />
-                    <span className="font-bold text-lg">CodeCraft AI</span>
-                </Link>
+                <div className="flex flex-col items-start">
+                    <Link href="/" className="flex items-center gap-2.5">
+                        <BotMessageSquare className="w-8 h-8 text-primary" />
+                        <span className="font-bold text-lg">CodeCraft AI</span>
+                    </Link>
+                    <p className="text-xs text-muted-foreground ml-1">by Mine-Yours</p>
+                </div>
             </div>
             <nav className="hidden md:flex items-center gap-4">
                 {navLinks.map(link => (

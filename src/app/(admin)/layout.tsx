@@ -27,6 +27,7 @@ export default function AdminLayout({
                             <BotMessageSquare className="w-8 h-8 text-primary" />
                             <span className="font-bold text-lg">CodeCraft AI</span>
                         </Link>
+                        <p className="text-xs text-muted-foreground ml-1">by Mine-Yours</p>
                     </div>
                 </div>
                  <Button asChild>

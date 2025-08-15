@@ -8,10 +8,13 @@ export function Footer() {
         <div className="container mx-auto px-4 sm:px-6 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
             <div className="space-y-4 md:col-span-3 lg:col-span-1">
-              <Link href="/" className="flex items-center gap-2.5 text-foreground">
-                  <BotMessageSquare className="w-8 h-8 text-primary" />
-                  <span className="font-bold text-lg">CodeCraft AI</span>
-              </Link>
+              <div className="flex flex-col items-start">
+                  <Link href="/" className="flex items-center gap-2.5 text-foreground">
+                      <BotMessageSquare className="w-8 h-8 text-primary" />
+                      <span className="font-bold text-lg">CodeCraft AI</span>
+                  </Link>
+                  <p className="text-xs text-muted-foreground ml-1">by Mine-Yours</p>
+              </div>
               <p className="text-sm">
                 A revolutionary platform designed to empower the next generation of developers through AI-powered tools and guided learning.
               </p>
