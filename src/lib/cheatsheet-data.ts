@@ -1,5 +1,5 @@
 
-import { GitBranch, Code, Wind, Terminal, Database, Container, Cloud, Anchor, Feather, Leaf, Bot, TestTube, Briefcase, FunctionSquare, Pilcrow, Hash, Brain, Braces, Brackets, Regex } from 'lucide-react';
+import { GitBranch, Code, Wind, Terminal, Database, Container, Cloud, Anchor, Feather, Leaf, Bot, TestTube, Briefcase, FunctionSquare, Pilcrow, Hash, Brain, Braces, Brackets, Regex, Server, Route, Globe, Palette, Network, Landmark, GitCommit, Link, Cable, Key, Shield, Gauge, Binary } from 'lucide-react';
 
 export const cheatsheetData = [
   {
@@ -746,6 +746,314 @@ export const cheatsheetData = [
       { command: 'setState(() { ... })', description: 'Notifies the framework that the internal state has changed.' },
       { command: 'pubspec.yaml', description: 'The file that manages project dependencies.' },
     ],
+  },
+  {
+    id: 'nextjs',
+    title: 'Next.js',
+    description: 'Key concepts and CLI commands for the React framework.',
+    category: 'Frameworks',
+    icon: Code,
+    items: [
+      { command: 'npx create-next-app@latest', description: 'Creates a new Next.js application.' },
+      { command: 'App Router', description: 'The primary routing system using `app/` directory.' },
+      { command: 'Server Components', description: 'React components that render on the server by default.' },
+      { command: 'Client Components', description: 'Opt-in to client-side interactivity with `"use client"`. ' },
+      { command: 'Link Component', description: 'Client-side navigation between pages with `<Link href="...">`.' },
+      { command: 'Route Handlers', description: 'Custom request handlers for API endpoints (`route.ts`).' },
+      { command: '`generateMetadata`', description: 'Function to dynamically generate page metadata for SEO.' },
+    ]
+  },
+  {
+    id: 'vuejs',
+    title: 'Vue.js',
+    description: 'Fundamental concepts for the progressive JavaScript framework.',
+    category: 'Frameworks',
+    icon: Code,
+    items: [
+      { command: '`v-bind:` or `:`', description: 'Dynamically binds one or more attributes.' },
+      { command: '`v-on:` or `@`', description: 'Attaches an event listener to an element.' },
+      { command: '`v-if`, `v-else-if`, `v-else`', description: 'Conditionally renders a block.' },
+      { command: '`v-for`', description: 'Renders a list of items based on an array.' },
+      { command: '`ref()`', description: 'Creates a reactive reference for a value.' },
+      { command: '`computed()`', description: 'Creates a computed property that caches its result.' },
+      { command: '`watch()`', description: 'Runs a callback function when a reactive source changes.' },
+    ]
+  },
+  {
+    id: 'angular',
+    title: 'Angular',
+    description: 'Core concepts for the platform for building web applications.',
+    category: 'Frameworks',
+    icon: Code,
+    items: [
+      { command: '`ng new my-app`', description: 'Creates a new Angular application.' },
+      { command: 'Component', description: 'The basic building block of an Angular application UI.' },
+      { command: '`@Component({ ... })`', description: 'Decorator that marks a class as an Angular component.' },
+      { command: '`*ngFor`', description: 'A structural directive to render a list of items.' },
+      { command: '`*ngIf`', description: 'A structural directive to conditionally render a block.' },
+      { command: '`(click)="method()"`', description: 'Event binding to call a method on click.' },
+      { command: '`[property]="value"`', description: 'Property binding to pass data to a component.' },
+    ]
+  },
+  {
+    id: 'svelte',
+    title: 'Svelte',
+    description: 'Core concepts for the radical new approach to building user interfaces.',
+    category: 'Frameworks',
+    icon: Code,
+    items: [
+      { command: 'Reactivity', description: 'Variables are reactive by default. Updating a variable automatically updates the DOM.' },
+      { command: '`{#if condition}`', description: 'Conditionally renders a block of markup.' },
+      { command: '`{#each list as item}`', description: 'Iterates over a list to render elements.' },
+      { command: '`on:click`', description: 'An event directive to handle user interactions.' },
+      { command: '`bind:value`', description: 'Two-way data binding on form elements.' },
+      { command: '`export let prop`', description: 'Declares a component prop.' },
+      { command: '`$`', description: 'Marks a statement as reactive, re-running it when its dependencies change.' },
+    ]
+  },
+  {
+    id: 'graphql',
+    title: 'GraphQL',
+    description: 'Concepts for the query language for APIs.',
+    category: 'Web',
+    icon: Route,
+    items: [
+      { command: 'Query', description: 'A request for reading or fetching data.' },
+      { command: 'Mutation', description: 'A request for writing or modifying data.' },
+      { command: 'Subscription', description: 'A request to maintain a long-lived connection to get real-time data.' },
+      { command: 'Schema', description: 'Defines the API\'s data model and the queries/mutations available.' },
+      { command: 'Type', description: 'The fundamental unit of a GraphQL schema (e.g., String, Int, Object Type).' },
+      { command: 'Resolver', description: 'A function on the server that resolves a value for a type or field in a schema.' },
+    ]
+  },
+  {
+    id: 'ci-cd',
+    title: 'CI/CD Concepts',
+    description: 'Core concepts for Continuous Integration and Continuous Delivery/Deployment.',
+    category: 'Methodology',
+    icon: Server,
+    items: [
+      { command: 'Continuous Integration (CI)', description: 'The practice of frequently merging all developers\' working copies to a shared mainline.' },
+      { command: 'Continuous Delivery (CD)', description: 'The practice of automating the release of validated code to a production environment.' },
+      { command: 'Pipeline', description: 'An automated process that drives software development through a path of building, testing, and deploying code.' },
+      { command: 'Build', description: 'The process of compiling source code into an executable artifact.' },
+      { command: 'Test Automation', description: 'Using software to automatically execute tests and verify the software is working as expected.' },
+      { command: 'Deployment', description: 'The process of getting new or changed software onto a production or staging environment.' },
+    ]
+  },
+  {
+    id: 'http',
+    title: 'HTTP',
+    description: 'Key concepts for the Hypertext Transfer Protocol.',
+    category: 'Web',
+    icon: Globe,
+    items: [
+      { command: 'Request/Response', description: 'The fundamental model of client-server communication.' },
+      { command: 'GET', description: 'A method to request data from a specified resource.' },
+      { command: 'POST', description: 'A method to submit data to be processed to a specified resource.' },
+      { command: 'PUT', description: 'A method to update a resource or create it if it does not exist.' },
+      { command: 'DELETE', description: 'A method to delete a specified resource.' },
+      { command: 'Status Codes (200, 404, 500)', description: 'Standard codes indicating the result of a request (e.g., 200 OK, 404 Not Found).' },
+      { command: 'Headers', description: 'Additional information sent with the request or response (e.g., `Content-Type`).' },
+    ]
+  },
+  {
+    id: 'ui-ux-design',
+    title: 'UI/UX Design Principles',
+    description: 'Fundamental principles for creating user-friendly interfaces.',
+    category: 'Concepts',
+    icon: Palette,
+    items: [
+      { command: 'User Interface (UI)', description: 'The visual layout and graphical elements a user interacts with.' },
+      { command: 'User Experience (UX)', description: 'The overall experience a user has when interacting with a product.' },
+      { command: 'Hierarchy', description: 'Organizing content to clearly show importance and guide the user\'s eye.' },
+      { command: 'Consistency', description: 'Using similar elements and patterns throughout the interface to make it predictable.' },
+      { command: 'Feedback', description: 'Informing the user about the results of their actions.' },
+      { command: 'Accessibility (a11y)', description: 'Designing products so that people with disabilities can use them.' },
+      { command: 'Wireframe', description: 'A low-fidelity, basic layout of a design.' },
+      { command: 'Prototype', description: 'An interactive model of a product used for testing before final development.' },
+    ]
+  },
+  {
+    id: 'networking-basics',
+    title: 'Networking Basics',
+    description: 'Core concepts of computer networking.',
+    category: 'Concepts',
+    icon: Network,
+    items: [
+      { command: 'IP Address', description: 'A unique numerical label assigned to each device connected to a computer network.' },
+      { command: 'DNS (Domain Name System)', description: 'The system that translates human-readable domain names (e.g., google.com) to IP addresses.' },
+      { command: 'TCP/IP', description: 'The fundamental suite of communication protocols used to interconnect network devices on the internet.' },
+      { command: 'HTTP/HTTPS', description: 'Protocols for transmitting hypermedia documents, such as HTML. HTTPS is the secure version.' },
+      { command: 'Router', description: 'A device that forwards data packets between computer networks.' },
+      { command: 'Firewall', description: 'A network security system that monitors and controls incoming and outgoing network traffic.' },
+    ]
+  },
+  {
+    id: 'web-architecture',
+    title: 'Web Architecture',
+    description: 'Common patterns for structuring web applications.',
+    category: 'Concepts',
+    icon: Landmark,
+    items: [
+      { command: 'Client-Server Model', description: 'A distributed application structure that partitions tasks between servers and clients.' },
+      { command: 'Monolithic Architecture', description: 'Building an application as a single, unified unit.' },
+      { command: 'Microservices Architecture', description: 'Building an application as a collection of small, independently deployable services.' },
+      { command: 'Serverless Architecture', description: 'A cloud-computing execution model where the cloud provider manages the server infrastructure.' },
+      { command: 'Load Balancer', description: 'A device that distributes network or application traffic across multiple servers.' },
+      { command: 'CDN (Content Delivery Network)', description: 'A distributed network of servers that delivers web content to users based on their geographic location.' },
+    ]
+  },
+  {
+    id: 'git-flow',
+    title: 'Git Flow',
+    description: 'A popular Git branching model for managing large projects.',
+    category: 'Methodology',
+    icon: GitCommit,
+    items: [
+      { command: '`main` branch', description: 'The primary branch representing the official, production-ready release history.' },
+      { command: '`develop` branch', description: 'The primary branch for integrating features for the next release.' },
+      { command: 'Feature branches (`feature/...`)', description: 'Branched off `develop` for working on new features.' },
+      { command: 'Release branches (`release/...`)', description: 'Branched off `develop` to prepare for a new production release.' },
+      { command: 'Hotfix branches (`hotfix/...`)', description: 'Branched off `main` to quickly patch production releases.' },
+    ]
+  },
+  {
+    id: 'data-structures',
+    title: 'Data Structures',
+    description: 'Fundamental ways of organizing and storing data.',
+    category: 'Concepts',
+    icon: Link,
+    items: [
+      { command: 'Array', description: 'A collection of items stored at contiguous memory locations.' },
+      { command: 'Linked List', description: 'A linear collection of data elements whose order is not given by their physical placement in memory.' },
+      { command: 'Stack', description: 'A LIFO (Last-In, First-Out) data structure.' },
+      { command: 'Queue', description: 'A FIFO (First-In, First-Out) data structure.' },
+      { command: 'Hash Table', description: 'A data structure that maps keys to values for efficient lookup.' },
+      { command: 'Tree', description: 'A hierarchical data structure with a root value and subtrees of children.' },
+      { command: 'Graph', description: 'A set of nodes (vertices) and edges that connect them.' },
+    ]
+  },
+  {
+    id: 'algorithms',
+    title: 'Algorithms',
+    description: 'Core algorithms for sorting, searching, and data manipulation.',
+    category: 'Concepts',
+    icon: Cable,
+    items: [
+      { command: 'Binary Search', description: 'An efficient algorithm for finding an item from a sorted list of items.' },
+      { command: 'Bubble Sort', description: 'A simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.' },
+      { command: 'Merge Sort', description: 'An efficient, comparison-based, divide-and-conquer sorting algorithm.' },
+      { command: 'Quick Sort', description: 'An efficient, comparison-based, divide-and-conquer sorting algorithm.' },
+      { command: 'Depth-First Search (DFS)', description: 'An algorithm for traversing or searching tree or graph data structures.' },
+      { command: 'Breadth-First Search (BFS)', description: 'An algorithm for traversing or searching tree or graph data structures.' },
+    ]
+  },
+  {
+    id: 'cryptography',
+    title: 'Cryptography',
+    description: 'Basic concepts of modern cryptography.',
+    category: 'Concepts',
+    icon: Key,
+    items: [
+      { command: 'Symmetric Encryption', description: 'Uses a single key for both encryption and decryption.' },
+      { command: 'Asymmetric Encryption (Public-Key)', description: 'Uses a pair of keys: a public key for encryption and a private key for decryption.' },
+      { command: 'Hashing', description: 'A one-way function that converts an input into a fixed-size string of bytes.' },
+      { command: 'Digital Signature', description: 'A mathematical scheme for verifying the authenticity of digital messages or documents.' },
+      { command: 'TLS/SSL', description: 'Cryptographic protocols designed to provide communications security over a computer network.' },
+    ]
+  },
+  {
+    id: 'web-security',
+    title: 'Web Security (OWASP)',
+    description: 'Common web security vulnerabilities from the OWASP Top 10.',
+    category: 'Concepts',
+    icon: Shield,
+    items: [
+      { command: 'Injection', description: 'When untrusted data is sent to an interpreter as part of a command or query.' },
+      { command: 'Broken Authentication', description: 'Incorrect implementation of authentication and session management.' },
+      { command: 'Cross-Site Scripting (XSS)', description: 'When an application includes untrusted data in a new web page without proper validation.' },
+      { command: 'Insecure Deserialization', description: 'Leads to remote code execution when processing user-controllable data.' },
+      { command: 'Security Misconfiguration', description: 'Failing to implement all appropriate security controls for a server or web application.' },
+      { command: 'Cross-Site Request Forgery (CSRF)', description: 'An attack that forces an end user to execute unwanted actions on a web application in which they are currently authenticated.' },
+    ]
+  },
+  {
+    id: 'web-performance',
+    title: 'Web Performance',
+    description: 'Techniques for making websites faster.',
+    category: 'Concepts',
+    icon: Gauge,
+    items: [
+      { command: 'Minification', description: 'Removing all unnecessary characters from source code without changing its functionality.' },
+      { command: 'Code Splitting', description: 'Splitting code into various bundles which can then be loaded on demand or in parallel.' },
+      { command: 'Lazy Loading', description: 'The strategy of loading resources only when they are needed.' },
+      { command: 'Image Optimization', description: 'Compressing and resizing images to reduce their file size.' },
+      { command: 'Caching', description: 'Storing copies of files in a cache, or temporary storage location, so that they can be accessed more quickly.' },
+      { command: 'Gzip Compression', description: 'Compressing files on the server before sending them to the browser.' },
+    ]
+  },
+  {
+    id: 'r',
+    title: 'R',
+    description: 'Core concepts for the statistical programming language.',
+    category: 'Data Science',
+    icon: Code,
+    items: [
+      { command: '`<-` or `=`', description: 'Assignment operator.' },
+      { command: '`c()`', description: 'Combines values into a vector or list.' },
+      { command: '`library(package)`', description: 'Loads an installed package.' },
+      { command: '`data.frame()`', description: 'Creates a data frame.' },
+      { command: '`dplyr::filter()`', description: 'Filters rows of a data frame.' },
+      { command: '`ggplot2::ggplot()`', description: 'Initializes a plot using the ggplot2 library.' },
+    ]
+  },
+  {
+    id: 'data-science-process',
+    title: 'Data Science Process',
+    description: 'The typical lifecycle of a data science project.',
+    category: 'Methodology',
+    icon: Binary,
+    items: [
+      { command: 'Problem Definition', description: 'Clearly defining the business problem and the goal of the project.' },
+      { command: 'Data Collection', description: 'Gathering data from various sources (databases, APIs, files).' },
+      { command: 'Data Cleaning', description: 'Handling missing values, correcting inconsistencies, and removing duplicates.' },
+      { command: 'Exploratory Data Analysis (EDA)', description: 'Using visualizations and statistics to understand the data and find patterns.' },
+      { command: 'Feature Engineering', description: 'Creating new variables from existing ones to improve model performance.' },
+      { command: 'Modeling', description: 'Selecting and training a machine learning model.' },
+      { command: 'Model Evaluation', description: 'Assessing the model\'s performance using various metrics.' },
+      { command: 'Deployment & Monitoring', description: 'Putting the model into production and monitoring its performance over time.' },
+    ]
+  },
+  {
+    id: 'azure-cli',
+    title: 'Azure CLI',
+    description: 'Common commands for managing Microsoft Azure resources.',
+    category: 'Cloud',
+    icon: Cloud,
+    items: [
+      { command: '`az login`', description: 'Logs you into Azure.' },
+      { command: '`az group create`', description: 'Creates a resource group.' },
+      { command: '`az vm create`', description: 'Creates a virtual machine.' },
+      { command: '`az storage account create`', description: 'Creates a storage account.' },
+      { command: '`az webapp up`', description: 'Creates a web app and deploys code to it.' },
+      { command: '`az account list`', description: 'Gets a list of subscriptions for the logged-in account.' },
+    ]
+  },
+  {
+    id: 'gcp-cli',
+    title: 'Google Cloud CLI',
+    description: 'Common commands for managing Google Cloud Platform resources.',
+    category: 'Cloud',
+    icon: Cloud,
+    items: [
+      { command: '`gcloud auth login`', description: 'Authorizes the gcloud CLI to access Google Cloud.' },
+      { command: '`gcloud config set project [ID]`', description: 'Sets the current project.' },
+      { command: '`gcloud compute instances create`', description: 'Creates a new virtual machine instance.' },
+      { command: '`gcloud storage buckets create`', description: 'Creates a new storage bucket.' },
+      { command: '`gcloud app deploy`', description: 'Deploys an application to App Engine.' },
+      { command: '`gcloud projects list`', description: 'Lists all the projects you have access to.' },
+    ]
   }
 ];
 
