@@ -38,6 +38,43 @@ export const cheatsheetData = [
       { command: 'useRef', description: 'Returns a mutable ref object whose .current property is initialized to the passed argument.' },
     ],
   },
+   {
+    id: 'javascript-es6',
+    title: 'JavaScript (ES6+)',
+    description: 'Modern syntax for variables, functions, and arrays.',
+    category: 'JavaScript',
+    icon: Code,
+    items: [
+      { command: 'const, let', description: 'Declares block-scoped variables. `const` for constants, `let` for re-assignable values.' },
+      { command: '() => {}', description: 'Arrow function syntax, providing a more concise way to write functions.' },
+      { command: 'const { a, b } = obj', description: 'Object destructuring to extract properties from an object.' },
+      { command: 'const [a, b] = arr', description: 'Array destructuring to extract elements from an array.' },
+      { command: '`Hello, ${name}`', description: 'Template literals for embedding expressions within strings.' },
+      { command: 'arr.map(item => ...)', description: 'Creates a new array by applying a function to each element.' },
+      { command: 'arr.filter(item => ...)', description: 'Creates a new array with all elements that pass a test.' },
+      { command: 'arr.reduce((acc, cv) => ...)', description: 'Executes a reducer function on each element, resulting in a single output value.' },
+      { command: 'async/await', description: 'Syntactic sugar for working with Promises, making async code look synchronous.' },
+      { command: 'fetch(url)', description: 'Modern, Promise-based API for making network requests.' },
+    ]
+  },
+  {
+    id: 'python',
+    title: 'Python',
+    description: 'Common syntax for data structures, loops, and functions.',
+    category: 'Python',
+    icon: Code,
+    items: [
+        { command: 'print(f"Value: {var}")', description: 'Prints a formatted string (f-string) to the console.' },
+        { command: '[x**2 for x in range(5)]', description: 'List comprehension for creating a new list based on an existing iterable.' },
+        { command: 'my_dict["key"]', description: 'Accesses the value associated with a key in a dictionary.' },
+        { command: 'my_dict.get("key", default)', description: 'Accesses a dictionary value safely, providing a default if the key does not exist.' },
+        { command: 'for item in my_list:', description: 'Iterates over each item in a list.' },
+        { command: 'if x > y:', description: 'Executes a block of code if a condition is true.' },
+        { command: 'def my_func(arg1):', description: 'Defines a new function with a single argument.' },
+        { command: 'import library as lib', description: 'Imports a library and gives it a shorter alias.' },
+        { command: 'with open("file.txt") as f:', description: 'Opens a file and ensures it is properly closed, even if errors occur.' },
+    ]
+  },
     {
     id: 'tailwind',
     title: 'Tailwind CSS',
