@@ -59,7 +59,7 @@ export default function CheatSheetsPage() {
       </div>
 
       <Tabs defaultValue={categories[0]} className="flex-1">
-        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
+        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-10 h-auto flex-wrap">
           {categories.map(category => (
             <TabsTrigger key={category} value={category}>{category}</TabsTrigger>
           ))}
