@@ -1,12 +1,16 @@
 
 "use client";
 
+import { useState, useEffect } from 'react';
+import { onAuthStateChanged, User } from 'firebase/auth';
+import { auth } from '@/lib/firebase';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { BookOpen, Target, BrainCircuit, FolderKanban, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 import Image from 'next/image';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const userStats = {
     roadmapsCompleted: 2,
@@ -38,11 +42,24 @@ const recommendedForYou = [
 ];
 
 export default function ProfilePage() {
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
   return (
     <div className="container mx-auto py-10 space-y-8">
         <div>
             <h1 className="text-4xl font-bold tracking-tight">My Dashboard</h1>
-            <p className="text-muted-foreground mt-2">Welcome back! Here's a snapshot of your learning journey.</p>
+            <p className="text-muted-foreground mt-2">
+              {loading ? "Loading your details..." : `Welcome back, ${user?.displayName || user?.email}! Here's a snapshot of your learning journey.`}
+            </p>
         </div>
         
         {/* Stats Grid */}
@@ -125,18 +142,30 @@ export default function ProfilePage() {
                     <CardDescription>Manage your profile and settings.</CardDescription>
                 </CardHeader>
                 <CardContent>
+                  {loading ? (
                     <div className="flex items-center gap-4">
+                       <Skeleton className="w-16 h-16 rounded-full" />
+                       <div className="space-y-2">
+                         <Skeleton className="h-4 w-24" />
+                         <Skeleton className="h-4 w-32" />
+                       </div>
+                    </div>
+                  ) : user ? (
+                     <div className="flex items-center gap-4">
                         <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center">
-                            <Image src="https://placehold.co/64x64.png" alt="User avatar" width={64} height={64} className="rounded-full" data-ai-hint="user avatar" />
+                            <Image src={user.photoURL || `https://placehold.co/64x64.png`} alt="User avatar" width={64} height={64} className="rounded-full" data-ai-hint="user avatar" />
                         </div>
                         <div>
-                            <p className="font-semibold">John Doe</p>
-                            <p className="text-sm text-muted-foreground">john.doe@example.com</p>
+                            <p className="font-semibold">{user.displayName || 'User'}</p>
+                            <p className="text-sm text-muted-foreground">{user.email}</p>
                         </div>
                     </div>
+                  ) : (
+                    <p className="text-sm text-muted-foreground">Not logged in.</p>
+                  )}
                 </CardContent>
                  <CardFooter>
-                    <Button variant="outline" className="w-full">
+                    <Button variant="outline" className="w-full" disabled>
                         Edit Profile
                     </Button>
                 </CardFooter>
