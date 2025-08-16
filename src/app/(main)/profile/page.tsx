@@ -11,39 +11,43 @@ import { BookOpen, Target, BrainCircuit, FolderKanban, ArrowRight, Sparkles } fr
 import Link from "next/link";
 import Image from 'next/image';
 import { Skeleton } from '@/components/ui/skeleton';
-
-const userStats = {
-    roadmapsCompleted: 2,
-    projectsStarted: 3,
-    conceptsMastered: 24,
-    overallProgress: 45,
-};
-
-const recentActivity = {
-    type: "Learning Path",
-    title: "Full Stack Web Development",
-    href: "/learn/full-stack-web-development",
-    progress: 60,
-};
-
-const recommendedForYou = [
-    {
-        type: 'Project',
-        title: "AI Image Recognizer",
-        description: "Dive into AI by building an app that can identify objects in images.",
-        href: "/projects/image-recognizer"
-    },
-    {
-        type: 'Learn',
-        title: "DevOps Engineer",
-        description: "Automate and streamline the software development lifecycle.",
-        href: "/learn/devops-engineer"
-    }
-];
+import { projects } from '@/app/(main)/projects/projects-data';
+import { learningPaths } from '@/lib/learning-paths-data';
 
 export default function ProfilePage() {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+
+  // Dynamic data based on content
+  const userStats = {
+    roadmapsAvailable: learningPaths.length,
+    projectsAvailable: projects.length,
+    conceptsMastered: 24, // This can be made dynamic later
+    dailyGoal: 75, // This can be made dynamic later
+  };
+
+  const continueLearning = projects.length > 0 ? {
+    type: "Project",
+    title: projects[0].title,
+    href: `/projects/${projects[0].id}`,
+    progress: 10, // Placeholder progress
+  } : null;
+
+  const recommendedForYou = [
+    {
+        type: 'Project',
+        title: projects.length > 1 ? projects[1].title : "AI Image Recognizer",
+        description: projects.length > 1 ? projects[1].description : "Dive into AI by building an app that can identify objects in images.",
+        href: projects.length > 1 ? `/projects/${projects[1].id}` : "/projects/image-recognizer"
+    },
+    {
+        type: 'Learn',
+        title: learningPaths.length > 1 ? learningPaths[1].title : "DevOps Engineer",
+        description: learningPaths.length > 1 ? learningPaths[1].description : "Automate and streamline the software development lifecycle.",
+        href: learningPaths.length > 1 ? `/learn/${learningPaths[1].id}` : "/learn/devops-engineer"
+    }
+];
+
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -66,22 +70,22 @@ export default function ProfilePage() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Roadmaps Completed</CardTitle>
+                    <CardTitle className="text-sm font-medium">Learning Paths</CardTitle>
                     <BookOpen className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
-                    <div className="text-2xl font-bold">{userStats.roadmapsCompleted}</div>
-                    <p className="text-xs text-muted-foreground">Keep up the great work!</p>
+                    <div className="text-2xl font-bold">{userStats.roadmapsAvailable}</div>
+                    <p className="text-xs text-muted-foreground">Available to explore</p>
                 </CardContent>
             </Card>
              <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">Projects Started</CardTitle>
+                    <CardTitle className="text-sm font-medium">Projects Available</CardTitle>
                     <FolderKanban className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
-                    <div className="text-2xl font-bold">{userStats.projectsStarted}</div>
-                    <p className="text-xs text-muted-foreground">Practice makes perfect.</p>
+                    <div className="text-2xl font-bold">{userStats.projectsAvailable}</div>
+                    <p className="text-xs text-muted-foreground">Ready to build</p>
                 </CardContent>
             </Card>
              <Card>
@@ -100,8 +104,8 @@ export default function ProfilePage() {
                     <Target className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
-                     <div className="text-2xl font-bold mb-1">75%</div>
-                     <Progress value={75} aria-label="Daily goal progress" />
+                     <div className="text-2xl font-bold mb-1">{userStats.dailyGoal}%</div>
+                     <Progress value={userStats.dailyGoal} aria-label="Daily goal progress" />
                 </CardContent>
             </Card>
         </div>
@@ -111,27 +115,31 @@ export default function ProfilePage() {
             <Card className="md:col-span-2 flex flex-col">
                 <CardHeader>
                     <CardTitle>Continue Learning</CardTitle>
-                    <CardDescription>Pick up where you left off.</CardDescription>
+                    <CardDescription>Pick up where you left off or start a new project.</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">
-                    <div className="p-4 rounded-lg bg-muted/50 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                        <div className="bg-primary text-primary-foreground p-3 rounded-full">
-                            <BookOpen className="h-6 w-6" />
-                        </div>
-                        <div className="flex-1">
-                            <p className="text-sm text-muted-foreground">{recentActivity.type}</p>
-                            <h3 className="font-semibold text-lg">{recentActivity.title}</h3>
-                            <div className="flex items-center gap-2 mt-1">
-                                <Progress value={recentActivity.progress} className="w-full sm:w-48" />
-                                <span className="text-sm font-medium">{recentActivity.progress}%</span>
+                    {continueLearning ? (
+                        <div className="p-4 rounded-lg bg-muted/50 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                            <div className="bg-primary text-primary-foreground p-3 rounded-full">
+                                <FolderKanban className="h-6 w-6" />
                             </div>
+                            <div className="flex-1">
+                                <p className="text-sm text-muted-foreground">{continueLearning.type}</p>
+                                <h3 className="font-semibold text-lg">{continueLearning.title}</h3>
+                                <div className="flex items-center gap-2 mt-1">
+                                    <Progress value={continueLearning.progress} className="w-full sm:w-48" />
+                                    <span className="text-sm font-medium">{continueLearning.progress}%</span>
+                                </div>
+                            </div>
+                            <Button asChild>
+                                <Link href={continueLearning.href}>
+                                    Start Project <ArrowRight className="ml-2 h-4 w-4" />
+                                </Link>
+                            </Button>
                         </div>
-                         <Button asChild>
-                            <Link href={recentActivity.href}>
-                                Resume <ArrowRight className="ml-2 h-4 w-4" />
-                            </Link>
-                        </Button>
-                    </div>
+                    ) : (
+                        <p className="text-muted-foreground">No projects available to continue.</p>
+                    )}
                 </CardContent>
             </Card>
 
@@ -202,5 +210,3 @@ export default function ProfilePage() {
     </div>
   );
 }
-
-    
