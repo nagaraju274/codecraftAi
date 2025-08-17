@@ -59,6 +59,7 @@ export default function LearnPage() {
   const languages = learningPaths.filter(p => p.category === "Programming Languages");
   const frameworks = learningPaths.filter(p => p.category === "Frameworks & Libraries");
   const roles = learningPaths.filter(p => p.category === "Job Roles");
+  const dsa = learningPaths.filter(p => p.category === "Data Structures & Algorithms");
   
   const allFilteredPaths = learningPaths.filter(path =>
     path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -88,6 +89,7 @@ export default function LearnPage() {
             <Section title="Programming Languages" paths={languages} searchQuery={searchQuery} />
             <Section title="Frameworks & Libraries" paths={frameworks} searchQuery={searchQuery} />
             <Section title="Job Roles" paths={roles} searchQuery={searchQuery} />
+            <Section title="Data Structures & Algorithms" paths={dsa} searchQuery={searchQuery} />
             
            {allFilteredPaths.length === 0 && (
             <div className="col-span-full text-center py-20">

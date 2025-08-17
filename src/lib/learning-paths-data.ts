@@ -2055,4 +2055,211 @@ export const learningPaths = [
         { title: "Stateful Counter", description: "Build a stateful widget that displays a number and a button. Pressing the button should increment the number." }
     ]
   },
+  {
+    id: "dsa-with-java",
+    title: "Data Structures & Algorithms in Java",
+    description: "Master fundamental data structures and algorithms using Java to prepare for technical interviews and build efficient software.",
+    category: "Data Structures & Algorithms",
+    topics: [
+      {
+        title: "Arrays and Strings",
+        points: [
+          { text: "Review Java arrays for fixed-size collections and explore common operations.", resources: [] },
+          { text: "Learn string manipulation techniques and understand the immutability of Java Strings.", resources: [] },
+          { text: "Implement common array/string problems like two-pointer algorithms and sliding windows.", resources: [] },
+        ],
+      },
+      {
+        title: "Linked Lists",
+        points: [
+          { text: "Understand Singly and Doubly Linked Lists, their structure, and their advantages over arrays.", resources: [] },
+          { text: "Implement core operations: insertion, deletion, and traversal.", resources: [] },
+          { text: "Solve classic problems like cycle detection and list reversal.", resources: [] },
+        ],
+      },
+      {
+        title: "Stacks and Queues",
+        points: [
+          { text: "Learn the LIFO (Last-In, First-Out) principle of Stacks and FIFO (First-In, First-Out) principle of Queues.", resources: [] },
+          { text: "Implement these data structures using both arrays and linked lists.", resources: [] },
+          { text: "Use Stacks and Queues to solve problems like parenthesis balancing and breadth-first search.", resources: [] },
+        ],
+      },
+      {
+        title: "Trees and Heaps",
+        points: [
+          { text: "Understand tree terminology and master Binary Trees and Binary Search Trees (BSTs).", resources: [] },
+          { text: "Implement tree traversal algorithms: in-order, pre-order, post-order, and level-order.", resources: [] },
+          { text: "Learn about Heaps (Min-Heap, Max-Heap) and their use as Priority Queues.", resources: [] },
+        ],
+      },
+      {
+        title: "Hash Tables",
+        points: [
+          { text: "Grasp the concept of hashing and how `HashMap` and `HashSet` provide efficient lookups, insertions, and deletions.", resources: [] },
+          { text: "Understand collision resolution techniques like chaining.", resources: [] },
+          { text: "Solve problems involving finding duplicates, grouping items, and caching.", resources: [] },
+        ],
+      },
+      {
+        title: "Sorting and Searching Algorithms",
+        points: [
+          { text: "Learn and implement fundamental sorting algorithms like Bubble Sort, Insertion Sort, and Selection Sort (O(n^2)).", resources: [] },
+          { text: "Master efficient, divide-and-conquer sorting algorithms: Merge Sort and Quick Sort (O(n log n)).", resources: [] },
+          { text: "Implement Binary Search on sorted arrays for fast lookups (O(log n)).", resources: [] },
+        ],
+      },
+      {
+        title: "Graphs",
+        points: [
+          { text: "Understand graph representations: Adjacency Matrix and Adjacency List.", resources: [] },
+          { text: "Implement graph traversal algorithms: Breadth-First Search (BFS) and Depth-First Search (DFS).", resources: [] },
+          { text: "Explore advanced concepts like Dijkstra's algorithm for finding the shortest path.", resources: [] },
+        ],
+      },
+    ],
+    assignments: [
+        { title: "Valid Parentheses", description: "Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. Use a Stack." },
+        { title: "Binary Search Tree Insertion", description: "Implement a function to insert a new value into a Binary Search Tree while maintaining its properties." },
+        { title: "Two Sum", description: "Given an array of integers and a target, return indices of the two numbers such that they add up to the target. Use a HashMap for an efficient O(n) solution." }
+    ]
+  },
+  {
+    id: "dsa-with-python",
+    title: "Data Structures & Algorithms in Python",
+    description: "Leverage Python's simplicity to master core data structures and algorithms, a crucial skill for any software engineer.",
+    category: "Data Structures & Algorithms",
+    topics: [
+      {
+        title: "Lists and Strings",
+        points: [
+          { text: "Explore Python's dynamic arrays (lists) and their time complexities.", resources: [] },
+          { text: "Master string slicing and manipulation.", resources: [] },
+          { text: "Implement common array/string problems like two-pointer algorithms and sliding windows.", resources: [] },
+        ],
+      },
+      {
+        title: "Linked Lists",
+        points: [
+          { text: "Implement a Node and a LinkedList class from scratch in Python.", resources: [] },
+          { text: "Implement core operations: insertion, deletion, and traversal.", resources: [] },
+          { text: "Solve classic problems like cycle detection and list reversal.", resources: [] },
+        ],
+      },
+      {
+        title: "Stacks and Queues",
+        points: [
+          { text: "Use Python lists as simple stacks (with `append` and `pop`).", resources: [] },
+          { text: "Use `collections.deque` for an efficient implementation of both stacks and queues.", resources: [] },
+          { text: "Use these structures to solve problems like parenthesis balancing and breadth-first search.", resources: [] },
+        ],
+      },
+      {
+        title: "Trees and Heaps",
+        points: [
+          { text: "Implement a TreeNode and build Binary Trees and Binary Search Trees (BSTs).", resources: [] },
+          { text: "Implement tree traversal algorithms: in-order, pre-order, post-order, and level-order.", resources: [] },
+          { text: "Learn about Python's `heapq` module for implementing Min-Heaps and Priority Queues.", resources: [] },
+        ],
+      },
+      {
+        title: "Dictionaries and Sets",
+        points: [
+          { text: "Leverage Python's dictionaries (hash maps) and sets for efficient O(1) average time complexity lookups.", resources: [] },
+          { text: "Understand the underlying hash table implementation.", resources: [] },
+          { text: "Solve problems involving finding duplicates, grouping items, and caching.", resources: [] },
+        ],
+      },
+      {
+        title: "Sorting and Searching Algorithms",
+        points: [
+          { text: "Learn and implement fundamental sorting algorithms like Bubble Sort and Insertion Sort (O(n^2)).", resources: [] },
+          { text: "Master efficient sorting algorithms: Merge Sort and Quick Sort (O(n log n)).", resources: [] },
+          { text: "Implement Binary Search on sorted lists for fast lookups (O(log n)).", resources: [] },
+        ],
+      },
+      {
+        title: "Graphs",
+        points: [
+          { text: "Represent graphs using dictionaries or adjacency lists in Python.", resources: [] },
+          { text: "Implement Breadth-First Search (BFS) and Depth-First Search (DFS).", resources: [] },
+          { text: "Explore pathfinding algorithms like Dijkstra's.", resources: [] },
+        ],
+      },
+    ],
+    assignments: [
+        { title: "Valid Parentheses", description: "Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. Use a list as a stack." },
+        { title: "Binary Search Tree Insertion", description: "Implement a function to insert a new value into a Binary Search Tree while maintaining its properties." },
+        { title: "Two Sum", description: "Given a list of integers and a target, return indices of the two numbers such that they add up to the target. Use a dictionary for an efficient O(n) solution." }
+    ]
+  },
+  {
+    id: "dsa-with-cpp",
+    title: "Data Structures & Algorithms in C++",
+    description: "Build a strong foundation in high-performance programming by mastering DSA with C++ and the Standard Template Library (STL).",
+    category: "Data Structures & Algorithms",
+    topics: [
+      {
+        title: "Arrays, Vectors, and Strings",
+        points: [
+          { text: "Understand C-style arrays vs. `std::vector` and when to use each.", resources: [] },
+          { text: "Learn string manipulation with `std::string`.", resources: [] },
+          { text: "Implement common array/string problems like two-pointer algorithms and sliding windows.", resources: [] },
+        ],
+      },
+      {
+        title: "Linked Lists",
+        points: [
+          { text: "Implement Singly and Doubly Linked Lists using structs/classes and pointers.", resources: [] },
+          { text: "Implement core operations: insertion, deletion, and traversal.", resources: [] },
+          { text: "Solve classic problems like cycle detection and list reversal.", resources: [] },
+        ],
+      },
+      {
+        title: "Stacks and Queues",
+        points: [
+          { text: "Use the Standard Template Library (STL) containers `std::stack` and `std::queue`.", resources: [] },
+          { text: "Understand the underlying container used (like `std::deque`) and its performance implications.", resources: [] },
+          { text: "Use these structures to solve problems like parenthesis balancing and breadth-first search.", resources: [] },
+        ],
+      },
+      {
+        title: "Trees and Heaps",
+        points: [
+          { text: "Implement tree nodes with pointers and build Binary Trees and Binary Search Trees (BSTs).", resources: [] },
+          { text: "Implement tree traversal algorithms: in-order, pre-order, post-order, and level-order.", resources: [] },
+          { text: "Learn to use `std::priority_queue` for an efficient heap implementation.", resources: [] },
+        ],
+      },
+      {
+        title: "Hash Tables",
+        points: [
+          { text: "Master the STL containers `std::unordered_map` and `std::unordered_set` for O(1) average time complexity operations.", resources: [] },
+          { text: "Understand the importance of a good hash function.", resources: [] },
+          { text: "Solve problems involving finding duplicates, grouping items, and caching.", resources: [] },
+        ],
+      },
+      {
+        title: "Sorting and Searching Algorithms",
+        points: [
+          { text: "Learn and implement fundamental sorting algorithms like Bubble Sort and Insertion Sort (O(n^2)).", resources: [] },
+          { text: "Master efficient sorting algorithms: Merge Sort and Quick Sort (O(n log n)). Use `std::sort` for a highly optimized implementation.", resources: [] },
+          { text: "Implement Binary Search or use `std::binary_search` on sorted containers (O(log n)).", resources: [] },
+        ],
+      },
+      {
+        title: "Graphs",
+        points: [
+          { text: "Represent graphs using an adjacency matrix or an adjacency list (`std::vector<std::vector<int>>`).", resources: [] },
+          { text: "Implement Breadth-First Search (BFS) and Depth-First Search (DFS).", resources: [] },
+          { text: "Explore pathfinding algorithms like Dijkstra's.", resources: [] },
+        ],
+      },
+    ],
+    assignments: [
+        { title: "Valid Parentheses", description: "Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. Use `std::stack`." },
+        { title: "Binary Search Tree Insertion", description: "Implement a function to insert a new value into a Binary Search Tree while maintaining its properties." },
+        { title: "Two Sum", description: "Given an array of integers and a target, return indices of the two numbers such that they add up to the target. Use `std::unordered_map` for an efficient O(n) solution." }
+    ]
+  },
 ];
