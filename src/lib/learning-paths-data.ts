@@ -2064,57 +2064,57 @@ export const learningPaths = [
       {
         title: "Arrays and Strings",
         points: [
-          { text: "Review Java arrays for fixed-size collections and explore common operations.", resources: [] },
-          { text: "Learn string manipulation techniques and understand the immutability of Java Strings.", resources: [] },
-          { text: "Implement common array/string problems like two-pointer algorithms and sliding windows.", resources: [] },
+          { text: "Review Java arrays for fixed-size collections and explore common operations.", resources: [{ name: "Java Arrays", url: "https://www.geeksforgeeks.org/arrays-in-java/" }] },
+          { text: "Learn string manipulation techniques and understand the immutability of Java Strings.", resources: [{ name: "Java String", url: "https://www.w3schools.com/java/java_strings.asp" }] },
+          { text: "Implement common array/string problems like two-pointer algorithms and sliding windows.", resources: [{ name: "Two Pointer Technique", url: "https://www.geeksforgeeks.org/two-pointers-technique/" }] },
         ],
       },
       {
         title: "Linked Lists",
         points: [
-          { text: "Understand Singly and Doubly Linked Lists, their structure, and their advantages over arrays.", resources: [] },
+          { text: "Understand Singly and Doubly Linked Lists, their structure, and their advantages over arrays.", resources: [{ name: "Linked List in Java", url: "https://www.geeksforgeeks.org/linked-list-in-java/" }] },
           { text: "Implement core operations: insertion, deletion, and traversal.", resources: [] },
-          { text: "Solve classic problems like cycle detection and list reversal.", resources: [] },
+          { text: "Solve classic problems like cycle detection and list reversal.", resources: [{ name: "Detect Loop in a linked list", url: "https://www.geeksforgeeks.org/detect-loop-in-a-linked-list/" }] },
         ],
       },
       {
         title: "Stacks and Queues",
         points: [
           { text: "Learn the LIFO (Last-In, First-Out) principle of Stacks and FIFO (First-In, First-Out) principle of Queues.", resources: [] },
-          { text: "Implement these data structures using both arrays and linked lists.", resources: [] },
+          { text: "Implement these data structures using both arrays and linked lists.", resources: [{ name: "Stack in Java", url: "https://www.geeksforgeeks.org/stack-in-java/" }, { name: "Queue in Java", url: "https://www.geeksforgeeks.org/queue-interface-java/" }] },
           { text: "Use Stacks and Queues to solve problems like parenthesis balancing and breadth-first search.", resources: [] },
         ],
       },
       {
         title: "Trees and Heaps",
         points: [
-          { text: "Understand tree terminology and master Binary Trees and Binary Search Trees (BSTs).", resources: [] },
-          { text: "Implement tree traversal algorithms: in-order, pre-order, post-order, and level-order.", resources: [] },
-          { text: "Learn about Heaps (Min-Heap, Max-Heap) and their use as Priority Queues.", resources: [] },
+          { text: "Understand tree terminology and master Binary Trees and Binary Search Trees (BSTs).", resources: [{ name: "Binary Tree", url: "https://www.geeksforgeeks.org/binary-tree-data-structure/" }] },
+          { text: "Implement tree traversal algorithms: in-order, pre-order, post-order, and level-order.", resources: [{ name: "Tree Traversal", url: "https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/" }] },
+          { text: "Learn about Heaps (Min-Heap, Max-Heap) and their use as Priority Queues.", resources: [{ name: "Heap Data Structure", url: "https://www.geeksforgeeks.org/heap-data-structure/" }] },
         ],
       },
       {
         title: "Hash Tables",
         points: [
-          { text: "Grasp the concept of hashing and how `HashMap` and `HashSet` provide efficient lookups, insertions, and deletions.", resources: [] },
-          { text: "Understand collision resolution techniques like chaining.", resources: [] },
+          { text: "Grasp the concept of hashing and how `HashMap` and `HashSet` provide efficient lookups, insertions, and deletions.", resources: [{ name: "HashMap in Java", url: "https://www.geeksforgeeks.org/java-util-hashmap-in-java-with-examples/" }] },
+          { text: "Understand collision resolution techniques like chaining.", resources: [{ name: "Collision Resolution", url: "https://www.geeksforgeeks.org/hashing-collision-resolution/" }] },
           { text: "Solve problems involving finding duplicates, grouping items, and caching.", resources: [] },
         ],
       },
       {
         title: "Sorting and Searching Algorithms",
         points: [
-          { text: "Learn and implement fundamental sorting algorithms like Bubble Sort, Insertion Sort, and Selection Sort (O(n^2)).", resources: [] },
+          { text: "Learn and implement fundamental sorting algorithms like Bubble Sort, Insertion Sort, and Selection Sort (O(n^2)).", resources: [{ name: "Sorting Algorithms", url: "https://www.geeksforgeeks.org/sorting-algorithms/" }] },
           { text: "Master efficient, divide-and-conquer sorting algorithms: Merge Sort and Quick Sort (O(n log n)).", resources: [] },
-          { text: "Implement Binary Search on sorted arrays for fast lookups (O(log n)).", resources: [] },
+          { text: "Implement Binary Search on sorted arrays for fast lookups (O(log n)).", resources: [{ name: "Binary Search", url: "https://www.geeksforgeeks.org/binary-search/" }] },
         ],
       },
       {
         title: "Graphs",
         points: [
-          { text: "Understand graph representations: Adjacency Matrix and Adjacency List.", resources: [] },
-          { text: "Implement graph traversal algorithms: Breadth-First Search (BFS) and Depth-First Search (DFS).", resources: [] },
-          { text: "Explore advanced concepts like Dijkstra's algorithm for finding the shortest path.", resources: [] },
+          { text: "Understand graph representations: Adjacency Matrix and Adjacency List.", resources: [{ name: "Graph Representations", url: "https://www.geeksforgeeks.org/graph-and-its-representations/" }] },
+          { text: "Implement graph traversal algorithms: Breadth-First Search (BFS) and Depth-First Search (DFS).", resources: [{ name: "BFS and DFS", url: "https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/" }] },
+          { text: "Explore advanced concepts like Dijkstra's algorithm for finding the shortest path.", resources: [{ name: "Dijkstra's Algorithm", url: "https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/" }] },
         ],
       },
     ],
@@ -2133,39 +2133,39 @@ export const learningPaths = [
       {
         title: "Lists and Strings",
         points: [
-          { text: "Explore Python's dynamic arrays (lists) and their time complexities.", resources: [] },
-          { text: "Master string slicing and manipulation.", resources: [] },
-          { text: "Implement common array/string problems like two-pointer algorithms and sliding windows.", resources: [] },
+          { text: "Explore Python's dynamic arrays (lists) and their time complexities.", resources: [{ name: "Python Lists", url: "https://www.geeksforgeeks.org/python-list/" }] },
+          { text: "Master string slicing and manipulation.", resources: [{ name: "Python Strings", url: "https://www.geeksforgeeks.org/python-strings/" }] },
+          { text: "Implement common array/string problems like two-pointer algorithms and sliding windows.", resources: [{ name: "Sliding Window Technique", url: "https://www.geeksforgeeks.org/window-sliding-technique/" }] },
         ],
       },
       {
         title: "Linked Lists",
         points: [
-          { text: "Implement a Node and a LinkedList class from scratch in Python.", resources: [] },
+          { text: "Implement a Node and a LinkedList class from scratch in Python.", resources: [{ name: "Linked List in Python", url: "https://www.geeksforgeeks.org/data-structures/linked-list/python/" }] },
           { text: "Implement core operations: insertion, deletion, and traversal.", resources: [] },
-          { text: "Solve classic problems like cycle detection and list reversal.", resources: [] },
+          { text: "Solve classic problems like cycle detection and list reversal.", resources: [{ name: "Reverse a Linked List", url: "https://www.geeksforgeeks.org/reverse-a-linked-list/" }] },
         ],
       },
       {
         title: "Stacks and Queues",
         points: [
           { text: "Use Python lists as simple stacks (with `append` and `pop`).", resources: [] },
-          { text: "Use `collections.deque` for an efficient implementation of both stacks and queues.", resources: [] },
+          { text: "Use `collections.deque` for an efficient implementation of both stacks and queues.", resources: [{ name: "collections.deque", url: "https://www.geeksforgeeks.org/deque-in-python/" }] },
           { text: "Use these structures to solve problems like parenthesis balancing and breadth-first search.", resources: [] },
         ],
       },
       {
         title: "Trees and Heaps",
         points: [
-          { text: "Implement a TreeNode and build Binary Trees and Binary Search Trees (BSTs).", resources: [] },
-          { text: "Implement tree traversal algorithms: in-order, pre-order, post-order, and level-order.", resources: [] },
-          { text: "Learn about Python's `heapq` module for implementing Min-Heaps and Priority Queues.", resources: [] },
+          { text: "Implement a TreeNode and build Binary Trees and Binary Search Trees (BSTs).", resources: [{ name: "Binary Search Tree", url: "https://www.geeksforgeeks.org/binary-search-tree-data-structure/" }] },
+          { text: "Implement tree traversal algorithms: in-order, pre-order, post-order, and level-order.", resources: [{ name: "Tree Traversals", url: "https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/" }] },
+          { text: "Learn about Python's `heapq` module for implementing Min-Heaps and Priority Queues.", resources: [{ name: "heapq in Python", url: "https://www.geeksforgeeks.org/heap-queue-or-heapq-in-python/" }] },
         ],
       },
       {
         title: "Dictionaries and Sets",
         points: [
-          { text: "Leverage Python's dictionaries (hash maps) and sets for efficient O(1) average time complexity lookups.", resources: [] },
+          { text: "Leverage Python's dictionaries (hash maps) and sets for efficient O(1) average time complexity lookups.", resources: [{ name: "Python Dictionary", url: "https://www.geeksforgeeks.org/python-dictionary/" }] },
           { text: "Understand the underlying hash table implementation.", resources: [] },
           { text: "Solve problems involving finding duplicates, grouping items, and caching.", resources: [] },
         ],
@@ -2173,17 +2173,17 @@ export const learningPaths = [
       {
         title: "Sorting and Searching Algorithms",
         points: [
-          { text: "Learn and implement fundamental sorting algorithms like Bubble Sort and Insertion Sort (O(n^2)).", resources: [] },
+          { text: "Learn and implement fundamental sorting algorithms like Bubble Sort and Insertion Sort (O(n^2)).", resources: [{ name: "Sorting Algorithms", url: "https://www.geeksforgeeks.org/sorting-algorithms-in-python/" }] },
           { text: "Master efficient sorting algorithms: Merge Sort and Quick Sort (O(n log n)).", resources: [] },
-          { text: "Implement Binary Search on sorted lists for fast lookups (O(log n)).", resources: [] },
+          { text: "Implement Binary Search on sorted lists for fast lookups (O(log n)).", resources: [{ name: "Binary Search in Python", url: "https://www.geeksforgeeks.org/python-program-for-binary-search/" }] },
         ],
       },
       {
         title: "Graphs",
         points: [
-          { text: "Represent graphs using dictionaries or adjacency lists in Python.", resources: [] },
-          { text: "Implement Breadth-First Search (BFS) and Depth-First Search (DFS).", resources: [] },
-          { text: "Explore pathfinding algorithms like Dijkstra's.", resources: [] },
+          { text: "Represent graphs using dictionaries or adjacency lists in Python.", resources: [{ name: "Graph Representations", url: "https://www.geeksforgeeks.org/graph-and-its-representations/" }] },
+          { text: "Implement Breadth-First Search (BFS) and Depth-First Search (DFS).", resources: [{ name: "BFS and DFS in Python", url: "https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/" }] },
+          { text: "Explore pathfinding algorithms like Dijkstra's.", resources: [{ name: "Dijkstra's Algorithm in Python", url: "https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/" }] },
         ],
       },
     ],
@@ -2202,23 +2202,23 @@ export const learningPaths = [
       {
         title: "Arrays, Vectors, and Strings",
         points: [
-          { text: "Understand C-style arrays vs. `std::vector` and when to use each.", resources: [] },
-          { text: "Learn string manipulation with `std::string`.", resources: [] },
+          { text: "Understand C-style arrays vs. `std::vector` and when to use each.", resources: [{ name: "Vectors in C++ STL", url: "https://www.geeksforgeeks.org/vector-in-cpp-stl/" }] },
+          { text: "Learn string manipulation with `std::string`.", resources: [{ name: "std::string in C++", url: "https://www.geeksforgeeks.org/stdstring-in-cpp/" }] },
           { text: "Implement common array/string problems like two-pointer algorithms and sliding windows.", resources: [] },
         ],
       },
       {
         title: "Linked Lists",
         points: [
-          { text: "Implement Singly and Doubly Linked Lists using structs/classes and pointers.", resources: [] },
+          { text: "Implement Singly and Doubly Linked Lists using structs/classes and pointers.", resources: [{ name: "Linked List in C++", url: "https://www.geeksforgeeks.org/data-structures/linked-list/singly-linked-list/" }] },
           { text: "Implement core operations: insertion, deletion, and traversal.", resources: [] },
-          { text: "Solve classic problems like cycle detection and list reversal.", resources: [] },
+          { text: "Solve classic problems like cycle detection and list reversal.", resources: [{ name: "Detecting a Cycle", url: "https://www.geeksforgeeks.org/floyds-cycle-finding-algorithm/" }] },
         ],
       },
       {
         title: "Stacks and Queues",
         points: [
-          { text: "Use the Standard Template Library (STL) containers `std::stack` and `std::queue`.", resources: [] },
+          { text: "Use the Standard Template Library (STL) containers `std::stack` and `std::queue`.", resources: [{ name: "Stack in C++ STL", url: "https://www.geeksforgeeks.org/stack-in-cpp-stl/" }, { name: "Queue in C++ STL", url: "https://www.geeksforgeeks.org/queue-in-cpp-stl/" }] },
           { text: "Understand the underlying container used (like `std::deque`) and its performance implications.", resources: [] },
           { text: "Use these structures to solve problems like parenthesis balancing and breadth-first search.", resources: [] },
         ],
@@ -2226,15 +2226,15 @@ export const learningPaths = [
       {
         title: "Trees and Heaps",
         points: [
-          { text: "Implement tree nodes with pointers and build Binary Trees and Binary Search Trees (BSTs).", resources: [] },
-          { text: "Implement tree traversal algorithms: in-order, pre-order, post-order, and level-order.", resources: [] },
-          { text: "Learn to use `std::priority_queue` for an efficient heap implementation.", resources: [] },
+          { text: "Implement tree nodes with pointers and build Binary Trees and Binary Search Trees (BSTs).", resources: [{ name: "Binary Search Tree in C++", url: "https://www.geeksforgeeks.org/binary-search-tree-in-c-plus-plus/" }] },
+          { text: "Implement tree traversal algorithms: in-order, pre-order, post-order, and level-order.", resources: [{ name: "Tree Traversals", url: "https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/" }] },
+          { text: "Learn to use `std::priority_queue` for an efficient heap implementation.", resources: [{ name: "priority_queue in C++", url: "https://www.geeksforgeeks.org/priority-queue-in-cpp-stl/" }] },
         ],
       },
       {
         title: "Hash Tables",
         points: [
-          { text: "Master the STL containers `std::unordered_map` and `std::unordered_set` for O(1) average time complexity operations.", resources: [] },
+          { text: "Master the STL containers `std::unordered_map` and `std::unordered_set` for O(1) average time complexity operations.", resources: [{ name: "unordered_map in C++", url: "https://www.geeksforgeeks.org/unordered_map-in-cpp-stl/" }] },
           { text: "Understand the importance of a good hash function.", resources: [] },
           { text: "Solve problems involving finding duplicates, grouping items, and caching.", resources: [] },
         ],
@@ -2242,17 +2242,17 @@ export const learningPaths = [
       {
         title: "Sorting and Searching Algorithms",
         points: [
-          { text: "Learn and implement fundamental sorting algorithms like Bubble Sort and Insertion Sort (O(n^2)).", resources: [] },
-          { text: "Master efficient sorting algorithms: Merge Sort and Quick Sort (O(n log n)). Use `std::sort` for a highly optimized implementation.", resources: [] },
-          { text: "Implement Binary Search or use `std::binary_search` on sorted containers (O(log n)).", resources: [] },
+          { text: "Learn and implement fundamental sorting algorithms like Bubble Sort and Insertion Sort (O(n^2)).", resources: [{ name: "Sorting Algorithms in C++", url: "https://www.geeksforgeeks.org/sorting-algorithms/" }] },
+          { text: "Master efficient sorting algorithms: Merge Sort and Quick Sort (O(n log n)). Use `std::sort` for a highly optimized implementation.", resources: [{ name: "std::sort in C++", url: "https://www.geeksforgeeks.org/sort-c-stl/" }] },
+          { text: "Implement Binary Search or use `std::binary_search` on sorted containers (O(log n)).", resources: [{ name: "Binary Search in C++", url: "https://www.geeksforgeeks.org/binary-search-in-c/" }] },
         ],
       },
       {
         title: "Graphs",
         points: [
-          { text: "Represent graphs using an adjacency matrix or an adjacency list (`std::vector<std::vector<int>>`).", resources: [] },
-          { text: "Implement Breadth-First Search (BFS) and Depth-First Search (DFS).", resources: [] },
-          { text: "Explore pathfinding algorithms like Dijkstra's.", resources: [] },
+          { text: "Represent graphs using an adjacency matrix or an adjacency list (`std::vector<std::vector<int>>`).", resources: [{ name: "Graph Representation", url: "https://www.geeksforgeeks.org/graph-and-its-representations/" }] },
+          { text: "Implement Breadth-First Search (BFS) and Depth-First Search (DFS).", resources: [{ name: "BFS and DFS in C++", url: "https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/" }] },
+          { text: "Explore pathfinding algorithms like Dijkstra's.", resources: [{ name: "Dijkstra's Algorithm in C++", url: "https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/" }] },
         ],
       },
     ],
