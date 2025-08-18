@@ -155,6 +155,77 @@ export const learningPaths = [
     ]
   },
   {
+    id: "c-plus-plus",
+    title: "C++",
+    description: "Learn the powerful, high-performance C++ language, used in game development, systems programming, and financial applications.",
+    category: "Programming Languages",
+    topics: [
+      {
+        title: "Introduction to C++",
+        points: [
+          { text: "Understand C++'s history as an extension of C and its role in performance-critical applications.", resources: [{ name: "C++ History", url: "https://en.cppreference.com/w/cpp/language/history" }] },
+          { text: "Set up a C++ development environment with a compiler like G++ (part of GCC) and a code editor like Visual Studio Code.", resources: [{ name: "C++ on VS Code", url: "https://code.visualstudio.com/docs/languages/cpp" }] },
+          { text: "Compile and run a 'Hello, World!' program to learn the basic structure, including the `main` function and using `iostream` for I/O.", resources: [{ name: "C++ 'Hello, World!'", url: "https://www.w3schools.com/cpp/cpp_getstarted.asp" }] },
+        ],
+      },
+      {
+        title: "C++ Fundamentals",
+        points: [
+          { text: "Learn about variables and fundamental data types like `int`, `double`, `char`, and `bool`.", resources: [{ name: "C++ Data Types", url: "https://www.w3schools.com/cpp/cpp_data_types.asp" }] },
+          { text: "Master operators for arithmetic, assignment, comparison, and logical operations.", resources: [{ name: "C++ Operators", url: "https://www.w3schools.com/cpp/cpp_operators.asp" }] },
+          { text: "Understand how to work with strings using the `std::string` class.", resources: [{ name: "C++ Strings", url: "https://www.w3schools.com/cpp/cpp_strings.asp" }] },
+        ],
+      },
+      {
+        title: "Control Flow",
+        points: [
+          { text: "Use `if-else` and `switch` statements to make decisions and control the flow of your program.", resources: [{ name: "C++ Conditions", url: "https://www.w3schools.com/cpp/cpp_conditions.asp" }] },
+          { text: "Learn to use `while` and `for` loops to execute blocks of code repeatedly.", resources: [{ name: "C++ Loops", url: "https://www.w3schools.com/cpp/cpp_while_loop.asp" }] },
+        ],
+      },
+      {
+        title: "Functions and Pointers",
+        points: [
+          { text: "Define and call functions to structure your code into reusable blocks. Understand function overloading.", resources: [{ name: "C++ Functions", url: "https://www.w3schools.com/cpp/cpp_functions.asp" }] },
+          { text: "Grasp the concept of pointers for direct memory manipulation and learn about references as safer aliases to existing variables.", resources: [{ name: "C++ Pointers", url: "https://www.w3schools.com/cpp/cpp_pointers.asp" }] },
+        ],
+      },
+      {
+        title: "Object-Oriented Programming (OOP)",
+        points: [
+          { text: "Learn how to define classes to create your own types. Understand members (attributes) and methods (functions).", resources: [{ name: "C++ Classes", url: "https://www.w3schools.com/cpp/cpp_classes.asp" }] },
+          { text: "Understand constructors and destructors for object initialization and cleanup.", resources: [{ name: "C++ Constructors", url: "https://www.w3schools.com/cpp/cpp_constructors.asp" }] },
+          { text: "Master the core OOP principles: Encapsulation, Inheritance, and Polymorphism.", resources: [{ name: "OOP Principles", url: "https://www.geeksforgeeks.org/object-oriented-programming-in-cpp/" }] },
+        ],
+      },
+      {
+        title: "Standard Template Library (STL)",
+        points: [
+          { text: "Learn to use STL containers like `std::vector` (dynamic array), `std::list`, `std::stack`, and `std::queue`.", resources: [{ name: "STL Containers", url: "https://www.geeksforgeeks.org/containers-in-c-stl/" }] },
+          { text: "Explore associative containers like `std::map` (key-value pairs) and `std::set` (unique keys).", resources: [{ name: "std::map", url: "https://cplusplus.com/reference/map/map/" }] },
+          { text: "Understand how to use iterators to navigate through containers and how to use algorithms like `sort` and `find` to manipulate data.", resources: [{ name: "STL Algorithms", url: "https://www.geeksforgeeks.org/c-magicians-stl-algorithms/" }] },
+        ],
+      },
+      {
+        title: "Error Handling",
+        points: [
+          { text: "Learn to handle errors using `try`, `catch`, and `throw` blocks for exception handling.", resources: [{ name: "C++ Exceptions", url: "https://www.w3schools.com/cpp/cpp_exceptions.asp" }] },
+        ],
+      },
+      {
+        title: "Modern C++ (C++11 and beyond)",
+        points: [
+          { text: "Explore features from modern C++ standards, such as `auto` for type inference, range-based for loops, and smart pointers (`std::unique_ptr`, `std::shared_ptr`) for safer memory management.", resources: [{ name: "C++11 Features", url: "https://www.geeksforgeeks.org/c11-features-in-cpp/" }] },
+        ],
+      },
+    ],
+    assignments: [
+      { title: "Vector Statistics", description: "Write a C++ program that uses a `std::vector<double>` to store a list of numbers. Calculate and print the sum, mean, and standard deviation of the numbers in the vector." },
+      { title: "Simple Bank Account Class", description: "Create a `BankAccount` class with private member variables for the account holder's name and balance. Implement public methods to deposit money, withdraw money, and check the balance. Ensure the balance cannot become negative." },
+      { title: "Word Frequency Counter", description: "Write a program that reads text from a file, and uses a `std::map` to count the frequency of each word. Print the word counts to the console." }
+    ]
+  },
+  {
     id: "web-development-foundations",
     title: "Web Development Foundations",
     description: "Learn the core technologies for building modern websites and web applications.",
@@ -2173,7 +2244,7 @@ export const learningPaths = [
       {
         title: "Sorting and Searching Algorithms",
         points: [
-          { text: "Learn and implement fundamental sorting algorithms like Bubble Sort and Insertion Sort (O(n^2)).", resources: [{ name: "Sorting Algorithms", url: "https://www.geeksforgeeks.org/sorting-algorithms-in-python/" }] },
+          { text: "Learn and implement fundamental sorting algorithms like Bubble Sort and Insertion Sort (O(n^2)).", resources: [{ name: "Sorting Algorithms in Python", url: "https://www.geeksforgeeks.org/sorting-algorithms-in-python/" }] },
           { text: "Master efficient sorting algorithms: Merge Sort and Quick Sort (O(n log n)).", resources: [] },
           { text: "Implement Binary Search on sorted lists for fast lookups (O(log n)).", resources: [{ name: "Binary Search in Python", url: "https://www.geeksforgeeks.org/python-program-for-binary-search/" }] },
         ],
