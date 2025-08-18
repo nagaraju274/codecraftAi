@@ -30,7 +30,7 @@ export function Footer() {
                 <li><Link href="/playground" className="hover:text-foreground">Interactive Playground</Link></li>
                 <li><Link href="/projects" className="hover:text-foreground">AI Project Builder</Link></li>
                 <li><Link href="/learn" className="hover:text-foreground">Guided Learning Paths</Link></li>
-                <li><Link href="/learn" className="hover:text-foreground">DSA Mastery</Link></li>
+                <li><Link href="/dsa-mastery" className="hover:text-foreground">DSA Mastery</Link></li>
               </ul>
             </div>
             <div>
