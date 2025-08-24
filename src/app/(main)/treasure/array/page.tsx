@@ -438,9 +438,14 @@ export default function ArrayPage() {
                 <Accordion type="single" collapsible className="w-full">
                     {commonProblems.map((problem, index) => (
                         <AccordionItem value={`item-${index}`} key={index}>
-                            <AccordionTrigger className="text-base font-medium hover:no-underline py-3 flex-1 text-left">
-                                {problem.title}
-                            </AccordionTrigger>
+                            <div className="flex items-center justify-between py-3">
+                                <span className="text-base font-medium flex-1 text-left">
+                                    {problem.title}
+                                </span>
+                                <AccordionTrigger asChild>
+                                    <Button variant="secondary">Try Me</Button>
+                                </AccordionTrigger>
+                            </div>
                             <AccordionContent className="pt-2">
                                 <div className="prose prose-sm dark:prose-invert max-w-none space-y-4">
                                     <p className="text-muted-foreground">{problem.description}</p>
@@ -508,4 +513,3 @@ export default function ArrayPage() {
     </div>
   );
 }
-
