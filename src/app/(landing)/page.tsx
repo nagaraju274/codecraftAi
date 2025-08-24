@@ -48,7 +48,7 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 sm:px-6">
             <div className="relative aspect-video max-w-4xl mx-auto">
                 <Image 
-                    src="https://placehold.co/1200x675.png" 
+                    src="/home-hero.png" 
                     alt="CodeCraft AI Platform Screenshot"
                     fill
                     className="rounded-xl shadow-2xl object-cover"

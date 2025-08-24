@@ -1,7 +1,7 @@
 
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
@@ -9,27 +9,56 @@ import { Play, Trash2, Bot, Loader } from "lucide-react"
 import { fixCodeError, explainCode } from "@/ai/flows"
 import { useToast } from "@/hooks/use-toast"
 import { AuthGuard } from "@/components/auth/auth-guard"
+import type { TransformOptions } from '@babel/standalone';
 
-const placeholderCode = `function greet(name) {\n  console.log('Hello, ' + name + '!');\n}\n\ngreet('Student');`;
+const placeholderCode = `interface Greeter {
+    (name: string): void;
+}
+
+const greet: Greeter = (name) => {
+  console.log('Hello, ' + name + '!');
+}
+
+greet('Student');`;
 
 export default function PlaygroundPage() {
+  const [Babel, setBabel] = useState<any>(null);
   const [code, setCode] = useState(placeholderCode)
   const [output, setOutput] = useState<string[]>([])
   const [isAiLoading, setIsAiLoading] = useState(false)
   const [isRunning, setIsRunning] = useState(false)
   const { toast } = useToast()
 
+  useEffect(() => {
+    import('@babel/standalone').then(setBabel).catch(console.error);
+  }, []);
+
   const runCode = async () => {
+    if (!Babel) {
+        toast({
+            variant: "destructive",
+            title: "Error",
+            description: "TypeScript compiler is not ready yet. Please wait a moment."
+        });
+        return;
+    }
     setOutput([]);
     setIsRunning(true);
     const newOutput: string[] = [];
     const originalLog = console.log;
-    newOutput.push(`> node main.js`);
-    console.log = (...args) => {
-      newOutput.push(args.map(arg => typeof arg === 'string' ? arg : JSON.stringify(arg)).join(' '));
-    };
+    
     try {
-      new Function(code)();
+      const options: TransformOptions = { presets: ['typescript'], filename: 'main.ts' };
+      const transformedCode = Babel.transform(code, options).code;
+
+      newOutput.push(`> node main.js`);
+      
+      console.log = (...args) => {
+          newOutput.push(args.map(arg => typeof arg === 'string' ? arg : JSON.stringify(arg)).join(' '));
+      };
+
+      new Function(transformedCode)();
+
     } catch (error: any) {
       newOutput.push(`Error: ${error.message}`);
     } finally {
@@ -42,7 +71,7 @@ export default function PlaygroundPage() {
   const handleFixCode = async () => {
     setIsAiLoading(true);
     try {
-      const result = await fixCodeError({ code, language: "javascript" });
+      const result = await fixCodeError({ code, language: "typescript" });
       setCode(result.fixedCode);
       toast({
         title: "AI Code Fix",
@@ -83,14 +112,14 @@ export default function PlaygroundPage() {
     <AuthGuard>
       <div className="flex flex-col h-[calc(100vh-10rem)] gap-4">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <h1 className="text-2xl font-bold self-start">JavaScript Playground</h1>
+          <h1 className="text-2xl font-bold self-start">TypeScript Playground</h1>
         </div>
         <div className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-4 flex-1">
           <Card className="flex flex-col">
             <CardHeader className="flex flex-row items-center justify-between flex-wrap gap-2">
-              <CardTitle className="text-lg">Editor (JavaScript)</CardTitle>
+              <CardTitle className="text-lg">Editor (TypeScript)</CardTitle>
               <div className="flex items-center gap-2 flex-wrap">
-                <Button onClick={runCode} size="sm" disabled={isRunning}>
+                <Button onClick={runCode} size="sm" disabled={isRunning || !Babel}>
                   {isRunning ? <Loader className="mr-2 h-4 w-4 animate-spin" /> : <Play className="mr-2 h-4 w-4" />}
                   Run
                 </Button>
@@ -108,7 +137,7 @@ export default function PlaygroundPage() {
               <Textarea
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
-                placeholder="Write your code here..."
+                placeholder="Write your TypeScript code here..."
                 className="h-full flex-1 font-code text-sm resize-none"
               />
             </CardContent>
@@ -121,7 +150,7 @@ export default function PlaygroundPage() {
             <CardContent className="flex-1 bg-muted/50 rounded-b-lg">
               <div className="h-full p-4 font-code text-sm text-foreground overflow-auto">
                 {output.length > 0 ? output.map((line, index) => (
-                  <p key={index} className={line.startsWith('>') ? 'text-muted-foreground' : ''}>{line}</p>
+                  <p key={index} className={line.startsWith('>') ? 'text-muted-foreground' : (line.toLowerCase().startsWith('error:') ? 'text-destructive' : '')}>{line}</p>
                 )) : <p className="text-muted-foreground">Console output will appear here...</p>}
               </div>
             </CardContent>
