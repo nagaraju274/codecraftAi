@@ -349,9 +349,20 @@ export default function ArrayPage() {
         </Card>
 
         <Card>
-            <CardHeader><CardTitle className="flex items-center gap-3"><BrainCircuit className="h-6 w-6 text-primary"/>Interactive Mini-Challenges</CardTitle></CardHeader>
-            <CardContent className="text-center text-muted-foreground py-12">
-                <p>(Interactive challenges coming soon!)</p>
+            <CardHeader>
+                <CardTitle className="flex items-center gap-3">
+                    <BrainCircuit className="h-6 w-6 text-primary" />
+                    Interactive Mini-Challenges
+                </CardTitle>
+                <CardDescription>Ready to test your knowledge? Put these concepts into practice.</CardDescription>
+            </CardHeader>
+            <CardContent className="flex justify-center items-center py-12">
+                <Button asChild size="lg">
+                    <Link href="/treasure/array/challenges">
+                        Start Challenges
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                </Button>
             </CardContent>
         </Card>
 
