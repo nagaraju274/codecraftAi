@@ -46,14 +46,16 @@ export default function DsaProblemsPage() {
                         <Table>
                             <TableHeader>
                                 <TableRow>
+                                    <TableHead className="w-[50px]">#</TableHead>
                                     <TableHead>Title</TableHead>
                                     <TableHead>Difficulty</TableHead>
                                     <TableHead className="text-right">Action</TableHead>
                                 </TableRow>
                             </TableHeader>
                             <TableBody>
-                                {filteredProblems.map(problem => (
+                                {filteredProblems.map((problem, index) => (
                                     <TableRow key={problem.id}>
+                                        <TableCell className="font-medium">{index + 1}</TableCell>
                                         <TableCell className="font-medium">{problem.title}</TableCell>
                                         <TableCell>
                                             <Badge variant={
