@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Info, Copy, ArrowRight, BrainCircuit, Code, Workflow } from "lucide-react";
+import { Info, Copy, ArrowRight, BrainCircuit, Code, Workflow, CheckCircle, Lightbulb } from "lucide-react";
 import Link from "next/link";
 import {
   Accordion,
@@ -199,6 +200,86 @@ System.out.println("Length of array: " + arr.size());
 `.trim()
 };
 
+const commonProblems = [
+  {
+    title: "Two Sum",
+    description: "Given an array of integers and a target, return indices of the two numbers such that they add up to the target.",
+    logic: "The most efficient approach is to use a hash map (or dictionary in Python). As we iterate through the array, for each element, we calculate its 'complement' (target - current element). We then check if this complement already exists in our hash map. If it does, we've found our pair and can return their indices. If not, we add the current element and its index to the hash map and continue to the next element. This allows us to solve the problem in a single pass.",
+    code: `
+def two_sum(nums, target):
+    num_map = {}  # To store number and its index
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in num_map:
+            return [num_map[complement], i]
+        num_map[num] = i
+    return [] # Return empty if no solution is found
+`.trim(),
+    lineByLine: [
+        "`def two_sum(nums, target):` - Defines the function that takes the list of numbers and the target sum.",
+        "`num_map = {}` - Initializes an empty dictionary to store numbers we've seen so far and their indices.",
+        "`for i, num in enumerate(nums):` - Starts a loop that iterates through the list, giving us both the index (`i`) and the value (`num`) of each element.",
+        "`complement = target - num` - Calculates the number we need to find to make a pair with the current `num`.",
+        "`if complement in num_map:` - Checks if the required complement is already in our dictionary. This means we have already seen the other number in the pair.",
+        "`return [num_map[complement], i]` - If the complement is found, we return a list containing the index of the complement (retrieved from the map) and the index of the current number.",
+        "`num_map[num] = i` - If the complement is not found, we add the current number and its index to the map, so it can be found by a future element."
+    ],
+    diagram: `
+**Array: [2, 7, 11, 15], Target: 9**
+
+1.  **Loop 1 (num=2, i=0):**
+    *   \`complement\` = 9 - 2 = 7.
+    *   Is 7 in \`num_map\`? No. \`num_map\` is {}.
+    *   Add 2 to map: \`num_map\` is now \`{2: 0}\`.
+
+2.  **Loop 2 (num=7, i=1):**
+    *   \`complement\` = 9 - 7 = 2.
+    *   Is 2 in \`num_map\`? Yes! Its index is 0.
+    *   **Solution Found!** Return \`[num_map[2], i]\` which is \`[0, 1]\`.
+    `
+  },
+  {
+    title: "Contains Duplicate",
+    description: "Given an integer array, return true if any value appears at least twice in the array, and false if every element is distinct.",
+    logic: "The most efficient way to solve this is by using a hash set. We iterate through the array, and for each element, we check if it's already in our set. If it is, we have found a duplicate and can immediately return true. If not, we add the element to the set and continue. If we finish the entire loop without finding any duplicates, we return false.",
+    code: `
+def contains_duplicate(nums):
+    hash_set = set()
+    for num in nums:
+        if num in hash_set:
+            return True
+        hash_set.add(num)
+    return False
+`.trim(),
+    lineByLine: [
+        "`def contains_duplicate(nums):` - Defines the function taking a list of numbers.",
+        "`hash_set = set()` - Initializes an empty set. Sets are like dictionaries but only store keys, and all keys must be unique. This makes them perfect for tracking seen items.",
+        "`for num in nums:` - Iterates through each number in the input list.",
+        "`if num in hash_set:` - Checks if the current number is already present in our set. This check is very fast, on average O(1).",
+        "`return True` - If the number is already in the set, we've found a duplicate, so we can stop and return true.",
+        "`hash_set.add(num)` - If the number is not in the set, we add it so we can check against it in future iterations.",
+        "`return False` - If the loop completes without finding any duplicates, it means every element was unique, so we return false."
+    ],
+    diagram: `
+**Array: [1, 2, 3, 1]**
+
+1.  **Loop 1 (num=1):**
+    *   Is 1 in \`hash_set\`? No.
+    *   Add 1 to set. \`hash_set\` is now \`{1}\`.
+2.  **Loop 2 (num=2):**
+    *   Is 2 in \`hash_set\`? No.
+    *   Add 2 to set. \`hash_set\` is now \`{1, 2}\`.
+3.  **Loop 3 (num=3):**
+    *   Is 3 in \`hash_set\`? No.
+    *   Add 3 to set. \`hash_set\` is now \`{1, 2, 3}\`.
+4.  **Loop 4 (num=1):**
+    *   Is 1 in \`hash_set\`? Yes!
+    *   **Solution Found!** Return \`True\`.
+    `
+  },
+];
+
+
 export default function ArrayPage() {
   return (
     <div className="container mx-auto py-10 space-y-12">
@@ -347,6 +428,44 @@ export default function ArrayPage() {
                 </Accordion>
             </CardContent>
         </Card>
+        
+        <Card>
+            <CardHeader>
+                <CardTitle className="flex items-center gap-3"><Lightbulb className="h-6 w-6 text-primary"/>Common Array Problems</CardTitle>
+                <CardDescription>Practice with these classic problems. Click on one to see a detailed explanation and solution.</CardDescription>
+            </CardHeader>
+            <CardContent>
+                <Accordion type="single" collapsible className="w-full">
+                    {commonProblems.map((problem, index) => (
+                        <AccordionItem value={`item-${index}`} key={index}>
+                            <AccordionTrigger className="text-base font-medium hover:no-underline py-3 flex-1 text-left">
+                                {problem.title}
+                            </AccordionTrigger>
+                            <AccordionContent className="pt-2">
+                                <div className="prose prose-sm dark:prose-invert max-w-none space-y-4">
+                                    <p className="text-muted-foreground">{problem.description}</p>
+                                    
+                                    <h4 className="font-semibold">Logic & Approach</h4>
+                                    <p>{problem.logic}</p>
+
+                                    <h4 className="font-semibold">Code Example (Python)</h4>
+                                    <pre className="bg-muted p-4 rounded-md text-sm font-code whitespace-pre-wrap">{problem.code}</pre>
+
+                                    <h4 className="font-semibold">Line-by-Line Explanation</h4>
+                                    <ul className="list-disc pl-5 space-y-2">
+                                        {problem.lineByLine.map((line, i) => <li key={i}>{line}</li>)}
+                                    </ul>
+
+                                    <h4 className="font-semibold">How it Works (Diagram)</h4>
+                                    <pre className="bg-muted/50 p-4 rounded-md text-sm font-code whitespace-pre-wrap">{problem.diagram}</pre>
+                                </div>
+                            </AccordionContent>
+                        </AccordionItem>
+                    ))}
+                </Accordion>
+            </CardContent>
+        </Card>
+
 
         <Card>
             <CardHeader>
@@ -389,3 +508,4 @@ export default function ArrayPage() {
     </div>
   );
 }
+
