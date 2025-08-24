@@ -83,7 +83,7 @@ export default function PlaygroundPage() {
     <AuthGuard>
       <div className="flex flex-col h-[calc(100vh-10rem)] gap-4">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <h1 className="text-2xl font-bold self-start">Code Playground</h1>
+          <h1 className="text-2xl font-bold self-start">JavaScript Playground</h1>
         </div>
         <div className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-4 flex-1">
           <Card className="flex flex-col">
