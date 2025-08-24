@@ -1,7 +1,7 @@
 
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
@@ -9,56 +9,35 @@ import { Play, Trash2, Bot, Loader } from "lucide-react"
 import { fixCodeError, explainCode } from "@/ai/flows"
 import { useToast } from "@/hooks/use-toast"
 import { AuthGuard } from "@/components/auth/auth-guard"
-import type { TransformOptions } from '@babel/standalone';
 
-const placeholderCode = `// You can write JavaScript or TypeScript here!
-interface Greeter {
-    (name: string): void;
-}
-
-const greet: Greeter = (name) => {
+const placeholderCode = `// You can write JavaScript code here!
+function greet(name) {
   console.log('Hello, ' + name + '!');
 }
 
 greet('Student');`;
 
 export default function PlaygroundPage() {
-  const [Babel, setBabel] = useState<any>(null);
   const [code, setCode] = useState(placeholderCode)
   const [output, setOutput] = useState<string[]>([])
   const [isAiLoading, setIsAiLoading] = useState(false)
   const [isRunning, setIsRunning] = useState(false)
   const { toast } = useToast()
 
-  useEffect(() => {
-    import('@babel/standalone').then(setBabel).catch(console.error);
-  }, []);
-
   const runCode = async () => {
-    if (!Babel) {
-        toast({
-            variant: "destructive",
-            title: "Error",
-            description: "Compiler is not ready yet. Please wait a moment."
-        });
-        return;
-    }
     setOutput([]);
     setIsRunning(true);
     const newOutput: string[] = [];
     const originalLog = console.log;
     
     try {
-      const options: TransformOptions = { presets: ['typescript'], filename: 'main.ts' };
-      const transformedCode = Babel.transform(code, options).code;
-
       newOutput.push(`> node main.js`);
       
       console.log = (...args) => {
           newOutput.push(args.map(arg => typeof arg === 'string' ? arg : JSON.stringify(arg)).join(' '));
       };
 
-      new Function(transformedCode)();
+      new Function(code)();
 
     } catch (error: any) {
       newOutput.push(`Error: ${error.message}`);
@@ -72,7 +51,7 @@ export default function PlaygroundPage() {
   const handleFixCode = async () => {
     setIsAiLoading(true);
     try {
-      const result = await fixCodeError({ code, language: "typescript" });
+      const result = await fixCodeError({ code, language: "javascript" });
       setCode(result.fixedCode);
       toast({
         title: "AI Code Fix",
@@ -113,14 +92,14 @@ export default function PlaygroundPage() {
     <AuthGuard>
       <div className="flex flex-col h-[calc(100vh-10rem)] gap-4">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <h1 className="text-2xl font-bold self-start">JS/TS Playground</h1>
+          <h1 className="text-2xl font-bold self-start">JavaScript Playground</h1>
         </div>
         <div className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-4 flex-1">
           <Card className="flex flex-col">
             <CardHeader className="flex flex-row items-center justify-between flex-wrap gap-2">
-              <CardTitle className="text-lg">Editor (JS/TS)</CardTitle>
+              <CardTitle className="text-lg">Editor</CardTitle>
               <div className="flex items-center gap-2 flex-wrap">
-                <Button onClick={runCode} size="sm" disabled={isRunning || !Babel}>
+                <Button onClick={runCode} size="sm" disabled={isRunning}>
                   {isRunning ? <Loader className="mr-2 h-4 w-4 animate-spin" /> : <Play className="mr-2 h-4 w-4" />}
                   Run
                 </Button>
@@ -138,7 +117,7 @@ export default function PlaygroundPage() {
               <Textarea
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
-                placeholder="Write your TypeScript or JavaScript code here..."
+                placeholder="Write your JavaScript code here..."
                 className="h-full flex-1 font-code text-sm resize-none"
               />
             </CardContent>
