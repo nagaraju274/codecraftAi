@@ -11,7 +11,8 @@ import { useToast } from "@/hooks/use-toast"
 import { AuthGuard } from "@/components/auth/auth-guard"
 import type { TransformOptions } from '@babel/standalone';
 
-const placeholderCode = `interface Greeter {
+const placeholderCode = `// You can write JavaScript or TypeScript here!
+interface Greeter {
     (name: string): void;
 }
 
@@ -38,7 +39,7 @@ export default function PlaygroundPage() {
         toast({
             variant: "destructive",
             title: "Error",
-            description: "TypeScript compiler is not ready yet. Please wait a moment."
+            description: "Compiler is not ready yet. Please wait a moment."
         });
         return;
     }
@@ -112,12 +113,12 @@ export default function PlaygroundPage() {
     <AuthGuard>
       <div className="flex flex-col h-[calc(100vh-10rem)] gap-4">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <h1 className="text-2xl font-bold self-start">TypeScript Playground</h1>
+          <h1 className="text-2xl font-bold self-start">JS/TS Playground</h1>
         </div>
         <div className="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-4 flex-1">
           <Card className="flex flex-col">
             <CardHeader className="flex flex-row items-center justify-between flex-wrap gap-2">
-              <CardTitle className="text-lg">Editor (TypeScript)</CardTitle>
+              <CardTitle className="text-lg">Editor (JS/TS)</CardTitle>
               <div className="flex items-center gap-2 flex-wrap">
                 <Button onClick={runCode} size="sm" disabled={isRunning || !Babel}>
                   {isRunning ? <Loader className="mr-2 h-4 w-4 animate-spin" /> : <Play className="mr-2 h-4 w-4" />}
@@ -128,7 +129,7 @@ export default function PlaygroundPage() {
                   Fix with AI
                 </Button>
                 <Button onClick={handleExplainCode} size="sm" variant="secondary" disabled={isAiLoading}>
-                   {isAiLoading ? <Loader className="mr-2 h-4 w-4 animate-spin" /> : <Bot className="mr-2 h-4 w-4" />}
+                   {isAiLoading ? <Loader className="mr-2 h-4 w-4 animate-spin" /> : <Bot className="mr-2 h-4" />}
                   Explain
                 </Button>
               </div>
@@ -137,7 +138,7 @@ export default function PlaygroundPage() {
               <Textarea
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
-                placeholder="Write your TypeScript code here..."
+                placeholder="Write your TypeScript or JavaScript code here..."
                 className="h-full flex-1 font-code text-sm resize-none"
               />
             </CardContent>
