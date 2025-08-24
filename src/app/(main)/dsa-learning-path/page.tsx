@@ -1,7 +1,8 @@
 
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, CheckCircle2, BotMessageSquare } from "lucide-react";
+import { ArrowRight, CheckCircle2, BotMessageSquare } from "lucide-react";
 import Link from "next/link";
 
 
@@ -12,7 +13,7 @@ const learningPath = [
     { text: "Master recursion & dynamic programming" },
     { text: "Study graphs & trees in depth" },
     { text: "Participate in contests (Codeforces, AtCoder)" },
-    { text: "Solve 300+ DSA problems across difficulty levels" }
+    { text: "Solve 300+ DSA problems across difficulty levels", href: "/dsa-problems" }
 ];
 
 export default function DsaLearningPathPage() {
@@ -20,7 +21,7 @@ export default function DsaLearningPathPage() {
     <div className="container mx-auto py-10">
        <Button asChild variant="ghost" className="mb-8">
             <Link href="/treasure">
-            <ArrowLeft className="mr-2 h-4 w-4" />
+            <ArrowRight className="mr-2 h-4 w-4" />
             Back to Treasure Trove
             </Link>
         </Button>
@@ -46,7 +47,13 @@ export default function DsaLearningPathPage() {
                            {index + 1}
                         </div>
                         <div className="pt-1">
-                            <p className="font-medium text-lg">{step.text}</p>
+                            {step.href ? (
+                                <Link href={step.href} className="font-medium text-lg hover:underline hover:text-primary">
+                                    {step.text}
+                                </Link>
+                            ) : (
+                                <p className="font-medium text-lg">{step.text}</p>
+                            )}
                         </div>
                     </div>
                 ))}
