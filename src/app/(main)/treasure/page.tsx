@@ -1,7 +1,10 @@
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Link2, BrainCircuit, Workflow, Briefcase, GraduationCap, Link as LinkIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link2, BrainCircuit, Workflow, Briefcase, GraduationCap, Link as LinkIcon, ArrowRight } from "lucide-react";
+import Link from 'next/link';
 
 const dataStructures = {
     linear: [
@@ -51,17 +54,6 @@ const jobRoles = [
     "Systems Software Engineer",
     "Research / PhD roles (Algorithm Design)",
 ];
-
-const learningPath = [
-    "Master basic syntax in C++, Java, or Python",
-    "Learn core data structures",
-    "Practice common patterns (Sliding Window, Two Pointers)",
-    "Master recursion & dynamic programming",
-    "Study graphs & trees in depth",
-    "Participate in contests (Codeforces, AtCoder)",
-    "Solve 300+ DSA problems across difficulty levels"
-];
-
 
 export default function TreasurePage() {
   return (
@@ -149,7 +141,7 @@ export default function TreasurePage() {
         </Card>
       </div>
 
-       <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+       <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Where to Practice */}
             <Card>
                 <CardHeader>
@@ -182,22 +174,28 @@ export default function TreasurePage() {
                     </ul>
                 </CardContent>
             </Card>
-
-            {/* Learning Path */}
-            <Card>
-                <CardHeader>
-                     <CardTitle className="flex items-center gap-3">
-                        <GraduationCap className="h-6 w-6 text-primary"/>
-                        <span>Learning Path</span>
-                    </CardTitle>
-                </CardHeader>
-                 <CardContent>
-                    <ol className="list-decimal list-inside space-y-2 text-muted-foreground">
-                        {learningPath.map(item => <li key={item}>{item}</li>)}
-                    </ol>
-                </CardContent>
-            </Card>
        </div>
+       
+        <Card className="bg-primary/10">
+            <CardHeader>
+                <CardTitle className="flex items-center gap-3">
+                    <GraduationCap className="h-8 w-8 text-primary"/>
+                    <span>Start Your Journey</span>
+                </CardTitle>
+                <CardDescription className="text-base">
+                    Ready to begin? Follow our step-by-step learning path to build your skills from the ground up.
+                </CardDescription>
+            </CardHeader>
+            <CardFooter>
+                 <Button asChild size="lg">
+                    <Link href="/dsa-learning-path">
+                        View the DSA Learning Path
+                        <ArrowRight className="ml-2" />
+                    </Link>
+                </Button>
+            </CardFooter>
+        </Card>
+
     </div>
   );
 }
