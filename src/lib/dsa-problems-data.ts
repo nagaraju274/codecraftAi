@@ -36,6 +36,17 @@ export const problems = [
   { id: 103, title: "Same Tree", difficulty: "Easy", href: "https://leetcode.com/problems/same-tree/" },
   { id: 104, title: "Convert Sorted Array to Binary Search Tree", difficulty: "Easy", href: "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/" },
   { id: 105, title: "Balanced Binary Tree", difficulty: "Easy", href: "https://leetcode.com/problems/balanced-binary-tree/" },
+  { id: 115, title: "Path Sum", difficulty: "Easy", href: "https://leetcode.com/problems/path-sum/" },
+  { id: 116, title: "Intersection of Two Arrays II", difficulty: "Easy", href: "https://leetcode.com/problems/intersection-of-two-arrays-ii/" },
+  { id: 117, title: "Is Subsequence", difficulty: "Easy", href: "https://leetcode.com/problems/is-subsequence/" },
+  { id: 118, title: "Range Sum Query - Immutable", difficulty: "Easy", href: "https://leetcode.com/problems/range-sum-query-immutable/" },
+  { id: 119, title: "Middle of the Linked List", difficulty: "Easy", href: "https://leetcode.com/problems/middle-of-the-linked-list/" },
+  { id: 120, title: "Reverse Vowels of a String", difficulty: "Easy", href: "https://leetcode.com/problems/reverse-vowels-of-a-string/" },
+  { id: 121, title: "Valid Palindrome", difficulty: "Easy", href: "https://leetcode.com/problems/valid-palindrome/" },
+  { id: 122, title: "Binary Tree Paths", difficulty: "Easy", href: "https://leetcode.com/problems/binary-tree-paths/" },
+  { id: 123, title: "Lowest Common Ancestor of a Binary Search Tree", difficulty: "Easy", href: "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/" },
+  { id: 124, title: "Backspace String Compare", difficulty: "Easy", href: "https://leetcode.com/problems/backspace-string-compare/" },
+  { id: 125, title: "Diameter of Binary Tree", difficulty: "Easy", href: "https://leetcode.com/problems/diameter-of-binary-tree/" },
 
   // Medium
   { id: 6, title: "Add Two Numbers", difficulty: "Medium", href: "https://leetcode.com/problems/add-two-numbers/" },
@@ -74,6 +85,16 @@ export const problems = [
   { id: 107, title: "Permutations", difficulty: "Medium", href: "https://leetcode.com/problems/permutations/" },
   { id: 108, title: "Combination Sum", difficulty: "Medium", href: "https://leetcode.com/problems/combination-sum/" },
   { id: 109, title: "Search in Rotated Sorted Array", difficulty: "Medium", href: "https://leetcode.com/problems/search-in-rotated-sorted-array/" },
+  { id: 126, title: "Letter Combinations of a Phone Number", difficulty: "Medium", href: "https://leetcode.com/problems/letter-combinations-of-a-phone-number/" },
+  { id: 127, title: "Spiral Matrix", difficulty: "Medium", href: "https://leetcode.com/problems/spiral-matrix/" },
+  { id: 128, title: "Rotate List", difficulty: "Medium", href: "https://leetcode.com/problems/rotate-list/" },
+  { id: 129, title: "Search a 2D Matrix", difficulty: "Medium", href: "https://leetcode.com/problems/search-a-2d-matrix/" },
+  { id: 130, title: "Binary Tree Zigzag Level Order Traversal", difficulty: "Medium", href: "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/" },
+  { id: 131, title: "Word Break", difficulty: "Medium", href: "https://leetcode.com/problems/word-break/" },
+  { id: 132, title: "Reorder List", difficulty: "Medium", href: "https://leetcode.com/problems/reorder-list/" },
+  { id: 133, title: "Maximum Product Subarray", difficulty: "Medium", href: "https://leetcode.com/problems/maximum-product-subarray/" },
+  { id: 134, title: "Find Peak Element", difficulty: "Medium", href: "https://leetcode.com/problems/find-peak-element/" },
+  { id: 135, title: "Daily Temperatures", difficulty: "Medium", href: "https://leetcode.com/problems/daily-temperatures/" },
 
   // Hard
   { id: 12, title: "Median of Two Sorted Arrays", difficulty: "Hard", href: "https://leetcode.com/problems/median-of-two-sorted-arrays/" },
@@ -99,4 +120,17 @@ export const problems = [
   { id: 112, title: "Edit Distance", difficulty: "Hard", href: "https://leetcode.com/problems/edit-distance/" },
   { id: 113, title: "Maximal Rectangle", difficulty: "Hard", href: "https://leetcode.com/problems/maximal-rectangle/" },
   { id: 114, title: "Serialize and Deserialize Binary Tree", difficulty: "Hard", href: "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/" },
+  { id: 136, title: "Reverse Nodes in k-Group", difficulty: "Hard", href: "https://leetcode.com/problems/reverse-nodes-in-k-group/" },
+  { id: 137, title: "Candy", difficulty: "Hard", href: "https://leetcode.com/problems/candy/" },
+  { id: 138, title: "Basic Calculator", difficulty: "Hard", href: "https://leetcode.com/problems/basic-calculator/" },
+  { id: 139, title: "Word Search II", difficulty: "Hard", href: "https://leetcode.com/problems/word-search-ii/" },
+  { id: 140, title: "Number of Islands II", difficulty: "Hard", href: "https://leetcode.com/problems/number-of-islands-ii/" },
+  { id: 141, title: "Critical Connections in a Network", difficulty: "Hard", href: "https://leetcode.com/problems/critical-connections-in-a-network/" },
+  { id: 142, title: "Maximum Frequency Stack", difficulty: "Hard", href: "https://leetcode.com/problems/maximum-frequency-stack/" },
+  { id: 143, title: "Robot Room Cleaner", difficulty: "Hard", href: "https://leetcode.com/problems/robot-room-cleaner/" },
+  { id: 144, title: "Find K-th Smallest Pair Distance", difficulty: "Hard", href: "https://leetcode.com/problems/find-k-th-smallest-pair-distance/" },
+  { id: 145, title: "Best Time to Buy and Sell Stock IV", difficulty: "Hard", href: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/" },
+  { id: 146, title: "Palindrome Pairs", difficulty: "Hard", href: "https://leetcode.com/problems/palindrome-pairs/" },
 ];
+
+    
