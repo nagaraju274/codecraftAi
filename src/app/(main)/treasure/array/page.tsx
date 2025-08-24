@@ -438,14 +438,14 @@ export default function ArrayPage() {
                 <Accordion type="single" collapsible className="w-full">
                     {commonProblems.map((problem, index) => (
                         <AccordionItem value={`item-${index}`} key={index}>
-                            <div className="flex items-center justify-between py-3">
-                                <span className="text-base font-medium flex-1 text-left">
-                                    {problem.title}
-                                </span>
-                                <AccordionTrigger asChild>
-                                    <Button variant="secondary">Try Me</Button>
-                                </AccordionTrigger>
-                            </div>
+                            <AccordionTrigger className="text-base font-medium no-underline hover:no-underline">
+                                <div className="flex items-center justify-between w-full">
+                                    <span>{problem.title}</span>
+                                    <div className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-9 px-3 bg-secondary text-secondary-foreground hover:bg-secondary/80 mr-4">
+                                        Try Me
+                                    </div>
+                                </div>
+                            </AccordionTrigger>
                             <AccordionContent className="pt-2">
                                 <div className="prose prose-sm dark:prose-invert max-w-none space-y-4">
                                     <p className="text-muted-foreground">{problem.description}</p>
@@ -462,7 +462,9 @@ export default function ArrayPage() {
                                     </ul>
 
                                     <h4 className="font-semibold">How it Works (Diagram)</h4>
-                                    <pre className="bg-muted/50 p-4 rounded-md text-sm font-code whitespace-pre-wrap">{problem.diagram}</pre>
+                                    <pre className="bg-muted/50 p-4 rounded-md text-sm font-code whitespace-pre-wrap">{`
+                                    ${problem.diagram}
+                                    `}</pre>
                                 </div>
                             </AccordionContent>
                         </AccordionItem>
