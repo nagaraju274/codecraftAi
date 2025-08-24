@@ -8,10 +8,10 @@ import Link from 'next/link';
 
 const dataStructures = {
     linear: [
-        "Array",
-        "Linked List (Singly, Doubly, Circular)",
-        "Stack",
-        "Queue (Simple, Circular, Priority Queue, Deque)",
+        { name: "Array", href: "/main/treasure/array" },
+        { name: "Linked List (Singly, Doubly, Circular)" },
+        { name: "Stack" },
+        { name: "Queue (Simple, Circular, Priority Queue, Deque)" },
     ],
     nonLinear: [
         "Trees", "Binary Tree", "Binary Search Tree (BST)", "AVL Tree, Red-Black Tree", "Segment Tree, Fenwick Tree (BIT)",
@@ -80,7 +80,15 @@ export default function TreasurePage() {
                 <div>
                     <h3 className="font-semibold mb-2">📦 Linear Data Structures</h3>
                     <div className="flex flex-wrap gap-2">
-                        {dataStructures.linear.map(item => <Badge key={item} variant="secondary">{item}</Badge>)}
+                        {dataStructures.linear.map(item => (
+                            item.href ? (
+                                <Link href={item.href} key={item.name}>
+                                    <Badge variant="secondary" className="hover:bg-primary/20 cursor-pointer">{item.name}</Badge>
+                                </Link>
+                            ) : (
+                                <Badge key={item.name} variant="secondary">{item.name}</Badge>
+                            )
+                        ))}
                     </div>
                 </div>
                  <div>
