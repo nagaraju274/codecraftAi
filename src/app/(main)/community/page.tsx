@@ -10,12 +10,6 @@ import { Badge } from "@/components/ui/badge";
 import { Search, MessageSquare, Eye, ThumbsUp, FileX2 } from "lucide-react";
 import Link from "next/link";
 import { AuthGuard } from "@/components/auth/auth-guard";
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Community Forum',
-  description: 'Join the CodeCraft AI developer community. Ask questions, share your projects, and connect with other learners and developers from around the world.',
-}
 
 const forumPosts = [
   {
