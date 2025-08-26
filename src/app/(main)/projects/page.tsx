@@ -9,7 +9,12 @@ import { ArrowRight } from 'lucide-react';
 import Image from "next/image";
 import { projects } from './projects-data';
 import { AuthGuard } from '@/components/auth/auth-guard';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: 'AI-Guided Projects',
+  description: 'Build real-world applications with step-by-step guidance from AI. Choose from projects like To-Do apps, weather forecasts, and AI-powered tools.',
+}
 
 export default function ProjectsPage() {
   return (
@@ -28,7 +33,7 @@ export default function ProjectsPage() {
                   <div className="aspect-video relative">
                       <Image 
                           src={project.imageUrl}
-                          alt={project.title}
+                          alt={`${project.title} project image.`}
                           fill
                           className="object-cover rounded-t-lg"
                           data-ai-hint={project.aiHint}

@@ -13,6 +13,17 @@ import Image from 'next/image';
 import { Skeleton } from '@/components/ui/skeleton';
 import { projects } from '@/app/(main)/projects/projects-data';
 import { learningPaths } from '@/lib/learning-paths-data';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'My Dashboard',
+  description: 'View your personalized dashboard on CodeCraft AI. Track your learning progress, continue projects, and get recommendations for what to learn next.',
+  robots: {
+    index: false, // No need to index profile pages
+    follow: false,
+  },
+}
+
 
 export default function ProfilePage() {
   const [user, setUser] = useState<User | null>(null);
@@ -167,7 +178,7 @@ export default function ProfilePage() {
                   ) : user ? (
                      <div className="flex items-center gap-4">
                         <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center">
-                            <Image src={user.photoURL || `https://placehold.co/64x64.png`} alt="User avatar" width={64} height={64} className="rounded-full" data-ai-hint="user avatar" />
+                            <Image src={user.photoURL || `https://placehold.co/64x64.png`} alt={`${user.displayName || 'User'}'s avatar`} width={64} height={64} className="rounded-full" data-ai-hint="user avatar" />
                         </div>
                         <div>
                             <p className="font-semibold">{user.displayName || 'User'}</p>

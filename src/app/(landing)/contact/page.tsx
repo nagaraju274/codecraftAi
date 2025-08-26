@@ -9,6 +9,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { auth } from '@/lib/firebase';
 import { useToast } from '@/hooks/use-toast';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact Us',
+  description: 'Have questions, feedback, or a project idea? Contact the CodeCraft AI team. We would love to hear from you and discuss how we can collaborate.',
+}
 
 export default function ContactPage() {
   const [userEmail, setUserEmail] = useState("");

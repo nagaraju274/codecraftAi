@@ -10,6 +10,12 @@ import { Badge } from "@/components/ui/badge";
 import { Search, MessageSquare, Eye, ThumbsUp, FileX2 } from "lucide-react";
 import Link from "next/link";
 import { AuthGuard } from "@/components/auth/auth-guard";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Community Forum',
+  description: 'Join the CodeCraft AI developer community. Ask questions, share your projects, and connect with other learners and developers from around the world.',
+}
 
 const forumPosts = [
   {
@@ -124,7 +130,7 @@ export default function CommunityPage() {
                   <Card key={post.id} className="hover:bg-muted/50 transition-colors">
                       <CardContent className="p-4 flex items-start gap-4">
                       <Avatar>
-                          <AvatarImage src={post.avatar} alt={post.author} data-ai-hint="user avatar" />
+                          <AvatarImage src={post.avatar} alt={`${post.author}'s avatar`} data-ai-hint="user avatar" />
                           <AvatarFallback>{post.author.charAt(0)}</AvatarFallback>
                       </Avatar>
                       <div className="flex-1">

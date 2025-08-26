@@ -17,6 +17,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Learning Paths for Developers',
+  description: 'Explore structured learning paths for programming languages, frameworks, and job roles like web development. Start your coding journey with CodeCraft AI.',
+}
 
 
 const cardColors = [

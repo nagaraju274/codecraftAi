@@ -9,6 +9,12 @@ import { Play, Trash2, Bot, Loader } from "lucide-react"
 import { fixCodeError, explainCode } from "@/ai/flows"
 import { useToast } from "@/hooks/use-toast"
 import { AuthGuard } from "@/components/auth/auth-guard"
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'JavaScript Code Playground',
+  description: 'Write, run, and debug JavaScript code in a real-time interactive playground. Get instant feedback and use AI to fix or explain your code snippets.',
+}
 
 const placeholderCode = `// You can write JavaScript code here!
 function greet(name) {

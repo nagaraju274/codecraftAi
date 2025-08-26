@@ -3,6 +3,12 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BotMessageSquare, Users, Rocket, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About CodeCraft AI & Mine-Yours',
+  description: 'Learn about CodeCraft AI, a product by Mine-Yours. Discover our mission to empower developers and our story as a student-led software company.',
+}
 
 const otherProducts = [
     {

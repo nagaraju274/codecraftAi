@@ -1,0 +1,9 @@
+# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+#
+# This file is used to tell web crawlers which parts of your site they are allowed to access.
+# By default, we are allowing all crawlers to access all parts of the site.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://codecraft-ai.com/sitemap.xml

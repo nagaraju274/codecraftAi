@@ -12,6 +12,12 @@ import { Send, Bot, User, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 import ReactMarkdown from 'react-markdown';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Ask an AI Mentor',
+  description: 'Get expert guidance on coding problems, career advice, and technical concepts from your personal AI mentor. Ask questions and get unstuck.',
+}
 
 interface Message {
   text: string;

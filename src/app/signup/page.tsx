@@ -17,6 +17,17 @@ import { useToast } from "@/hooks/use-toast";
 import { Separator } from '@/components/ui/separator';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Sign Up for CodeCraft AI',
+  description: 'Create your account to access the AI coding playground, guided projects, learning paths, and developer community. Start your journey today.',
+  robots: {
+    index: false,
+    follow: false,
+  },
+}
+
 
 export default function SignupPage() {
   const [name, setName] = useState('');

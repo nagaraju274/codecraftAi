@@ -8,17 +8,20 @@ const features = [
     {
         icon: <Code className="w-10 h-10 text-primary" />,
         title: "Interactive Playground",
-        description: "Experiment with code in a real-time editor with an integrated console. Run JavaScript or Python snippets instantly."
+        description: "Experiment with code in a real-time editor with an integrated console. Run JavaScript or Python snippets instantly.",
+        href: "/playground"
     },
     {
         icon: <Bot className="w-10 h-10 text-primary" />,
         title: "AI-Powered Assistance",
-        description: "Get unstuck with AI-powered code fixing, explanations, and generation, right within your development workflow."
+        description: "Get unstuck with AI-powered code fixing, explanations, and generation, right within your development workflow.",
+        href: "/ask-a-mentor"
     },
     {
         icon: <BookOpenCheck className="w-10 h-10 text-primary" />,
         title: "Guided Learning",
-        description: "Follow structured learning paths and build projects step-by-step with AI hints to master new technologies."
+        description: "Follow structured learning paths and build projects step-by-step with AI hints to master new technologies.",
+        href: "/learn"
     }
 ];
 
@@ -49,8 +52,9 @@ export default function LandingPage() {
             <div className="relative aspect-video max-w-4xl mx-auto">
                 <Image 
                     src="/home-hero.png" 
-                    alt="CodeCraft AI Platform Screenshot"
+                    alt="Screenshot of the CodeCraft AI platform showing the interactive playground with AI assistance features."
                     fill
+                    priority
                     className="rounded-xl shadow-2xl object-cover"
                     data-ai-hint="app screenshot"
                 />
@@ -78,6 +82,13 @@ export default function LandingPage() {
                 <CardContent className="flex-grow">
                   <p className="text-muted-foreground">{feature.description}</p>
                 </CardContent>
+                <div className="p-6 pt-0">
+                  <Button asChild variant="link">
+                    <Link href={feature.href}>
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
               </Card>
             ))}
           </div>
