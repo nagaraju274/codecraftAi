@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -17,13 +16,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Learning Paths for Developers',
-  description: 'Explore structured learning paths for programming languages, frameworks, and job roles like web development. Start your coding journey with CodeCraft AI.',
-}
-
 
 const cardColors = [
   "bg-yellow-200/50 hover:bg-yellow-200/70 dark:bg-yellow-800/20 dark:hover:bg-yellow-800/40",
