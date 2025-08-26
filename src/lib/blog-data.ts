@@ -93,4 +93,57 @@ function Welcome(props) {
       <p>Absolutely! It's very common to use Grid for the main page layout and then use Flexbox to align the items within a specific grid cell. They are not competitors, but rather two tools for different jobs.</p>
     `
   },
+  {
+    slug: 'guide-to-prompt-engineering',
+    title: "A Developer's Guide to Prompt Engineering",
+    description: 'Learn how to write effective prompts to get the best results from Large Language Models (LLMs) and other GenAI tools.',
+    author: 'AI Mentor',
+    date: '2024-04-01',
+    content: `
+      <h2>Why Prompt Engineering Matters</h2>
+      <p>As AI becomes more integrated into developer workflows, the ability to communicate effectively with AI models is a crucial skill. Prompt engineering is the art and science of designing inputs for AI to produce the most accurate, relevant, and useful outputs. A well-crafted prompt can be the difference between a generic answer and a perfect code snippet.</p>
+      
+      <h3>Key Principles of Effective Prompts</h3>
+      <ol>
+        <li><strong>Be Specific and Clear:</strong> Provide as much context as possible. Instead of asking "fix my code," provide the code, the error message, the programming language, and what you're trying to achieve.</li>
+        <li><strong>Define the Persona:</strong> Tell the AI who it should be. For example, "You are an expert C++ developer specializing in memory optimization." This sets the context for the tone and depth of the response.</li>
+        <li><strong>Provide Examples (Few-Shot Prompting):</strong> Show the AI exactly what you want. If you need code in a specific format, provide one or two examples of the input and the desired output.</li>
+        <li><strong>Use Constraints:</strong> Guide the AI by telling it what *not* to do. For instance, "Provide only the JavaScript code without any explanation" or "Avoid using external libraries."</li>
+      </ol>
+
+      <h3>Example: From a Bad Prompt to a Good Prompt</h3>
+      <p><strong>Bad Prompt:</strong> "Write a function to check if a word is a palindrome."</p>
+      <p><strong>Good Prompt:</strong> "You are a Python programming expert. Write an efficient Python function called \`is_palindrome\` that takes a single string argument and returns \`True\` if the word is a palindrome and \`False\` otherwise. The function should be case-insensitive and should ignore non-alphanumeric characters. Include a brief explanation of how the code works."</p>
+    `
+  },
+  {
+    slug: 'zero-to-full-stack-nextjs',
+    title: 'From Zero to Full-Stack with Next.js',
+    description: 'A high-level overview of the technologies and steps required to build a modern, full-stack web application with Next.js.',
+    author: 'John Smith',
+    date: '2024-03-25',
+    content: `
+      <h2>What is a Full-Stack Application?</h2>
+      <p>A full-stack application includes both a <strong>front-end</strong> (what the user sees and interacts with in their browser) and a <strong>back-end</strong> (the server, database, and logic that powers the application). As a full-stack developer, you are comfortable working on both sides.</p>
+      
+      <h3>The Core Components</h3>
+      <ul>
+        <li><strong>Front-End (The "View"):</strong> For a modern stack, this is typically built with a JavaScript framework like <strong>React</strong>. Next.js extends React with powerful features for building the front-end.</li>
+        <li><strong>Back-End (The "Logic"):</strong> This is where your business logic lives. With Next.js, you can write your back-end logic directly within your project using API Routes (or Route Handlers in the App Router). This is powered by <strong>Node.js</strong>.</li>
+        <li><strong>Database (The "State"):</strong> This is where your application's data is stored. Popular choices include PostgreSQL (SQL) or MongoDB (NoSQL). You'll need a way for your back-end to communicate with the database, often through a library called an ORM (like Prisma).</li>
+      </ul>
+
+      <h3>Steps to Build a Full-Stack App</h3>
+      <ol>
+        <li><strong>Project Setup:</strong> Initialize a new Next.js project.</li>
+        <li><strong>Database Schema:</strong> Design your data models and set up your database tables.</li>
+        <li><strong>API Routes:</strong> Create the back-end endpoints to perform CRUD (Create, Read, Update, Delete) operations on your data.</li>
+        <li><strong>Front-End Components:</strong> Build the React components that will form your user interface.</li>
+        <li><strong>Connect Front-End to Back-End:</strong> Write the client-side code to make API calls to your back-end routes and display the data.</li>
+        <li><strong>Authentication:</strong> Add user login and registration to secure your application.</li>
+        <li><strong>Deployment:</strong> Deploy your front-end and back-end to a hosting provider like Vercel or Netlify.</li>
+      </ol>
+      <p>Building a full-stack application can seem daunting, but by breaking it down into these components, you can tackle it one piece at a time. Our AI Project Builder is a great way to get started on this journey!</p>
+    `
+  }
 ];
