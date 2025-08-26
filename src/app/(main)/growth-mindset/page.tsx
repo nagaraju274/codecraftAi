@@ -1,4 +1,5 @@
 
+import { AuthGuard } from "@/components/auth/auth-guard";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { BrainCircuit, Lightbulb, TrendingUp, Heart, Code } from "lucide-react";
 
@@ -46,101 +47,103 @@ const strategies = [
 
 export default function GrowthMindsetPage() {
   return (
-    <div className="container mx-auto py-10">
-      <header className="text-center mb-12">
-        <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
-          Growth Mindset & Motivation
-        </h1>
-        <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-          In a field that changes daily, your mindset is your most valuable asset. Learn to embrace challenges, persist through setbacks, and see failure as a stepping stone to mastery.
-        </p>
-      </header>
-      
-      <Card className="mb-12">
-        <CardHeader>
-          <CardTitle>Fixed vs. Growth Mindset</CardTitle>
-          <CardDescription>Understanding the core difference is the first step.</CardDescription>
-        </CardHeader>
-        <CardContent className="grid md:grid-cols-2 gap-6">
-          <div className="p-6 bg-muted/40 rounded-lg">
-            <h3 className="font-semibold text-lg mb-2">Fixed Mindset</h3>
-            <p className="text-muted-foreground mb-4">"I'm either good at it or I'm not."</p>
-            <ul className="list-disc list-inside space-y-2 text-sm">
-                <li>Avoids challenges to avoid failure.</li>
-                <li>Gives up easily when faced with obstacles.</li>
-                <li>Sees effort as pointless.</li>
-                <li>Ignores useful negative feedback.</li>
-                <li>Feels threatened by the success of others.</li>
-            </ul>
-          </div>
-          <div className="p-6 bg-primary/10 rounded-lg">
-            <h3 className="font-semibold text-lg mb-2 text-primary">Growth Mindset</h3>
-            <p className="text-muted-foreground mb-4">"I can learn to do anything I want."</p>
-             <ul className="list-disc list-inside space-y-2 text-sm">
-                <li>Embraces challenges as opportunities.</li>
-                <li>Persists in the face of setbacks.</li>
-                <li>Sees effort as the path to mastery.</li>
-                <li>Learns from criticism and feedback.</li>
-                <li>Finds lessons and inspiration in others' success.</li>
-            </ul>
-          </div>
-        </CardContent>
-      </Card>
+    <AuthGuard>
+      <div className="container mx-auto py-10">
+        <header className="text-center mb-12">
+          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
+            Growth Mindset & Motivation
+          </h1>
+          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+            In a field that changes daily, your mindset is your most valuable asset. Learn to embrace challenges, persist through setbacks, and see failure as a stepping stone to mastery.
+          </p>
+        </header>
+        
+        <Card className="mb-12">
+          <CardHeader>
+            <CardTitle>Fixed vs. Growth Mindset</CardTitle>
+            <CardDescription>Understanding the core difference is the first step.</CardDescription>
+          </CardHeader>
+          <CardContent className="grid md:grid-cols-2 gap-6">
+            <div className="p-6 bg-muted/40 rounded-lg">
+              <h3 className="font-semibold text-lg mb-2">Fixed Mindset</h3>
+              <p className="text-muted-foreground mb-4">"I'm either good at it or I'm not."</p>
+              <ul className="list-disc list-inside space-y-2 text-sm">
+                  <li>Avoids challenges to avoid failure.</li>
+                  <li>Gives up easily when faced with obstacles.</li>
+                  <li>Sees effort as pointless.</li>
+                  <li>Ignores useful negative feedback.</li>
+                  <li>Feels threatened by the success of others.</li>
+              </ul>
+            </div>
+            <div className="p-6 bg-primary/10 rounded-lg">
+              <h3 className="font-semibold text-lg mb-2 text-primary">Growth Mindset</h3>
+              <p className="text-muted-foreground mb-4">"I can learn to do anything I want."</p>
+              <ul className="list-disc list-inside space-y-2 text-sm">
+                  <li>Embraces challenges as opportunities.</li>
+                  <li>Persists in the face of setbacks.</li>
+                  <li>Sees effort as the path to mastery.</li>
+                  <li>Learns from criticism and feedback.</li>
+                  <li>Finds lessons and inspiration in others' success.</li>
+              </ul>
+            </div>
+          </CardContent>
+        </Card>
 
-      <section className="mb-12">
-        <h2 className="text-3xl font-bold text-center mb-8">Core Principles for Developers</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {principles.map((p) => (
-            <Card key={p.title} className="text-center">
-              <CardHeader>
-                <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit mb-2">
-                    {p.icon}
-                </div>
-                <CardTitle className="text-lg">{p.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm">{p.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-       <section>
-        <h2 className="text-3xl font-bold text-center mb-8">Actionable Strategies</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-            {strategies.map(s => (
-                <Card key={s.title}>
-                    <CardHeader>
-                        <CardTitle className="text-lg">{s.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <p className="text-muted-foreground">{s.description}</p>
-                    </CardContent>
-                </Card>
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold text-center mb-8">Core Principles for Developers</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {principles.map((p) => (
+              <Card key={p.title} className="text-center">
+                <CardHeader>
+                  <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit mb-2">
+                      {p.icon}
+                  </div>
+                  <CardTitle className="text-lg">{p.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground text-sm">{p.description}</p>
+                </CardContent>
+              </Card>
             ))}
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <Card className="mt-12 bg-muted/50">
-        <CardHeader>
-            <CardTitle className="flex items-center gap-3">
-                <Code className="w-6 h-6 text-primary" />
-                <span>A Developer's Mantra</span>
-            </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-6">
-            <blockquote className="border-l-4 border-primary pl-4 italic text-lg">
-                "This bug is not a reflection of my intelligence. It's a puzzle, and I have the tools and the capacity to solve it. Every error message is a clue, and every attempt is progress."
-            </blockquote>
-            <blockquote className="border-l-4 border-primary pl-4 italic text-lg">
-                "I am not a 'JavaScript developer' or a 'Python developer'. I am a problem solver who uses technology as a tool. The languages and frameworks will change, but my ability to learn and adapt is my greatest asset."
-            </blockquote>
-            <blockquote className="border-l-4 border-primary pl-4 italic text-lg">
-                "Code that is 'good enough' and shipped is infinitely more valuable than 'perfect' code that never gets deployed. I will embrace iteration and continuous improvement over the illusion of perfection."
-            </blockquote>
-        </CardContent>
-      </Card>
-    </div>
+        <section>
+          <h2 className="text-3xl font-bold text-center mb-8">Actionable Strategies</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+              {strategies.map(s => (
+                  <Card key={s.title}>
+                      <CardHeader>
+                          <CardTitle className="text-lg">{s.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                          <p className="text-muted-foreground">{s.description}</p>
+                      </CardContent>
+                  </Card>
+              ))}
+          </div>
+        </section>
+
+        <Card className="mt-12 bg-muted/50">
+          <CardHeader>
+              <CardTitle className="flex items-center gap-3">
+                  <Code className="w-6 h-6 text-primary" />
+                  <span>A Developer's Mantra</span>
+              </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+              <blockquote className="border-l-4 border-primary pl-4 italic text-lg">
+                  "This bug is not a reflection of my intelligence. It's a puzzle, and I have the tools and the capacity to solve it. Every error message is a clue, and every attempt is progress."
+              </blockquote>
+              <blockquote className="border-l-4 border-primary pl-4 italic text-lg">
+                  "I am not a 'JavaScript developer' or a 'Python developer'. I am a problem solver who uses technology as a tool. The languages and frameworks will change, but my ability to learn and adapt is my greatest asset."
+              </blockquote>
+              <blockquote className="border-l-4 border-primary pl-4 italic text-lg">
+                  "Code that is 'good enough' and shipped is infinitely more valuable than 'perfect' code that never gets deployed. I will embrace iteration and continuous improvement over the illusion of perfection."
+              </blockquote>
+          </CardContent>
+        </Card>
+      </div>
+    </AuthGuard>
   );
 }

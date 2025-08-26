@@ -16,6 +16,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { AuthGuard } from "@/components/auth/auth-guard";
 
 
 const ArrayVisual = () => (
@@ -282,236 +283,238 @@ def contains_duplicate(nums):
 
 export default function ArrayPage() {
   return (
-    <div className="container mx-auto py-10 space-y-12">
-        <header>
-            <div className="flex items-center gap-4">
-                 <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-foreground">
-                    Array 📦
-                </h1>
-                <TooltipProvider>
-                    <Tooltip>
-                        <TooltipTrigger>
-                            <Info className="h-6 w-6 text-muted-foreground" />
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            <p>A collection of elements stored in contiguous memory locations, accessible by index.</p>
-                        </TooltipContent>
-                    </Tooltip>
-                </TooltipProvider>
-            </div>
-             <p className="mt-4 text-lg text-muted-foreground max-w-3xl">
-                The array is the most fundamental data structure, forming the basis for many others. Its strength lies in providing constant-time access to any element, making it incredibly fast for read-heavy tasks.
-            </p>
-        </header>
+    <AuthGuard>
+      <div className="container mx-auto py-10 space-y-12">
+          <header>
+              <div className="flex items-center gap-4">
+                  <h1 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-foreground">
+                      Array 📦
+                  </h1>
+                  <TooltipProvider>
+                      <Tooltip>
+                          <TooltipTrigger>
+                              <Info className="h-6 w-6 text-muted-foreground" />
+                          </TooltipTrigger>
+                          <TooltipContent>
+                              <p>A collection of elements stored in contiguous memory locations, accessible by index.</p>
+                          </TooltipContent>
+                      </Tooltip>
+                  </TooltipProvider>
+              </div>
+              <p className="mt-4 text-lg text-muted-foreground max-w-3xl">
+                  The array is the most fundamental data structure, forming the basis for many others. Its strength lies in providing constant-time access to any element, making it incredibly fast for read-heavy tasks.
+              </p>
+          </header>
 
-        <Card>
-            <CardHeader><CardTitle>Visual Diagram</CardTitle></CardHeader>
-            <CardContent>
-                <CardDescription>
-                    An array stores elements in a contiguous block of memory. Each position, or "slot," is identified by an integer index, which starts at 0. This structure allows for direct calculation of an element's memory address, which is why accessing any element is so fast.
-                </CardDescription>
-                <ArrayVisual />
-            </CardContent>
-        </Card>
+          <Card>
+              <CardHeader><CardTitle>Visual Diagram</CardTitle></CardHeader>
+              <CardContent>
+                  <CardDescription>
+                      An array stores elements in a contiguous block of memory. Each position, or "slot," is identified by an integer index, which starts at 0. This structure allows for direct calculation of an element's memory address, which is why accessing any element is so fast.
+                  </CardDescription>
+                  <ArrayVisual />
+              </CardContent>
+          </Card>
 
-        <Card>
-            <CardHeader>
-                <CardTitle>Core Concepts</CardTitle>
-                <CardDescription>Understanding these concepts is key to using arrays effectively.</CardDescription>
-            </CardHeader>
-            <CardContent>
-                <Accordion type="single" collapsible className="w-full">
-                    <AccordionItem value="item-1">
-                        <AccordionTrigger>Contiguous Memory</AccordionTrigger>
-                        <AccordionContent>
-                           Unlike a linked list, array elements are stored right next to each other in memory. This has two major benefits: 1) It allows for O(1) access because the computer can calculate the exact memory address of any element using its index (`address = start_address + index * element_size`). 2) It leads to excellent cache performance, as loading one element from memory often pre-loads adjacent elements into the faster cache.
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-2">
-                        <AccordionTrigger>Static vs. Dynamic Arrays</AccordionTrigger>
-                        <AccordionContent>
-                            <ul className="list-disc pl-5 space-y-2">
-                                <li><strong>Static Arrays:</strong> Have a fixed size determined at compile time. They are simple and memory-efficient but cannot be resized. C-style arrays (`int arr[10];`) are a classic example.</li>
-                                <li><strong>Dynamic Arrays:</strong> Can grow and shrink at runtime. Under the hood, when a dynamic array runs out of space, it allocates a new, larger block of memory and copies all the old elements over. This is why appending is considered "amortized" O(1) — while most appends are fast, some will trigger a slow O(n) copy operation. Python's `list`, C++'s `std::vector`, and Java's `ArrayList` are all dynamic arrays.</li>
-                            </ul>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-3">
-                        <AccordionTrigger>Homogeneous Data Type</AccordionTrigger>
-                        <AccordionContent>
-                            Traditionally, arrays store elements of the same data type (e.g., an array of integers, an array of strings). This allows for predictable memory allocation, as every element occupies the same amount of space. Languages like Python offer more flexibility, but in statically-typed languages like C++ and Java, this rule is strictly enforced.
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
-            </CardContent>
-        </Card>
-
-
-         <Card>
-            <CardHeader><CardTitle>Properties & Time Complexity</CardTitle></CardHeader>
-            <CardContent>
-                 <CardDescription>Time complexity describes how the runtime of an operation grows as the size of the array (n) grows. Understanding these is crucial for writing efficient algorithms.</CardDescription>
-                <Table className="mt-4">
-                    <TableHeader>
-                        <TableRow>
-                            <TableHead>Property</TableHead>
-                            <TableHead>Details</TableHead>
-                            <TableHead>Time Complexity</TableHead>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        {properties.map(p => (
-                            <TableRow key={p.property}>
-                                <TableCell className="font-semibold">{p.property}</TableCell>
-                                <TableCell>{p.details}</TableCell>
-                                <TableCell>
-                                    {p.complexity && <ComplexityBadge complexity={p.complexity as "good" | "bad"} />}
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </CardContent>
-        </Card>
-        
-        <Card>
-            <CardHeader>
-                <CardTitle>Common Operations</CardTitle>
-                <CardDescription>Code examples for the most frequent array operations in popular languages.</CardDescription>
-            </CardHeader>
-            <CardContent>
-                <Tabs defaultValue="python">
-                    <TabsList>
-                        <TabsTrigger value="python">Python</TabsTrigger>
-                        <TabsTrigger value="cpp">C++</TabsTrigger>
-                        <TabsTrigger value="java">Java</TabsTrigger>
-                    </TabsList>
-                    {Object.entries(codeSnippets).map(([lang, code]) => (
-                        <TabsContent value={lang} key={lang}>
-                            <div className="relative bg-muted rounded-md p-4 font-code text-sm mt-4">
-                                <Button size="icon" variant="ghost" className="absolute top-2 right-2 h-7 w-7" onClick={() => navigator.clipboard.writeText(code)}>
-                                    <Copy className="h-4 w-4" />
-                                </Button>
-                                <pre><code>{code}</code></pre>
-                            </div>
-                        </TabsContent>
-                    ))}
-                </Tabs>
-            </CardContent>
-        </Card>
-
-        <Card>
-            <CardHeader>
-                <CardTitle className="flex items-center gap-3"><Workflow className="h-6 w-6 text-primary"/>Advanced Techniques & Patterns</CardTitle>
-                <CardDescription>Leverage arrays to solve complex problems with these common and efficient patterns.</CardDescription>
-            </CardHeader>
-            <CardContent>
-                <Accordion type="single" collapsible className="w-full">
-                     <AccordionItem value="item-1">
-                        <AccordionTrigger>Two Pointers</AccordionTrigger>
-                        <AccordionContent>
-                           The Two-Pointer technique involves using two pointers (indices) that move through the array to solve problems. They can move towards each other, away from each other, or in the same direction. It's extremely useful for problems on sorted arrays, such as finding pairs that sum to a target, or reversing an array in-place.
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-2">
-                        <AccordionTrigger>Sliding Window</AccordionTrigger>
-                        <AccordionContent>
-                           This pattern involves creating a "window" over a portion of the array, which then slides across the array as you process it. The window can be of a fixed or variable size. It's perfect for problems involving finding the longest/shortest subarray that satisfies a condition, or finding the maximum/minimum sum of a fixed-size subarray.
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-3">
-                        <AccordionTrigger>Prefix Sum</AccordionTrigger>
-                        <AccordionContent>
-                           A prefix sum array is a pre-calculated array where each element `prefix[i]` stores the sum of all elements from the original array up to index `i`. This allows you to calculate the sum of any subarray `[j...k]` in O(1) time by computing `prefix[k] - prefix[j-1]`. It's a powerful pre-computation technique for problems involving frequent range sum queries.
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
-            </CardContent>
-        </Card>
-        
-        <Card>
-            <CardHeader>
-                <CardTitle className="flex items-center gap-3"><Lightbulb className="h-6 w-6 text-primary"/>Common Array Problems</CardTitle>
-                <CardDescription>Practice with these classic problems. Click on one to see a detailed explanation and solution.</CardDescription>
-            </CardHeader>
-            <CardContent>
-                <Accordion type="single" collapsible className="w-full">
-                    {commonProblems.map((problem, index) => (
-                        <AccordionItem value={`item-${index}`} key={index}>
-                            <AccordionTrigger className="text-base font-medium no-underline hover:no-underline">
-                                <div className="flex items-center justify-between w-full">
-                                    <span>{problem.title}</span>
-                                    <div className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-9 px-3 bg-secondary text-secondary-foreground hover:bg-secondary/80 mr-4">
-                                        Try Me
-                                    </div>
-                                </div>
-                            </AccordionTrigger>
-                            <AccordionContent className="pt-2">
-                                <div className="prose prose-sm dark:prose-invert max-w-none space-y-4">
-                                    <p className="text-muted-foreground">{problem.description}</p>
-                                    
-                                    <h4 className="font-semibold">Logic & Approach</h4>
-                                    <p>{problem.logic}</p>
-
-                                    <h4 className="font-semibold">Code Example (Python)</h4>
-                                    <pre className="bg-muted p-4 rounded-md text-sm font-code whitespace-pre-wrap">{problem.code}</pre>
-
-                                    <h4 className="font-semibold">Line-by-Line Explanation</h4>
-                                    <ul className="list-disc pl-5 space-y-2">
-                                        {problem.lineByLine.map((line, i) => <li key={i}>{line}</li>)}
-                                    </ul>
-
-                                    <h4 className="font-semibold">How it Works (Diagram)</h4>
-                                    <pre className="bg-muted/50 p-4 rounded-md text-sm font-code whitespace-pre-wrap">{`
-                                    ${problem.diagram}
-                                    `}</pre>
-                                </div>
-                            </AccordionContent>
-                        </AccordionItem>
-                    ))}
-                </Accordion>
-            </CardContent>
-        </Card>
+          <Card>
+              <CardHeader>
+                  <CardTitle>Core Concepts</CardTitle>
+                  <CardDescription>Understanding these concepts is key to using arrays effectively.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                  <Accordion type="single" collapsible className="w-full">
+                      <AccordionItem value="item-1">
+                          <AccordionTrigger>Contiguous Memory</AccordionTrigger>
+                          <AccordionContent>
+                            Unlike a linked list, array elements are stored right next to each other in memory. This has two major benefits: 1) It allows for O(1) access because the computer can calculate the exact memory address of any element using its index (`address = start_address + index * element_size`). 2) It leads to excellent cache performance, as loading one element from memory often pre-loads adjacent elements into the faster cache.
+                          </AccordionContent>
+                      </AccordionItem>
+                      <AccordionItem value="item-2">
+                          <AccordionTrigger>Static vs. Dynamic Arrays</AccordionTrigger>
+                          <AccordionContent>
+                              <ul className="list-disc pl-5 space-y-2">
+                                  <li><strong>Static Arrays:</strong> Have a fixed size determined at compile time. They are simple and memory-efficient but cannot be resized. C-style arrays (`int arr[10];`) are a classic example.</li>
+                                  <li><strong>Dynamic Arrays:</strong> Can grow and shrink at runtime. Under the hood, when a dynamic array runs out of space, it allocates a new, larger block of memory and copies all the old elements over. This is why appending is considered "amortized" O(1) — while most appends are fast, some will trigger a slow O(n) copy operation. Python's `list`, C++'s `std::vector`, and Java's `ArrayList` are all dynamic arrays.</li>
+                              </ul>
+                          </AccordionContent>
+                      </AccordionItem>
+                      <AccordionItem value="item-3">
+                          <AccordionTrigger>Homogeneous Data Type</AccordionTrigger>
+                          <AccordionContent>
+                              Traditionally, arrays store elements of the same data type (e.g., an array of integers, an array of strings). This allows for predictable memory allocation, as every element occupies the same amount of space. Languages like Python offer more flexibility, but in statically-typed languages like C++ and Java, this rule is strictly enforced.
+                          </AccordionContent>
+                      </AccordionItem>
+                  </Accordion>
+              </CardContent>
+          </Card>
 
 
-        <Card>
-            <CardHeader>
-                <CardTitle className="flex items-center gap-3">
-                    <BrainCircuit className="h-6 w-6 text-primary" />
-                    Interactive Mini-Challenges
-                </CardTitle>
-                <CardDescription>Ready to test your knowledge? Put these concepts into practice.</CardDescription>
-            </CardHeader>
-            <CardContent className="flex justify-center items-center py-12">
-                <Button asChild size="lg">
-                    <Link href="/treasure/array/challenges">
-                        Start Challenges
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                </Button>
-            </CardContent>
-        </Card>
+          <Card>
+              <CardHeader><CardTitle>Properties & Time Complexity</CardTitle></CardHeader>
+              <CardContent>
+                  <CardDescription>Time complexity describes how the runtime of an operation grows as the size of the array (n) grows. Understanding these is crucial for writing efficient algorithms.</CardDescription>
+                  <Table className="mt-4">
+                      <TableHeader>
+                          <TableRow>
+                              <TableHead>Property</TableHead>
+                              <TableHead>Details</TableHead>
+                              <TableHead>Time Complexity</TableHead>
+                          </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                          {properties.map(p => (
+                              <TableRow key={p.property}>
+                                  <TableCell className="font-semibold">{p.property}</TableCell>
+                                  <TableCell>{p.details}</TableCell>
+                                  <TableCell>
+                                      {p.complexity && <ComplexityBadge complexity={p.complexity as "good" | "bad"} />}
+                                  </TableCell>
+                              </TableRow>
+                          ))}
+                      </TableBody>
+                  </Table>
+              </CardContent>
+          </Card>
+          
+          <Card>
+              <CardHeader>
+                  <CardTitle>Common Operations</CardTitle>
+                  <CardDescription>Code examples for the most frequent array operations in popular languages.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                  <Tabs defaultValue="python">
+                      <TabsList>
+                          <TabsTrigger value="python">Python</TabsTrigger>
+                          <TabsTrigger value="cpp">C++</TabsTrigger>
+                          <TabsTrigger value="java">Java</TabsTrigger>
+                      </TabsList>
+                      {Object.entries(codeSnippets).map(([lang, code]) => (
+                          <TabsContent value={lang} key={lang}>
+                              <div className="relative bg-muted rounded-md p-4 font-code text-sm mt-4">
+                                  <Button size="icon" variant="ghost" className="absolute top-2 right-2 h-7 w-7" onClick={() => navigator.clipboard.writeText(code)}>
+                                      <Copy className="h-4 w-4" />
+                                  </Button>
+                                  <pre><code>{code}</code></pre>
+                              </div>
+                          </TabsContent>
+                      ))}
+                  </Tabs>
+              </CardContent>
+          </Card>
 
-         <Card>
-            <CardHeader><CardTitle>What's Next?</CardTitle></CardHeader>
-            <CardContent className="space-y-2">
-                <Link href="/treasure/linked-list" className="flex items-center justify-between p-3 rounded-md hover:bg-muted/70 transition-colors">
-                    <div>
-                        <h3 className="font-semibold text-primary">Linked List</h3>
-                        <p className="text-sm text-muted-foreground">Explore the Linked List to see how it solves the array's O(n) insertion/deletion problem.</p>
-                    </div>
-                    <ArrowRight className="h-5 w-5" />
-                </Link>
-                 <Link href="/dsa-with-python" className="flex items-center justify-between p-3 rounded-md hover:bg-muted/70 transition-colors">
-                     <div>
-                        <h3 className="font-semibold text-primary">Practice Array Problems</h3>
-                        <p className="text-sm text-muted-foreground">Apply your knowledge by tackling common array problems on LeetCode or HackerRank.</p>
-                    </div>
-                    <ArrowRight className="h-5 w-5" />
-                </Link>
-            </CardContent>
-        </Card>
+          <Card>
+              <CardHeader>
+                  <CardTitle className="flex items-center gap-3"><Workflow className="h-6 w-6 text-primary"/>Advanced Techniques & Patterns</CardTitle>
+                  <CardDescription>Leverage arrays to solve complex problems with these common and efficient patterns.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                  <Accordion type="single" collapsible className="w-full">
+                      <AccordionItem value="item-1">
+                          <AccordionTrigger>Two Pointers</AccordionTrigger>
+                          <AccordionContent>
+                            The Two-Pointer technique involves using two pointers (indices) that move through the array to solve problems. They can move towards each other, away from each other, or in the same direction. It's extremely useful for problems on sorted arrays, such as finding pairs that sum to a target, or reversing an array in-place.
+                          </AccordionContent>
+                      </AccordionItem>
+                      <AccordionItem value="item-2">
+                          <AccordionTrigger>Sliding Window</AccordionTrigger>
+                          <AccordionContent>
+                            This pattern involves creating a "window" over a portion of the array, which then slides across the array as you process it. The window can be of a fixed or variable size. It's perfect for problems involving finding the longest/shortest subarray that satisfies a condition, or finding the maximum/minimum sum of a fixed-size subarray.
+                          </AccordionContent>
+                      </AccordionItem>
+                      <AccordionItem value="item-3">
+                          <AccordionTrigger>Prefix Sum</AccordionTrigger>
+                          <AccordionContent>
+                            A prefix sum array is a pre-calculated array where each element `prefix[i]` stores the sum of all elements from the original array up to index `i`. This allows you to calculate the sum of any subarray `[j...k]` in O(1) time by computing `prefix[k] - prefix[j-1]`. It's a powerful pre-computation technique for problems involving frequent range sum queries.
+                          </AccordionContent>
+                      </AccordionItem>
+                  </Accordion>
+              </CardContent>
+          </Card>
+          
+          <Card>
+              <CardHeader>
+                  <CardTitle className="flex items-center gap-3"><Lightbulb className="h-6 w-6 text-primary"/>Common Array Problems</CardTitle>
+                  <CardDescription>Practice with these classic problems. Click on one to see a detailed explanation and solution.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                  <Accordion type="single" collapsible className="w-full">
+                      {commonProblems.map((problem, index) => (
+                          <AccordionItem value={`item-${index}`} key={index}>
+                              <AccordionTrigger className="text-base font-medium no-underline hover:no-underline">
+                                  <div className="flex items-center justify-between w-full">
+                                      <span>{problem.title}</span>
+                                      <div className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-9 px-3 bg-secondary text-secondary-foreground hover:bg-secondary/80 mr-4">
+                                          Try Me
+                                      </div>
+                                  </div>
+                              </AccordionTrigger>
+                              <AccordionContent className="pt-2">
+                                  <div className="prose prose-sm dark:prose-invert max-w-none space-y-4">
+                                      <p className="text-muted-foreground">{problem.description}</p>
+                                      
+                                      <h4 className="font-semibold">Logic & Approach</h4>
+                                      <p>{problem.logic}</p>
 
-    </div>
+                                      <h4 className="font-semibold">Code Example (Python)</h4>
+                                      <pre className="bg-muted p-4 rounded-md text-sm font-code whitespace-pre-wrap">{problem.code}</pre>
+
+                                      <h4 className="font-semibold">Line-by-Line Explanation</h4>
+                                      <ul className="list-disc pl-5 space-y-2">
+                                          {problem.lineByLine.map((line, i) => <li key={i}>{line}</li>)}
+                                      </ul>
+
+                                      <h4 className="font-semibold">How it Works (Diagram)</h4>
+                                      <pre className="bg-muted/50 p-4 rounded-md text-sm font-code whitespace-pre-wrap">{`
+                                      ${problem.diagram}
+                                      `}</pre>
+                                  </div>
+                              </AccordionContent>
+                          </AccordionItem>
+                      ))}
+                  </Accordion>
+              </CardContent>
+          </Card>
+
+
+          <Card>
+              <CardHeader>
+                  <CardTitle className="flex items-center gap-3">
+                      <BrainCircuit className="h-6 w-6 text-primary" />
+                      Interactive Mini-Challenges
+                  </CardTitle>
+                  <CardDescription>Ready to test your knowledge? Put these concepts into practice.</CardDescription>
+              </CardHeader>
+              <CardContent className="flex justify-center items-center py-12">
+                  <Button asChild size="lg">
+                      <Link href="/treasure/array/challenges">
+                          Start Challenges
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                  </Button>
+              </CardContent>
+          </Card>
+
+          <Card>
+              <CardHeader><CardTitle>What's Next?</CardTitle></CardHeader>
+              <CardContent className="space-y-2">
+                  <Link href="/treasure/linked-list" className="flex items-center justify-between p-3 rounded-md hover:bg-muted/70 transition-colors">
+                      <div>
+                          <h3 className="font-semibold text-primary">Linked List</h3>
+                          <p className="text-sm text-muted-foreground">Explore the Linked List to see how it solves the array's O(n) insertion/deletion problem.</p>
+                      </div>
+                      <ArrowRight className="h-5 w-5" />
+                  </Link>
+                  <Link href="/dsa-with-python" className="flex items-center justify-between p-3 rounded-md hover:bg-muted/70 transition-colors">
+                      <div>
+                          <h3 className="font-semibold text-primary">Practice Array Problems</h3>
+                          <p className="text-sm text-muted-foreground">Apply your knowledge by tackling common array problems on LeetCode or HackerRank.</p>
+                      </div>
+                      <ArrowRight className="h-5 w-5" />
+                  </Link>
+              </CardContent>
+          </Card>
+
+      </div>
+    </AuthGuard>
   );
 }

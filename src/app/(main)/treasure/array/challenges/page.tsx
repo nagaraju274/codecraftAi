@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { ArrowLeft, CheckCircle, XCircle } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { AuthGuard } from "@/components/auth/auth-guard";
 
 type Challenge = {
   id: string;
@@ -106,22 +107,24 @@ const ChallengeCard = ({ challenge }: { challenge: Challenge }) => {
 
 export default function ArrayChallengesPage() {
   return (
-    <div className="container mx-auto py-10 space-y-8">
-        <Button asChild variant="ghost" className="mb-4 self-start">
-            <Link href="/treasure/array">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Arrays
-            </Link>
-        </Button>
-        <div className="text-center">
-            <h1 className="text-3xl font-bold">Array: Interactive Mini-Challenges</h1>
-            <p className="text-muted-foreground mt-2">Test your knowledge with these hands-on exercises.</p>
-        </div>
-        <div className="max-w-2xl mx-auto space-y-8">
-            {challenges.map(challenge => (
-                <ChallengeCard key={challenge.id} challenge={challenge} />
-            ))}
-        </div>
-    </div>
+    <AuthGuard>
+      <div className="container mx-auto py-10 space-y-8">
+          <Button asChild variant="ghost" className="mb-4 self-start">
+              <Link href="/treasure/array">
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  Back to Arrays
+              </Link>
+          </Button>
+          <div className="text-center">
+              <h1 className="text-3xl font-bold">Array: Interactive Mini-Challenges</h1>
+              <p className="text-muted-foreground mt-2">Test your knowledge with these hands-on exercises.</p>
+          </div>
+          <div className="max-w-2xl mx-auto space-y-8">
+              {challenges.map(challenge => (
+                  <ChallengeCard key={challenge.id} challenge={challenge} />
+              ))}
+          </div>
+      </div>
+    </AuthGuard>
   );
 }
