@@ -13,16 +13,6 @@ import Image from 'next/image';
 import { Skeleton } from '@/components/ui/skeleton';
 import { projects } from '@/app/(main)/projects/projects-data';
 import { learningPaths } from '@/lib/learning-paths-data';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'My Dashboard',
-  description: 'View your personalized dashboard on CodeCraft AI. Track your learning progress, continue projects, and get recommendations for what to learn next.',
-  robots: {
-    index: false, // No need to index profile pages
-    follow: false,
-  },
-}
 
 
 export default function ProfilePage() {

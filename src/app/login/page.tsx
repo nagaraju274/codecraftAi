@@ -17,17 +17,6 @@ import { Separator } from '@/components/ui/separator';
 import { auth } from '@/lib/firebase';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { useToast } from '@/hooks/use-toast';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Login to Your Account',
-  description: 'Access your CodeCraft AI dashboard. Log in to continue your learning paths, work on projects, and connect with the community.',
-  robots: {
-    index: false,
-    follow: false,
-  },
-}
-
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
