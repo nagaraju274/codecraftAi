@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import React from 'react';
@@ -116,7 +117,8 @@ const ComplexityBadge = ({ complexity }: { complexity: "good" | "bad" }) => (
 
 const codeSnippets = {
   python: {
-    singly: `
+    singly: {
+      code: `
 class Node:
     def __init__(self, data):
         self.data = data
@@ -145,7 +147,19 @@ class LinkedList:
             current = current.next
         print("None")
 `.trim(),
-    doubly: `
+      explanation: `
+- **Node Class**: A simple class to represent each element. It holds the `data` and a `next` pointer to the subsequent node.
+- **LinkedList Class**: Manages the list, starting with just a `head` pointer, which is initially `None`.
+- **insert_at_head**: This is an O(1) operation. 
+  1. A `new_node` is created.
+  2. The `new_node`'s `next` pointer is set to the current `head` of the list.
+  3. The list's `head` is updated to be the `new_node`, making it the first element.
+- **delete_head**: Also O(1). It simply moves the `head` pointer to the next node in the list (`self.head.next`), effectively removing the old head.
+- **traverse**: An O(n) operation. It starts a `current` pointer at the `head` and iterates through the list, printing each node's data until `current` becomes `None`.
+`.trim()
+    },
+    doubly: {
+      code: `
 class Node:
     def __init__(self, data):
         self.data = data
@@ -184,7 +198,18 @@ class DoublyLinkedList:
             current = current.next
         print("None")
 `.trim(),
-    circular: `
+      explanation: `
+- **Node Class**: Now includes a `prev` pointer in addition to `next` and `data`.
+- **insert_at_head**: Remains O(1). The logic is similar to a singly linked list, but with an extra step: if the list is not empty, the original head's `prev` pointer must be updated to point to the `new_node`.
+- **delete_node**: This is O(1) if you have a direct reference to the node you want to delete. 
+  1. It first checks if the node has a `prev` element. If so, it makes that previous node's `next` pointer skip over the node-to-delete.
+  2. If there is no `prev` element, it means we are deleting the head, so the head must be updated.
+  3. It then performs the opposite check for the `next` element, updating its `prev` pointer to skip backward over the node-to-delete.
+- **traverse**: Works the same as in a singly linked list, iterating forward from the `head`.
+`.trim()
+    },
+    circular: {
+      code: `
 class Node:
     def __init__(self, data):
         self.data = data
@@ -223,9 +248,18 @@ class CircularLinkedList:
                 break
         print(f"(Head: {self.head.data})")
 `.trim(),
+      explanation: `
+- **insert_at_head**: The implementation shown is O(n) because it has to find the tail node to update its `next` pointer. 
+  1. If the list is empty, the new node's `next` pointer points to itself.
+  2. Otherwise, it iterates through the list until it finds the node whose `next` pointer is the `head` (the tail node).
+  3. It then updates the tail's `next` to the `new_node`, and the `new_node`'s `next` to the old `head`. Finally, the `head` is updated.
+- **traverse**: Traversal requires a different loop condition. Instead of checking for `None`, we loop until we arrive back at the `head`. A `do-while` loop is a natural fit, but in Python, we use a `while True` loop with a `break` condition.
+`.trim()
+    },
   },
   cpp: {
-    singly: `
+    singly: {
+      code: `
 #include <iostream>
 
 struct Node {
@@ -266,7 +300,16 @@ public:
     }
 };
 `.trim(),
-    doubly: `
+      explanation: `
+- **Node Struct**: A simple structure to hold an integer `data` and a pointer `next` to the next Node.
+- **LinkedList Class**: The `head` is a public member pointer, initialized to `nullptr`.
+- **insert_at_head**: An O(1) operation. It dynamically allocates a `newNode`, sets its `data`, points its `next` to the current `head`, and then updates the `head` to be the `newNode`.
+- **delete_head**: Also O(1). It saves the current `head` in a temporary pointer, updates `head` to the next node, and then uses `delete` to free the memory of the old head to prevent memory leaks.
+- **traverse**: An O(n) operation. A `current` pointer starts at the `head` and iterates through the list until it becomes `nullptr`.
+`.trim()
+    },
+    doubly: {
+      code: `
 #include <iostream>
 
 struct Node {
@@ -318,7 +361,14 @@ public:
     }
 };
 `.trim(),
-    circular: `
+      explanation: `
+- **Node Struct**: Now contains both `next` and `prev` pointers.
+- **insert_at_head**: Still O(1). After setting the `newNode`'s `next` pointer, it also sets its `prev` pointer to `nullptr`. Crucially, if the list isn't empty, it updates the old `head`'s `prev` pointer to point to the `newNode`.
+- **deleteNode**: This is O(1) if you have a direct pointer to the node. It carefully handles four cases: updating the next node's `prev` pointer, updating the previous node's `next` pointer, and handling the edge case where the node to be deleted is the head. Finally, it frees the memory with `delete`.
+`.trim()
+    },
+    circular: {
+      code: `
 #include <iostream>
 
 struct Node {
@@ -361,9 +411,18 @@ public:
     }
 };
 `.trim(),
+      explanation: `
+- **insertAtHead**: The code shown is O(n) as it needs to find the tail. 
+  1. For an empty list, the new node's `next` points to itself.
+  2. Otherwise, it traverses the list to find the last node (`temp`).
+  3. It then rewires the pointers: the old tail points to the new node, the new node points to the old head, and the list's `head` pointer is updated.
+- **traverse**: A `do-while` loop is a perfect fit here. It executes the loop body once before checking the condition, ensuring that the head node is printed even if it's the only node. The loop continues until the traversal pointer gets back to the `head`.
+`.trim()
+    },
   },
   java: {
-    singly: `
+    singly: {
+      code: `
 class Node {
     int data;
     Node next;
@@ -402,7 +461,16 @@ class LinkedList {
     }
 }
 `.trim(),
-    doubly: `
+      explanation: `
+- **Node Class**: A standard nested or separate class to hold the data and a reference to the next `Node`.
+- **LinkedList Class**: Manages the list and holds a reference to the `head` node.
+- **insertAtHead**: A constant time O(1) operation. A `newNode` is created, its `next` reference is pointed to the current `head`, and the `head` reference is updated to the `newNode`.
+- **deleteHead**: Also O(1). The `head` reference is simply moved to the next node in the list. The old head is automatically marked for garbage collection by Java.
+- **traverse**: An O(n) operation that uses a `current` reference to iterate through the list from the `head` until it reaches `null`.
+`.trim()
+    },
+    doubly: {
+      code: `
 class Node {
     int data;
     Node next;
@@ -454,7 +522,14 @@ class DoublyLinkedList {
     }
 }
 `.trim(),
-    circular: `
+      explanation: `
+- **Node Class**: Contains references for both `next` and `prev` nodes.
+- **insertAtHead**: Still O(1). It sets the `newNode`'s `next` and `prev` pointers, and if the list is not empty, it updates the `prev` reference of the original `head`.
+- **deleteNode**: An O(1) operation if the node reference is known. It correctly handles the `head` case and re-links the `next` and `prev` nodes around the `nodeToDelete`. The deleted node is then eligible for garbage collection.
+`.trim()
+    },
+    circular: {
+      code: `
 class Node {
     int data;
     Node next;
@@ -494,6 +569,14 @@ class CircularLinkedList {
     }
 }
 `.trim(),
+      explanation: `
+- **insertAtHead**: The provided code is O(n) because it needs to traverse to the end of the list to find the tail.
+  1. A `newNode` is created. If the list is empty, its `next` reference points to itself.
+  2. Otherwise, a `temp` reference iterates until `temp.next` is the `head`, meaning `temp` is the tail.
+  3. The pointers are rewired: the tail's `next` points to the new node, the new node's `next` points to the old head, and the list's `head` is updated.
+- **traverse**: A `do-while` loop is used for traversal. This ensures the loop body runs at least once, which is necessary to print the single node in a one-element list. The loop terminates when the `temp` reference has circled back to the `head`.
+`.trim()
+    },
   }
 };
 
@@ -721,17 +804,21 @@ export default function LinkedListPage() {
                       {Object.entries(codeSnippets).map(([lang, codes]) => (
                           <TabsContent value={lang} key={lang}>
                             <Accordion type="single" collapsible className="w-full" defaultValue='item-0'>
-                                {Object.entries(codes).map(([type, code], index) => (
+                                {Object.entries(codes).map(([type, data], index) => (
                                 <AccordionItem value={`item-${index}`} key={type}>
                                     <AccordionTrigger className="text-base font-medium capitalize no-underline hover:no-underline">
                                        {type} Linked List
                                     </AccordionTrigger>
                                     <AccordionContent>
                                        <div className="relative bg-muted rounded-md p-4 font-code text-sm mt-4">
-                                            <Button size="icon" variant="ghost" className="absolute top-2 right-2 h-7 w-7" onClick={() => navigator.clipboard.writeText(code)}>
+                                            <Button size="icon" variant="ghost" className="absolute top-2 right-2 h-7 w-7" onClick={() => navigator.clipboard.writeText(data.code)}>
                                                 <Copy className="h-4 w-4" />
                                             </Button>
-                                            <pre><code>{code}</code></pre>
+                                            <pre><code>{data.code}</code></pre>
+                                        </div>
+                                        <div className="mt-4 prose prose-sm dark:prose-invert max-w-none">
+                                            <h4 className="font-semibold">Explanation:</h4>
+                                            <pre className="bg-muted/50 p-4 rounded-md text-sm font-code whitespace-pre-wrap">{data.explanation}</pre>
                                         </div>
                                     </AccordionContent>
                                 </AccordionItem>
