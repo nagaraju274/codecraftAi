@@ -199,21 +199,21 @@ def is_valid(s):
     diagram: `
 **String: "()[]{}"**
 
-1. `( `: Is an opening bracket. Push `(` onto stack. Stack: `[`(`]`
-2. `) `: Is a closing bracket. Pop from stack. `(` matches `)`. Stack: `[]`
-3. `[ `: Is an opening bracket. Push `[` onto stack. Stack: `[`(`]`
-4. `] `: Is a closing bracket. Pop from stack. `[` matches `]`. Stack: `[]`
-5. `{ `: Is an opening bracket. Push `{` onto stack. Stack: `[`(`]`
-6. `} `: Is a closing bracket. Pop from stack. `{` matches `}`. Stack: `[]`
+1. '(': Is an opening bracket. Push '('. Stack: ['(']
+2. ')': Is a closing bracket. Pop from stack. '(' matches ')'. Stack: []
+3. '[': Is an opening bracket. Push '['. Stack: ['[']
+4. ']': Is a closing bracket. Pop from stack. '[' matches ']'. Stack: []
+5. '{': Is an opening bracket. Push '{'. Stack: ['{']
+6. '}': Is a closing bracket. Pop from stack. '{' matches '}'. Stack: []
 
 End of string. Stack is empty. **Result: True**
 
 ---
 **String: "([)]"**
 
-1. `( `: Is an opening bracket. Push `(` onto stack. Stack: `[`(`]`
-2. `[ `: Is an opening bracket. Push `[` onto stack. Stack: `[`, `(`]`
-3. `) `: Is a closing bracket. Pop from stack (`[`). `(` does not match `[`. **Result: False**
+1. '(': Is an opening bracket. Push '('. Stack: ['(']
+2. '[': Is an opening bracket. Push '['. Stack: ['(', '[']
+3. ')': Is a closing bracket. Pop from stack ('['). '(' does not match '['. **Result: False**
     `
   },
 ];
@@ -248,7 +248,7 @@ export default function StackPage() {
               <CardHeader><CardTitle>Visual Diagram</CardTitle></CardHeader>
               <CardContent>
                   <CardDescription>
-                      The main operations for a stack are `push` (add an element to the top), `pop` (remove the element from the top), and `peek` or `top` (view the top element without removing it).
+                      The main operations for a stack are 'push' (add an element to the top), 'pop' (remove the element from the top), and 'peek' or 'top' (view the top element without removing it).
                   </CardDescription>
                   <StackVisual />
               </CardContent>
@@ -462,4 +462,6 @@ export default function StackPage() {
     </AuthGuard>
   );
 }
+
+
 
