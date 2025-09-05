@@ -19,13 +19,12 @@ import { AuthGuard } from "@/components/auth/auth-guard";
 
 
 const QueueVisual = () => (
-    <div className="flex flex-col items-center justify-center gap-8 p-4 bg-muted/50 rounded-lg my-4 h-80">
-        <div className="flex items-center gap-4">
-            <div className="flex flex-col items-center gap-2">
-                <Button>Enqueue(30)</Button>
-                <ArrowLeft className="h-8 w-8 text-green-500" />
-            </div>
-            <div className="flex items-center border-2 border-primary h-20 w-80 relative p-2">
+    <div className="flex flex-col items-center justify-center gap-8 p-4 bg-muted/50 rounded-lg my-4">
+        {/* Enqueue Operation */}
+        <div className="flex items-center gap-4 w-full justify-center">
+            <Button>Enqueue(30)</Button>
+            <ArrowRight className="h-8 w-8 text-green-500" />
+            <div className="flex items-center border-2 border-primary h-20 w-80 relative p-2 justify-end">
                 <div className="absolute -left-12 font-semibold">Rear</div>
                 <div className="absolute -right-12 font-semibold">Front</div>
                 <div className="flex items-center gap-2">
@@ -33,24 +32,22 @@ const QueueVisual = () => (
                     <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center">10</div>
                 </div>
             </div>
-             <div className="w-16 h-16 bg-green-500/20 border border-green-500 flex items-center justify-center m-1">30</div>
         </div>
-        
-        <div className="flex items-center gap-4">
-             <div className="w-16 h-16 bg-destructive/20 border border-destructive flex items-center justify-center m-1">10</div>
-             <div className="flex flex-col items-center gap-2">
-                <Button variant="destructive">Dequeue()</Button>
-                <ArrowRight className="h-8 w-8 text-destructive" />
-            </div>
-            <div className="flex items-center border-2 border-primary h-20 w-80 relative p-2">
+
+        {/* Dequeue Operation */}
+        <div className="flex items-center gap-4 w-full justify-center">
+            <div className="flex items-center border-2 border-primary h-20 w-80 relative p-2 justify-end">
                 <div className="absolute -left-12 font-semibold">Rear</div>
                 <div className="absolute -right-12 font-semibold">Front</div>
                 <div className="flex items-center gap-2">
-                     <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center">30</div>
+                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center">30</div>
                     <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center">20</div>
                     <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center">10</div>
                 </div>
             </div>
+            <ArrowRight className="h-8 w-8 text-destructive" />
+            <Button variant="destructive">Dequeue()</Button>
+            <div className="w-16 h-16 bg-destructive/20 border border-destructive flex items-center justify-center m-1">10</div>
         </div>
     </div>
 );
