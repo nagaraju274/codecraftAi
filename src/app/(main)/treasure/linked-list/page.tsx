@@ -115,7 +115,8 @@ const ComplexityBadge = ({ complexity }: { complexity: "good" | "bad" }) => (
 );
 
 const codeSnippets = {
-  python: `
+  python: {
+    singly: `
 class Node:
     def __init__(self, data):
         self.data = data
@@ -124,8 +125,6 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
-
-    # --- Operations ---
 
     # Insertion at head (O(1))
     def insert_at_head(self, data):
@@ -146,7 +145,87 @@ class LinkedList:
             current = current.next
         print("None")
 `.trim(),
-  cpp: `
+    doubly: `
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
+
+    # Insertion at head (O(1))
+    def insert_at_head(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        if self.head:
+            self.head.prev = new_node
+        self.head = new_node
+
+    # Deletion of a given node (O(1) if node is known, O(n) to find it)
+    def delete_node(self, node_to_delete):
+        if not node_to_delete:
+            return
+        if node_to_delete.prev:
+            node_to_delete.prev.next = node_to_delete.next
+        else: # It's the head
+            self.head = node_to_delete.next
+        
+        if node_to_delete.next:
+            node_to_delete.next.prev = node_to_delete.prev
+
+    # Traversal (O(n))
+    def traverse(self):
+        current = self.head
+        while current:
+            print(current.data, end=" <-> ")
+            current = current.next
+        print("None")
+`.trim(),
+    circular: `
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class CircularLinkedList:
+    def __init__(self):
+        self.head = None
+
+    # Insertion at head (O(n) without tail pointer, O(1) with)
+    def insert_at_head(self, data):
+        new_node = Node(data)
+        if not self.head:
+            new_node.next = new_node # Points to itself
+            self.head = new_node
+            return
+        
+        # Find tail to update its next pointer
+        temp = self.head
+        while temp.next != self.head:
+            temp = temp.next
+        
+        temp.next = new_node
+        new_node.next = self.head
+        self.head = new_node
+
+    # Traversal (O(n))
+    def traverse(self):
+        if not self.head:
+            return
+        temp = self.head
+        while True:
+            print(temp.data, end=" -> ")
+            temp = temp.next
+            if temp == self.head:
+                break
+        print(f"(Head: {self.head.data})")
+`.trim(),
+  },
+  cpp: {
+    singly: `
 #include <iostream>
 
 struct Node {
@@ -158,8 +237,6 @@ class LinkedList {
 public:
     Node* head;
     LinkedList() { head = nullptr; }
-
-    // --- Operations ---
 
     // Insertion at head (O(1))
     void insert_at_head(int data) {
@@ -189,7 +266,104 @@ public:
     }
 };
 `.trim(),
-  java: `
+    doubly: `
+#include <iostream>
+
+struct Node {
+    int data;
+    Node* next;
+    Node* prev;
+};
+
+class DoublyLinkedList {
+public:
+    Node* head;
+    DoublyLinkedList() { head = nullptr; }
+
+    // Insertion at head (O(1))
+    void insert_at_head(int data) {
+        Node* newNode = new Node();
+        newNode->data = data;
+        newNode->next = head;
+        newNode->prev = nullptr;
+        if (head != nullptr) {
+            head->prev = newNode;
+        }
+        head = newNode;
+    }
+
+    // Deletion of a given node
+    void deleteNode(Node* node_to_delete) {
+        if (node_to_delete == nullptr) return;
+        if (head == node_to_delete) {
+            head = node_to_delete->next;
+        }
+        if (node_to_delete->next != nullptr) {
+            node_to_delete->next->prev = node_to_delete->prev;
+        }
+        if (node_to_delete->prev != nullptr) {
+            node_to_delete->prev->next = node_to_delete->next;
+        }
+        delete node_to_delete;
+    }
+
+    // Traversal (O(n))
+    void traverse() {
+        Node* current = head;
+        while (current != nullptr) {
+            std::cout << current->data << " <-> ";
+            current = current->next;
+        }
+        std::cout << "NULL" << std::endl;
+    }
+};
+`.trim(),
+    circular: `
+#include <iostream>
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+class CircularLinkedList {
+public:
+    Node* head;
+    CircularLinkedList() { head = nullptr; }
+
+    // Insertion at head (O(1) with tail pointer)
+    void insertAtHead(int data) {
+        Node* newNode = new Node();
+        newNode->data = data;
+        if (head == nullptr) {
+            head = newNode;
+            newNode->next = head;
+            return;
+        }
+        Node* temp = head;
+        while (temp->next != head) {
+            temp = temp->next;
+        }
+        temp->next = newNode;
+        newNode->next = head;
+        head = newNode;
+    }
+
+    // Traversal (O(n))
+    void traverse() {
+        if (head == nullptr) return;
+        Node* temp = head;
+        do {
+            std::cout << temp->data << " -> ";
+            temp = temp->next;
+        } while (temp != head);
+        std::cout << "(Head: " << head->data << ")" << std::endl;
+    }
+};
+`.trim(),
+  },
+  java: {
+    singly: `
 class Node {
     int data;
     Node next;
@@ -202,8 +376,6 @@ class Node {
 
 class LinkedList {
     Node head;
-
-    // --- Operations ---
 
     // Insertion at head (O(1))
     public void insertAtHead(int data) {
@@ -229,8 +401,102 @@ class LinkedList {
         System.out.println("null");
     }
 }
-`.trim()
+`.trim(),
+    doubly: `
+class Node {
+    int data;
+    Node next;
+    Node prev;
+
+    Node(int data) {
+        this.data = data;
+    }
+}
+
+class DoublyLinkedList {
+    Node head;
+
+    // Insertion at head (O(1))
+    public void insertAtHead(int data) {
+        Node newNode = new Node(data);
+        newNode.next = head;
+        newNode.prev = null;
+        if (head != null) {
+            head.prev = newNode;
+        }
+        head = newNode;
+    }
+
+    // Deletion of a given node
+    public void deleteNode(Node nodeToDelete) {
+        if (head == null || nodeToDelete == null) {
+            return;
+        }
+        if (head == nodeToDelete) {
+            head = nodeToDelete.next;
+        }
+        if (nodeToDelete.next != null) {
+            nodeToDelete.next.prev = nodeToDelete.prev;
+        }
+        if (nodeToDelete.prev != null) {
+            nodeToDelete.prev.next = nodeToDelete.next;
+        }
+    }
+
+    // Traversal (O(n))
+    public void traverse() {
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + " <-> ");
+            current = current.next;
+        }
+        System.out.println("null");
+    }
+}
+`.trim(),
+    circular: `
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) { this.data = data; }
+}
+
+class CircularLinkedList {
+    Node head;
+
+    // Insertion at head
+    public void insertAtHead(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            newNode.next = head;
+            return;
+        }
+        Node temp = head;
+        while (temp.next != head) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+        newNode.next = head;
+        head = newNode;
+    }
+
+    // Traversal (O(n))
+    public void traverse() {
+        if (head == null) return;
+        Node temp = head;
+        do {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        } while (temp != head);
+        System.out.println("(Head: " + head.data + ")");
+    }
+}
+`.trim(),
+  }
 };
+
 
 const commonProblems = [
   {
@@ -452,14 +718,25 @@ export default function LinkedListPage() {
                           <TabsTrigger value="cpp">C++</TabsTrigger>
                           <TabsTrigger value="java">Java</TabsTrigger>
                       </TabsList>
-                      {Object.entries(codeSnippets).map(([lang, code]) => (
+                      {Object.entries(codeSnippets).map(([lang, codes]) => (
                           <TabsContent value={lang} key={lang}>
-                              <div className="relative bg-muted rounded-md p-4 font-code text-sm mt-4">
-                                  <Button size="icon" variant="ghost" className="absolute top-2 right-2 h-7 w-7" onClick={() => navigator.clipboard.writeText(code)}>
-                                      <Copy className="h-4 w-4" />
-                                  </Button>
-                                  <pre><code>{code}</code></pre>
-                              </div>
+                            <Accordion type="single" collapsible className="w-full" defaultValue='item-0'>
+                                {Object.entries(codes).map(([type, code], index) => (
+                                <AccordionItem value={`item-${index}`} key={type}>
+                                    <AccordionTrigger className="text-base font-medium capitalize no-underline hover:no-underline">
+                                       {type} Linked List
+                                    </AccordionTrigger>
+                                    <AccordionContent>
+                                       <div className="relative bg-muted rounded-md p-4 font-code text-sm mt-4">
+                                            <Button size="icon" variant="ghost" className="absolute top-2 right-2 h-7 w-7" onClick={() => navigator.clipboard.writeText(code)}>
+                                                <Copy className="h-4 w-4" />
+                                            </Button>
+                                            <pre><code>{code}</code></pre>
+                                        </div>
+                                    </AccordionContent>
+                                </AccordionItem>
+                                ))}
+                            </Accordion>
                           </TabsContent>
                       ))}
                   </Tabs>
