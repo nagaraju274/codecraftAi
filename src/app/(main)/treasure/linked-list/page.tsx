@@ -147,16 +147,22 @@ class LinkedList:
             current = current.next
         print("None")
 `.trim(),
-      explanation: `
-- **Node Class**: A simple class to represent each element. It holds the 'data' and a 'next' pointer to the subsequent node.
-- **LinkedList Class**: Manages the list, starting with just a 'head' pointer, which is initially 'None'.
-- **insert_at_head**: This is an O(1) operation. 
-  1. A 'new_node' is created.
-  2. The 'new_node's 'next' pointer is set to the current 'head' of the list.
-  3. The list's 'head' is updated to be the 'new_node', making it the first element.
-- **delete_head**: Also O(1). It simply moves the 'head' pointer to the next node in the list ('self.head.next'), effectively removing the old head.
-- **traverse**: An O(n) operation. It starts a 'current' pointer at the 'head' and iterates through the list, printing each node's data until 'current' becomes 'None'.
-`.trim()
+      explanation: `This implementation uses two classes. The 'Node' class is a simple container for the data and a 'next' pointer. The 'LinkedList' class manages the entire structure, holding a reference to the 'head' node. Insertion and deletion at the head are efficient O(1) operations as they only involve redirecting a few pointers. Traversal is an O(n) operation as it requires visiting each node sequentially from the head.`,
+      lineByLine: [
+        "`class Node:` - Defines the blueprint for each element in the list. Each node holds its own data and a pointer to the next node.",
+        "`class LinkedList:` - Defines the blueprint for the list itself, primarily managing the entry point, `self.head`.",
+        "`def insert_at_head(self, data):` - Defines the method for adding a new node at the beginning of the list.",
+        "`new_node = Node(data)` - Creates a new instance of the Node class with the given data.",
+        "`new_node.next = self.head` - The new node's `next` pointer is set to point to what was previously the first node.",
+        "`self.head = new_node` - The list's `head` is updated to be the newly created node, making it the new first node.",
+        "`def delete_head(self):` - Defines the method for removing the first node.",
+        "`if self.head:` - Checks if the list is not empty to avoid errors.",
+        "`self.head = self.head.next` - The `head` is moved to the second node, effectively 'cutting off' the original first node.",
+        "`def traverse(self):` - Defines the method for visiting and printing each node's data.",
+        "`current = self.head` - A temporary variable `current` is created to keep track of the node we are currently on, starting from the head.",
+        "`while current:` - The loop continues as long as `current` is not `None`, meaning we haven't reached the end of the list.",
+        "`current = current.next` - After processing the current node, we move to the next node in the sequence."
+      ]
     },
     doubly: {
       code: `
@@ -182,11 +188,13 @@ class DoublyLinkedList:
     def delete_node(self, node_to_delete):
         if not node_to_delete:
             return
+        # If node_to_delete is not the first node
         if node_to_delete.prev:
             node_to_delete.prev.next = node_to_delete.next
-        else: # It's the head
+        else: # It is the head
             self.head = node_to_delete.next
         
+        # If node_to_delete is not the last node
         if node_to_delete.next:
             node_to_delete.next.prev = node_to_delete.prev
 
@@ -198,15 +206,18 @@ class DoublyLinkedList:
             current = current.next
         print("None")
 `.trim(),
-      explanation: `
-- **Node Class**: Now includes a 'prev' pointer in addition to 'next' and 'data'.
-- **insert_at_head**: Remains O(1). The logic is similar to a singly linked list, but with an extra step: if the list is not empty, the original head's 'prev' pointer must be updated to point to the 'new_node'.
-- **delete_node**: This is O(1) if you have a direct reference to the node you want to delete. 
-  1. It first checks if the node has a 'prev' element. If so, it makes that previous node's 'next' pointer skip over the node-to-delete.
-  2. If there is no 'prev' element, it means we are deleting the head, so the head must be updated.
-  3. It then performs the opposite check for the 'next' element, updating its 'prev' pointer to skip backward over the node-to-delete.
-- **traverse**: Works the same as in a singly linked list, iterating forward from the 'head'.
-`.trim()
+      explanation: `The key difference here is the 'prev' pointer in the 'Node' class. This addition makes operations like deletion more efficient, especially if you have a direct reference to the node to be deleted. During insertion, we must now manage two pointers for the old head ('prev'). During deletion, the 'prev' pointer allows us to easily 'stitch' the list back together by linking the previous node directly to the next node.`,
+      lineByLine: [
+        "`self.prev = None` - The `Node` class now includes a `prev` pointer to reference the previous node in the list.",
+        "`if self.head:` - During insertion, if the list is not empty, this checks for an existing head.",
+        "`self.head.prev = new_node` - The old head's `prev` pointer is updated to point to the newly inserted node.",
+        "`def delete_node(self, node_to_delete):` - Defines a method to delete a specific node from anywhere in the list.",
+        "`if node_to_delete.prev:` - Checks if the node to be deleted has a node before it.",
+        "`node_to_delete.prev.next = node_to_delete.next` - The `next` pointer of the *previous* node is re-routed to skip over the deleted node and point to the *next* node.",
+        "`else: self.head = node_to_delete.next` - If there is no previous node, it means we're deleting the head, so we update the head pointer.",
+        "`if node_to_delete.next:` - Checks if the node to be deleted has a node after it.",
+        "`node_to_delete.next.prev = node_to_delete.prev` - The `prev` pointer of the *next* node is re-routed to skip backward over the deleted node and point to the *previous* node."
+      ]
     },
     circular: {
       code: `
@@ -246,15 +257,19 @@ class CircularLinkedList:
             temp = temp.next
             if temp == self.head:
                 break
-        print(f"(Head: {self.head.data})")
+        print(f"(Back to Head: {self.head.data})")
 `.trim(),
-      explanation: `
-- **insert_at_head**: The implementation shown is O(n) because it has to find the tail node to update its 'next' pointer. 
-  1. If the list is empty, the new node's 'next' pointer points to itself.
-  2. Otherwise, it iterates through the list until it finds the node whose 'next' pointer is the 'head' (the tail node).
-  3. It then updates the tail's 'next' to the 'new_node', and the 'new_node's 'next' to the old 'head'. Finally, the 'head' is updated.
-- **traverse**: Traversal requires a different loop condition. Instead of checking for 'None', we loop until we arrive back at the 'head'. A 'do-while' loop is a natural fit, but in Python, we use a 'while True' loop with a 'break' condition.
-`.trim()
+      explanation: `In a circular linked list, the `next` pointer of the last node points back to the `head` instead of `None`. This creates a loop. The implementation shown for `insert_at_head` is O(n) because it must traverse the entire list to find the tail node to update its `next` pointer. A more optimized version would maintain a separate `tail` pointer. Traversal requires a different loop condition; instead of checking for `None`, we loop until we arrive back at the `head` node.`,
+      lineByLine: [
+        "`if not self.head:` - In insertion, this checks if the list is empty.",
+        "`new_node.next = new_node` - If the list is empty, the first node's `next` pointer points to itself to create the circular link.",
+        "`while temp.next != self.head:` - This loop traverses the list to find the tail. The tail is the node whose `next` pointer points back to the head.",
+        "`temp.next = new_node` - Once the tail (`temp`) is found, its `next` pointer is updated to point to the new node.",
+        "`new_node.next = self.head` - The new node's `next` pointer is set to the old head.",
+        "`self.head = new_node` - The list's head is updated to the new node.",
+        "`while True:` - The traversal loop is set to run indefinitely until explicitly broken.",
+        "`if temp == self.head:` - Inside the loop, after moving `temp` to the next node, we check if we have arrived back at the head. If so, the loop terminates."
+      ]
     },
   },
   cpp: {
@@ -300,13 +315,18 @@ public:
     }
 };
 `.trim(),
-      explanation: `
-- **Node Struct**: A simple structure to hold an integer 'data' and a pointer 'next' to the next Node.
-- **LinkedList Class**: The 'head' is a public member pointer, initialized to 'nullptr'.
-- **insert_at_head**: An O(1) operation. It dynamically allocates a 'newNode', sets its 'data', points its 'next' to the current 'head', and then updates the 'head' to be the 'newNode'.
-- **delete_head**: Also O(1). It saves the current 'head' in a temporary pointer, updates 'head' to the next node, and then uses 'delete' to free the memory of the old head to prevent memory leaks.
-- **traverse**: An O(n) operation. A 'current' pointer starts at the 'head' and iterates through the list until it becomes 'nullptr'.
-`.trim()
+      explanation: `This C++ implementation uses a 'struct' for the 'Node' and a 'class' for the 'LinkedList'. Memory management is manual; we must use 'new' to allocate memory for a new node and 'delete' to free the memory of a node that is removed. This prevents memory leaks. The logic for pointer manipulation is otherwise very similar to the Python example.`,
+      lineByLine: [
+        "`struct Node { ... };` - Defines the structure for a node, containing an integer and a pointer to the next `Node`.",
+        "`Node* head;` - In the `LinkedList` class, `head` is a pointer that will store the memory address of the first node.",
+        "`LinkedList() { head = nullptr; }` - The constructor initializes the `head` pointer to `nullptr`, indicating an empty list.",
+        "`Node* newNode = new Node();` - Dynamically allocates memory for a new `Node` object on the heap and returns a pointer to it.",
+        "`newNode->next = head;` - The new node's `next` pointer is set to the current head's memory address.",
+        "`head = newNode;` - The `head` pointer is updated to store the memory address of the new node.",
+        "`Node* temp = head;` - In deletion, a temporary pointer `temp` is created to hold the address of the node to be deleted.",
+        "`head = head->next;` - The main `head` pointer is moved to the next node.",
+        "`delete temp;` - The memory that was allocated for the original head node (pointed to by `temp`) is freed to prevent a memory leak."
+      ]
     },
     doubly: {
       code: `
@@ -361,11 +381,19 @@ public:
     }
 };
 `.trim(),
-      explanation: `
-- **Node Struct**: Now contains both 'next' and 'prev' pointers.
-- **insert_at_head**: Still O(1). After setting the 'newNode's 'next' pointer, it also sets its 'prev' pointer to 'nullptr'. Crucially, if the list isn't empty, it updates the old 'head's 'prev' pointer to point to the 'newNode'.
-- **deleteNode**: This is O(1) if you have a direct pointer to the node. It carefully handles four cases: updating the next node's 'prev' pointer, updating the previous node's 'next' pointer, and handling the edge case where the node to be deleted is the head. Finally, it frees the memory with 'delete'.
-`.trim()
+      explanation: `The C++ doubly linked list requires careful pointer management, especially for deletion. The 'deleteNode' function efficiently rewires the list by making the previous node point to the next node, and the next node's 'prev' pointer point back to the previous node. It also correctly handles the edge case where the node being deleted is the head of the list. Manual memory management with 'delete' is crucial.`,
+      lineByLine: [
+        "`Node* prev;` - The `Node` struct now contains a `prev` pointer to the preceding node.",
+        "`newNode->prev = nullptr;` - When inserting at the head, the new node's `prev` pointer is always `nullptr`.",
+        "`if (head != nullptr) { head->prev = newNode; }` - If the list was not empty, the original head node must be updated to point its `prev` pointer to the new head.",
+        "`void deleteNode(Node* node_to_delete)` - This function takes a direct pointer to the node that needs to be deleted.",
+        "`if (head == node_to_delete)` - Checks if we are deleting the head node to handle this special case.",
+        "`if (node_to_delete->next != nullptr)` - Before dereferencing `node_to_delete->next->prev`, we must check that `node_to_delete->next` is not `nullptr`.",
+        "`node_to_delete->next->prev = node_to_delete->prev;` - The `prev` pointer of the node *after* the one being deleted is updated.",
+        "`if (node_to_delete->prev != nullptr)` - Similarly, we check if a previous node exists.",
+        "`node_to_delete->prev->next = node_to_delete->next;` - The `next` pointer of the node *before* the one being deleted is updated.",
+        "`delete node_to_delete;` - The memory for the deleted node is freed."
+      ]
     },
     circular: {
       code: `
@@ -411,13 +439,15 @@ public:
     }
 };
 `.trim(),
-      explanation: `
-- **insertAtHead**: The code shown is O(n) as it needs to find the tail. 
-  1. For an empty list, the new node's 'next' points to itself.
-  2. Otherwise, it traverses the list to find the last node ('temp').
-  3. It then rewires the pointers: the old tail points to the new node, the new node points to the old head, and the list's 'head' pointer is updated.
-- **traverse**: A 'do-while' loop is a perfect fit here. It executes the loop body once before checking the condition, ensuring that the head node is printed even if it's the only node. The loop continues until the traversal pointer gets back to the 'head'.
-`.trim()
+      explanation: `The C++ circular list implementation mirrors the Python version's logic but with C++ syntax and manual memory management. The 'insertAtHead' function is O(n) as it must traverse to find the tail. The 'traverse' function uses a 'do-while' loop, which is a natural fit for circular lists as it guarantees the loop body runs at least once, correctly handling a single-node list.`,
+      lineByLine: [
+        "`if (head == nullptr)` - Checks if the list is empty.",
+        "`newNode->next = head;` - If the list is empty, the new node points to itself. For a non-empty list, this line (executed later) points the new node to the old head.",
+        "`Node* temp = head; while (temp->next != head)` - Traverses the list to find the tail node.",
+        "`temp->next = newNode;` - Updates the old tail's `next` pointer to the new node.",
+        "`head = newNode;` - Updates the list's `head` to be the new node.",
+        "`do { ... } while (temp != head);` - The `do-while` loop is used for traversal. The code inside the `do` block is executed once *before* the condition `temp != head` is checked. This ensures the head node itself is processed before the loop terminates."
+      ]
     },
   },
   java: {
@@ -461,13 +491,17 @@ class LinkedList {
     }
 }
 `.trim(),
-      explanation: `
-- **Node Class**: A standard nested or separate class to hold the data and a reference to the next 'Node'.
-- **LinkedList Class**: Manages the list and holds a reference to the 'head' node.
-- **insertAtHead**: A constant time O(1) operation. A 'newNode' is created, its 'next' reference is pointed to the current 'head', and the 'head' reference is updated to the 'newNode'.
-- **deleteHead**: Also O(1). The 'head' reference is simply moved to the next node in the list. The old head is automatically marked for garbage collection by Java.
-- **traverse**: An O(n) operation that uses a 'current' reference to iterate through the list from the 'head' until it reaches 'null'.
-`.trim()
+      explanation: `Java's implementation is class-based. Memory management is handled automatically by Java's garbage collector, so we don't need to manually delete nodes. The logic for manipulating the 'head' and 'next' references is identical to the other languages. A 'Node' class holds the data and reference, while the 'LinkedList' class orchestrates the operations.`,
+      lineByLine: [
+        "`class Node { ... }` - Defines the blueprint for a node object, containing its data and a reference (`next`) to another `Node` object.",
+        "`Node(int data) { ... }` - The constructor for the `Node` class, which initializes a new node's data and sets its `next` reference to `null`.",
+        "`Node head;` - The `LinkedList` class holds a reference to the `head` node, which is `null` by default for an empty list.",
+        "`Node newNode = new Node(data);` - Creates a new instance (object) of the `Node` class.",
+        "`newNode.next = head;` - The new node's `next` reference is aimed at the current head object.",
+        "`head = newNode;` - The list's `head` reference is updated to point to the new node.",
+        "`if (head != null)` - In deletion, checks to ensure the list isn't empty.",
+        "`head = head.next;` - Moves the `head` reference to the second node. The old head object, now unreferenced, becomes eligible for garbage collection."
+      ]
     },
     doubly: {
       code: `
@@ -500,12 +534,15 @@ class DoublyLinkedList {
         if (head == null || nodeToDelete == null) {
             return;
         }
+        // If the node to be deleted is the head node
         if (head == nodeToDelete) {
             head = nodeToDelete.next;
         }
+        // Change next only if node to be deleted is NOT the last node
         if (nodeToDelete.next != null) {
             nodeToDelete.next.prev = nodeToDelete.prev;
         }
+        // Change prev only if node to be deleted is NOT the first node
         if (nodeToDelete.prev != null) {
             nodeToDelete.prev.next = nodeToDelete.next;
         }
@@ -522,11 +559,17 @@ class DoublyLinkedList {
     }
 }
 `.trim(),
-      explanation: `
-- **Node Class**: Contains references for both 'next' and 'prev' nodes.
-- **insertAtHead**: Still O(1). It sets the 'newNode's 'next' and 'prev' pointers, and if the list is not empty, it updates the 'prev' reference of the original 'head'.
-- **deleteNode**: An O(1) operation if the node reference is known. It correctly handles the 'head' case and re-links the 'next' and 'prev' nodes around the 'nodeToDelete'. The deleted node is then eligible for garbage collection.
-`.trim()
+      explanation: `The Java doubly linked list implementation benefits from automatic garbage collection. The logic focuses purely on reference manipulation. The 'deleteNode' method must carefully check for nulls before updating the 'next' and 'prev' references of the surrounding nodes to avoid 'NullPointerException's. It also handles the edge case of deleting the head node.`,
+      lineByLine: [
+        "`Node prev;` - The `Node` class now includes a `prev` reference to the previous node.",
+        "`newNode.prev = null;` - When inserting at the head, the new node's `prev` reference is always `null`.",
+        "`if (head != null)` - Checks if a head node already exists.",
+        "`head.prev = newNode;` - Updates the old head's `prev` reference to point to the new node.",
+        "`if (nodeToDelete.next != null)` - In deletion, checks if the node is not the tail before trying to access the next node's `prev` reference.",
+        "`nodeToDelete.next.prev = nodeToDelete.prev;` - Re-routes the `prev` pointer of the node *after* the one being deleted.",
+        "`if (nodeToDelete.prev != null)` - Checks if the node is not the head before trying to access the previous node's `next` reference.",
+        "`nodeToDelete.prev.next = nodeToDelete.next;` - Re-routes the `next` pointer of the node *before* the one being deleted."
+      ]
     },
     circular: {
       code: `
@@ -569,13 +612,15 @@ class CircularLinkedList {
     }
 }
 `.trim(),
-      explanation: `
-- **insertAtHead**: The provided code is O(n) because it needs to traverse to the end of the list to find the tail.
-  1. A 'newNode' is created. If the list is empty, its 'next' reference points to itself.
-  2. Otherwise, a 'temp' reference iterates until 'temp.next' is the 'head', meaning 'temp' is the tail.
-  3. The pointers are rewired: the tail's 'next' points to the new node, the new node's 'next' points to the old head, and the list's 'head' is updated.
-- **traverse**: A 'do-while' loop is used for traversal. This ensures the loop body runs at least once, which is necessary to print the single node in a one-element list. The loop terminates when the 'temp' reference has circled back to the 'head'.
-`.trim()
+      explanation: `This Java implementation of a circular linked list uses a 'do-while' loop for traversal, which is an ideal construct for this data structure. It ensures the code block is executed at least once, correctly handling the case of a single-node list, before checking if the traversal has returned to the head. The insertion logic is O(n) because it requires finding the tail node first.`,
+      lineByLine: [
+        "`newNode.next = head;` - If the list is empty, this is `newNode.next = newNode` after the `head = newNode` line. This establishes the circular link.",
+        "`while (temp.next != head)` - This loop iterates through the list to find the tail node.",
+        "`temp.next = newNode;` - Updates the old tail node to point to the new head node.",
+        "`newNode.next = head;` - The new node now points to the old head node.",
+        "`head = newNode;` - The list's official `head` reference is updated.",
+        "`do { ... } while (temp != head);` - The `do-while` loop executes the print statement and moves the `temp` pointer forward *at least once*. It then checks the condition. This ensures that if there's only one node, it gets printed before the loop condition (`temp != head`) is found to be false."
+      ]
     },
   }
 };
@@ -817,8 +862,13 @@ export default function LinkedListPage() {
                                             <pre><code>{data.code}</code></pre>
                                         </div>
                                         <div className="mt-4 prose prose-sm dark:prose-invert max-w-none">
-                                            <h4 className="font-semibold">Explanation:</h4>
-                                            <pre className="bg-muted/50 p-4 rounded-md text-sm font-code whitespace-pre-wrap">{data.explanation}</pre>
+                                            <h4 className="font-semibold">Logic & Approach</h4>
+                                            <p>{data.explanation}</p>
+
+                                            <h4 className="font-semibold">Line-by-Line Explanation</h4>
+                                            <ul className="list-disc pl-5 space-y-2">
+                                                {(data.lineByLine || []).map((line, i) => <li key={i}>{line}</li>)}
+                                            </ul>
                                         </div>
                                     </AccordionContent>
                                 </AccordionItem>
