@@ -11,7 +11,7 @@ const dataStructures = {
     linear: [
         { name: "Array", href: "/treasure/array" },
         { name: "Linked List (Singly, Doubly, Circular)", href: "/treasure/linked-list" },
-        { name: "Stack" },
+        { name: "Stack", href: "/treasure/stack" },
         { name: "Queue (Simple, Circular, Priority Queue, Deque)" },
     ],
     nonLinear: [
