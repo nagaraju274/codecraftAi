@@ -10,7 +10,7 @@ import { AuthGuard } from "@/components/auth/auth-guard";
 const dataStructures = {
     linear: [
         { name: "Array", href: "/treasure/array" },
-        { name: "Linked List (Singly, Doubly, Circular)" },
+        { name: "Linked List (Singly, Doubly, Circular)", href: "/treasure/linked-list" },
         { name: "Stack" },
         { name: "Queue (Simple, Circular, Priority Queue, Deque)" },
     ],
