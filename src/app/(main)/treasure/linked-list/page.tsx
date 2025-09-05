@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Info, Copy, ArrowRight, BrainCircuit, Code, Workflow, CheckCircle, Lightbulb, Link2 } from "lucide-react";
+import { Info, Copy, ArrowRight, BrainCircuit, Code, Workflow, CheckCircle, Lightbulb, Link2, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import {
   Accordion,
@@ -19,8 +19,10 @@ import {
 import { AuthGuard } from "@/components/auth/auth-guard";
 
 
-const LinkedListVisual = () => (
+const SinglyLinkedListVisual = () => (
     <div className="flex items-center justify-center p-4 bg-muted/50 rounded-lg my-4 space-x-2">
+        <span className="font-semibold mr-2">Head</span>
+        <ArrowRight className="w-6 h-6 text-muted-foreground"/>
         {['A', 'B', 'C'].map((val, i, arr) => (
              <div key={i} className="flex items-center">
                 <div className="flex flex-col items-center">
@@ -32,16 +34,69 @@ const LinkedListVisual = () => (
                             <div className="w-2 h-2 bg-primary rounded-full"></div>
                         </div>
                     </div>
-                    <span className="text-xs text-muted-foreground mt-2">{i === 0 ? 'Head' : ''} {i === arr.length - 1 ? 'Tail' : ''}</span>
                 </div>
                 {i < arr.length - 1 && <ArrowRight className="w-8 h-8 text-primary mx-2" />}
              </div>
         ))}
-         <div className="w-12 h-12 flex items-center justify-center text-lg font-bold text-muted-foreground">
-            NULL
-        </div>
+         <div className="flex items-center">
+            <ArrowRight className="w-8 h-8 text-primary mx-2" />
+            <div className="w-12 h-12 flex items-center justify-center text-lg font-bold text-muted-foreground">
+                NULL
+            </div>
+         </div>
     </div>
 );
+
+const DoublyLinkedListVisual = () => (
+    <div className="flex items-center justify-center p-4 bg-muted/50 rounded-lg my-4 space-x-2">
+        <span className="font-semibold mr-2">Head</span>
+        <ArrowRight className="w-6 h-6 text-muted-foreground"/>
+        {['A', 'B', 'C'].map((val, i, arr) => (
+            <React.Fragment key={i}>
+                <div className="flex flex-col items-center">
+                    <div className="flex">
+                        <div className="w-6 h-12 border-y-2 border-l-2 border-blue-500 bg-background rounded-l flex items-center justify-center">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        </div>
+                        <div className="w-12 h-12 border-2 border-blue-500 bg-background flex items-center justify-center text-lg font-bold">
+                            <span>{val}</span>
+                        </div>
+                        <div className="w-6 h-12 border-y-2 border-r-2 border-blue-500 bg-background rounded-r flex items-center justify-center">
+                            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+                {i < arr.length - 1 && <div className="flex flex-col items-center"><ArrowRight className="w-8 h-8 text-blue-500" /><ArrowLeft className="w-8 h-8 text-blue-500" /></div>}
+            </React.Fragment>
+        ))}
+        <ArrowRight className="w-6 h-6 text-muted-foreground"/>
+        <span className="font-semibold ml-2">Tail</span>
+    </div>
+);
+
+const CircularLinkedListVisual = () => (
+    <div className="flex items-center justify-center p-8 bg-muted/50 rounded-lg my-4 space-x-2 relative">
+      {['A', 'B', 'C', 'D'].map((val, i, arr) => {
+        const angle = (i / arr.length) * 2 * Math.PI;
+        const x = Math.cos(angle) * 100;
+        const y = Math.sin(angle) * 100;
+        return (
+          <div key={i} style={{ transform: `translate(${x}px, ${y}px)` }} className="absolute">
+            <div className="flex">
+                <div className="w-12 h-12 border-2 border-green-500 bg-background rounded-l flex items-center justify-center text-lg font-bold">
+                    <span>{val}</span>
+                </div>
+                <div className="w-6 h-12 border-y-2 border-r-2 border-green-500 bg-background rounded-r flex items-center justify-center">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                </div>
+            </div>
+            <ArrowRight className="w-6 h-6 text-green-500 absolute top-1/2 -right-10" style={{ transform: `translateY(-50%) rotate(${angle + Math.PI/4}rad)` }} />
+          </div>
+        );
+      })}
+    </div>
+);
+
 
 const properties = [
     { property: "Access Time", details: "O(n) - Must traverse the list from the head.", complexity: "bad" },
@@ -50,7 +105,7 @@ const properties = [
     { property: "Insertion (End, with tail pointer)", details: "O(1)", complexity: "good" },
     { property: "Insertion (Middle)", details: "O(n) - Requires traversing to the position.", complexity: "bad" },
     { property: "Deletion (Head)", details: "O(1)", complexity: "good" },
-    { property: "Deletion (Middle/End)", details: "O(n) - Requires traversing to the node.", complexity: "bad" },
+    { property: "Deletion (Middle/End)", details: "O(n) - Requires traversing to the node (or node before for singly linked).", complexity: "bad" },
 ];
 
 const ComplexityBadge = ({ complexity }: { complexity: "good" | "bad" }) => (
@@ -300,12 +355,22 @@ export default function LinkedListPage() {
           </header>
 
           <Card>
-              <CardHeader><CardTitle>Visual Diagram</CardTitle></CardHeader>
+              <CardHeader><CardTitle>Visual Diagrams</CardTitle></CardHeader>
               <CardContent>
                   <CardDescription>
                       A linked list consists of nodes where each node contains data and a pointer to the next node in the sequence. The entry point is the 'head' pointer. The last node points to NULL, indicating the end of the list.
                   </CardDescription>
-                  <LinkedListVisual />
+                  <SinglyLinkedListVisual />
+                   <CardDescription className="mt-4">
+                      A doubly linked list has nodes that contain an extra pointer, to the previous node in the sequence. This allows for traversal in both directions.
+                  </CardDescription>
+                  <DoublyLinkedListVisual />
+                   <CardDescription className="mt-4">
+                      In a circular linked list, the `next` pointer of the last node points back to the head node instead of NULL, forming a circle.
+                  </CardDescription>
+                  <div className="h-48 flex items-center justify-center">
+                    <CircularLinkedListVisual />
+                  </div>
               </CardContent>
           </Card>
 
@@ -323,13 +388,20 @@ export default function LinkedListPage() {
                           </AccordionContent>
                       </AccordionItem>
                       <AccordionItem value="item-2">
-                          <AccordionTrigger>Singly vs. Doubly vs. Circular</AccordionTrigger>
-                          <AccordionContent>
-                              <ul className="list-disc pl-5 space-y-2">
-                                  <li><strong>Singly Linked List:</strong> Each node has one pointer to the next node. Traversal is only possible in the forward direction. This is the simplest form.</li>
-                                  <li><strong>Doubly Linked List:</strong> Each node has two pointers: one to the next node and one to the previous node. This allows for traversal in both forward and backward directions, but uses more memory.</li>
-                                  <li><strong>Circular Linked List:</strong> The 'next' pointer of the last node points back to the head node instead of NULL, forming a circle.</li>
-                              </ul>
+                          <AccordionTrigger>Types of Linked Lists</AccordionTrigger>
+                          <AccordionContent className="space-y-4">
+                            <div>
+                                <h4 className="font-semibold text-foreground mb-1">Singly Linked List</h4>
+                                <p>This is the most basic type. Each node has one pointer that points to the next node in the list. Traversal is only possible in the forward direction. It's memory-efficient but lacks the flexibility of backward traversal.</p>
+                            </div>
+                             <div>
+                                <h4 className="font-semibold text-foreground mb-1">Doubly Linked List</h4>
+                                <p>Each node has two pointers: one to the next node (`next`) and one to the previous node (`prev`). This allows for traversal in both forward and backward directions, which can simplify some operations like deletion. The trade-off is slightly more memory usage per node.</p>
+                            </div>
+                             <div>
+                                <h4 className="font-semibold text-foreground mb-1">Circular Linked List</h4>
+                                <p>In this variation, the 'next' pointer of the last node points back to the head node instead of NULL. This forms a circle and can be useful for applications that require continuous looping through items, like a playlist or a round-robin scheduler. It can be singly or doubly linked.</p>
+                            </div>
                           </AccordionContent>
                       </AccordionItem>
                       <AccordionItem value="item-3">
@@ -512,3 +584,5 @@ export default function LinkedListPage() {
     </AuthGuard>
   );
 }
+
+```
