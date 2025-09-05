@@ -504,7 +504,7 @@ export default function ArrayPage() {
                       </div>
                       <ArrowRight className="h-5 w-5" />
                   </Link>
-                  <Link href="/dsa-with-python" className="flex items-center justify-between p-3 rounded-md hover:bg-muted/70 transition-colors">
+                  <Link href="/dsa-problems" className="flex items-center justify-between p-3 rounded-md hover:bg-muted/70 transition-colors">
                       <div>
                           <h3 className="font-semibold text-primary">Practice Array Problems</h3>
                           <p className="text-sm text-muted-foreground">Apply your knowledge by tackling common array problems on LeetCode or HackerRank.</p>
