@@ -231,7 +231,7 @@ def reverse_list(head):
     *   curr = NULL
     *   State: NULL <- A <- B <- C
 
-5.  **Loop ends.** Return `prev`, which is C. **Result: C -> B -> A -> NULL**
+5.  **Loop ends.** Return 'prev', which is C. **Result: C -> B -> A -> NULL**
     `
   },
   {
