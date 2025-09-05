@@ -1,7 +1,7 @@
 
-
 "use client";
 
+import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -75,7 +75,7 @@ const DoublyLinkedListVisual = () => (
 );
 
 const CircularLinkedListVisual = () => (
-    <div className="flex items-center justify-center p-8 bg-muted/50 rounded-lg my-4 space-x-2 relative">
+    <div className="flex items-center justify-center p-8 bg-muted/50 rounded-lg my-4 space-x-2 relative h-48 w-full">
       {['A', 'B', 'C', 'D'].map((val, i, arr) => {
         const angle = (i / arr.length) * 2 * Math.PI;
         const x = Math.cos(angle) * 100;
@@ -256,7 +256,7 @@ def reverse_list(head):
         "`curr.next = prev` - The core reversal step: the current node's pointer is flipped to point backwards.",
         "`prev = curr` - The `prev` pointer moves one step forward to the current node.",
         "`curr = next_temp` - The `curr` pointer moves one step forward to the next node in the original list.",
-        "`return prev` - When the loop finishes, `prev` will be at the original last node, which is the new head."
+        "`return prev` - When the loop finishes, 'prev' will be at the original last node, which is the new head."
     ],
     diagram: `
 **List: A -> B -> C -> NULL**
@@ -368,9 +368,7 @@ export default function LinkedListPage() {
                    <CardDescription className="mt-4">
                       In a circular linked list, the `next` pointer of the last node points back to the head node instead of NULL, forming a circle.
                   </CardDescription>
-                  <div className="h-48 flex items-center justify-center">
-                    <CircularLinkedListVisual />
-                  </div>
+                  <CircularLinkedListVisual />
               </CardContent>
           </Card>
 
@@ -584,5 +582,3 @@ export default function LinkedListPage() {
     </AuthGuard>
   );
 }
-
-```
