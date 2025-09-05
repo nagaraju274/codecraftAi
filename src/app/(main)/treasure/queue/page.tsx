@@ -83,81 +83,297 @@ const ComplexityBadge = ({ complexity }: { complexity: string }) => {
 };
 
 const codeSnippets = {
-  python: `
-# Simple Queue / Deque using collections.deque
+  python: {
+    simple: {
+      code: `
 from collections import deque
+
+# collections.deque is highly optimized for appends and pops from both ends.
 q = deque()
-q.append(10) # Enqueue
+
+# Enqueue (add to the right)
+q.append(10)
 q.append(20)
-q.popleft()  # Dequeue
+q.append(30)
+print(f"Queue after enqueues: {q}")
 
-# Priority Queue using heapq
-import heapq
-pq = []
-heapq.heappush(pq, (2, 'task1')) # (priority, item)
-heapq.heappush(pq, (1, 'task2'))
-heapq.heappop(pq) # Dequeues task2 (lowest priority)
+# Dequeue (remove from the left)
+first_item = q.popleft()
+print(f"Dequeued item: {first_item}")
+print(f"Queue after dequeue: {q}")
+
+# Peek (look at the front item)
+if q:
+    front_item = q[0]
+    print(f"Front item is: {front_item}")
 `.trim(),
-  cpp: `
+      explanation: 'Python\'s `collections.deque` (double-ended queue) is the standard and most efficient way to implement a simple FIFO queue. `append()` adds to the rear, and `popleft()` removes from the front, both in O(1) time.',
+      lineByLine: [
+        "`from collections import deque` - Imports the necessary class.",
+        "`q = deque()` - Initializes an empty deque object.",
+        "`q.append(10)` - Enqueues an item. This adds it to the right side of the deque.",
+        "`first_item = q.popleft()` - Dequeues an item. This removes and returns the leftmost item.",
+        "`front_item = q[0]` - Peeks at the front item without removing it. This is an O(1) operation on a deque."
+      ]
+    },
+    priority: {
+      code: `
+import heapq
+
+# Python's heapq module implements a min-heap.
+pq = []
+
+# Enqueue with priority (lower number = higher priority)
+heapq.heappush(pq, (2, 'Task A')) # (priority, item)
+heapq.heappush(pq, (3, 'Task B'))
+heapq.heappush(pq, (1, 'Task C'))
+print(f"Priority queue: {pq}")
+
+# Dequeue (removes the item with the highest priority/smallest number)
+highest_priority_item = heapq.heappop(pq)
+print(f"Dequeued item: {highest_priority_item}") # ('Task C')
+print(f"Priority queue after dequeue: {pq}")
+`.trim(),
+      explanation: 'A Priority Queue in Python is typically implemented using the `heapq` module, which provides a min-heap. Items are stored as tuples `(priority, data)`. `heappush` and `heappop` maintain the heap property, ensuring the item with the smallest priority value is always at the root, ready to be dequeued in O(log n) time.',
+      lineByLine: [
+        "`import heapq` - Imports the heap queue algorithm library.",
+        "`pq = []` - A regular Python list is used as the underlying storage for the heap.",
+        "`heapq.heappush(pq, (2, 'Task A'))` - Pushes an item onto the heap. `heapq` will automatically arrange the list to maintain the min-heap property.",
+        "`highest_priority_item = heapq.heappop(pq)` - Removes and returns the smallest item from the heap (in this case, the one with priority 1)."
+      ]
+    },
+    deque: {
+      code: `
+from collections import deque
+
+d = deque()
+
+# Add to rear
+d.append(10) # deque is now [10]
+
+# Add to front
+d.appendleft(20) # deque is now [20, 10]
+
+# Add to rear again
+d.append(30) # deque is now [20, 10, 30]
+
+# Remove from rear
+d.pop() # returns 30, deque is now [20, 10]
+
+# Remove from front
+d.popleft() # returns 20, deque is now [10]
+`.trim(),
+      explanation: 'Python\'s `collections.deque` is a fully-featured double-ended queue. It provides O(1) time complexity for adding and removing elements from both the front (`appendleft`, `popleft`) and the rear (`append`, `pop`).',
+      lineByLine: [
+        "`d = deque()` - Initializes an empty deque.",
+        "`d.append(10)` - Adds an element to the right end (rear).",
+        "`d.appendleft(20)` - Adds an element to the left end (front).",
+        "`d.pop()` - Removes and returns the element from the right end (rear).",
+        "`d.popleft()` - Removes and returns the element from the left end (front)."
+      ]
+    }
+  },
+  cpp: {
+    simple: {
+      code: `
+#include <iostream>
 #include <queue>
-#include <vector>
 
-// Simple Queue
+// Create a queue of integers
 std::queue<int> q;
-q.push(10); // Enqueue
-q.push(20);
-q.pop();    // Dequeue
 
-// Priority Queue
-// By default, it's a Max-Heap
+// Enqueue
+q.push(10);
+q.push(20);
+q.push(30);
+
+// Dequeue
+if (!q.empty()) {
+    q.pop(); // Removes 10. Note: pop() returns void.
+}
+
+// Peek
+if (!q.empty()) {
+    std::cout << "Front element: " << q.front() << std::endl; // 20
+}
+
+// Check size
+std::cout << "Queue size: " << q.size() << std::endl; // 2
+`.trim(),
+      explanation: 'The C++ STL provides `std::queue`, which is a container adapter that gives a FIFO interface. By default, it uses `std::deque` as the underlying container. `push()` adds to the back, `pop()` removes from the front, and `front()` accesses the front element.',
+      lineByLine: [
+        "`#include <queue>` - Includes the necessary header for `std::queue`.",
+        "`std::queue<int> q;` - Declares a queue that will hold integers.",
+        "`q.push(10);` - Enqueues an element to the back of the queue.",
+        "`q.pop();` - Dequeues an element from the front. Important: this function has a `void` return type.",
+        "`q.front()` - Returns a reference to the element at the front of the queue without removing it."
+      ]
+    },
+    priority: {
+      code: `
+#include <iostream>
+#include <queue>
+
+// Create a max-priority queue (default behavior)
 std::priority_queue<int> pq;
+
+// Enqueue
 pq.push(10);
 pq.push(30);
 pq.push(20);
-pq.top(); // Returns 30
-pq.pop(); // Removes 30
 
-// Deque
-std::deque<int> d;
-d.push_back(10);  // Add to rear
-d.push_front(20); // Add to front
-d.pop_back();     // Remove from rear
-d.pop_front();    // Remove from front
+// Peek at the highest priority item
+if (!pq.empty()) {
+    std::cout << "Top element: " << pq.top() << std::endl; // 30
+}
+
+// Dequeue (removes the highest priority item)
+pq.pop();
+std::cout << "Top element after pop: " << pq.top() << std::endl; // 20
 `.trim(),
-  java: `
+      explanation: 'C++\'s `std::priority_queue` is a container adapter that provides a priority queue interface, typically implemented as a max-heap. This means that by default, the element with the largest value has the highest priority. `push()` adds an element, and `pop()` removes the top-priority element.',
+      lineByLine: [
+        "`#include <queue>` - The priority queue is also in this header.",
+        "`std::priority_queue<int> pq;` - Declares a max-priority queue.",
+        "`pq.push(30);` - Adds an element. The underlying heap will be rearranged to maintain the max-heap property.",
+        "`pq.top()` - Returns a const reference to the element with the highest priority (the largest value in a max-heap).",
+        "`pq.pop()` - Removes the top-priority element."
+      ]
+    },
+    deque: {
+      code: `
+#include <iostream>
+#include <deque>
+
+std::deque<int> d;
+
+// Add to rear
+d.push_back(10); // deque is now {10}
+
+// Add to front
+d.push_front(20); // deque is now {20, 10}
+
+// Add to rear again
+d.push_back(30); // deque is now {20, 10, 30}
+
+// Remove from rear
+d.pop_back(); // deque is now {20, 10}
+
+// Remove from front
+d.pop_front(); // deque is now {20}
+`.trim(),
+      explanation: 'The C++ STL `std::deque` is a sequence container that allows for efficient insertion and deletion at both its beginning and its end. It is the default underlying container for `std::queue` and `std::stack`.',
+      lineByLine: [
+        "`#include <deque>` - Includes the necessary header.",
+        "`d.push_back(10);` - Adds an element to the end (rear) of the deque.",
+        "`d.push_front(20);` - Adds an element to the beginning (front) of the deque.",
+        "`d.pop_back();` - Removes the element from the end (rear).",
+        "`d.pop_front();` - Removes the element from the beginning (front)."
+      ]
+    }
+  },
+  java: {
+    simple: {
+      code: `
 import java.util.Queue;
 import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.ArrayDeque;
 
-// Simple Queue (using LinkedList)
+// Queue is an interface; LinkedList is a common implementation.
 Queue<Integer> q = new LinkedList<>();
-q.add(10); // Enqueue
-q.add(20);
-q.remove(); // Dequeue
 
-// Priority Queue
+// Enqueue
+q.add(10);
+q.offer(20); // add() and offer() are similar
+System.out.println("Queue: " + q);
+
+// Dequeue
+Integer firstItem = q.remove(); // Throws exception if empty
+Integer secondItem = q.poll();  // Returns null if empty
+System.out.println("Removed: " + firstItem + ", " + secondItem);
+
+
+// Peek
+q.add(30);
+Integer frontItem = q.element(); // Throws exception if empty
+Integer nextFront = q.peek();   // Returns null if empty
+System.out.println("Front item: " + frontItem);
+`.trim(),
+      explanation: 'In Java, `Queue` is an interface. A common and efficient implementation is `LinkedList`. The interface provides methods like `add()`/`offer()` for enqueueing and `remove()`/`poll()` for dequeueing. The main difference is how they handle empty-queue scenarios: one set throws an exception, while the other returns `null` or `false`.',
+      lineByLine: [
+        "`Queue<Integer> q = new LinkedList<>();` - Declares a variable of type `Queue` and instantiates it with a `LinkedList`.",
+        "`q.add(10);` - Enqueues an item. Throws an exception if the queue capacity is full.",
+        "`q.offer(20);` - Also enqueues an item. Returns `false` if the queue capacity is full, instead of throwing.",
+        "`q.remove();` - Dequeues an item. Throws an exception if the queue is empty.",
+        "`q.poll();` - Also dequeues an item. Returns `null` if the queue is empty.",
+        "`q.element();` - Peeks at the front item. Throws an exception if empty.",
+        "`q.peek();` - Also peeks at the front item. Returns `null` if empty."
+      ]
+    },
+    priority: {
+      code: `
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+// PriorityQueue implements a min-heap by default.
 Queue<Integer> pq = new PriorityQueue<>();
-pq.add(10);
-pq.add(30);
-pq.add(20);
-pq.peek(); // Returns 10
-pq.poll(); // Removes 10
 
-// Deque
-Deque<Integer> dq = new ArrayDeque<>();
-dq.addFirst(10);
-dq.addLast(20);
-dq.removeFirst();
-dq.removeLast();
-`.trim()
+// Enqueue
+pq.add(30);
+pq.add(10);
+pq.add(20);
+
+// Peek at the highest priority item
+System.out.println("Top element: " + pq.peek()); // 10
+
+// Dequeue (removes the highest priority item)
+pq.poll();
+System.out.println("Top element after poll: " + pq.peek()); // 20
+`.trim(),
+      explanation: 'Java\'s `java.util.PriorityQueue` class provides a priority queue implementation, which is a min-heap by default. This means the element with the smallest value has the highest priority. The standard `add()`/`offer()` and `remove()`/`poll()` methods are used, but their behavior is governed by the element priorities.',
+      lineByLine: [
+        "`Queue<Integer> pq = new PriorityQueue<>();` - Creates a priority queue. By default, it orders elements by their natural ordering (smallest first for numbers).",
+        "`pq.add(30);` - Adds an element to the queue. The underlying heap is re-organized.",
+        "`pq.peek();` - Returns the head of the queue (the smallest element) without removing it.",
+        "`pq.poll();` - Removes and returns the head of the queue."
+      ]
+    },
+    deque: {
+      code: `
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+Deque<Integer> d = new ArrayDeque<>();
+
+// Add to rear
+d.addLast(10); // Deque is now [10]
+
+// Add to front
+d.addFirst(20); // Deque is now [20, 10]
+
+// Remove from rear
+d.removeLast(); // Returns 10. Deque is now [20]
+
+// Remove from front
+d.removeFirst(); // Returns 20. Deque is now []
+`.trim(),
+      explanation: 'Java\'s `Deque` (Double-Ended Queue) interface provides a rich set of methods for adding and removing from both ends. `ArrayDeque` is a common and efficient implementation. It provides methods like `addFirst`/`removeFirst` and `addLast`/`removeLast`.',
+      lineByLine: [
+        "`Deque<Integer> d = new ArrayDeque<>();` - `Deque` is an interface; `ArrayDeque` is a resizable-array implementation.",
+        "`d.addLast(10);` - Adds an element to the tail (end) of the deque.",
+        "`d.addFirst(20);` - Adds an element to the head (front) of the deque.",
+        "`d.removeLast();` - Removes and returns the element from the tail.",
+        "`d.removeFirst();` - Removes and returns the element from the head."
+      ]
+    }
+  }
 };
+
 
 const commonProblems = [
   {
     title: "Implement Queue using Stacks",
     description: "Implement a first in, first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty).",
-    logic: "The core idea is to use two stacks, let's call them `in_stack` and `out_stack`. All `enqueue` operations go directly into `in_stack`. The `dequeue` and `peek` operations work on `out_stack`. If `out_stack` is empty when a `dequeue` or `peek` is requested, we transfer all elements from `in_stack` to `out_stack`. This transfer reverses the order of the elements, effectively making the LIFO stack behave in a FIFO manner for these operations. We only perform this transfer when `out_stack` is empty, which makes the operations amortized O(1).",
+    logic: "The core idea is to use two stacks, let's call them 'in_stack' and 'out_stack'. All 'enqueue' operations go directly into 'in_stack'. The 'dequeue' and 'peek' operations work on 'out_stack'. If 'out_stack' is empty when a 'dequeue' or 'peek' is requested, we transfer all elements from 'in_stack' to 'out_stack'. This transfer reverses the order of the elements, effectively making the LIFO stack behave in a FIFO manner for these operations. We only perform this transfer when 'out_stack' is empty, which makes the operations amortized O(1).",
     code: `
 class MyQueue:
     def __init__(self):
@@ -181,11 +397,11 @@ class MyQueue:
         return not self.in_stack and not self.out_stack
 `.trim(),
     lineByLine: [
-        "'__init__' - Initializes two empty lists to act as our stacks.",
-        "'push' - This is the enqueue operation. New elements are always appended to the `in_stack`.",
-        "'pop' - This is the dequeue operation. It first calls `peek()` to ensure `out_stack` is ready, then pops from `out_stack`.",
-        "'peek' - This is the crucial part. It first checks if `out_stack` is empty. If it is, it moves every element from `in_stack` to `out_stack`. This reversal puts the oldest elements at the top of `out_stack`. It then returns the top element of `out_stack`.",
-        "'empty' - The queue is empty only if both stacks are empty."
+        "`__init__` - Initializes two empty lists to act as our stacks.",
+        "`push` - This is the enqueue operation. New elements are always appended to the `in_stack`.",
+        "`pop` - This is the dequeue operation. It first calls `peek()` to ensure `out_stack` is ready, then pops from `out_stack`.",
+        "`peek` - This is the crucial part. It first checks if `out_stack` is empty. If it is, it moves every element from `in_stack` to `out_stack`. This reversal puts the oldest elements at the top of `out_stack`. It then returns the top element of `out_stack`.",
+        "`empty` - The queue is empty only if both stacks are empty."
     ],
     diagram: `
 **Operations:** push(1), push(2), peek(), pop(), push(3), peek()
@@ -305,7 +521,7 @@ export default function QueuePage() {
           
           <Card>
               <CardHeader>
-                  <CardTitle>Implementations</CardTitle>
+                  <CardTitle>Common Operations</CardTitle>
                   <CardDescription>Code examples for queue operations in popular languages. Most languages provide built-in, highly-optimized implementations.</CardDescription>
               </CardHeader>
               <CardContent>
@@ -315,14 +531,34 @@ export default function QueuePage() {
                           <TabsTrigger value="cpp">C++</TabsTrigger>
                           <TabsTrigger value="java">Java</TabsTrigger>
                       </TabsList>
-                      {Object.entries(codeSnippets).map(([lang, code]) => (
+                      {Object.entries(codeSnippets).map(([lang, queues]) => (
                           <TabsContent value={lang} key={lang}>
-                              <div className="relative bg-muted rounded-md p-4 font-code text-sm mt-4">
-                                  <Button size="icon" variant="ghost" className="absolute top-2 right-2 h-7 w-7" onClick={() => navigator.clipboard.writeText(code)}>
-                                      <Copy className="h-4 w-4" />
-                                  </Button>
-                                  <pre><code>{code}</code></pre>
-                              </div>
+                            <Accordion type="single" collapsible className="w-full" defaultValue='item-0'>
+                                {Object.entries(queues).map(([type, data], index) => (
+                                <AccordionItem value={`item-${index}`} key={type}>
+                                    <AccordionTrigger className="text-base font-medium capitalize no-underline hover:no-underline">
+                                       {type} Queue
+                                    </AccordionTrigger>
+                                    <AccordionContent>
+                                       <div className="relative bg-muted rounded-md p-4 font-code text-sm mt-4">
+                                            <Button size="icon" variant="ghost" className="absolute top-2 right-2 h-7 w-7" onClick={() => navigator.clipboard.writeText(data.code)}>
+                                                <Copy className="h-4 w-4" />
+                                            </Button>
+                                            <pre><code>{data.code}</code></pre>
+                                        </div>
+                                        <div className="mt-4 prose prose-sm dark:prose-invert max-w-none">
+                                            <h4 className="font-semibold">Logic & Approach</h4>
+                                            <p>{data.explanation}</p>
+
+                                            <h4 className="font-semibold">Line-by-Line Explanation</h4>
+                                            <ul className="list-disc pl-5 space-y-2">
+                                                {(data.lineByLine || []).map((line, i) => <li key={i}><code className='text-xs bg-muted/50 p-1 rounded'>{line}</code></li>)}
+                                            </ul>
+                                        </div>
+                                    </AccordionContent>
+                                </AccordionItem>
+                                ))}
+                            </Accordion>
                           </TabsContent>
                       ))}
                   </Tabs>
@@ -449,3 +685,5 @@ export default function QueuePage() {
     </AuthGuard>
   );
 }
+
+    
