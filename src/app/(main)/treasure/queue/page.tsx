@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Info, Copy, ArrowRight, BrainCircuit, Code, Workflow, Lightbulb, ArrowLeft, ArrowUpRightFromSquare, ChevronsRight } from "lucide-react";
+import { Info, Copy, ArrowRight, BrainCircuit, Code, Workflow, Lightbulb, ArrowLeft, ArrowUpRightFromSquare, ChevronsRight, LogIn, LogOut } from "lucide-react";
 import Link from "next/link";
 import {
   Accordion,
@@ -20,34 +20,52 @@ import { AuthGuard } from "@/components/auth/auth-guard";
 
 const QueueVisual = () => (
     <div className="flex flex-col items-center justify-center gap-8 p-4 bg-muted/50 rounded-lg my-4">
-        {/* Enqueue Operation */}
+        <div className="text-center">
+            <h3 className="font-semibold">Enqueue Operation (Add to Rear)</h3>
+            <p className="text-xs text-muted-foreground">A new element (30) is added to the back of the line.</p>
+        </div>
         <div className="flex items-center gap-4 w-full justify-center">
-            <Button>Enqueue(30)</Button>
+            <div className="w-16 h-16 bg-green-500/20 border border-green-500 flex items-center justify-center text-lg font-bold rounded-md">30</div>
             <ArrowRight className="h-8 w-8 text-green-500" />
-            <div className="flex items-center border-2 border-primary h-20 w-80 relative p-2 justify-end">
-                <div className="absolute -left-12 font-semibold">Rear</div>
-                <div className="absolute -right-12 font-semibold">Front</div>
+            <div className="flex items-center border-2 border-primary h-20 w-80 relative p-2 rounded-lg bg-background">
+                <div className="absolute -top-6 left-0 font-semibold text-sm">Front</div>
+                <div className="absolute -top-6 right-0 font-semibold text-sm">Rear</div>
                 <div className="flex items-center gap-2">
-                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center">20</div>
-                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center">10</div>
+                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">10</div>
+                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">20</div>
+                </div>
+            </div>
+            <ChevronsRight className="h-8 w-8 text-muted-foreground" />
+             <div className="flex items-center border-2 border-primary h-20 w-80 relative p-2 rounded-lg bg-background">
+                <div className="flex items-center gap-2">
+                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">10</div>
+                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">20</div>
+                    <div className="w-16 h-16 bg-green-500/20 border border-green-500 flex items-center justify-center text-lg font-bold rounded-md">30</div>
                 </div>
             </div>
         </div>
 
-        {/* Dequeue Operation */}
+        <div className="text-center mt-8">
+            <h3 className="font-semibold">Dequeue Operation (Remove from Front)</h3>
+            <p className="text-xs text-muted-foreground">The first element (10) is removed from the front of the line.</p>
+        </div>
         <div className="flex items-center gap-4 w-full justify-center">
-            <div className="flex items-center border-2 border-primary h-20 w-80 relative p-2 justify-end">
-                <div className="absolute -left-12 font-semibold">Rear</div>
-                <div className="absolute -right-12 font-semibold">Front</div>
-                <div className="flex items-center gap-2">
-                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center">30</div>
-                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center">20</div>
-                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center">10</div>
+            <div className="flex items-center border-2 border-primary h-20 w-80 relative p-2 rounded-lg bg-background">
+                <div className="absolute -top-6 left-0 font-semibold text-sm">Front</div>
+                <div className="absolute -top-6 right-0 font-semibold text-sm">Rear</div>
+                 <div className="flex items-center gap-2">
+                    <div className="w-16 h-16 bg-destructive/20 border border-destructive flex items-center justify-center text-lg font-bold rounded-md">10</div>
+                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">20</div>
+                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">30</div>
                 </div>
             </div>
             <ArrowRight className="h-8 w-8 text-destructive" />
-            <Button variant="destructive">Dequeue()</Button>
-            <div className="w-16 h-16 bg-destructive/20 border border-destructive flex items-center justify-center m-1">10</div>
+             <div className="flex items-center border-2 border-primary h-20 w-80 relative p-2 rounded-lg bg-background">
+                 <div className="flex items-center gap-2">
+                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">20</div>
+                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">30</div>
+                </div>
+            </div>
         </div>
     </div>
 );
@@ -207,8 +225,7 @@ class MyQueue:
 5. **push(3):** 'in_stack' = [3], 'out_stack' = [2].
 6. **peek():**
    - 'out_stack' is NOT empty.
-   - Return top of 'out_stack': 2.
-    `
+   - Return top of 'out_stack': 2.`
   },
 ];
 
