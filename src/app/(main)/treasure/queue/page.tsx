@@ -198,19 +198,19 @@ class MyQueue:
     diagram: `
 **Operations:** push(1), push(2), peek(), pop(), push(3), peek()
 
-1. **push(1):** `in_stack` = [1], `out_stack` = []
-2. **push(2):** `in_stack` = [1, 2], `out_stack` = []
+1. **push(1):** 'in_stack' = [1], 'out_stack' = []
+2. **push(2):** 'in_stack' = [1, 2], 'out_stack' = []
 3. **peek():**
-   - `out_stack` is empty.
-   - Transfer from `in_stack`: `out_stack` becomes [2, 1], `in_stack` becomes [].
-   - Return top of `out_stack`: 1.
+   - 'out_stack' is empty.
+   - Transfer from 'in_stack': 'out_stack' becomes [2, 1], 'in_stack' becomes [].
+   - Return top of 'out_stack': 1.
 4. **pop():**
-   - `peek()` was just called, `out_stack` is ready.
-   - Pop from `out_stack`. Return 1. `out_stack` is now [2].
-5. **push(3):** `in_stack` = [3], `out_stack` = [2].
+   - 'peek()' was just called, 'out_stack' is ready.
+   - Pop from 'out_stack'. Return 1. 'out_stack' is now [2].
+5. **push(3):** 'in_stack' = [3], 'out_stack' = [2].
 6. **peek():**
-   - `out_stack` is NOT empty.
-   - Return top of `out_stack`: 2.
+   - 'out_stack' is NOT empty.
+   - Return top of 'out_stack': 2.
     `
   },
 ];
