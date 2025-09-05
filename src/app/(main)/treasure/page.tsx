@@ -15,8 +15,15 @@ const dataStructures = {
         { name: "Queue (Simple, Circular, Priority, Deque)", href: "/treasure/queue" },
     ],
     nonLinear: [
-        "Trees", "Binary Tree", "Binary Search Tree (BST)", "AVL Tree, Red-Black Tree", "Segment Tree, Fenwick Tree (BIT)",
-        "Graphs", "Directed / Undirected", "Weighted / Unweighted", "Adjacency List / Matrix",
+        { name: "Trees", href: "/treasure/trees"},
+        { name: "Binary Tree", href: null },
+        { name: "Binary Search Tree (BST)", href: null },
+        { name: "AVL Tree, Red-Black Tree", href: null },
+        { name: "Segment Tree, Fenwick Tree (BIT)", href: null },
+        { name: "Graphs", href: null },
+        { name: "Directed / Undirected", href: null },
+        { name: "Weighted / Unweighted", href: null },
+        { name: "Adjacency List / Matrix", href: null },
     ],
     hashing: ["Hash Tables", "Hash Maps / Dictionaries", "Sets"],
     advanced: ["Heap / Priority Queue", "Trie (Prefix Tree)", "Disjoint Set Union (DSU / Union Find)", "Sparse Table"],
@@ -96,7 +103,15 @@ export default function TreasurePage() {
                   <div>
                       <h3 className="font-semibold mb-2">🌳 Non-Linear Data Structures</h3>
                       <div className="flex flex-wrap gap-2">
-                          {dataStructures.nonLinear.map(item => <Badge key={item} variant="secondary">{item}</Badge>)}
+                          {dataStructures.nonLinear.map(item => (
+                              item.href ? (
+                                  <Link href={item.href} key={item.name}>
+                                      <Badge variant="secondary" className="hover:bg-primary/20 cursor-pointer">{item.name}</Badge>
+                                  </Link>
+                              ) : (
+                                  <Badge key={item.name} variant="secondary">{item.name}</Badge>
+                              )
+                          ))}
                       </div>
                   </div>
                   <div>
