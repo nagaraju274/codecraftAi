@@ -236,7 +236,7 @@ const commonProblems = [
   {
     title: "Reverse a Linked List",
     description: "Reverse a singly linked list.",
-    logic: "The standard iterative approach uses three pointers: `previous`, `current`, and `next_node`. As you traverse the list, you change the `next` pointer of the `current` node to point to the `previous` node. You then move all three pointers one step forward. The key is to first save the next node before you overwrite the current node's `next` pointer.",
+    logic: "The standard iterative approach uses three pointers: `previous`, `current`, and `next_node`. The goal is to walk through the list, and for each node we visit, we change its `next` pointer to point to the `previous` node instead. Because we're overwriting the `next` pointer, we first need to save a reference to the original next node so we don't lose the rest of the list. After we reverse the pointer, we move all three pointers one step forward for the next iteration.",
     code: `
 def reverse_list(head):
     prev = None
@@ -249,14 +249,14 @@ def reverse_list(head):
     return prev
 `.trim(),
     lineByLine: [
-        "`prev = None` - Initializes a pointer for the previous node, which will eventually be the new head.",
-        "`curr = head` - Starts a pointer at the current head of the list.",
-        "`while curr:` - Loops through the entire list until `curr` becomes `None`.",
-        "`next_temp = curr.next` - Stores the next node in the original list before we overwrite the pointer.",
-        "`curr.next = prev` - The core reversal step: the current node's pointer is flipped to point backwards.",
-        "`prev = curr` - The `prev` pointer moves one step forward to the current node.",
-        "`curr = next_temp` - The `curr` pointer moves one step forward to the next node in the original list.",
-        "`return prev` - When the loop finishes, 'prev' will be at the original last node, which is the new head."
+        "`prev = None` - We initialize a `prev` pointer to `None` (or `null`). This is crucial because the `next` pointer of the original head node will eventually need to point to `None`, making it the new tail of the list.",
+        "`curr = head` - The `curr` pointer starts at the head of the list. This is the node we are currently processing.",
+        "`while curr:` - The loop continues as long as `curr` is not `None`, ensuring we process every node in the list.",
+        "`next_temp = curr.next` - This is a critical step. Before we change `curr.next`, we must store its original value in `next_temp`. If we didn't, we would lose the link to the rest of the list.",
+        "`curr.next = prev` - This is the reversal step. We make the current node's `next` pointer point backward to the `prev` node.",
+        "`prev = curr` - We move `prev` one step forward. It now points to the node we just processed.",
+        "`curr = next_temp` - We move `curr` one step forward to the next node in the original list, which we saved in `next_temp`.",
+        "`return prev` - When the loop finishes (`curr` is `None`), the `prev` pointer will be at the last node of the original list, which is now the head of the reversed list."
     ],
     diagram: `
 **List: A -> B -> C -> NULL**
@@ -292,7 +292,7 @@ def reverse_list(head):
   {
     title: "Detect a Cycle",
     description: "Given a linked list, determine if it has a cycle in it.",
-    logic: "The most famous solution is Floyd's Tortoise and Hare algorithm. It uses two pointers, a 'slow' one that moves one step at a time, and a 'fast' one that moves two steps at a time. If there is a cycle, the fast pointer will eventually lap the slow pointer, and they will meet. If the fast pointer reaches the end of the list (NULL), there is no cycle.",
+    logic: "The most famous solution is Floyd's Tortoise and Hare algorithm. It uses two pointers that traverse the list at different speeds. The 'slow' pointer moves one step at a time, while the 'fast' pointer moves two steps at a time. If the list has a loop, the fast pointer will eventually enter the loop and start circling. The slow pointer will also eventually enter the loop. Since the fast pointer is moving faster, it is guaranteed to eventually 'lap' the slow pointer, and they will meet at the same node. If the fast pointer reaches the end of the list (NULL), it means there was no cycle.",
     code: `
 def has_cycle(head):
     slow = head
@@ -305,13 +305,13 @@ def has_cycle(head):
     return False
 `.trim(),
     lineByLine: [
-        "`slow = head`, `fast = head` - Initializes both pointers at the start of the list.",
-        "`while fast and fast.next:` - The loop continues as long as the fast pointer and the node ahead of it are not null. This prevents errors on lists with an even or odd number of nodes.",
-        "`slow = slow.next` - The slow pointer moves one step.",
-        "`fast = fast.next.next` - The fast pointer moves two steps.",
-        "`if slow == fast:` - If the pointers ever meet at the same node, a cycle has been detected.",
-        "`return True` - Confirms a cycle exists.",
-        "`return False` - If the loop finishes, it means the fast pointer reached the end, so there is no cycle."
+        "`slow = head`, `fast = head` - We initialize both pointers at the starting node of the list.",
+        "`while fast and fast.next:` - This is the loop condition. We need to check both `fast` and `fast.next` because we will be accessing `fast.next.next`. If either is null, the fast pointer has reached the end of the list, and there can't be a cycle.",
+        "`slow = slow.next` - The slow pointer moves one step forward in each iteration.",
+        "`fast = fast.next.next` - The fast pointer moves two steps forward in each iteration.",
+        "`if slow == fast:` - Inside the loop, we check if the two pointers are now referencing the exact same node object. If they are, it means the fast pointer has lapped the slow one inside a cycle.",
+        "`return True` - If the pointers meet, we have found a cycle and can immediately return true.",
+        "`return False` - If the `while` loop completes without the pointers ever meeting, it means the fast pointer reached a `null`, so we know there is no cycle."
     ],
     diagram: `
 **List: A -> B -> C -> D -> B (cycle)**
@@ -382,7 +382,7 @@ export default function LinkedListPage() {
                       <AccordionItem value="item-1">
                           <AccordionTrigger>Nodes and Pointers</AccordionTrigger>
                           <AccordionContent>
-                           Each element in a linked list is a 'node'. A node is typically a struct or object containing two things: the data itself, and a pointer (or reference) to the next node in the sequence. This chain of pointers is what forms the list.
+                           Each element in a linked list is a 'node'. Think of a node as a small container. This container holds two things: the actual data you want to store (like a number or a string), and a pointer. The pointer is simply the memory address of the *next* node in the sequence. This chain of pointers is what forms the list, creating a connection between nodes that could be located anywhere in your computer's memory. It's like a scavenger hunt where each clue tells you where to find the next one.
                           </AccordionContent>
                       </AccordionItem>
                       <AccordionItem value="item-2">
@@ -390,22 +390,22 @@ export default function LinkedListPage() {
                           <AccordionContent className="space-y-4">
                             <div>
                                 <h4 className="font-semibold text-foreground mb-1">Singly Linked List</h4>
-                                <p>This is the most basic type. Each node has one pointer that points to the next node in the list. Traversal is only possible in the forward direction. It's memory-efficient but lacks the flexibility of backward traversal.</p>
+                                <p>This is the most basic type. Each node has only one pointer, which points to the next node in the list. It's a one-way street; you can only traverse the list in the forward direction, from head to tail. It's memory-efficient because it only stores one pointer per node, but its inflexibility can make certain operations, like deleting the last element, less efficient if you don't have a tail pointer.</p>
                             </div>
                              <div>
                                 <h4 className="font-semibold text-foreground mb-1">Doubly Linked List</h4>
-                                <p>Each node has two pointers: one to the next node (`next`) and one to the previous node (`prev`). This allows for traversal in both forward and backward directions, which can simplify some operations like deletion. The trade-off is slightly more memory usage per node.</p>
+                                <p>Each node in a doubly linked list has two pointers: one to the next node (`next`) and one to the previous node (`prev`). This makes it a two-way street. You can traverse the list both forwards and backwards. This bi-directional capability simplifies many operations, such as deleting a node, because you don't need to keep a separate pointer to the previous node as you traverse. The trade-off is slightly more memory usage per node to store the extra pointer.</p>
                             </div>
                              <div>
                                 <h4 className="font-semibold text-foreground mb-1">Circular Linked List</h4>
-                                <p>In this variation, the 'next' pointer of the last node points back to the head node instead of NULL. This forms a circle and can be useful for applications that require continuous looping through items, like a playlist or a round-robin scheduler. It can be singly or doubly linked.</p>
+                                <p>In this variation, the 'next' pointer of the last node points back to the head node instead of being `NULL` or `None`. This forms a continuous loop or circle. This structure is useful for applications that require a continuous cycle, like a media player's playlist on repeat, or managing resources in a round-robin scheduling system. A circular linked list can be either singly or doubly linked.</p>
                             </div>
                           </AccordionContent>
                       </AccordionItem>
                       <AccordionItem value="item-3">
                           <AccordionTrigger>Head and Tail</AccordionTrigger>
                           <AccordionContent>
-                              The `head` is a pointer that always points to the very first node in the list. It's the entry point for any list operation. Similarly, a `tail` pointer can be maintained to point to the last node. Having a tail pointer makes insertion at the end of the list an O(1) operation, which would otherwise be O(n).
+                              The `head` is a special pointer that always points to the very first node in the list. It's the entry point for any operation; without the head, you would lose the entire list. Similarly, a `tail` pointer can be maintained to point to the very last node. While not strictly necessary, keeping a tail pointer is a huge performance optimization. It makes insertion at the end of the list an O(1) operation, which would otherwise require traversing the entire list (an O(n) operation) to find the end.
                           </AccordionContent>
                       </AccordionItem>
                   </Accordion>
@@ -476,19 +476,19 @@ export default function LinkedListPage() {
                       <AccordionItem value="item-1">
                           <AccordionTrigger>Two Pointers (Fast & Slow)</AccordionTrigger>
                           <AccordionContent>
-                            This is the most famous linked list pattern. By having two pointers move through the list at different speeds (e.g., one moves one step, the other moves two), you can solve a surprising number of problems. It's the key to detecting cycles, finding the middle of a list, and more, all in a single pass.
+                            This is arguably the most famous linked list pattern. By having two pointers move through the list at different speeds (e.g., one moves one step, the other moves two steps), you can solve a surprising number of problems in a single pass. It's the key to detecting cycles (if a fast pointer ever catches up to a slow one, there's a loop), finding the middle of a list (when the fast pointer reaches the end, the slow pointer is at the middle), and finding the Nth node from the end. It's a clever way to understand relative positions within the list without needing to know the list's length beforehand.
                           </AccordionContent>
                       </AccordionItem>
                       <AccordionItem value="item-2">
                           <AccordionTrigger>Dummy Head Node</AccordionTrigger>
                           <AccordionContent>
-                            To simplify insertion and deletion logic, especially at the head of the list, a 'dummy' or 'sentinel' node can be created. This dummy node points to the real head of the list. It eliminates the need for special `if` conditions to handle changes to the head, as the head is now just another node in the list from the dummy's perspective.
+                           Edge cases, especially operations at the head of the list (like inserting a new first node or deleting the current head), often require special `if` conditions. A 'dummy' or 'sentinel' node is a placeholder node that is placed before the actual head of the list. Your main pointer then operates on the dummy node. This simplifies your code significantly because every insertion or deletion is now a "middle" operation from the dummy's perspective. You no longer need separate logic to handle changes to the head, resulting in cleaner and less error-prone code. You just return `dummy.next` at the end.
                           </AccordionContent>
                       </AccordionItem>
                       <AccordionItem value="item-3">
                           <AccordionTrigger>In-Place Reversal</AccordionTrigger>
                           <AccordionContent>
-                            This pattern involves reversing the list without using any extra space. By carefully managing three pointers (previous, current, and next), you can iterate through the list and flip the direction of each node's `next` pointer as you go.
+                            This powerful pattern involves reversing the list without using any extra space for a new list. By carefully managing three pointers (often called `previous`, `current`, and `next`), you can iterate through the list and flip the direction of each node's `next` pointer as you go. The `current` node's `next` pointer is changed to point to the `previous` node, and then all three pointers are moved one step forward. It's a classic interview problem that demonstrates a strong understanding of pointer manipulation.
                           </AccordionContent>
                       </AccordionItem>
                   </Accordion>
