@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Info, Copy, ArrowRight, BrainCircuit, Code, Workflow, Lightbulb, ArrowLeft, ArrowUpRightFromSquare, ChevronsRight, LogIn, LogOut } from "lucide-react";
+import { Info, Copy, ArrowRight, BrainCircuit, Code, Workflow, Lightbulb, ChevronsRight, LogIn, LogOut } from "lucide-react";
 import Link from "next/link";
 import {
   Accordion,
@@ -22,24 +22,18 @@ const QueueVisual = () => (
     <div className="flex flex-col items-center justify-center gap-8 p-4 bg-muted/50 rounded-lg my-4">
         <div className="text-center">
             <h3 className="font-semibold">Enqueue Operation (Add to Rear)</h3>
-            <p className="text-xs text-muted-foreground">A new element (30) is added to the back of the line.</p>
+            <p className="text-xs text-muted-foreground">A new element (30) is added to the back (right side) of the line.</p>
         </div>
         <div className="flex items-center gap-4 w-full justify-center">
-            <div className="w-16 h-16 bg-green-500/20 border border-green-500 flex items-center justify-center text-lg font-bold rounded-md">30</div>
-            <ArrowRight className="h-8 w-8 text-green-500" />
-            <div className="flex items-center border-2 border-primary h-20 w-80 relative p-2 rounded-lg bg-background">
+             <div className="flex items-center border-2 border-primary h-20 w-80 relative p-2 rounded-lg bg-background">
                 <div className="absolute -top-6 left-0 font-semibold text-sm">Front</div>
                 <div className="absolute -top-6 right-0 font-semibold text-sm">Rear</div>
                 <div className="flex items-center gap-2">
                     <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">10</div>
                     <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">20</div>
                 </div>
-            </div>
-            <ChevronsRight className="h-8 w-8 text-muted-foreground" />
-             <div className="flex items-center border-2 border-primary h-20 w-80 relative p-2 rounded-lg bg-background">
-                <div className="flex items-center gap-2">
-                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">10</div>
-                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">20</div>
+                <div className="flex-1 flex justify-end items-center">
+                    <LogIn className="h-8 w-8 text-green-500 mr-2" />
                     <div className="w-16 h-16 bg-green-500/20 border border-green-500 flex items-center justify-center text-lg font-bold rounded-md">30</div>
                 </div>
             </div>
@@ -47,7 +41,7 @@ const QueueVisual = () => (
 
         <div className="text-center mt-8">
             <h3 className="font-semibold">Dequeue Operation (Remove from Front)</h3>
-            <p className="text-xs text-muted-foreground">The first element (10) is removed from the front of the line.</p>
+            <p className="text-xs text-muted-foreground">The first element (10) is removed from the front (left side) of the line.</p>
         </div>
         <div className="flex items-center gap-4 w-full justify-center">
             <div className="flex items-center border-2 border-primary h-20 w-80 relative p-2 rounded-lg bg-background">
@@ -55,124 +49,107 @@ const QueueVisual = () => (
                 <div className="absolute -top-6 right-0 font-semibold text-sm">Rear</div>
                  <div className="flex items-center gap-2">
                     <div className="w-16 h-16 bg-destructive/20 border border-destructive flex items-center justify-center text-lg font-bold rounded-md">10</div>
-                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">20</div>
-                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">30</div>
-                </div>
-            </div>
-            <ArrowRight className="h-8 w-8 text-destructive" />
-             <div className="flex items-center border-2 border-primary h-20 w-80 relative p-2 rounded-lg bg-background">
-                 <div className="flex items-center gap-2">
-                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">20</div>
-                    <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">30</div>
+                    <LogOut className="h-8 w-8 text-destructive ml-2" />
+                    <div className="flex-1 flex items-center gap-2 justify-end">
+                        <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">20</div>
+                        <div className="w-16 h-16 bg-primary/20 border border-primary flex items-center justify-center text-lg font-bold rounded-md">30</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 );
 
+
 const properties = [
-    { property: "Enqueue (Insertion)", details: "O(1) - Adding to the rear is very fast.", complexity: "good" },
-    { property: "Dequeue (Deletion)", details: "O(1) - Removing from the front is very fast.", complexity: "good" },
-    { property: "Peek/Front (Access)", details: "O(1) - Looking at the front element is very fast.", complexity: "good" },
-    { property: "Search", details: "O(n) - Must traverse the entire queue to find an element.", complexity: "bad" },
+    { type: "Simple Queue (Linked List)", property: "Enqueue", complexity: "O(1)" },
+    { type: "Simple Queue (Linked List)", property: "Dequeue", complexity: "O(1)" },
+    { type: "Simple Queue (Array)", property: "Enqueue", complexity: "O(1) amortized" },
+    { type: "Simple Queue (Array)", property: "Dequeue", complexity: "O(n)" },
+    { type: "Circular Queue (Array)", property: "Enqueue", complexity: "O(1)" },
+    { type: "Circular Queue (Array)", property: "Dequeue", complexity: "O(1)" },
+    { type: "Priority Queue (Heap)", property: "Enqueue", complexity: "O(log n)" },
+    { type: "Priority Queue (Heap)", property: "Dequeue", complexity: "O(log n)" },
+    { type: "Deque (Linked List/Deque)", property: "Add/Remove Front/Rear", complexity: "O(1)" },
+    { type: "All Types", property: "Peek/Front (Access)", complexity: "O(1)" },
+    { type: "All Types", property: "Search", complexity: "O(n)" },
 ];
 
-const ComplexityBadge = ({ complexity }: { complexity: "good" | "bad" }) => (
-    <Badge variant={complexity === 'good' ? 'default' : 'destructive'} className={complexity === 'good' ? 'bg-green-600' : ''}>
-        {complexity.toUpperCase()}
+const ComplexityBadge = ({ complexity }: { complexity: string }) => {
+    const isGood = complexity.includes("1") || complexity.includes("log n");
+    return <Badge variant={isGood ? 'default' : 'destructive'} className={isGood ? 'bg-green-600' : ''}>
+        {complexity}
     </Badge>
-);
+};
 
 const codeSnippets = {
   python: `
-# Implementation using collections.deque for efficiency
+# Simple Queue / Deque using collections.deque
 from collections import deque
+q = deque()
+q.append(10) # Enqueue
+q.append(20)
+q.popleft()  # Dequeue
 
-queue = deque()
-
-# --- Operations ---
-
-# 1. Enqueue (O(1))
-queue.append(10)
-queue.append(20)
-queue.append(30)
-print(f"Queue after enqueues: {queue}") # deque([10, 20, 30])
-
-# 2. Dequeue (O(1))
-# Check if queue is not empty before dequeuing
-if queue:
-    front_element = queue.popleft()
-    print(f"Dequeued element: {front_element}") # 10
-    print(f"Queue after dequeue: {queue}") # deque([20, 30])
-
-# 3. Peek/Front (O(1))
-# Check if queue is not empty before peeking
-if queue:
-    peek_element = queue[0]
-    print(f"Front element is: {peek_element}") # 20
-
-# 4. Check if empty
-is_empty = not bool(queue)
-print(f"Is queue empty? {is_empty}") # False
+# Priority Queue using heapq
+import heapq
+pq = []
+heapq.heappush(pq, (2, 'task1')) # (priority, item)
+heapq.heappush(pq, (1, 'task2'))
+heapq.heappop(pq) # Dequeues task2 (lowest priority)
 `.trim(),
   cpp: `
-#include <iostream>
 #include <queue>
+#include <vector>
 
-// Implementation using std::queue (adapts a container like std::deque)
+// Simple Queue
 std::queue<int> q;
-
-// --- Operations ---
-
-// 1. Enqueue (O(1))
-q.push(10);
+q.push(10); // Enqueue
 q.push(20);
-q.push(30);
+q.pop();    // Dequeue
 
-// 2. Dequeue (O(1))
-if (!q.empty()) {
-    std::cout << "Dequeuing element: " << q.front() << std::endl; // 10
-    q.pop(); // pop() returns void
-}
+// Priority Queue
+// By default, it's a Max-Heap
+std::priority_queue<int> pq;
+pq.push(10);
+pq.push(30);
+pq.push(20);
+pq.top(); // Returns 30
+pq.pop(); // Removes 30
 
-// 3. Peek/Front (O(1))
-if (!q.empty()) {
-    std::cout << "Front element is: " << q.front() << std::endl; // 20
-}
-
-// 4. Check if empty
-std::cout << "Is queue empty? " << (q.empty() ? "Yes" : "No") << std::endl; // No
-
-// 5. Get Size
-std::cout << "Queue size: " << q.size() << std::endl; // 2
+// Deque
+std::deque<int> d;
+d.push_back(10);  // Add to rear
+d.push_front(20); // Add to front
+d.pop_back();     // Remove from rear
+d.pop_front();    // Remove from front
 `.trim(),
   java: `
 import java.util.Queue;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.ArrayDeque;
 
-// Implementation using a class that implements the Queue interface, like LinkedList
-Queue<Integer> queue = new LinkedList<>();
+// Simple Queue (using LinkedList)
+Queue<Integer> q = new LinkedList<>();
+q.add(10); // Enqueue
+q.add(20);
+q.remove(); // Dequeue
 
-// --- Operations ---
+// Priority Queue
+Queue<Integer> pq = new PriorityQueue<>();
+pq.add(10);
+pq.add(30);
+pq.add(20);
+pq.peek(); // Returns 10
+pq.poll(); // Removes 10
 
-// 1. Enqueue (O(1))
-queue.add(10);
-queue.add(20);
-queue.add(30);
-System.out.println("Queue after enqueues: " + queue); // [10, 20, 30]
-
-// 2. Dequeue (O(1))
-Integer frontElement = queue.poll(); // poll() returns null if empty
-System.out.println("Dequeued element: " + frontElement); // 10
-System.out.println("Queue after dequeue: " + queue); // [20, 30]
-
-// 3. Peek/Front (O(1))
-Integer peekElement = queue.peek(); // peek() returns null if empty
-System.out.println("Front element is: " + peekElement); // 20
-
-// 4. Check if empty
-boolean isEmpty = queue.isEmpty();
-System.out.println("Is queue empty? " + isEmpty); // false
+// Deque
+Deque<Integer> dq = new ArrayDeque<>();
+dq.addFirst(10);
+dq.addLast(20);
+dq.removeFirst();
+dq.removeLast();
 `.trim()
 };
 
@@ -245,13 +222,13 @@ export default function QueuePage() {
                               <Info className="h-6 w-6 text-muted-foreground" />
                           </TooltipTrigger>
                           <TooltipContent>
-                              <p>A FIFO (First-In, First-Out) abstract data type.</p>
+                              <p>A data structure that follows a First-In, First-Out (FIFO) principle.</p>
                           </TooltipContent>
                       </Tooltip>
                   </TooltipProvider>
               </div>
               <p className="mt-4 text-lg text-muted-foreground max-w-3xl">
-                  A queue is a linear data structure that follows the First-In, First-Out (FIFO) principle. This is like a checkout line at a grocery store: the first person to get in line is the first person to be served. Elements are added to the back (rear) and removed from the front.
+                  A queue is a linear data structure analogous to a real-world line. The first element added is the first to be removed. It has two main ends: the 'front' where elements are removed (dequeued) and the 'rear' where elements are added (enqueued).
               </p>
           </header>
 
@@ -267,24 +244,33 @@ export default function QueuePage() {
 
           <Card>
               <CardHeader>
-                  <CardTitle>Core Concepts</CardTitle>
-                  <CardDescription>Understanding these concepts is key to using queues effectively.</CardDescription>
+                  <CardTitle>Core Concepts & Types</CardTitle>
+                  <CardDescription>Queues come in several variations, each suited for different tasks.</CardDescription>
               </CardHeader>
               <CardContent>
-                  <Accordion type="single" collapsible className="w-full">
+                  <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
                       <AccordionItem value="item-1">
-                          <AccordionTrigger>FIFO (First-In, First-Out)</AccordionTrigger>
+                          <AccordionTrigger>Simple Queue (FIFO)</AccordionTrigger>
                           <AccordionContent>
-                            This is the defining principle of a queue. Unlike a stack's LIFO, the first element added to the queue is the first one to be removed. This makes queues ideal for any scenario where order of arrival is important, such as processing tasks in the order they were received or managing requests to a shared resource.
+                            This is the standard queue that strictly follows the First-In, First-Out principle. It's ideal for any scenario where order of arrival is important, such as processing tasks in the order they were received or managing requests to a shared resource.
                           </AccordionContent>
                       </AccordionItem>
                       <AccordionItem value="item-2">
-                          <AccordionTrigger>Implementation: Array vs. Linked List</AccordionTrigger>
+                          <AccordionTrigger>Circular Queue</AccordionTrigger>
                           <AccordionContent>
-                              <ul className="list-disc pl-5 space-y-2">
-                                  <li><strong>Linked List:</strong> This is a very natural way to implement a queue. By keeping pointers to both the head and the tail of the list, you can achieve true O(1) time complexity for both enqueue (add to tail) and dequeue (remove from head) operations.</li>
-                                  <li><strong>Array/Vector:</strong> While possible, implementing an efficient queue with a standard dynamic array can be tricky. Enqueuing at the end is fast (O(1)), but dequeuing from the beginning requires shifting all other elements, which is a slow O(n) operation. To overcome this, a circular queue (or circular buffer) is often used with arrays, which reuses empty spots at the front of the array.</li>
-                              </ul>
+                            A circular queue is a linear data structure in which the operations are performed based on FIFO principle and the last position is connected back to the first position to make a circle. It's an efficient way to implement a queue using an array, as it avoids the O(n) cost of shifting elements upon dequeueing by wrapping around to the start of the array when the end is reached.
+                          </AccordionContent>
+                      </AccordionItem>
+                      <AccordionItem value="item-3">
+                          <AccordionTrigger>Priority Queue</AccordionTrigger>
+                          <AccordionContent>
+                            A priority queue is a special type of queue where each element has an associated priority. Elements with higher priority are served before elements with lower priority. If two elements have the same priority, they are served according to their order in the queue. They are commonly implemented using a heap.
+                          </AccordionContent>
+                      </AccordionItem>
+                      <AccordionItem value="item-4">
+                          <AccordionTrigger>Deque (Double-Ended Queue)</AccordionTrigger>
+                          <AccordionContent>
+                            A deque is a generalization of a queue that allows adding and removing elements from either the front or the rear. This makes it a versatile structure that can act as both a queue and a stack.
                           </AccordionContent>
                       </AccordionItem>
                   </Accordion>
@@ -295,22 +281,20 @@ export default function QueuePage() {
           <Card>
               <CardHeader><CardTitle>Properties & Time Complexity</CardTitle></CardHeader>
               <CardContent>
-                  <CardDescription>A queue's primary advantage is its speed for adding and removing elements from its ends.</CardDescription>
+                  <CardDescription>Performance varies based on the queue type and its underlying implementation (e.g., Array, Linked List, Heap).</CardDescription>
                   <Table className="mt-4">
                       <TableHeader>
                           <TableRow>
-                              <TableHead>Operation</TableHead>
-                              <TableHead>Details</TableHead>
+                              <TableHead>Queue Type / Operation</TableHead>
                               <TableHead>Time Complexity</TableHead>
                           </TableRow>
                       </TableHeader>
                       <TableBody>
                           {properties.map(p => (
-                              <TableRow key={p.property}>
-                                  <TableCell className="font-semibold">{p.property}</TableCell>
-                                  <TableCell>{p.details}</TableCell>
+                              <TableRow key={p.type + p.property}>
+                                  <TableCell className="font-semibold">{p.type} - {p.property}</TableCell>
                                   <TableCell>
-                                      {p.complexity && <ComplexityBadge complexity={p.complexity as "good" | "bad"} />}
+                                      <ComplexityBadge complexity={p.complexity} />
                                   </TableCell>
                               </TableRow>
                           ))}
@@ -321,8 +305,8 @@ export default function QueuePage() {
           
           <Card>
               <CardHeader>
-                  <CardTitle>Common Operations</CardTitle>
-                  <CardDescription>Code examples for queue operations in popular languages. Most languages provide a built-in queue implementation.</CardDescription>
+                  <CardTitle>Implementations</CardTitle>
+                  <CardDescription>Code examples for queue operations in popular languages. Most languages provide built-in, highly-optimized implementations.</CardDescription>
               </CardHeader>
               <CardContent>
                   <Tabs defaultValue="python">

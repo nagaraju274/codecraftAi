@@ -12,7 +12,7 @@ const dataStructures = {
         { name: "Array", href: "/treasure/array" },
         { name: "Linked List (Singly, Doubly, Circular)", href: "/treasure/linked-list" },
         { name: "Stack", href: "/treasure/stack" },
-        { name: "Queue (Simple, Circular, Priority Queue, Deque)", href: "/treasure/queue" },
+        { name: "Queue (Simple, Circular, Priority, Deque)", href: "/treasure/queue" },
     ],
     nonLinear: [
         "Trees", "Binary Tree", "Binary Search Tree (BST)", "AVL Tree, Red-Black Tree", "Segment Tree, Fenwick Tree (BIT)",
