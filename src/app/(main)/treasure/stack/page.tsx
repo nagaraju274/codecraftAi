@@ -408,9 +408,7 @@ export default function StackPage() {
                                       </ul>
 
                                       <h4 className="font-semibold">How it Works (Diagram)</h4>
-                                      <pre className="bg-muted/50 p-4 rounded-md text-sm font-code whitespace-pre-wrap">{`
-                                      ${problem.diagram}
-                                      `}</pre>
+                                      <pre className="bg-muted/50 p-4 rounded-md text-sm font-code whitespace-pre-wrap">{problem.diagram}</pre>
                                   </div>
                               </AccordionContent>
                           </AccordionItem>
@@ -462,6 +460,3 @@ export default function StackPage() {
     </AuthGuard>
   );
 }
-
-
-
