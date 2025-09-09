@@ -1,40 +1,11 @@
 
 import { notFound } from 'next/navigation';
-import { blogPosts, Post } from '@/lib/blog-data';
-import { Metadata } from 'next';
+import { blogPosts } from '@/lib/blog-data';
 import { User, Calendar, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
-type Props = {
-  params: { slug: string };
-}
-
-// Generate metadata for each blog post
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = blogPosts.find(p => p.slug === params.slug);
-
-  if (!post) {
-    return {
-      title: 'Post Not Found',
-      description: 'The post you are looking for does not exist.',
-    }
-  }
-
-  return {
-    title: post.title,
-    description: post.description,
-    openGraph: {
-      title: post.title,
-      description: post.description,
-      type: 'article',
-      publishedTime: post.date,
-      authors: [post.author],
-    },
-  }
-}
-
-export default function BlogPostPage({ params }: Props) {
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = blogPosts.find(p => p.slug === params.slug);
 
   if (!post) {
