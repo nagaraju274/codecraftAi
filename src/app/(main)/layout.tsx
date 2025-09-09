@@ -9,7 +9,6 @@ const navLinks = [
     { href: "/learn", label: "Learn", icon: null },
     { href: "/projects", label: "Projects", icon: null },
     { href: "/playground", label: "Playground", icon: null },
-    { href: "/blog", label: "Blog", icon: Rss },
     { href: "/ask-a-mentor", label: "Ask a Mentor", icon: MessageCircleQuestion },
     { href: "/community", label: "Community", icon: null },
 ];
