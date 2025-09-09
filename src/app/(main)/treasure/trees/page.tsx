@@ -362,21 +362,21 @@ export default function TreesPage() {
                           <AccordionTrigger>Pre-order Traversal (DFS)</AccordionTrigger>
                           <AccordionContent>
                             <p>Visits the root node first, then the left subtree, then the right subtree. This is useful for creating a copy of the tree.</p>
-                            <p className="font-mono text-sm mt-2"><strong>Path:</strong> Root -> Left -> Right</p>
+                            <p className="font-mono text-sm mt-2"><strong>Path:</strong> Root - Left - Right</p>
                           </AccordionContent>
                       </AccordionItem>
                       <AccordionItem value="item-3">
                           <AccordionTrigger>Post-order Traversal (DFS)</AccordionTrigger>
                           <AccordionContent>
                             <p>Visits the left subtree, then the right subtree, then the root node. This is useful for deleting nodes from a tree, as you can delete the children before the parent.</p>
-                            <p className="font-mono text-sm mt-2"><strong>Path:</strong> Left -> Right -> Root</p>
+                            <p className="font-mono text-sm mt-2"><strong>Path:</strong> Left - Right - Root</p>
                           </AccordionContent>
                       </AccordionItem>
                       <AccordionItem value="item-4">
                           <AccordionTrigger>Level-order Traversal (BFS)</AccordionTrigger>
                           <AccordionContent>
                             <p>Visits nodes level by level, from left to right within each level. This is a Breadth-First Search (BFS) approach and typically requires a queue to implement.</p>
-                             <p className="font-mono text-sm mt-2"><strong>Path:</strong> Level 0 -> Level 1 -> Level 2 -> ...</p>
+                             <p className="font-mono text-sm mt-2"><strong>Path:</strong> Level 0 - Level 1 - Level 2 - ...</p>
                           </AccordionContent>
                       </AccordionItem>
                   </Accordion>
