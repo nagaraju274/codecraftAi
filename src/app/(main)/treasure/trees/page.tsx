@@ -355,7 +355,7 @@ export default function TreesPage() {
                           <AccordionTrigger>In-order Traversal (DFS)</AccordionTrigger>
                           <AccordionContent>
                             <p>Visits the left subtree, then the root node, then the right subtree. For a Binary Search Tree, this traversal visits the nodes in ascending order.</p>
-                            <p className="font-mono text-sm mt-2"><strong>Path:</strong> Left -> Root -> Right</p>
+                            <p className="font-mono text-sm mt-2"><strong>Path:</strong> Left - Root - Right</p>
                           </AccordionContent>
                       </AccordionItem>
                       <AccordionItem value="item-2">
