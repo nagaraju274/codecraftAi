@@ -61,7 +61,7 @@ export const cheatsheetData = [
     id: 'python',
     title: 'Python',
     description: 'Common syntax for data structures, loops, and functions.',
-    category: 'Python',
+    category: 'General-Purpose Languages',
     icon: Code,
     items: [
         { command: 'print(f"Value: {var}")', description: 'Prints a formatted string (f-string) to the console.' },
@@ -229,7 +229,7 @@ export const cheatsheetData = [
     id: 'java-basics',
     title: 'Java Basics',
     description: 'Fundamental syntax for the Java programming language.',
-    category: 'Languages',
+    category: 'General-Purpose Languages',
     icon: Code,
     items: [
       { command: 'public class Main {}', description: 'Defines a class named Main.' },
@@ -246,7 +246,7 @@ export const cheatsheetData = [
     id: 'c-sharp',
     title: 'C#',
     description: 'Core syntax for the C# programming language.',
-    category: 'Languages',
+    category: 'General-Purpose Languages',
     icon: Code,
     items: [
       { command: 'namespace My_App {}', description: 'Declares a namespace for organizing code.' },
@@ -264,7 +264,7 @@ export const cheatsheetData = [
     id: 'swift',
     title: 'Swift',
     description: 'Core syntax for Apple\'s modern programming language.',
-    category: 'Languages',
+    category: 'General-Purpose Languages',
     icon: Code,
     items: [
       { command: 'let constant = 10', description: 'Declares a constant.' },
@@ -280,7 +280,7 @@ export const cheatsheetData = [
     id: 'go-basics',
     title: 'Go Basics',
     description: 'Fundamental syntax for the Go programming language.',
-    category: 'Languages',
+    category: 'General-Purpose Languages',
     icon: Code,
     items: [
       { command: 'package main', description: 'Defines the package for an executable program.' },
@@ -298,7 +298,7 @@ export const cheatsheetData = [
     id: 'ruby-basics',
     title: 'Ruby Basics',
     description: 'Core syntax for the Ruby programming language.',
-    category: 'Languages',
+    category: 'General-Purpose Languages',
     icon: Feather,
     items: [
       { command: 'puts "Text"', description: 'Prints a string to the console with a newline.' },
@@ -429,7 +429,7 @@ export const cheatsheetData = [
     id: 'c-plus-plus',
     title: 'C++',
     description: 'Fundamental syntax for the C++ programming language.',
-    category: 'Languages',
+    category: 'General-Purpose Languages',
     icon: Hash,
     items: [
       { command: '#include <iostream>', description: 'Includes the iostream library for input/output.' },
@@ -511,7 +511,7 @@ export const cheatsheetData = [
     id: 'kotlin',
     title: 'Kotlin',
     description: 'Fundamental syntax for the modern language for Android dev.',
-    category: 'Languages',
+    category: 'General-Purpose Languages',
     icon: Code,
     items: [
       { command: 'val constant = 10', description: 'Declares a read-only constant.' },
@@ -527,7 +527,7 @@ export const cheatsheetData = [
     id: 'php',
     title: 'PHP',
     description: 'Core concepts for the server-side scripting language.',
-    category: 'Languages',
+    category: 'Web & Scripting',
     icon: Code,
     items: [
       { command: '$variable = "value";', description: 'Declares a variable.' },
@@ -559,7 +559,7 @@ export const cheatsheetData = [
     id: 'rust',
     title: 'Rust',
     description: 'Fundamental concepts for the systems programming language.',
-    category: 'Languages',
+    category: 'General-Purpose Languages',
     icon: Code,
     items: [
       { command: 'let x = 5;', description: 'Declares an immutable variable.' },
@@ -576,7 +576,7 @@ export const cheatsheetData = [
     id: 'dart',
     title: 'Dart',
     description: 'Core concepts for the language used by Flutter.',
-    category: 'Languages',
+    category: 'General-Purpose Languages',
     icon: Code,
     items: [
       { command: 'var name = "Dart";', description: 'Declares a variable.' },
@@ -592,7 +592,7 @@ export const cheatsheetData = [
     id: 'c',
     title: 'C',
     description: 'Fundamental syntax for the C programming language.',
-    category: 'Languages',
+    category: 'General-Purpose Languages',
     icon: Hash,
     items: [
       { command: '#include <stdio.h>', description: 'Includes the standard input/output library.' },
@@ -609,7 +609,7 @@ export const cheatsheetData = [
     id: 'perl',
     title: 'Perl',
     description: 'Core concepts for the versatile scripting language.',
-    category: 'Languages',
+    category: 'Web & Scripting',
     icon: Code,
     items: [
       { command: 'my $scalar = "value";', description: 'Declares a lexical scalar variable.' },
@@ -657,7 +657,7 @@ export const cheatsheetData = [
     id: 'prolog',
     title: 'Prolog',
     description: 'Core concepts for the logic programming language.',
-    category: 'Languages',
+    category: 'General-Purpose Languages',
     icon: Brain,
     items: [
       { command: 'fact(argument).', description: 'A fact is a basic assertion.' },
