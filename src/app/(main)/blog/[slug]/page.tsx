@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button';
 
 type Props = {
   params: { slug: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 // Generate metadata for each blog post
