@@ -364,6 +364,66 @@ export const learningPaths = [
     ]
   },
   {
+    id: "data-analyst",
+    title: "Data Analyst",
+    description: "Learn to collect, clean, and interpret data sets to answer a question or solve a problem.",
+    category: "Job Roles",
+    topics: [
+      {
+        title: "Foundational Skills",
+        points: [
+          { text: "Develop a strong understanding of fundamental statistics concepts, including descriptive statistics (mean, median, mode), probability, and hypothesis testing.", resources: [{ name: "Khan Academy Statistics", url: "https://www.khanacademy.org/math/statistics-probability" }] },
+          { text: "Master spreadsheet software like Microsoft Excel or Google Sheets for data entry, cleaning, basic calculations, and creating simple charts.", resources: [{ name: "Excel for Beginners", url: "https://www.excel-easy.com/" }] },
+          { text: "Learn the core principles of data management and how to structure data effectively in tables.", resources: [] },
+        ],
+      },
+      {
+        title: "SQL for Data Analysis",
+        points: [
+          { text: "Learn the basics of SQL (Structured Query Language) to extract data from relational databases.", resources: [{ name: "W3Schools SQL Tutorial", url: "https://www.w3schools.com/sql/" }] },
+          { text: "Master intermediate SQL concepts like `JOINs`, `GROUP BY`, and aggregate functions to combine and summarize data.", resources: [{ name: "SQL Joins", url: "https://www.w3schools.com/sql/sql_join.asp" }] },
+          { text: "Explore advanced SQL topics like subqueries and window functions for more complex data analysis tasks.", resources: [{ name: "SQL Window Functions", url: "https://learnsql.com/blog/sql-window-functions-tutorial/" }] },
+        ],
+      },
+      {
+        title: "Python for Data Analysis",
+        points: [
+          { text: "Learn the fundamentals of Python, the most popular programming language for data analysis.", resources: [{ name: "Python for Beginners", url: "https://www.learnpython.org/" }] },
+          { text: "Master the Pandas library for data manipulation and analysis. Learn to work with DataFrames, clean data, and handle missing values.", resources: [{ name: "Pandas Tutorial", url: "https://pandas.pydata.org/docs/user_guide/10min.html" }] },
+          { text: "Explore NumPy for efficient numerical computations and working with arrays.", resources: [{ name: "NumPy Quickstart", url: "https://numpy.org/doc/stable/user/quickstart.html" }] },
+          { text: "Learn to create static data visualizations using Matplotlib and Seaborn to explore data and present findings.", resources: [{ name: "Matplotlib Tutorial", url: "https://matplotlib.org/stable/tutorials/index.html" }, { name: "Seaborn Tutorial", url: "https://seaborn.pydata.org/tutorial.html" }] },
+        ],
+      },
+      {
+        title: "Business Intelligence (BI) and Visualization Tools",
+        points: [
+          { text: "Learn to use a leading BI tool like Tableau or Power BI to create interactive dashboards and compelling data visualizations.", resources: [{ name: "Tableau Training", url: "https://www.tableau.com/learn/training" }, { name: "Power BI Guided Learning", url: "https://learn.microsoft.com/en-us/power-bi/guided-learning/" }] },
+          { text: "Understand the principles of effective data visualization to communicate insights clearly and effectively.", resources: [{ name: "Fundamentals of Data Visualization", url: "https://clauswilke.com/dataviz/" }] },
+        ],
+      },
+      {
+        title: "Communication and Storytelling",
+        points: [
+          { text: "Learn how to interpret your findings and translate them into actionable business insights.", resources: [] },
+          { text: "Develop your presentation skills to effectively communicate your analysis to both technical and non-technical stakeholders.", resources: [] },
+          { text: "Master the art of data storytelling to create a compelling narrative around your data that drives decision-making.", resources: [{ name: "Storytelling with Data", url: "http://www.storytellingwithdata.com/blog" }] },
+        ],
+      },
+      {
+        title: "Domain Knowledge",
+        points: [
+          { text: "Understand the importance of domain knowledge (e.g., in finance, marketing, healthcare) to conduct meaningful analysis.", resources: [] },
+          { text: "Learn how to apply your data analysis skills to solve specific problems within a particular industry.", resources: [] },
+        ],
+      },
+    ],
+    assignments: [
+        { title: "Sales Data Analysis in SQL", description: "Given a sample database of sales transactions, write SQL queries to find the total revenue per product, the top 5 customers by sales, and the best-selling product in each month." },
+        { title: "Data Cleaning with Pandas", description: "Take a messy CSV file with missing values and inconsistent formatting. Use the Python Pandas library to clean the data, handle missing values, and standardize the formats into a clean, usable dataset." },
+        { title: "Create a BI Dashboard", description: "Using Tableau or Power BI, connect to a sample dataset and build an interactive dashboard with at least three different charts that visualizes key insights from the data." }
+    ]
+  },
+  {
     id: "mobile-app-development",
     title: "Mobile App Development",
     description: "Build applications for iOS and Android using modern cross-platform frameworks.",
