@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string }}) {
+export default function BlogPostPage({ params }: Props) {
   const post = blogPosts.find(p => p.slug === params.slug);
 
   if (!post) {
