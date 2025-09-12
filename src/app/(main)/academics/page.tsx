@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -26,12 +27,11 @@ const semesters = Array.from({ length: 8 }, (_, i) => ({
 export default function AcademicsPage() {
   const [branch, setBranch] = useState("");
   const [semester, setSemester] = useState("");
+  const router = useRouter();
 
   const handleProceed = () => {
     if (branch && semester) {
-      // In the next step, we will navigate to a dynamic page
-      // For now, we'll just alert the selection
-      alert(`Proceeding to Branch: ${branch}, Semester: ${semester}`);
+      router.push(`/academics/${branch}/${semester}`);
     }
   };
 
