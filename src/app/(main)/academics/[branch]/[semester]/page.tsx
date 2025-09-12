@@ -74,7 +74,7 @@ export default function SubjectsPage() {
                         <CardContent className="flex-grow"></CardContent>
                         <CardContent>
                              <Button asChild className="w-full">
-                                <Link href="#">
+                                <Link href={`/academics/${branch}/${semester}/${subject.id}`}>
                                     View Resources
                                     <ArrowRight className="ml-2 h-4 w-4" />
                                 </Link>

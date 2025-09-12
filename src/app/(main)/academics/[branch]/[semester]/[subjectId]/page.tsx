@@ -1,0 +1,99 @@
+
+"use client";
+
+import { useParams, notFound } from "next/navigation";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
+import { AuthGuard } from "@/components/auth/auth-guard";
+import { academicsData, branchNames } from "@/lib/academics-data";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+export default function SubjectPage() {
+  const params = useParams();
+  const branch = params.branch as string;
+  const semester = params.semester as string;
+  const subjectId = params.subjectId as string;
+
+  const branchData = academicsData[branch];
+  const subjects = branchData ? branchData[semester] : null;
+  const subject = subjects?.find(s => s.id === subjectId);
+
+  if (!subject) {
+    notFound();
+  }
+
+  const fullBranchName = branchNames[branch] || "Unknown Branch";
+
+  return (
+    <AuthGuard>
+        <div className="container mx-auto py-10">
+             <Button asChild variant="ghost" className="mb-8 self-start">
+                <Link href={`/academics/${branch}/${semester}`}>
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Back to {fullBranchName} Subjects
+                </Link>
+            </Button>
+            <header className="mb-8">
+                <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
+                    {subject.name}
+                </h1>
+                <p className="mt-2 text-xl text-muted-foreground">
+                    {subject.description}
+                </p>
+            </header>
+
+            <Tabs defaultValue="syllabus" className="w-full">
+                <TabsList className="grid w-full grid-cols-4">
+                    <TabsTrigger value="syllabus">Syllabus</TabsTrigger>
+                    <TabsTrigger value="notes">Notes</TabsTrigger>
+                    <TabsTrigger value="pyq">Previous Papers</TabsTrigger>
+                    <TabsTrigger value="assignments">Assignments</TabsTrigger>
+                </TabsList>
+                <TabsContent value="syllabus">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Syllabus</CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-2">
+                           <p className="text-muted-foreground">Syllabus content coming soon.</p>
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+                <TabsContent value="notes">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Notes & Materials</CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-2">
+                            <p className="text-muted-foreground">Notes content coming soon.</p>
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+                <TabsContent value="pyq">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Previous Year Question Papers</CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-2">
+                            <p className="text-muted-foreground">PYQ content coming soon.</p>
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+                 <TabsContent value="assignments">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Assignments</CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-2">
+                            <p className="text-muted-foreground">Assignments content coming soon.</p>
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+            </Tabs>
+        </div>
+    </AuthGuard>
+  );
+}
+
