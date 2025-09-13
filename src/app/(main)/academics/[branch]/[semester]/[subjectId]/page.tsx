@@ -66,7 +66,7 @@ export default function SubjectPage() {
                         </CardHeader>
                         <CardContent className="space-y-2">
                            {subject.syllabus && subject.syllabus.length > 0 ? (
-                            <Accordion type="multiple" collapsible className="w-full">
+                            <Accordion type="multiple" className="w-full">
                                 {subject.syllabus.map((item, index) => (
                                     <AccordionItem value={`item-${index}`} key={index}>
                                         <AccordionTrigger className="text-lg">{item.unit}</AccordionTrigger>
