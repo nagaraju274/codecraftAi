@@ -9,6 +9,13 @@ import Link from "next/link";
 import { AuthGuard } from "@/components/auth/auth-guard";
 import { academicsData, branchNames } from "@/lib/academics-data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Checkbox } from "@/components/ui/checkbox";
 
 export default function SubjectPage() {
   const params = useParams();
@@ -55,9 +62,32 @@ export default function SubjectPage() {
                     <Card>
                         <CardHeader>
                             <CardTitle>Syllabus</CardTitle>
+                            <CardDescription>A complete breakdown of the course curriculum, unit by unit.</CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-2">
-                           <p className="text-muted-foreground">Syllabus content coming soon.</p>
+                           {subject.syllabus && subject.syllabus.length > 0 ? (
+                            <Accordion type="multiple" collapsible className="w-full">
+                                {subject.syllabus.map((item, index) => (
+                                    <AccordionItem value={`item-${index}`} key={index}>
+                                        <AccordionTrigger className="text-lg">{item.unit}</AccordionTrigger>
+                                        <AccordionContent>
+                                            <ul className="space-y-3 pl-4">
+                                                {item.topics.map((topic, topicIndex) => (
+                                                    <li key={topicIndex} className="flex items-center gap-3">
+                                                         <Checkbox id={`topic-${index}-${topicIndex}`} />
+                                                        <label htmlFor={`topic-${index}-${topicIndex}`} className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                                                            {topic}
+                                                        </label>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                ))}
+                            </Accordion>
+                           ) : (
+                             <p className="text-muted-foreground">Syllabus content coming soon.</p>
+                           )}
                         </CardContent>
                     </Card>
                 </TabsContent>
@@ -96,4 +126,3 @@ export default function SubjectPage() {
     </AuthGuard>
   );
 }
-

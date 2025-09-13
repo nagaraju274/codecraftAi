@@ -3,6 +3,10 @@ export interface Subject {
     id: string;
     name: string;
     description: string;
+    syllabus?: {
+        unit: string;
+        topics: string[];
+    }[];
 }
 
 export interface BranchData {
@@ -17,7 +21,18 @@ export interface AcademicsData {
 export const academicsData: AcademicsData = {
     "cse": {
         "3": [
-            { id: "cs201", name: "Data Structures", description: "Learn about fundamental data structures." },
+            { 
+                id: "cs201", 
+                name: "Data Structures", 
+                description: "Learn about fundamental data structures.",
+                syllabus: [
+                    { unit: "Unit 1: Introduction", topics: ["Introduction to Data Structures", "Abstract Data Types (ADTs)", "Complexity Analysis"] },
+                    { unit: "Unit 2: Arrays and Lists", topics: ["Arrays", "Linked Lists (Singly, Doubly)", "Stacks", "Queues"] },
+                    { unit: "Unit 3: Trees", topics: ["Introduction to Trees", "Binary Trees", "Binary Search Trees (BST)", "AVL Trees"] },
+                    { unit: "Unit 4: Graphs", topics: ["Graph Terminology", "Graph Representation", "Graph Traversal (BFS, DFS)"] },
+                    { unit: "Unit 5: Sorting and Searching", topics: ["Bubble Sort, Insertion Sort", "Merge Sort, Quick Sort", "Linear Search, Binary Search"] },
+                ]
+            },
             { id: "cs202", name: "Database Management Systems", description: "Understand how databases work." },
             { id: "cs203", name: "Object Oriented Programming", description: "Grasp the concepts of OOP with Java/C++." },
             { id: "ma201", name: "Mathematics III", description: "Advanced calculus and linear algebra." },
