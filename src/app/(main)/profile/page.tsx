@@ -24,7 +24,6 @@ export default function ProfilePage() {
     roadmapsAvailable: learningPaths.length,
     projectsAvailable: projects.length,
     conceptsMastered: 24, // This can be made dynamic later
-    dailyGoal: 75, // This can be made dynamic later
   };
 
   const continueLearning = projects.length > 0 ? {
@@ -110,9 +109,11 @@ export default function ProfilePage() {
                     <CardTitle className="text-sm font-medium">Daily Goal</CardTitle>
                     <Target className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
-                <CardContent>
-                     <div className="text-2xl font-bold mb-1">{userStats.dailyGoal}%</div>
-                     <Progress value={userStats.dailyGoal} aria-label="Daily goal progress" />
+                <CardContent className="flex items-center justify-center pt-6">
+                    <div className="text-center text-muted-foreground">
+                        <p className="font-semibold text-lg">Coming Soon!</p>
+                        <p className="text-sm">Daily goal tracking is on its way.</p>
+                    </div>
                 </CardContent>
             </Card>
         </div>
