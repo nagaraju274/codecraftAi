@@ -3,6 +3,7 @@ export interface Subject {
     id: string;
     name: string;
     description: string;
+    relatedRoadmapId?: string;
     syllabus?: {
         unit: string;
         topics: string[];
@@ -25,6 +26,7 @@ export const academicsData: AcademicsData = {
                 id: "cs201", 
                 name: "Data Structures", 
                 description: "Learn about fundamental data structures.",
+                relatedRoadmapId: "dsa-with-java",
                 syllabus: [
                     { unit: "Unit 1: Introduction", topics: ["Introduction to Data Structures", "Abstract Data Types (ADTs)", "Complexity Analysis"] },
                     { unit: "Unit 2: Arrays and Lists", topics: ["Arrays", "Linked Lists (Singly, Doubly)", "Stacks", "Queues"] },
@@ -33,7 +35,12 @@ export const academicsData: AcademicsData = {
                     { unit: "Unit 5: Sorting and Searching", topics: ["Bubble Sort, Insertion Sort", "Merge Sort, Quick Sort", "Linear Search, Binary Search"] },
                 ]
             },
-            { id: "cs202", name: "Database Management Systems", description: "Understand how databases work." },
+            { 
+                id: "cs202", 
+                name: "Database Management Systems", 
+                description: "Understand how databases work.",
+                relatedRoadmapId: "back-end-developer",
+            },
             { id: "cs203", name: "Object Oriented Programming", description: "Grasp the concepts of OOP with Java/C++." },
             { id: "ma201", name: "Mathematics III", description: "Advanced calculus and linear algebra." },
         ],

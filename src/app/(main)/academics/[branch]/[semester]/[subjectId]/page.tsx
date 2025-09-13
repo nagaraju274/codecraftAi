@@ -4,7 +4,7 @@
 import { useParams, notFound } from "next/navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { AuthGuard } from "@/components/auth/auth-guard";
 import { academicsData, branchNames } from "@/lib/academics-data";
@@ -16,6 +16,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Checkbox } from "@/components/ui/checkbox";
+import { learningPaths } from "@/lib/learning-paths-data";
 
 export default function SubjectPage() {
   const params = useParams();
@@ -30,6 +31,10 @@ export default function SubjectPage() {
   if (!subject) {
     notFound();
   }
+  
+  const relatedRoadmap = subject.relatedRoadmapId 
+    ? learningPaths.find(p => p.id === subject.relatedRoadmapId) 
+    : null;
 
   const fullBranchName = branchNames[branch] || "Unknown Branch";
 
@@ -50,6 +55,31 @@ export default function SubjectPage() {
                     {subject.description}
                 </p>
             </header>
+
+            {relatedRoadmap && (
+                <Card className="mb-8 bg-primary/10 border-primary/20">
+                    <CardHeader>
+                        <CardTitle className="text-lg">Related Career Path</CardTitle>
+                        <CardDescription>
+                            The concepts in this subject are crucial for the following career path.
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="flex items-center justify-between">
+                            <div>
+                                <h4 className="font-semibold">{relatedRoadmap.title}</h4>
+                                <p className="text-sm text-muted-foreground">{relatedRoadmap.description}</p>
+                            </div>
+                            <Button asChild>
+                                <Link href={`/learn/${relatedRoadmap.id}`}>
+                                    View Roadmap
+                                    <ArrowRight className="ml-2 h-4 w-4" />
+                                </Link>
+                            </Button>
+                        </div>
+                    </CardContent>
+                </Card>
+            )}
 
             <Tabs defaultValue="syllabus" className="w-full">
                 <TabsList className="grid w-full grid-cols-4">
