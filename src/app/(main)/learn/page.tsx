@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -69,6 +70,7 @@ export default function LearnPage() {
   const frameworks = learningPaths.filter(p => p.category === "Frameworks & Libraries");
   const roles = learningPaths.filter(p => p.category === "Job Roles");
   const dsa = learningPaths.filter(p => p.category === "Data Structures & Algorithms");
+  const placement = learningPaths.filter(p => p.category === "Placement");
 
   const allFilteredPaths = learningPaths.filter(path =>
     path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -97,13 +99,14 @@ export default function LearnPage() {
         <div className="flex-1 overflow-y-auto pr-4">
             <Accordion 
                 type="multiple" 
-                defaultValue={["item-1", "item-2", "item-3", "item-4"]} 
+                defaultValue={["item-1", "item-2", "item-3", "item-4", "item-5"]} 
                 className="w-full space-y-4"
             >
                 <Section title="Programming Languages" paths={languages} searchQuery={searchQuery} value="item-1" />
                 <Section title="Frameworks & Libraries" paths={frameworks} searchQuery={searchQuery} value="item-2" />
                 <Section title="Job Roles" paths={roles} searchQuery={searchQuery} value="item-3" />
                 <Section title="Data Structures & Algorithms" paths={dsa} searchQuery={searchQuery} value="item-4" />
+                <Section title="Placement" paths={placement} searchQuery={searchQuery} value="item-5" />
             </Accordion>
             
            {allFilteredPaths.length === 0 && (

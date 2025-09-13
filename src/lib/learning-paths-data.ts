@@ -2393,4 +2393,65 @@ export const learningPaths = [
         { title: "Two Sum", description: "Given an array of integers and a target, return indices of the two numbers such that they add up to the target. Use `std::unordered_map` for an efficient O(n) solution." }
     ]
   },
+  {
+    id: "service-based-placement-prep",
+    title: "Service-Based Companies Placement Prep",
+    description: "A focused guide to cracking interviews at top service-based IT companies.",
+    category: "Placement",
+    topics: [
+      {
+        title: "Aptitude and Reasoning",
+        points: [
+          { text: "Quantitative Aptitude: Time & Work, Speed & Distance, Percentages, Profit & Loss.", resources: [{ name: "IndiaBIX Quants", url: "https://www.indiabix.com/aptitude/questions-and-answers/"}] },
+          { text: "Logical Reasoning: Seating Arrangements, Blood Relations, Coding-Decoding, Data Interpretation.", resources: [{ name: "IndiaBIX Reasoning", url: "https://www.indiabix.com/logical-reasoning/questions-and-answers/"}] }
+        ]
+      },
+      {
+        title: "Verbal Ability",
+        points: [
+            { text: "Improve reading comprehension skills.", resources: [] },
+            { text: "Practice grammar, sentence correction, and vocabulary.", resources: [] }
+        ]
+      },
+      {
+        title: "Technical Fundamentals",
+        points: [
+            { text: "Review core concepts of one programming language (C++, Java, or Python).", resources: [] },
+            { text: "Study basics of Data Structures (Arrays, Strings, Linked Lists).", resources: [] },
+            { text: "Understand core Object-Oriented Programming (OOP) principles.", resources: [] },
+            { text: "Learn fundamentals of Database Management Systems (DBMS) and SQL.", resources: [] },
+            { text: "Review basics of Computer Networks and Operating Systems.", resources: [] }
+        ]
+      }
+    ]
+  },
+  {
+    id: "product-based-placement-prep",
+    title: "Product-Based Companies Placement Prep",
+    description: "A comprehensive roadmap to prepare for technical roles at leading product-based companies.",
+    category: "Placement",
+    topics: [
+      {
+        title: "Data Structures & Algorithms (DSA)",
+        points: [
+          { text: "Master arrays, strings, linked lists, stacks, and queues.", resources: [] },
+          { text: "Deep dive into trees, heaps, hash tables, and graphs.", resources: [] },
+          { text: "Practice common algorithmic patterns: Two Pointers, Sliding Window, Recursion, Dynamic Programming.", resources: [] }
+        ]
+      },
+      {
+        title: "System Design",
+        points: [
+          { text: "Learn the fundamentals of designing scalable systems (CAP theorem, Load Balancing, Caching).", resources: [] },
+          { text: "Practice designing common systems like a URL shortener, a social media feed, or a ride-sharing service.", resources: [] }
+        ]
+      },
+      {
+        title: "Core CS Subjects",
+        points: [
+          { text: "Ensure a strong understanding of Operating Systems, Computer Networks, and DBMS.", resources: [] }
+        ]
+      }
+    ]
+  }
 ];
