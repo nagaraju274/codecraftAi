@@ -124,29 +124,11 @@ export default function ProfilePage() {
                     <CardTitle>Continue Learning</CardTitle>
                     <CardDescription>Pick up where you left off or start a new project.</CardDescription>
                 </CardHeader>
-                <CardContent className="flex-grow">
-                    {continueLearning ? (
-                        <div className="p-4 rounded-lg bg-muted/50 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                            <div className="bg-primary text-primary-foreground p-3 rounded-full">
-                                <FolderKanban className="h-6 w-6" />
-                            </div>
-                            <div className="flex-1">
-                                <p className="text-sm text-muted-foreground">{continueLearning.type}</p>
-                                <h3 className="font-semibold text-lg">{continueLearning.title}</h3>
-                                <div className="flex items-center gap-2 mt-1">
-                                    <Progress value={continueLearning.progress} className="w-full sm:w-48" />
-                                    <span className="text-sm font-medium">{continueLearning.progress}%</span>
-                                </div>
-                            </div>
-                            <Button asChild>
-                                <Link href={continueLearning.href}>
-                                    Start Project <ArrowRight className="ml-2 h-4 w-4" />
-                                </Link>
-                            </Button>
-                        </div>
-                    ) : (
-                        <p className="text-muted-foreground">No projects available to continue.</p>
-                    )}
+                <CardContent className="flex-grow flex items-center justify-center">
+                   <div className="text-center text-muted-foreground">
+                        <p className="font-semibold text-lg">Coming Soon!</p>
+                        <p className="text-sm">We're working on tracking your progress.</p>
+                    </div>
                 </CardContent>
             </Card>
 
