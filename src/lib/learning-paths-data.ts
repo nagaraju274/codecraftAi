@@ -2397,7 +2397,7 @@ export const learningPaths = [
     id: "service-based-placement-prep",
     title: "Service-Based Companies Placement Prep",
     description: "A focused guide to cracking interviews at top service-based IT companies.",
-    category: "Placement",
+    category: "On-Campus Service-Based",
     topics: [
       {
         title: "Aptitude and Reasoning",
@@ -2429,7 +2429,7 @@ export const learningPaths = [
     id: "product-based-placement-prep",
     title: "Product-Based Companies Placement Prep",
     description: "A comprehensive roadmap to prepare for technical roles at leading product-based companies.",
-    category: "Placement",
+    category: "On-Campus Product-Based",
     topics: [
       {
         title: "Data Structures & Algorithms (DSA)",

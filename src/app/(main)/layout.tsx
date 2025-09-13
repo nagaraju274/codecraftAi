@@ -1,6 +1,6 @@
 
 import { Button } from '@/components/ui/button';
-import { BotMessageSquare, PanelLeft, User, MessageCircleQuestion, GraduationCap } from 'lucide-react';
+import { BotMessageSquare, PanelLeft, User, MessageCircleQuestion, GraduationCap, Briefcase } from 'lucide-react';
 import Link from 'next/link';
 import { Footer } from '@/components/layout/footer';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
@@ -10,6 +10,7 @@ const navLinks = [
     { href: "/projects", label: "Projects", icon: null },
     { href: "/playground", label: "Playground", icon: null },
     { href: "/academics", label: "Academics", icon: GraduationCap },
+    { href: "/placement", label: "Placement", icon: Briefcase },
     { href: "/ask-a-mentor", label: "Ask a Mentor", icon: MessageCircleQuestion },
     { href: "/community", label: "Community", icon: null },
 ];
