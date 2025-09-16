@@ -4,7 +4,7 @@
 import { AuthGuard } from "@/components/auth/auth-guard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, TimerIcon } from "lucide-react";
+import { ArrowLeft, TimerIcon, BookOpen, Lightbulb } from "lucide-react";
 import Link from "next/link";
 import {
   Accordion,
@@ -36,8 +36,18 @@ const assessmentData = {
     ]
 };
 
+type SectionId = keyof typeof assessmentData;
+
 type Answers = {
     [key: string]: string;
+}
+
+type SectionResult = {
+    id: SectionId;
+    title: string;
+    score: number;
+    total: number;
+    percentage: number;
 }
 
 const ASSESSMENT_DURATION = 60 * 60; // 60 minutes in seconds
@@ -47,13 +57,10 @@ export default function AssessmentPage() {
     const [submitted, setSubmitted] = useState(false);
     const [testStarted, setTestStarted] = useState(false);
     const [timeLeft, setTimeLeft] = useState(ASSESSMENT_DURATION);
+    const [results, setResults] = useState<SectionResult[]>([]);
 
-    const totalQuestions = [
-        ...assessmentData.dsaAndCoding, 
-        ...assessmentData.coreSubjects, 
-        ...assessmentData.aptitudeAndReasoning, 
-        ...assessmentData.communicationSkills
-    ].length;
+    const allQuestions = Object.values(assessmentData).flat();
+    const totalQuestions = allQuestions.length;
     
     const answeredQuestions = Object.keys(answers).length;
     const progress = (answeredQuestions / totalQuestions) * 100;
@@ -77,8 +84,32 @@ export default function AssessmentPage() {
         setAnswers(prev => ({...prev, [questionId]: value}));
     };
 
+    const calculateResults = () => {
+        const sectionResults: SectionResult[] = [];
+        let totalScore = 0;
+
+        for (const [section, questions] of Object.entries(assessmentData)) {
+            let sectionScore = 0;
+            for (const question of questions) {
+                if(answers[question.id] === question.answer) {
+                    sectionScore++;
+                }
+            }
+            totalScore += sectionScore;
+            sectionResults.push({
+                id: section as SectionId,
+                title: getSectionTitle(section as SectionId),
+                score: sectionScore,
+                total: questions.length,
+                percentage: (sectionScore / questions.length) * 100,
+            })
+        }
+        setResults(sectionResults);
+    }
+
     const handleSubmit = () => {
         setSubmitted(true);
+        calculateResults();
     };
 
     const handleStart = () => {
@@ -86,24 +117,45 @@ export default function AssessmentPage() {
         setSubmitted(false);
         setAnswers({});
         setTimeLeft(ASSESSMENT_DURATION);
+        setResults([]);
     }
 
-    const calculateScore = () => {
-        let score = 0;
-        const allQuestions = [
-            ...assessmentData.dsaAndCoding, 
-            ...assessmentData.coreSubjects, 
-            ...assessmentData.aptitudeAndReasoning, 
-            ...assessmentData.communicationSkills
-        ];
-        for (const question of allQuestions) {
-            if (answers[question.id] === question.answer) score++;
+    const getSectionTitle = (id: SectionId) => {
+        switch(id) {
+            case 'dsaAndCoding': return 'DSA & Coding';
+            case 'coreSubjects': return 'Core CS Subjects';
+            case 'aptitudeAndReasoning': return 'Aptitude & Reasoning';
+            case 'communicationSkills': return 'Communication Skills';
+            default: return 'Section';
         }
-        return score;
-    };
+    }
 
-    const score = submitted ? calculateScore() : 0;
-    const scorePercentage = (score / totalQuestions) * 100;
+    const overallScore = results.reduce((acc, r) => acc + r.score, 0);
+    const overallPercentage = totalQuestions > 0 ? (overallScore / totalQuestions) * 100 : 0;
+    
+    const getReadinessLevel = () => {
+        if (overallPercentage >= 75) return { level: 'Ready for Product Companies', color: 'text-green-500' };
+        if (overallPercentage >= 50) return { level: 'Intermediate', color: 'text-yellow-500' };
+        return { level: 'Beginner', color: 'text-red-500' };
+    }
+
+    const getSuggestions = () => {
+        const suggestions = [];
+        if (results.find(r => r.id === 'dsaAndCoding' && r.percentage < 60)) {
+            suggestions.push({ text: 'Your DSA skills need improvement. Check out our DSA Mastery paths.', href: '/dsa-mastery'});
+        }
+         if (results.find(r => r.id === 'coreSubjects' && r.percentage < 60)) {
+            suggestions.push({ text: 'Strengthen your core CS fundamentals by exploring the Academics section.', href: '/academics'});
+        }
+        if (results.find(r => r.id === 'aptitudeAndReasoning' && r.percentage < 60)) {
+            suggestions.push({ text: 'Practice more aptitude questions in the On-Campus roadmap.', href: '/placement'});
+        }
+        if (suggestions.length === 0 && submitted) {
+            suggestions.push({ text: "Great job! You have strong fundamentals. Keep practicing with our DSA problems.", href: '/dsa-problems' });
+        }
+        return suggestions;
+    }
+
 
     const formatTime = (seconds: number) => {
         const minutes = Math.floor(seconds / 60);
@@ -142,22 +194,60 @@ export default function AssessmentPage() {
                                 <Button size="lg" onClick={handleStart}>Start Assessment</Button>
                             </div>
                         ) : submitted ? (
-                            <div className="text-center py-10">
-                                <h2 className="text-2xl font-bold mb-4">Assessment Complete!</h2>
-                                <p className="text-lg text-muted-foreground mb-6">Your Score:</p>
-                                <p className="text-5xl font-bold text-primary">{score} / {totalQuestions}</p>
-                                <Progress value={scorePercentage} className="w-full max-w-sm mx-auto mt-6" />
+                             <div className="text-center py-10 space-y-8">
+                                <div>
+                                    <h2 className="text-2xl font-bold mb-2">Assessment Complete!</h2>
+                                    <p className="text-lg text-muted-foreground mb-4">Your Overall Score:</p>
+                                    <p className="text-6xl font-bold text-primary">{overallScore} / {totalQuestions}</p>
+                                    <Progress value={overallPercentage} className="w-full max-w-sm mx-auto mt-6" />
+                                    <p className="text-lg font-semibold mt-4">
+                                        Placement Readiness Level: <span className={getReadinessLevel().color}>{getReadinessLevel().level}</span>
+                                    </p>
+                                </div>
+                                <div className="grid md:grid-cols-2 gap-6 text-left">
+                                     <Card>
+                                        <CardHeader>
+                                            <CardTitle>Section-wise Breakdown</CardTitle>
+                                        </CardHeader>
+                                        <CardContent className="space-y-4">
+                                            {results.map(result => (
+                                                <div key={result.id}>
+                                                    <div className="flex justify-between items-center mb-1">
+                                                        <span className="font-medium">{result.title}</span>
+                                                        <span className="text-sm text-muted-foreground">{result.score}/{result.total}</span>
+                                                    </div>
+                                                    <Progress value={result.percentage} />
+                                                </div>
+                                            ))}
+                                        </CardContent>
+                                    </Card>
+                                     <Card>
+                                        <CardHeader>
+                                            <CardTitle className="flex items-center gap-2"><Lightbulb className="text-yellow-400"/> Personalized Suggestions</CardTitle>
+                                        </CardHeader>
+                                        <CardContent className="space-y-4">
+                                           {getSuggestions().map((suggestion, index) => (
+                                                <Button key={index} asChild variant="outline" className="w-full justify-start text-left h-auto py-2">
+                                                    <Link href={suggestion.href}>
+                                                        <BookOpen className="mr-3 h-4 w-4 flex-shrink-0" />
+                                                        <span>{suggestion.text}</span>
+                                                    </Link>
+                                                </Button>
+                                           ))}
+                                        </CardContent>
+                                    </Card>
+                                </div>
                                 <Button onClick={handleStart} className="mt-8">
                                     Retake Assessment
                                 </Button>
                             </div>
                         ) : (
-                            <Accordion type="multiple" defaultValue={["item-1"]} className="w-full space-y-6">
+                            <Accordion type="multiple" defaultValue={["item-dsaAndCoding"]} className="w-full space-y-6">
                                 <Card>
                                     <Progress value={progress} className="w-full" />
                                 </Card>
                                 
-                                <AccordionItem value="item-1">
+                                <AccordionItem value="item-dsaAndCoding">
                                     <AccordionTrigger className="text-xl font-semibold">DSA & Coding</AccordionTrigger>
                                     <AccordionContent className="pt-4 space-y-6">
                                         {assessmentData.dsaAndCoding.map((q, index) => (
@@ -176,7 +266,7 @@ export default function AssessmentPage() {
                                     </AccordionContent>
                                 </AccordionItem>
 
-                                <AccordionItem value="item-2">
+                                <AccordionItem value="item-coreSubjects">
                                     <AccordionTrigger className="text-xl font-semibold">Core CS Subjects</AccordionTrigger>
                                     <AccordionContent className="pt-4 space-y-6">
                                         {assessmentData.coreSubjects.map((q, index) => (
@@ -195,7 +285,7 @@ export default function AssessmentPage() {
                                     </AccordionContent>
                                 </AccordionItem>
 
-                                <AccordionItem value="item-3">
+                                <AccordionItem value="item-aptitudeAndReasoning">
                                     <AccordionTrigger className="text-xl font-semibold">Aptitude & Logical Reasoning</AccordionTrigger>
                                     <AccordionContent className="pt-4 space-y-6">
                                         {assessmentData.aptitudeAndReasoning.map((q, index) => (
@@ -214,7 +304,7 @@ export default function AssessmentPage() {
                                     </AccordionContent>
                                 </AccordionItem>
 
-                                <AccordionItem value="item-4">
+                                <AccordionItem value="item-communicationSkills">
                                     <AccordionTrigger className="text-xl font-semibold">Communication Skills</AccordionTrigger>
                                     <AccordionContent className="pt-4 space-y-6">
                                         {assessmentData.communicationSkills.map((q, index) => (
@@ -233,7 +323,7 @@ export default function AssessmentPage() {
                                     </AccordionContent>
                                 </AccordionItem>
 
-                                <Button onClick={handleSubmit} className="w-full mt-8" disabled={answeredQuestions < totalQuestions}>
+                                <Button onClick={handleSubmit} className="w-full mt-8" disabled={answeredQuestions === 0}>
                                     Submit Assessment
                                 </Button>
                             </Accordion>
@@ -244,3 +334,5 @@ export default function AssessmentPage() {
         </AuthGuard>
     )
 }
+
+    
