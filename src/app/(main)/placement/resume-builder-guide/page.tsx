@@ -13,6 +13,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 const generalDo = [
     "Keep it to one page, especially if you have less than 10 years of experience.",
     "Use a clean, professional font (e.g., Calibri, Arial, Times New Roman).",
+    "Use a single-column format. Multi-column layouts can confuse ATS parsers.",
     "Tailor your resume for each specific job application, highlighting relevant skills.",
     "Use action verbs to describe your accomplishments (e.g., 'Developed', 'Managed', 'Implemented').",
     "Proofread multiple times for typos and grammatical errors. Ask a friend to review it too.",
@@ -24,7 +25,7 @@ const generalDont = [
     "Include personal information like marital status, age, or a photo (unless standard in your country).",
     "Use unprofessional email addresses.",
     "Exaggerate or lie about your skills and experience.",
-    "Use complex graphics, colors, or fonts that distract the reader.",
+    "Use complex graphics, charts, colors, or fonts that can't be read by an ATS.",
     "List every course you've ever taken; only include relevant ones."
 ];
 
@@ -66,9 +67,7 @@ const ResumeGuide = ({ type }: { type: string | null }) => {
                     <span>Resume Building Guide</span>
                 </CardTitle>
                 <CardDescription>
-                    {isService && "Craft a strong, well-rounded resume for service-based companies."}
-                    {isProduct && "Craft a high-impact, project-focused resume for product-based companies."}
-                    {!type && "Craft a professional, ATS-friendly resume that stands out to recruiters."}
+                    Your resume is often first read by an Applicant Tracking System (ATS). These guidelines help you create a professional, ATS-friendly resume that stands out to both software and human recruiters.
                 </CardDescription>
             </CardHeader>
             <CardContent className="space-y-8">
