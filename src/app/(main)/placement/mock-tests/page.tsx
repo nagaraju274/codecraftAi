@@ -59,7 +59,7 @@ const MockTestsContent = () => {
                         </CardHeader>
                         <CardContent className="flex-grow"></CardContent>
                         <CardFooter>
-                            <Button asChild className="w-full" disabled>
+                            <Button asChild className="w-full">
                                 <Link href={`/placement/mock-tests/${test.id}`}>
                                     Start Test <ArrowRight className="ml-2 h-4 w-4" />
                                 </Link>
