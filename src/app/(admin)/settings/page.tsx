@@ -1,18 +1,23 @@
-
+// Import UI components from the project's design system.
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 
+// The main component for the Settings page.
 export default function SettingsPage() {
+  // Return the JSX structure of the page.
   return (
+    // A container with vertical spacing for the settings sections.
     <div className="space-y-8">
+      {/* Page header section. */}
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Settings</h1>
         <p className="text-muted-foreground">Manage your account and website settings.</p>
       </div>
 
+      {/* Card for General Settings. */}
       <Card>
         <CardHeader>
           <CardTitle>General Settings</CardTitle>
@@ -33,6 +38,7 @@ export default function SettingsPage() {
         </CardFooter>
       </Card>
 
+      {/* Card for Security Settings. */}
       <Card>
         <CardHeader>
           <CardTitle>Security</CardTitle>
@@ -53,12 +59,14 @@ export default function SettingsPage() {
         </CardFooter>
       </Card>
 
+      {/* Card for Notification Settings. */}
       <Card>
         <CardHeader>
           <CardTitle>Notifications</CardTitle>
           <CardDescription>Manage how you receive notifications.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
+            {/* Switch for new user sign-up emails. */}
             <div className="flex items-center justify-between">
                 <div>
                     <Label htmlFor="new-user-emails">New User Sign-ups</Label>
@@ -66,6 +74,7 @@ export default function SettingsPage() {
                 </div>
                 <Switch id="new-user-emails" defaultChecked />
             </div>
+             {/* Switch for weekly summary emails. */}
              <div className="flex items-center justify-between">
                 <div>
                     <Label htmlFor="weekly-summary">Weekly Summary</Label>

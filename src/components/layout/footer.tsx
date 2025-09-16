@@ -1,12 +1,18 @@
-
+// Import the Next.js Link component.
 import Link from 'next/link';
+// Import icons from the lucide-react library.
 import { Github, Linkedin, Mail, Twitter, BotMessageSquare } from 'lucide-react';
 
+// The main Footer component.
 export function Footer() {
     return (
+       // The footer element with background and text colors.
        <footer className="bg-muted text-muted-foreground">
+        {/* Main container for the footer content. */}
         <div className="container mx-auto px-4 sm:px-6 py-12">
+          {/* A grid layout to organize footer content into columns. */}
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            {/* The first column: Logo and social links. */}
             <div className="space-y-4 md:col-span-3 lg:col-span-1">
               <div className="flex flex-col items-start">
                   <Link href="/" className="flex items-center gap-2.5 text-foreground">
@@ -18,12 +24,14 @@ export function Footer() {
               <p className="text-sm">
                 A revolutionary platform designed to empower the next generation of developers through AI-powered tools and guided learning.
               </p>
+              {/* Social media links. */}
               <div className="flex space-x-4">
                 <Link href="#" className="hover:text-foreground"><Twitter className="h-5 w-5" /></Link>
                 <Link href="#" className="hover:text-foreground"><Linkedin className="h-5 w-5" /></Link>
                 <Link href="#" className="hover:text-foreground"><Github className="h-5 w-5" /></Link>
               </div>
             </div>
+            {/* Products column. */}
             <div>
               <h4 className="font-semibold text-foreground mb-4">Products</h4>
               <ul className="space-y-2 text-sm">
@@ -34,6 +42,7 @@ export function Footer() {
                 <li><Link href="/dsa-mastery" className="hover:text-foreground">DSA Mastery</Link></li>
               </ul>
             </div>
+            {/* Company column. */}
             <div>
               <h4 className="font-semibold text-foreground mb-4">Company</h4>
               <ul className="space-y-2 text-sm">
@@ -42,6 +51,7 @@ export function Footer() {
                 <li><a href="mailto:contact@mine-yours.com" className="flex items-center gap-2 hover:text-foreground"><Mail className="h-4 w-4" />Contact</a></li>
               </ul>
             </div>
+             {/* Resources column. */}
              <div>
               <h4 className="font-semibold text-foreground mb-4">Resources</h4>
               <ul className="space-y-2 text-sm">
@@ -55,6 +65,7 @@ export function Footer() {
                 <li><Link href="/treasure" className="hover:text-foreground">Treasure</Link></li>
               </ul>
             </div>
+            {/* Support column. */}
             <div>
               <h4 className="font-semibold text-foreground mb-4">Support</h4>
               <ul className="space-y-2 text-sm">
@@ -65,6 +76,7 @@ export function Footer() {
               </ul>
             </div>
           </div>
+          {/* The bottom-most part of the footer with copyright info. */}
           <div className="mt-12 border-t border-border pt-6 text-center text-sm">
             <p>Built with ❤️ by Mine-Yours. All rights reserved.</p>
           </div>

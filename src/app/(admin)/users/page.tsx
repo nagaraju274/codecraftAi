@@ -1,7 +1,9 @@
-
+// This directive marks this component as a Client Component.
 "use client";
 
+// Import React and its hooks.
 import * as React from "react";
+// Import types from the @tanstack/react-table library for table functionality.
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -14,8 +16,10 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
+// Import icons from the lucide-react library.
 import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
 
+// Import UI components from the project's design system.
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -38,19 +42,26 @@ import {
 } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+// Import mock user data.
 import { users as mockUsers, User } from "@/lib/user-data";
 
+// A client-side component to format dates, preventing hydration mismatches.
 const ClientSideDate = ({ dateString }: { dateString: string }) => {
+  // State to hold the formatted date string.
   const [formattedDate, setFormattedDate] = React.useState("");
 
+  // Effect to format the date string only on the client side after mount.
   React.useEffect(() => {
     setFormattedDate(new Date(dateString).toLocaleDateString());
   }, [dateString]);
 
+  // Render the formatted date.
   return <div>{formattedDate}</div>;
 };
 
+// Define the columns for the user data table.
 const columns: ColumnDef<User>[] = [
+  // Column for row selection checkboxes.
   {
     id: "select",
     header: ({ table }) => (
@@ -73,6 +84,7 @@ const columns: ColumnDef<User>[] = [
     enableSorting: false,
     enableHiding: false,
   },
+  // Column for user's name.
   {
     accessorKey: "name",
     header: ({ column }) => {
@@ -88,16 +100,19 @@ const columns: ColumnDef<User>[] = [
     },
     cell: ({ row }) => <div className="font-medium">{row.getValue("name")}</div>,
   },
+  // Column for user's email.
   {
     accessorKey: "email",
     header: "Email",
     cell: ({ row }) => <div>{row.getValue("email")}</div>,
   },
+  // Column for user's role.
   {
     accessorKey: "role",
     header: "Role",
     cell: ({ row }) => <div className="capitalize">{row.getValue("role")}</div>,
   },
+  // Column for user's status, displayed as a badge.
   {
     accessorKey: "status",
     header: "Status",
@@ -107,11 +122,13 @@ const columns: ColumnDef<User>[] = [
         return <Badge variant={variant} className="capitalize">{status}</Badge>
     },
   },
+  // Column for user's last login date.
   {
     accessorKey: "lastLogin",
     header: "Last Login",
     cell: ({ row }) => <ClientSideDate dateString={row.getValue("lastLogin")} />,
   },
+  // Column for actions (e.g., view profile, delete).
   {
     id: "actions",
     enableHiding: false,
@@ -143,14 +160,21 @@ const columns: ColumnDef<User>[] = [
   },
 ];
 
+// The main component for the User Management page.
 export default function UserManagementPage() {
+  // State for the table data.
   const [data] = React.useState<User[]>(mockUsers as User[]);
+  // State for table sorting.
   const [sorting, setSorting] = React.useState<SortingState>([]);
+  // State for column filters.
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
+  // State for column visibility.
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
+  // State for row selection.
   const [rowSelection, setRowSelection] = React.useState({});
 
+  // Initialize the table instance with data, columns, and state handlers.
   const table = useReactTable({
     data,
     columns,
@@ -170,6 +194,7 @@ export default function UserManagementPage() {
     },
   });
 
+  // Return the JSX for the page.
   return (
     <Card>
       <CardHeader>
@@ -177,7 +202,9 @@ export default function UserManagementPage() {
         <CardDescription>Monitor, manage, and moderate your users.</CardDescription>
       </CardHeader>
       <CardContent>
+        {/* Container for filtering controls. */}
         <div className="flex items-center py-4">
+          {/* Input for filtering by name. */}
           <Input
             placeholder="Filter by name..."
             value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
@@ -186,6 +213,7 @@ export default function UserManagementPage() {
             }
             className="max-w-sm"
           />
+          {/* Dropdown menu to toggle column visibility. */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="ml-auto">
@@ -213,9 +241,11 @@ export default function UserManagementPage() {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
+        {/* The main table container. */}
         <div className="rounded-md border">
           <Table>
             <TableHeader>
+              {/* Render table header rows. */}
               {table.getHeaderGroups().map((headerGroup) => (
                 <TableRow key={headerGroup.id}>
                   {headerGroup.headers.map((header) => {
@@ -234,6 +264,7 @@ export default function UserManagementPage() {
               ))}
             </TableHeader>
             <TableBody>
+              {/* Render table body rows. */}
               {table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
                   <TableRow
@@ -251,6 +282,7 @@ export default function UserManagementPage() {
                   </TableRow>
                 ))
               ) : (
+                // Display a message if there are no results.
                 <TableRow>
                   <TableCell
                     colSpan={columns.length}
@@ -263,11 +295,14 @@ export default function UserManagementPage() {
             </TableBody>
           </Table>
         </div>
+        {/* Container for pagination controls and selection info. */}
         <div className="flex items-center justify-end space-x-2 py-4">
+          {/* Display the number of selected rows. */}
           <div className="flex-1 text-sm text-muted-foreground">
             {table.getFilteredSelectedRowModel().rows.length} of{" "}
             {table.getFilteredRowModel().rows.length} row(s) selected.
           </div>
+          {/* Pagination buttons. */}
           <div className="space-x-2">
             <Button
               variant="outline"
