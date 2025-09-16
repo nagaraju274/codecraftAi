@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { AuthGuard } from "@/components/auth/auth-guard";
-import { ArrowRight, Book, BrainCircuit, Bot, FileText, Medal, Video } from "lucide-react";
+import { ArrowRight, Book, BrainCircuit, Bot, FileText, Medal, Video, Target } from "lucide-react";
 import Link from "next/link";
 import { learningPaths } from "@/lib/learning-paths-data";
 
@@ -60,6 +60,25 @@ export default function PlacementPage() {
             Your comprehensive guide to cracking interviews for both service-based and product-based companies, on-campus and off-campus.
           </p>
         </header>
+
+        <Card className="bg-primary/10 text-center">
+            <CardHeader>
+                <CardTitle className="flex items-center justify-center gap-3 text-2xl">
+                    <Target className="h-8 w-8 text-primary"/>
+                    Job Ready Placement Assessment
+                </CardTitle>
+                <CardDescription className="text-base">
+                    Test your skills across aptitude, reasoning, and technical knowledge to see where you stand.
+                </CardDescription>
+            </CardHeader>
+            <CardContent>
+                <Button asChild size="lg">
+                    <Link href="/placement/assessment">
+                        Start Assessment <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                </Button>
+            </CardContent>
+        </Card>
 
         <Accordion type="multiple" defaultValue={["item-1"]} className="w-full space-y-8">
             <AccordionItem value="item-1">
