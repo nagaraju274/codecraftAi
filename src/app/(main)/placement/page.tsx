@@ -88,7 +88,7 @@ export default function PlacementPage() {
                         <Card className="flex flex-col">
                             <CardHeader>
                                 <CardTitle>Service-Based Companies</CardTitle>
-                                <CardDescription>Focus on aptitude, reasoning, communication, and technical fundamentals for companies like TCS, Infosys, Wipro, and Accenture.</CardDescription>
+                                <CardDescription>Build essential skills in aptitude, problem-solving, and communication, along with strong technical fundamentals in programming, databases, and computer networks.</CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-4 flex-grow">
                                 {onCampusServicePaths.map(path => (
@@ -102,7 +102,7 @@ export default function PlacementPage() {
                          <Card className="flex flex-col">
                             <CardHeader>
                                 <CardTitle>Product-Based Companies</CardTitle>
-                                <CardDescription>Focus on DSA, problem-solving, competitive coding, and system design for companies like Microsoft, Amazon, and Google.</CardDescription>
+                                <CardDescription>Develop advanced skills in data structures, algorithms, and system design to excel in rigorous technical interviews at top product companies.</CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-4 flex-grow">
                                 {onCampusProductPaths.map(path => (
@@ -126,7 +126,7 @@ export default function PlacementPage() {
                         <Card className="flex flex-col">
                             <CardHeader>
                                 <CardTitle>Service-Based Companies</CardTitle>
-                                <CardDescription>Focus on resume building, aptitude tests, and HR interviews for job portals and referral drives.</CardDescription>
+                                <CardDescription>Sharpen your resume-building and communication skills, and master the aptitude tests required for job portals and referral drives.</CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-4 flex-grow">
                                 <FeatureCard title="Resume Building Guide" icon={FileText} href="/placement/interview-prep?type=service" />
@@ -137,7 +137,7 @@ export default function PlacementPage() {
                          <Card className="flex flex-col">
                             <CardHeader>
                                 <CardTitle>Product-Based Companies</CardTitle>
-                                <CardDescription>Focus on advanced DSA, company-specific preparation, and system design for hiring challenges and referrals.</CardDescription>
+                                <CardDescription>Build advanced DSA, system design, and company-specific problem-solving skills for competitive hiring challenges and referrals.</CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-4 flex-grow">
                                 <FeatureCard title="Advanced DSA Problems" icon={Book} href="/dsa-problems" />
