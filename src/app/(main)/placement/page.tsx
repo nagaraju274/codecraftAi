@@ -16,11 +16,20 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 import { AuthGuard } from "@/components/auth/auth-guard";
 import { ArrowRight, Book, BrainCircuit, Bot, FileText, Medal, Video, Target } from "lucide-react";
 import Link from "next/link";
 import { learningPaths } from "@/lib/learning-paths-data";
+import { successStories } from "@/lib/success-stories-data";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const onCampusServicePaths = learningPaths.filter(p => p.category === 'On-Campus Service-Based');
 const onCampusProductPaths = learningPaths.filter(p => p.category === 'On-Campus Product-Based');
@@ -156,9 +165,36 @@ export default function PlacementPage() {
                     Success Stories
                 </AccordionTrigger>
                 <AccordionContent className="pt-6">
-                     <div className="text-center text-muted-foreground p-8">
-                        <p>Hear from students who have successfully navigated their placement journeys. Coming soon!</p>
-                    </div>
+                    <Carousel
+                        opts={{
+                            align: "start",
+                        }}
+                        className="w-full"
+                        >
+                        <CarouselContent>
+                            {successStories.map((story) => (
+                            <CarouselItem key={story.id} className="md:basis-1/2 lg:basis-1/3">
+                                <div className="p-1">
+                                <Card className="h-full">
+                                    <CardContent className="flex flex-col items-center justify-center p-6 text-center">
+                                         <Avatar className="h-20 w-20 mb-4">
+                                            <AvatarImage src={story.avatar} alt={`${story.name}'s avatar`} data-ai-hint="person portrait" />
+                                            <AvatarFallback>{story.name.charAt(0)}</AvatarFallback>
+                                        </Avatar>
+                                        <h3 className="font-semibold text-lg">{story.name}</h3>
+                                        <p className="text-sm text-primary">{story.role} at {story.company}</p>
+                                        <blockquote className="mt-4 border-l-2 pl-4 italic text-muted-foreground">
+                                           {story.quote}
+                                        </blockquote>
+                                    </CardContent>
+                                </Card>
+                                </div>
+                            </CarouselItem>
+                            ))}
+                        </CarouselContent>
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </Carousel>
                 </AccordionContent>
             </AccordionItem>
         </Accordion>
