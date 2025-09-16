@@ -15,9 +15,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Skeleton } from '@/components/ui/skeleton';
-
-// Lazy load the resume guide component
-const ResumeBuilderGuide = lazy(() => import('./../resume-builder-guide/page').then(module => ({ default: () => <module.default /> })));
+import { ResumeGuide } from '../resume-builder-guide/page';
 
 const serviceBasedMaterials = {
     title: "Service-Based Interview Prep",
@@ -78,7 +76,7 @@ const InterviewPrepContent = () => {
             </header>
             
             <Suspense fallback={<Skeleton className="h-64 w-full" />}>
-                <ResumeBuilderGuide />
+                <ResumeGuide type={type} />
             </Suspense>
 
             <Card className="mt-8">

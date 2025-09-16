@@ -129,7 +129,7 @@ export default function PlacementPage() {
                                 <CardDescription>Sharpen your resume-building and communication skills, and master the aptitude tests required for job portals and referral drives.</CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-4 flex-grow">
-                                <FeatureCard title="Resume Building Guide" icon={FileText} href="/placement/resume-builder-guide" />
+                                <FeatureCard title="Resume Building Guide" icon={FileText} href="/placement/resume-builder-guide?type=service" />
                                 <FeatureCard title="Aptitude & Reasoning Practice" icon={BrainCircuit} href="/placement/mock-tests?type=service" />
                                 <FeatureCard title="Common HR & Technical Questions" icon={Bot} href="/placement/company-questions?type=service" />
                             </CardContent>
@@ -140,7 +140,7 @@ export default function PlacementPage() {
                                 <CardDescription>Build advanced DSA, system design, and company-specific problem-solving skills for competitive hiring challenges and referrals.</CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-4 flex-grow">
-                                <FeatureCard title="Resume Building Guide" icon={FileText} href="/placement/resume-builder-guide" />
+                                <FeatureCard title="Resume Building Guide" icon={FileText} href="/placement/resume-builder-guide?type=product" />
                                 <FeatureCard title="Advanced DSA Problems" icon={Book} href="/dsa-problems" />
                                 <FeatureCard title="Company-Specific Question Banks" icon={Bot} href="/placement/company-questions?type=product" />
                                 <FeatureCard title="System Design Deep Dive" icon={FileText} href="/placement/system-design" />
