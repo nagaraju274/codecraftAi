@@ -1,12 +1,12 @@
 
 "use client";
 
-import { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 import { useSearchParams } from "next/navigation";
 import { AuthGuard } from "@/components/auth/auth-guard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft, Bot, FileText, UserCheck, MessageSquare, Lightbulb } from "lucide-react";
+import { ArrowLeft, UserCheck, MessageSquare, Lightbulb } from "lucide-react";
 import Link from "next/link";
 import {
   Accordion,
@@ -16,15 +16,13 @@ import {
 } from "@/components/ui/accordion";
 import { Skeleton } from '@/components/ui/skeleton';
 
+// Lazy load the resume guide component
+const ResumeBuilderGuide = lazy(() => import('./../resume-builder-guide/page').then(module => ({ default: () => <module.default /> })));
+
 const serviceBasedMaterials = {
     title: "Service-Based Interview Prep",
     description: "Focus on a well-rounded profile, strong fundamentals, and clear communication.",
     sections: [
-        {
-            icon: FileText,
-            title: "Resume Building",
-            content: "Highlight your projects, technical skills (Java/C++/Python, SQL), and any internships. Keep it to a single page and ensure it's free of errors."
-        },
         {
             icon: MessageSquare,
             title: "Common HR Questions",
@@ -42,11 +40,6 @@ const productBasedMaterials = {
     title: "Product-Based Interview Prep",
     description: "Focus on deep problem-solving skills, data structures, and system design thinking.",
     sections: [
-        {
-            icon: FileText,
-            title: "Resume & Project Deep Dive",
-            content: "Be prepared to discuss your projects in depth. Explain the technical challenges, the architecture, and the trade-offs you made."
-        },
         {
             icon: UserCheck,
             title: "Behavioral Questions (STAR Method)",
@@ -77,14 +70,21 @@ const InterviewPrepContent = () => {
 
     return (
         <>
-             <header className="text-center">
+             <header className="text-center mb-8">
                 <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">{data.title}</h1>
                 <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
                     {data.description}
                 </p>
             </header>
+            
+            <Suspense fallback={<Skeleton className="h-64 w-full" />}>
+                <ResumeBuilderGuide />
+            </Suspense>
 
-            <Card>
+            <Card className="mt-8">
+                <CardHeader>
+                    <CardTitle>Interview Rounds</CardTitle>
+                </CardHeader>
                 <CardContent className="p-6">
                     <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
                         {data.sections.map((section, index) => (
