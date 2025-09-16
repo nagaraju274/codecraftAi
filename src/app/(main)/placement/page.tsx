@@ -26,7 +26,7 @@ const onCampusServicePaths = learningPaths.filter(p => p.category === 'On-Campus
 const onCampusProductPaths = learningPaths.filter(p => p.category === 'On-Campus Product-Based');
 
 
-const FeatureCard = ({ title, icon, comingSoon = false, href = "#" } : { title: string, icon: React.ElementType, comingSoon?: boolean, href?: string }) => (
+const FeatureCard = ({ title, icon, href = "#" } : { title: string, icon: React.ElementType, href?: string }) => (
     <Card className="hover:shadow-md transition-shadow">
         <CardHeader className="flex-row items-center gap-4 space-y-0 pb-2">
             <div className="bg-primary/10 p-2 rounded-full">
@@ -35,15 +35,13 @@ const FeatureCard = ({ title, icon, comingSoon = false, href = "#" } : { title: 
             <CardTitle className="text-lg">{title}</CardTitle>
         </CardHeader>
         <CardContent>
-             {comingSoon ? (
-                 <p className="text-sm text-muted-foreground">This feature is coming soon!</p>
-             ) : (
+             
                 <Button asChild variant="link" className="p-0">
                     <Link href={href}>
                         View Content <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                 </Button>
-             )}
+             
         </CardContent>
     </Card>
 );
@@ -96,9 +94,9 @@ export default function PlacementPage() {
                                 {onCampusServicePaths.map(path => (
                                     <FeatureCard key={path.id} title={path.title} icon={Book} href={`/learn/${path.id}`} />
                                 ))}
-                                <FeatureCard title="Mock Tests" icon={BrainCircuit} href="/placement/mock-tests" />
+                                <FeatureCard title="Mock Tests" icon={BrainCircuit} href="/placement/mock-tests?type=service" />
                                 <FeatureCard title="Company-Wise Questions" icon={Bot} href="/placement/company-questions?type=service" />
-                                <FeatureCard title="Interview Prep Materials" icon={FileText} href="/placement/interview-prep" />
+                                <FeatureCard title="Interview Prep Materials" icon={FileText} href="/placement/interview-prep?type=service" />
                             </CardContent>
                         </Card>
                          <Card className="flex flex-col">
@@ -110,7 +108,7 @@ export default function PlacementPage() {
                                 {onCampusProductPaths.map(path => (
                                     <FeatureCard key={path.id} title={path.title} icon={Book} href={`/learn/${path.id}`} />
                                 ))}
-                                <FeatureCard title="Mock Tests" icon={BrainCircuit} href="/placement/mock-tests" />
+                                <FeatureCard title="Mock Tests" icon={BrainCircuit} href="/placement/mock-tests?type=product" />
                                 <FeatureCard title="Company-Wise Questions" icon={Bot} href="/placement/company-questions?type=product" />
                                 <FeatureCard title="System Design Basics" icon={FileText} href="/placement/system-design" />
                             </CardContent>
