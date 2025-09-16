@@ -97,8 +97,8 @@ export default function PlacementPage() {
                                     <FeatureCard key={path.id} title={path.title} icon={Book} href={`/learn/${path.id}`} />
                                 ))}
                                 <FeatureCard title="Mock Tests" icon={BrainCircuit} href="/placement/mock-tests" />
-                                <FeatureCard title="Company-Wise Questions" icon={Bot} comingSoon />
-                                <FeatureCard title="Interview Prep Materials" icon={FileText} comingSoon />
+                                <FeatureCard title="Company-Wise Questions" icon={Bot} href="/placement/company-questions?type=service" />
+                                <FeatureCard title="Interview Prep Materials" icon={FileText} href="/placement/interview-prep" />
                             </CardContent>
                         </Card>
                          <Card className="flex flex-col">
@@ -111,8 +111,8 @@ export default function PlacementPage() {
                                     <FeatureCard key={path.id} title={path.title} icon={Book} href={`/learn/${path.id}`} />
                                 ))}
                                 <FeatureCard title="Mock Tests" icon={BrainCircuit} href="/placement/mock-tests" />
-                                <FeatureCard title="Company-Wise Questions" icon={Bot} comingSoon />
-                                <FeatureCard title="System Design Basics" icon={FileText} comingSoon />
+                                <FeatureCard title="Company-Wise Questions" icon={Bot} href="/placement/company-questions?type=product" />
+                                <FeatureCard title="System Design Basics" icon={FileText} href="/placement/system-design" />
                             </CardContent>
                         </Card>
                     </div>
