@@ -96,7 +96,7 @@ export default function PlacementPage() {
                                 {onCampusServicePaths.map(path => (
                                     <FeatureCard key={path.id} title={path.title} icon={Book} href={`/learn/${path.id}`} />
                                 ))}
-                                <FeatureCard title="Mock Tests" icon={BrainCircuit} comingSoon />
+                                <FeatureCard title="Mock Tests" icon={BrainCircuit} href="/placement/mock-tests" />
                                 <FeatureCard title="Company-Wise Questions" icon={Bot} comingSoon />
                                 <FeatureCard title="Interview Prep Materials" icon={FileText} comingSoon />
                             </CardContent>
@@ -110,7 +110,7 @@ export default function PlacementPage() {
                                 {onCampusProductPaths.map(path => (
                                     <FeatureCard key={path.id} title={path.title} icon={Book} href={`/learn/${path.id}`} />
                                 ))}
-                                <FeatureCard title="Mock Tests" icon={BrainCircuit} comingSoon />
+                                <FeatureCard title="Mock Tests" icon={BrainCircuit} href="/placement/mock-tests" />
                                 <FeatureCard title="Company-Wise Questions" icon={Bot} comingSoon />
                                 <FeatureCard title="System Design Basics" icon={FileText} comingSoon />
                             </CardContent>
