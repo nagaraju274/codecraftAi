@@ -122,8 +122,30 @@ export default function PlacementPage() {
                     Off-Campus Placements
                 </AccordionTrigger>
                 <AccordionContent className="pt-6">
-                     <div className="text-center text-muted-foreground p-8">
-                        <p>Content for off-campus placements is coming soon!</p>
+                     <div className="grid lg:grid-cols-2 gap-8">
+                        <Card className="flex flex-col">
+                            <CardHeader>
+                                <CardTitle>Service-Based Companies</CardTitle>
+                                <CardDescription>Focus on resume building, aptitude tests, and HR interviews for job portals and referral drives.</CardDescription>
+                            </CardHeader>
+                            <CardContent className="space-y-4 flex-grow">
+                                <FeatureCard title="Resume Building Guide" icon={FileText} href="/placement/interview-prep?type=service" />
+                                <FeatureCard title="Aptitude & Reasoning Practice" icon={BrainCircuit} href="/placement/mock-tests?type=service" />
+                                <FeatureCard title="Common HR & Technical Questions" icon={Bot} href="/placement/company-questions?type=service" />
+                            </CardContent>
+                        </Card>
+                         <Card className="flex flex-col">
+                            <CardHeader>
+                                <CardTitle>Product-Based Companies</CardTitle>
+                                <CardDescription>Focus on advanced DSA, company-specific preparation, and system design for hiring challenges and referrals.</CardDescription>
+                            </CardHeader>
+                            <CardContent className="space-y-4 flex-grow">
+                                <FeatureCard title="Advanced DSA Problems" icon={Book} href="/dsa-problems" />
+                                <FeatureCard title="Company-Specific Question Banks" icon={Bot} href="/placement/company-questions?type=product" />
+                                <FeatureCard title="System Design Deep Dive" icon={FileText} href="/placement/system-design" />
+                                <FeatureCard title="Advanced Mock Tests" icon={BrainCircuit} href="/placement/mock-tests?type=product" />
+                            </CardContent>
+                        </Card>
                     </div>
                 </AccordionContent>
             </AccordionItem>
