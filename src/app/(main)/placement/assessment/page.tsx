@@ -4,7 +4,7 @@
 import { AuthGuard } from "@/components/auth/auth-guard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, TimerIcon } from "lucide-react";
 import Link from "next/link";
 import {
   Accordion,
@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/accordion"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Progress } from "@/components/ui/progress";
 
 const assessmentData = {
@@ -40,9 +40,13 @@ type Answers = {
     [key: string]: string;
 }
 
+const ASSESSMENT_DURATION = 60 * 60; // 60 minutes in seconds
+
 export default function AssessmentPage() {
     const [answers, setAnswers] = useState<Answers>({});
     const [submitted, setSubmitted] = useState(false);
+    const [testStarted, setTestStarted] = useState(false);
+    const [timeLeft, setTimeLeft] = useState(ASSESSMENT_DURATION);
 
     const totalQuestions = [
         ...assessmentData.dsaAndCoding, 
@@ -54,6 +58,21 @@ export default function AssessmentPage() {
     const answeredQuestions = Object.keys(answers).length;
     const progress = (answeredQuestions / totalQuestions) * 100;
 
+    useEffect(() => {
+        if (!testStarted || submitted) return;
+
+        if (timeLeft <= 0) {
+            handleSubmit();
+            return;
+        }
+
+        const timer = setInterval(() => {
+            setTimeLeft(prevTime => prevTime - 1);
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, [testStarted, timeLeft, submitted]);
+
     const handleAnswerChange = (questionId: string, value: string) => {
         setAnswers(prev => ({...prev, [questionId]: value}));
     };
@@ -61,6 +80,13 @@ export default function AssessmentPage() {
     const handleSubmit = () => {
         setSubmitted(true);
     };
+
+    const handleStart = () => {
+        setTestStarted(true);
+        setSubmitted(false);
+        setAnswers({});
+        setTimeLeft(ASSESSMENT_DURATION);
+    }
 
     const calculateScore = () => {
         let score = 0;
@@ -79,6 +105,12 @@ export default function AssessmentPage() {
     const score = submitted ? calculateScore() : 0;
     const scorePercentage = (score / totalQuestions) * 100;
 
+    const formatTime = (seconds: number) => {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+    }
+
     return (
         <AuthGuard>
             <div className="container mx-auto py-10 space-y-8">
@@ -90,18 +122,32 @@ export default function AssessmentPage() {
                 </Button>
 
                 <Card>
-                    <CardHeader>
-                        <CardTitle className="text-3xl">Job Ready Placement Assessment</CardTitle>
-                        <CardDescription>Test your foundational knowledge in key areas required for placements.</CardDescription>
+                    <CardHeader className="flex flex-row justify-between items-start">
+                        <div>
+                            <CardTitle className="text-3xl">Job Ready Placement Assessment</CardTitle>
+                            <CardDescription>Test your foundational knowledge in key areas required for placements.</CardDescription>
+                        </div>
+                        {testStarted && !submitted && (
+                            <div className="flex items-center gap-2 text-lg font-semibold text-primary">
+                                <TimerIcon className="h-6 w-6"/>
+                                <span>{formatTime(timeLeft)}</span>
+                            </div>
+                        )}
                     </CardHeader>
                     <CardContent>
-                        {submitted ? (
+                        {!testStarted ? (
+                            <div className="text-center py-20">
+                                <h2 className="text-2xl font-bold mb-4">Start Your Assessment</h2>
+                                <p className="text-muted-foreground mb-8">You will have 60 minutes to complete all sections.</p>
+                                <Button size="lg" onClick={handleStart}>Start Assessment</Button>
+                            </div>
+                        ) : submitted ? (
                             <div className="text-center py-10">
                                 <h2 className="text-2xl font-bold mb-4">Assessment Complete!</h2>
                                 <p className="text-lg text-muted-foreground mb-6">Your Score:</p>
                                 <p className="text-5xl font-bold text-primary">{score} / {totalQuestions}</p>
                                 <Progress value={scorePercentage} className="w-full max-w-sm mx-auto mt-6" />
-                                <Button onClick={() => { setSubmitted(false); setAnswers({}); }} className="mt-8">
+                                <Button onClick={handleStart} className="mt-8">
                                     Retake Assessment
                                 </Button>
                             </div>
