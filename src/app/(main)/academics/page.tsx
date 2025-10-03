@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import { useState } from 'react';
@@ -12,6 +13,10 @@ import { AuthGuard } from '@/components/auth/auth-guard';
 
 const branches = [
   { value: "cse", label: "Computer Science & Engineering (CSE)" },
+  { value: "cse-ai-ml", label: "CSE (AI & Machine Learning)" },
+  { value: "cse-ds", label: "CSE (Data Science)" },
+  { value: "cse-cs", label: "CSE (Cyber Security)" },
+  { value: "csbs", label: "Computer Science & Business Systems (CSBS)" },
   { value: "ece", label: "Electronics & Communication Engineering (ECE)" },
   { value: "it", label: "Information Technology (IT)" },
   { value: "me", label: "Mechanical Engineering (ME)" },
@@ -91,4 +96,3 @@ export default function AcademicsPage() {
     </AuthGuard>
   );
 }
-

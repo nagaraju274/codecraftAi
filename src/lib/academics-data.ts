@@ -91,6 +91,226 @@ export const academicsData: AcademicsData = {
             { id: "cs803", name: "Project Work", description: "Final year project." },
         ]
     },
+    "cse-ai-ml": {
+        "1": [
+            { id: "ma101", name: "Mathematics - I (Calculus and Linear Algebra)", description: "Core mathematical foundations." },
+            { id: "ap102", name: "Applied Physics", description: "Principles of quantum mechanics, semiconductors, and optics." },
+            { id: "cs103", name: "Programming for Problem Solving (C)", description: "Introduction to C programming.", relatedRoadmapId: "c" },
+            { id: "me104", name: "Engineering Workshop", description: "Practical engineering skills." },
+            { id: "en105", name: "English", description: "Communication skills." },
+        ],
+        "2": [
+            { id: "ma201", name: "Mathematics - II (Advanced Calculus)", description: "Differential equations and vector calculus." },
+            { id: "ch202", name: "Chemistry", description: "Fundamentals of chemical principles." },
+            { id: "cs203", name: "Data Structures", description: "Fundamental data structures and algorithms.", relatedRoadmapId: "dsa-with-cpp" },
+            { id: "ee204", name: "Basic Electrical Engineering", description: "Fundamentals of DC and AC circuits." },
+        ],
+        "3": [
+            { id: "cs301", name: "Computer Organization & Architecture", description: "Structure and behavior of digital computers." },
+            { id: "ma302", name: "Probability and Statistics", description: "Foundation for data analysis and machine learning." },
+            { id: "cs303", name: "Object Oriented Programming (Java)", description: "OOP concepts using Java.", relatedRoadmapId: "java" },
+            { id: "cs304", name: "Design and Analysis of Algorithms", description: "Designing and analyzing algorithm efficiency." },
+            { id: "cs305", name: "Database Management Systems", description: "Database design and SQL.", relatedRoadmapId: "sql" },
+        ],
+        "4": [
+            { id: "cs401", name: "Operating Systems", description: "Core concepts of an OS." },
+            { id: "cs402", name: "Software Engineering", description: "Principles of software development." },
+            { id: "ai403", name: "Foundations of AI & ML", description: "Introduction to core AI and ML concepts." },
+            { id: "cs404", name: "Formal Languages and Automata Theory", description: "Study of abstract machines." },
+            { id: "py405", name: "Python for Data Science", description: "Python libraries for data science.", relatedRoadmapId: "beginners-guide-to-python" },
+        ],
+        "5": [
+            { id: "ai501", name: "Machine Learning", description: "Supervised, unsupervised, and reinforcement learning.", relatedRoadmapId: "data-analyst" },
+            { id: "cs502", name: "Computer Networks", description: "Functioning of computer networks.", relatedRoadmapId: "networking-basics" },
+            { id: "ai503", name: "Natural Language Processing", description: "Processing and analyzing human language." },
+            { id: "cs504", name: "Professional Elective - I (e.g., Computer Vision)", description: "Specialized subject in AI/ML." },
+            { id: "cs505", name: "Open Elective - I", description: "Interdisciplinary subject." },
+        ],
+        "6": [
+            { id: "ai601", name: "Deep Learning", description: "Neural networks and deep learning architectures." },
+            { id: "cs602", name: "Compiler Design", description: "Principles of compiler construction." },
+            { id: "ai603", name: "AI Ethics and Governance", description: "Ethical implications of AI." },
+            { id: "cs604", name: "Professional Elective - II (e.g., Reinforcement Learning)", description: "Advanced elective." },
+            { id: "cs605", name: "Open Elective - II", description: "Interdisciplinary subject." },
+        ],
+        "7": [
+            { id: "ai701", name: "MLOps", description: "DevOps for Machine Learning." },
+            { id: "cs702", name: "Cloud Computing", description: "Cloud infrastructure and services.", relatedRoadmapId: "devops-engineer" },
+            { id: "cs703", name: "Professional Elective - III", description: "Specialized subject." },
+            { id: "cs704", name: "Professional Elective - IV", description: "Specialized subject." },
+            { id: "cs705", name: "Project - I", description: "First phase of the final year project." },
+        ],
+        "8": [
+            { id: "cs801", name: "Professional Elective - V", description: "Final specialized subject." },
+            { id: "cs802", name: "Professional Elective - VI", description: "Final specialized subject." },
+            { id: "cs803", name: "Project - II", description: "Final phase of the final year project." },
+        ]
+    },
+    "cse-ds": {
+        "1": [
+            { id: "ma101", name: "Mathematics - I (Calculus and Linear Algebra)", description: "Core mathematical foundations." },
+            { id: "ap102", name: "Applied Physics", description: "Principles of quantum mechanics, semiconductors, and optics." },
+            { id: "cs103", name: "Programming for Problem Solving (C)", description: "Introduction to C programming.", relatedRoadmapId: "c" },
+            { id: "me104", name: "Engineering Workshop", description: "Practical engineering skills." },
+            { id: "en105", name: "English", description: "Communication skills." },
+        ],
+        "2": [
+            { id: "ma201", name: "Mathematics - II (Advanced Calculus)", description: "Differential equations and vector calculus." },
+            { id: "ch202", name: "Chemistry", description: "Fundamentals of chemical principles." },
+            { id: "cs203", name: "Data Structures", description: "Fundamental data structures and algorithms.", relatedRoadmapId: "dsa-with-cpp" },
+            { id: "ee204", name: "Basic Electrical Engineering", description: "Fundamentals of DC and AC circuits." },
+        ],
+        "3": [
+            { id: "cs301", name: "Computer Organization & Architecture", description: "Structure and behavior of digital computers." },
+            { id: "ma302", name: "Probability and Statistics", description: "Foundation for data analysis and machine learning." },
+            { id: "cs303", name: "Object Oriented Programming (Java)", description: "OOP concepts using Java.", relatedRoadmapId: "java" },
+            { id: "cs304", name: "Design and Analysis of Algorithms", description: "Designing and analyzing algorithm efficiency." },
+            { id: "ds305", name: "Introduction to Data Science", description: "Overview of the data science lifecycle." },
+        ],
+        "4": [
+            { id: "cs401", name: "Operating Systems", description: "Core concepts of an OS." },
+            { id: "cs402", name: "Database Management Systems", description: "Database design and SQL.", relatedRoadmapId: "sql" },
+            { id: "py403", name: "Python for Data Science", description: "Using Python libraries like Pandas, NumPy, and Matplotlib.", relatedRoadmapId: "beginners-guide-to-python" },
+            { id: "cs404", name: "Software Engineering", description: "Principles of software development." },
+            { id: "ds405", name: "Data Warehousing", description: "Concepts of data storage for analytics." },
+        ],
+        "5": [
+            { id: "ds501", name: "Machine Learning", description: "Supervised and unsupervised learning techniques.", relatedRoadmapId: "data-analyst" },
+            { id: "cs502", name: "Computer Networks", description: "Functioning of computer networks.", relatedRoadmapId: "networking-basics" },
+            { id: "ds503", name: "Data Visualization", description: "Techniques and tools for visualizing data." },
+            { id: "cs504", name: "Professional Elective - I (e.g., Big Data Analytics)", description: "Specialized subject in Data Science." },
+            { id: "cs505", name: "Open Elective - I", description: "Interdisciplinary subject." },
+        ],
+        "6": [
+            { id: "ds601", name: "Deep Learning", description: "Neural networks and deep learning architectures." },
+            { id: "ds602", name: "Business Intelligence", description: "Tools and techniques for BI." },
+            { id: "cs603", name: "Cryptography & Network Security", description: "Study of encryption and network security." },
+            { id: "cs604", name: "Professional Elective - II (e.g., Stream Processing)", description: "Advanced elective." },
+            { id: "cs605", name: "Open Elective - II", description: "Interdisciplinary subject." },
+        ],
+        "7": [
+            { id: "ds701", name: "Big Data Technologies", description: "Hadoop, Spark, and other big data tools." },
+            { id: "cs702", name: "Cloud Computing", description: "Cloud infrastructure for data science.", relatedRoadmapId: "devops-engineer" },
+            { id: "cs703", name: "Professional Elective - III", description: "Specialized subject." },
+            { id: "cs704", name: "Professional Elective - IV", description: "Specialized subject." },
+            { id: "cs705", name: "Project - I", description: "First phase of the final year project." },
+        ],
+        "8": [
+            { id: "cs801", name: "Professional Elective - V", description: "Final specialized subject." },
+            { id: "cs802", name: "Professional Elective - VI", description: "Final specialized subject." },
+            { id: "cs803", name: "Project - II", description: "Final phase of the final year project." },
+        ]
+    },
+    "cse-cs": {
+        "1": [
+            { id: "ma101", name: "Mathematics - I (Calculus and Linear Algebra)", description: "Core mathematical foundations." },
+            { id: "ap102", name: "Applied Physics", description: "Principles of quantum mechanics, semiconductors, and optics." },
+            { id: "cs103", name: "Programming for Problem Solving (C)", description: "Introduction to C programming.", relatedRoadmapId: "c" },
+            { id: "me104", name: "Engineering Workshop", description: "Practical engineering skills." },
+            { id: "en105", name: "English", description: "Communication skills." },
+        ],
+        "2": [
+            { id: "ma201", name: "Mathematics - II (Advanced Calculus)", description: "Differential equations and vector calculus." },
+            { id: "ch202", name: "Chemistry", description: "Fundamentals of chemical principles." },
+            { id: "cs203", name: "Data Structures", description: "Fundamental data structures and algorithms.", relatedRoadmapId: "dsa-with-cpp" },
+            { id: "ee204", name: "Basic Electrical Engineering", description: "Fundamentals of DC and AC circuits." },
+        ],
+        "3": [
+            { id: "cs301", name: "Computer Organization & Architecture", description: "Structure and behavior of digital computers." },
+            { id: "ma302", name: "Discrete Mathematics", description: "Study of mathematical structures." },
+            { id: "cs303", name: "Object Oriented Programming (Java)", description: "OOP concepts using Java.", relatedRoadmapId: "java" },
+            { id: "cs304", name: "Design and Analysis of Algorithms", description: "Designing and analyzing algorithm efficiency." },
+            { id: "cs305", name: "Database Management Systems", description: "Database design and SQL.", relatedRoadmapId: "sql" },
+        ],
+        "4": [
+            { id: "cs401", name: "Operating Systems", description: "Core concepts of an OS." },
+            { id: "cs402", name: "Computer Networks", description: "Functioning of computer networks.", relatedRoadmapId: "networking-basics" },
+            { id: "cy403", name: "Information Security", description: "Fundamentals of cybersecurity." },
+            { id: "cs404", name: "Software Engineering", description: "Principles of software development." },
+            { id: "cy405", name: "Python for Security", description: "Using Python for security scripting.", relatedRoadmapId: "beginners-guide-to-python" },
+        ],
+        "5": [
+            { id: "cy501", name: "Cryptography", description: "Symmetric and asymmetric encryption algorithms." },
+            { id: "cy502", name: "Network Security", description: "Securing networks with firewalls, IDS/IPS." },
+            { id: "cs503", name: "Web Technologies", description: "Learn to build web applications.", relatedRoadmapId: "full-stack-web-development" },
+            { id: "cs504", name: "Professional Elective - I (e.g., Ethical Hacking)", description: "Specialized subject in Cyber Security." },
+            { id: "cs505", name: "Open Elective - I", description: "Interdisciplinary subject." },
+        ],
+        "6": [
+            { id: "cy601", name: "Cyber Forensics", description: "Investigation of digital crimes." },
+            { id: "cs602", name: "Compiler Design", description: "Principles of compiler construction." },
+            { id: "cy603", name: "Application Security", description: "Securing web and mobile applications." },
+            { id: "cs604", name: "Professional Elective - II (e.g., Malware Analysis)", description: "Advanced elective." },
+            { id: "cs605", name: "Open Elective - II", description: "Interdisciplinary subject." },
+        ],
+        "7": [
+            { id: "cy701", name: "Cloud Security", description: "Securing cloud infrastructure and services." },
+            { id: "cy702", name: "Blockchain & Cryptocurrency", description: "Fundamentals of blockchain technology." },
+            { id: "cs703", name: "Professional Elective - III", description: "Specialized subject." },
+            { id: "cs704", name: "Professional Elective - IV", description: "Specialized subject." },
+            { id: "cs705", name: "Project - I", description: "First phase of the final year project." },
+        ],
+        "8": [
+            { id: "cs801", name: "Professional Elective - V", description: "Final specialized subject." },
+            { id: "cs802", name: "Professional Elective - VI", description: "Final specialized subject." },
+            { id: "cs803", name: "Project - II", description: "Final phase of the final year project." },
+        ]
+    },
+    "csbs": {
+        "1": [
+            { id: "ma101", name: "Business Mathematics - I", description: "Calculus and statistical methods for business." },
+            { id: "cs102", name: "Programming for Problem Solving (Python)", description: "Introduction to Python programming.", relatedRoadmapId: "beginners-guide-to-python" },
+            { id: "bs103", name: "Principles of Management", description: "Fundamentals of management theory." },
+            { id: "ee104", name: "Basic Electrical & Electronics Engineering", description: "Fundamentals of circuits." },
+            { id: "en105", name: "Business Communication", description: "Professional communication skills." },
+        ],
+        "2": [
+            { id: "ma201", name: "Business Mathematics - II", description: "Advanced statistics and operations research." },
+            { id: "cs202", name: "Data Structures & Algorithms", description: "Core data structures and algorithms.", relatedRoadmapId: "dsa-with-python" },
+            { id: "bs203", name: "Financial & Cost Accounting", description: "Principles of accounting." },
+            { id: "cs204", name: "Object Oriented Programming (Java)", description: "OOP concepts using Java.", relatedRoadmapId: "java" },
+        ],
+        "3": [
+            { id: "cs301", name: "Computer Organization", description: "Structure and behavior of computers." },
+            { id: "bs302", name: "Marketing Management", description: "Core concepts of marketing." },
+            { id: "cs303", name: "Database Management Systems", description: "Database design and SQL.", relatedRoadmapId: "sql" },
+            { id: "bs304", name: "Human Resource Management", description: "Principles of HRM." },
+            { id: "cs305", name: "Software Engineering", description: "Software development lifecycle." },
+        ],
+        "4": [
+            { id: "cs401", name: "Operating Systems", description: "Core concepts of an OS." },
+            { id: "cs402", name: "Computer Networks", description: "Functioning of computer networks.", relatedRoadmapId: "networking-basics" },
+            { id: "bs403", name: "Financial Management", description: "Corporate finance and investment." },
+            { id: "cs404", name: "Web Technologies", description: "Building web applications.", relatedRoadmapId: "full-stack-web-development" },
+            { id: "bs405", name: "Business Analytics", description: "Using data for business decision-making." },
+        ],
+        "5": [
+            { id: "cs501", name: "Cloud Computing", description: "Cloud infrastructure and services.", relatedRoadmapId: "devops-engineer" },
+            { id: "bs502", name: "Supply Chain Management", description: "Logistics and supply chain." },
+            { id: "cs503", name: "Artificial Intelligence for Business", description: "Applying AI to business problems." },
+            { id: "cs504", name: "Professional Elective - I (e.g., E-Commerce)", description: "Specialized subject." },
+            { id: "cs505", name: "Open Elective - I", description: "Interdisciplinary subject." },
+        ],
+        "6": [
+            { id: "bs601", name: "Strategic Management", description: "Business strategy and policy." },
+            { id: "cs602", name: "Cyber Security", description: "Fundamentals of cybersecurity." },
+            { id: "ds603", name: "Predictive Modeling", description: "Building predictive models." },
+            { id: "cs604", name: "Professional Elective - II (e.g., FinTech)", description: "Advanced elective." },
+            { id: "cs605", name: "Open Elective - II", description: "Interdisciplinary subject." },
+        ],
+        "7": [
+            { id: "bs701", name: "Entrepreneurship", description: "Starting and managing a business." },
+            { id: "cs702", name: "Big Data Analytics", description: "Working with large datasets." },
+            { id: "cs703", name: "Professional Elective - III", description: "Specialized subject." },
+            { id: "cs704", name: "Professional Elective - IV", description: "Specialized subject." },
+            { id: "cs705", name: "Project - I", description: "First phase of the final year project." },
+        ],
+        "8": [
+            { id: "cs801", name: "Professional Elective - V", description: "Final specialized subject." },
+            { id: "cs802", name: "Professional Elective - VI", description: "Final specialized subject." },
+            { id: "cs803", name: "Project - II", description: "Final phase of the final year project." },
+        ]
+    },
     "ece": {
         "1": [
             { id: "ma101", name: "Mathematics - I", description: "Calculus and Linear Algebra." },
@@ -231,6 +451,10 @@ export const academicsData: AcademicsData = {
 
 export const branchNames: { [key: string]: string } = {
     cse: "Computer Science & Engineering",
+    "cse-ai-ml": "CSE (AI & Machine Learning)",
+    "cse-ds": "CSE (Data Science)",
+    "cse-cs": "CSE (Cyber Security)",
+    csbs: "Computer Science & Business Systems",
     ece: "Electronics & Communication Engineering",
     it: "Information Technology",
     me: "Mechanical Engineering",
