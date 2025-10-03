@@ -6,7 +6,7 @@ import Link from "next/link"
 // Import the usePathname hook from Next.js to get the current URL path.
 import { usePathname } from "next/navigation"
 // Import icons from the lucide-react library.
-import { Home, Compass, FolderKanban, BookCopy, Code, MessageCircleQuestion, Users, FileText, BotMessageSquare, LifeBuoy, BookOpen, GraduationCap, Briefcase, Gem, Trophy } from "lucide-react"
+import { Home, Compass, FolderKanban, BookCopy, Code, MessageCircleQuestion, Users, FileText, BotMessageSquare, LifeBuoy, BookOpen, GraduationCap, Briefcase, Gem, Trophy, PenSquare } from "lucide-react"
 
 // Import sidebar components from the UI library.
 import {
@@ -37,6 +37,7 @@ const secondaryLinks = [
     { href: "/community", label: "Community", icon: Users },
     { href: "/cheatsheets", label: "Cheat Sheets", icon: BookCopy },
     { href: "/glossary", label: "Glossary", icon: BookOpen },
+    { href: "/study-plan", label: "Study Plan Generator", icon: PenSquare },
 ]
 
 // Define the navigation links for the help/documentation part of the sidebar.
