@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -34,7 +35,7 @@ export default function LandingPage() {
             The Future of Your Code, Reimagined.
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
-            Experience seamless, smart, and accelerated development with our next-generation coding platform.
+            it is a free learning platform designed for B.Tech and CSE students. It provides structured roadmaps, skill-based learning paths, and placement assessments to guide students from basics to industry-ready expertise. The platform helps bridge the gap between academics, coding, and placements, empowering students to prepare smarter for their careers.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="lg" className="w-full sm:w-auto">
