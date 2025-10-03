@@ -72,14 +72,14 @@ export default function SubjectsPage() {
                             <CardDescription>{subject.description}</CardDescription>
                         </CardHeader>
                         <CardContent className="flex-grow"></CardContent>
-                        <CardContent>
+                        <CardFooter>
                              <Button asChild className="w-full">
                                 <Link href={`/academics/${branch}/${semester}/${subject.id}`}>
                                     View Resources
                                     <ArrowRight className="ml-2 h-4 w-4" />
                                 </Link>
                             </Button>
-                        </CardContent>
+                        </CardFooter>
                     </Card>
                 ))}
             </div>
