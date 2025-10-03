@@ -35,8 +35,8 @@ export default function MainLayout({
         <header className="sticky top-0 z-10 flex h-16 items-center justify-between gap-4 border-b bg-background px-4 sm:px-6 shadow-md">
             {/* Container for left-aligned header items. */}
             <div className="flex items-center gap-4">
-                {/* The mobile menu, hidden on medium screens and up. */}
-                <div className="md:hidden">
+                {/* The mobile menu, hidden on large screens and up. */}
+                <div className="lg:hidden">
                     {/* The Sheet component provides the drawer/off-canvas functionality. */}
                     <Sheet>
                         {/* The trigger for the mobile menu sheet. */}
@@ -73,8 +73,8 @@ export default function MainLayout({
                     <p className="text-xs text-muted-foreground ml-1">by Mine-Yours</p>
                 </div>
             </div>
-            {/* The main navigation menu for medium screens and up. */}
-            <nav className="hidden md:flex items-center gap-4">
+            {/* The main navigation menu for large screens and up. */}
+            <nav className="hidden lg:flex items-center gap-4">
                 {/* Map through the navLinks array to create a button for each link. */}
                 {navLinks.map(link => (
                     // The Button component is used with `asChild` to pass its styling to the Link component.
