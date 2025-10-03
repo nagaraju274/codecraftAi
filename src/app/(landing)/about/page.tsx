@@ -17,7 +17,7 @@ const otherProducts = [
         href: "/projects"
     },
     {
-        name: "Guided Learning Paths",
+        name: "Guided Road maps",
         description: "Master new technologies with structured, hands-on tutorials.",
         href: "/learn"
     }

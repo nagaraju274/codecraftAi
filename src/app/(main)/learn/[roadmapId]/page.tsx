@@ -74,7 +74,7 @@ export default function RoadmapPage() {
             <Button asChild variant="ghost" className="mb-4">
               <Link href="/learn">
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Learning Paths
+                Back to Road maps
               </Link>
             </Button>
           <h1 className="text-3xl font-bold tracking-tight">{path.title}</h1>

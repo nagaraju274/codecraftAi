@@ -13,7 +13,7 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/s
 
 // An array of navigation links to be displayed in the header.
 const navLinks = [
-    { href: "/learn", label: "Learn" },
+    { href: "/learn", label: "Road maps" },
     { href: "/projects", label: "Projects" },
     { href: "/playground", label: "Playground" },
     { href: "/about", label: "About Us" },

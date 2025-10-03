@@ -13,7 +13,7 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/s
 // An array of navigation link objects to be displayed in the header.
 const navLinks = [
     // Each object represents a link with its URL, label, and an optional icon.
-    { href: "/learn", label: "Learn", icon: null },
+    { href: "/learn", label: "Road maps", icon: null },
     { href: "/projects", label: "Projects", icon: null },
     { href: "/playground", label: "Playground", icon: null },
     { href: "/academics", label: "Academics", icon: GraduationCap },

@@ -20,7 +20,7 @@ const features = [
     },
     {
         icon: <BookOpenCheck className="w-10 h-10 text-primary" />,
-        title: "Guided Learning",
+        title: "Guided Road maps",
         description: "Follow structured learning paths and build projects step-by-step with AI hints to master new technologies.",
         href: "/learn"
     }

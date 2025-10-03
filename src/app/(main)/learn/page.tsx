@@ -80,7 +80,7 @@ export default function LearnPage() {
     <AuthGuard>
       <div className="flex flex-col h-full gap-4">
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold tracking-tight">Learning Paths</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Road maps</h1>
           <p className="text-muted-foreground">
             Our structured learning paths will help you master new skills and advance your career.
           </p>
