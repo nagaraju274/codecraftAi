@@ -2,7 +2,7 @@
 // Import the Button component from the UI library.
 import { Button } from '@/components/ui/button';
 // Import various icons from the lucide-react library.
-import { BotMessageSquare, Menu, User, MessageCircleQuestion, GraduationCap, Briefcase } from 'lucide-react';
+import { BotMessageSquare, Menu, User, MessageCircleQuestion, GraduationCap, Briefcase, Gem } from 'lucide-react';
 // Import the Next.js Link component for client-side navigation.
 import Link from 'next/link';
 // Import the Footer component.
@@ -18,6 +18,7 @@ const navLinks = [
     { href: "/playground", label: "Playground", icon: null },
     { href: "/academics", label: "Academics", icon: GraduationCap },
     { href: "/placement", label: "Placement", icon: Briefcase },
+    { href: "/treasure", label: "Treasure Trove", icon: Gem },
     { href: "/ask-a-mentor", label: "Ask a Mentor", icon: MessageCircleQuestion },
     { href: "/community", label: "Community", icon: null },
 ];
