@@ -151,7 +151,7 @@ export default function RoadmapPage() {
                               <Button size="sm" variant="ghost" onClick={() => handleExplainTopic(topic)} className="ml-4">
                                   {/* An icon for the button. */}
                                   <Sparkles className="h-4 w-4 mr-2" />
-                                  Learn More
+                                  Explain
                               </Button>
                           </div>
                           {/* The content that is revealed when the accordion item is open. */}
