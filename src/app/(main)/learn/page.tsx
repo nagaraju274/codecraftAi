@@ -122,7 +122,7 @@ export default function LearnPage() {
         <div className="flex-1 overflow-y-auto pr-4">
             <Tabs defaultValue="languages" className="w-full">
               <TabsList className="grid w-full grid-cols-1 md:grid-cols-4 h-auto md:h-12">
-                <TabsTrigger value="languages" className="py-2.5"><Code className="mr-2"/> SECTION 1: PROGRAMMING LANGUAGES</TabsTrigger>
+                <TabsTrigger value="languages" className="py-2.5"><Code className="mr-2"/>Programming Languages</TabsTrigger>
                 <TabsTrigger value="frameworks" className="py-2.5"><Library className="mr-2"/> SECTION 2: FRAMEWORKS & LIBRARIES</TabsTrigger>
                 <TabsTrigger value="roles" className="py-2.5"><Briefcase className="mr-2"/> SECTION 3: JOB ROLES IN TECH</TabsTrigger>
                 <TabsTrigger value="dsa" className="py-2.5"><BrainCircuit className="mr-2"/> SECTION 4: DSA</TabsTrigger>
