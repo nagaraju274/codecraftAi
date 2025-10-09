@@ -231,6 +231,7 @@ export const learningPaths = [
     title: "Web Development Foundations",
     description: "Learn the core technologies for building modern websites and web applications.",
     category: "Job Roles",
+    subCategory: "Web & UI",
     topics: [
       {
         title: "HTML5: Structuring the Web",
@@ -300,6 +301,7 @@ export const learningPaths = [
     title: "Full Stack Web Development",
     description: "Become a full-stack developer by mastering both front-end and back-end technologies.",
     category: "Job Roles",
+    subCategory: "Web & UI",
     topics: [
       {
         title: "Frontend Frameworks (React, Next.js)",
@@ -369,6 +371,7 @@ export const learningPaths = [
     title: "Data Analyst",
     description: "Learn to collect, clean, and interpret data sets to answer a question or solve a problem.",
     category: "Job Roles",
+    subCategory: "Data & AI",
     topics: [
       {
         title: "Foundational Skills",
@@ -429,6 +432,7 @@ export const learningPaths = [
     title: "Mobile App Development",
     description: "Build applications for iOS and Android using modern cross-platform frameworks.",
     category: "Job Roles",
+    subCategory: "Web & UI",
     topics: [
       {
         title: "Introduction to Mobile Development",
@@ -498,6 +502,7 @@ export const learningPaths = [
     title: "DevOps Engineer",
     description: "Learn the practices and tools to automate and streamline the software development lifecycle.",
     category: "Job Roles",
+    subCategory: "DevOps & Cloud",
     topics: [
       {
         title: "CI/CD Pipelines (Jenkins, GitHub Actions)",
@@ -567,6 +572,7 @@ export const learningPaths = [
     title: "Front-End Developer",
     description: "Learn to build beautiful and interactive user interfaces for the web.",
     category: "Job Roles",
+    subCategory: "Web & UI",
     topics: [
       {
         title: "Core Web Technologies",
@@ -627,6 +633,7 @@ export const learningPaths = [
     title: "Back-End Developer",
     description: "Learn to build the server-side logic and infrastructure that powers web applications.",
     category: "Job Roles",
+    subCategory: "Core Software Development",
     topics: [
         {
             title: "Choose a Language and Framework",
@@ -683,6 +690,7 @@ export const learningPaths = [
     title: "Database Administrator",
     description: "Learn to manage and maintain databases to ensure data is secure, accessible, and performs efficiently.",
     category: "Job Roles",
+    subCategory: "Data & AI",
     topics: [
       {
         title: "Database Fundamentals",
@@ -2313,7 +2321,7 @@ export const learningPaths = [
       {
         title: "Graphs",
         points: [
-          { text: "Represent graphs using dictionaries or adjacency lists in Python.", resources: [{ name: "Graph Representations", url: "https://www.geeksforgeeks.org/graph-and-its-representations/" }] },
+          { text: "Represent graphs using dictionaries or adjacency lists in Python.", resources: [{ name: "Graph Representation", url: "https://www.geeksforgeeks.org/graph-and-its-representations/" }] },
           { text: "Implement Breadth-First Search (BFS) and Depth-First Search (DFS).", resources: [{ name: "BFS and DFS in Python", url: "https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/" }] },
           { text: "Explore pathfinding algorithms like Dijkstra's.", resources: [{ name: "Dijkstra's Algorithm in Python", url: "https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/" }] },
         ],
@@ -2460,6 +2468,7 @@ export const learningPaths = [
     title: "Software Engineer",
     description: "A comprehensive path to becoming a proficient software engineer, covering fundamentals, frontend, backend, databases, and DevOps.",
     category: "Job Roles",
+    subCategory: "Core Software Development",
     topics: [
         {
             title: "Programming Fundamentals",

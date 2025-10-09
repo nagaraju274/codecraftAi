@@ -20,6 +20,7 @@ import { learningPaths } from "@/lib/learning-paths-data";
 import { AuthGuard } from "@/components/auth/auth-guard";
 // Import Tabs components for the new layout.
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 
 // An array of background color classes to be applied to the learning path cards for visual variety.
@@ -76,14 +77,38 @@ export default function LearnPage() {
       (path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
        path.description.toLowerCase().includes(searchQuery.toLowerCase()))
     );
+  
+  const jobRoles = learningPaths.filter(path =>
+    path.category === 'Job Roles' &&
+    (path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+     path.description.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
+
+  const jobRoleSubCategories = [
+    "Core Software Development",
+    "Data & AI",
+    "Web & UI",
+    "Cybersecurity",
+    "DevOps & Cloud",
+    "Embedded / IoT / Robotics",
+    "Testing & QA",
+    "Product & Management",
+    "Research & Academia",
+    "Miscellaneous / Emerging",
+  ];
+
+  const groupedJobRoles = jobRoleSubCategories.map(subCategory => ({
+    name: subCategory,
+    paths: jobRoles.filter(path => path.subCategory === subCategory)
+  })).filter(group => group.paths.length > 0);
+
 
   // This line filters the 'learningPaths' array to get only the paths for each category.
   const languages = filterPaths("Programming Languages");
   const frameworks = filterPaths("Frameworks & Libraries");
-  const roles = filterPaths("Job Roles");
   const dsa = filterPaths("Data Structures & Algorithms");
 
-  const allFilteredPaths = [...languages, ...frameworks, ...roles, ...dsa];
+  const allFilteredPaths = [...languages, ...frameworks, ...jobRoles, ...dsa];
 
   // The main JSX structure for the page.
   return (
@@ -134,7 +159,26 @@ export default function LearnPage() {
                  <Section paths={frameworks} />
               </TabsContent>
               <TabsContent value="roles">
-                 <Section paths={roles} />
+                 <div className="pt-6">
+                    {groupedJobRoles.length > 0 ? (
+                        <Accordion type="multiple" defaultValue={[`item-${groupedJobRoles[0].name}`]} className="w-full space-y-4">
+                            {groupedJobRoles.map(group => (
+                                <AccordionItem value={`item-${group.name}`} key={group.name} className="border rounded-lg">
+                                    <AccordionTrigger className="p-4 text-lg font-semibold hover:no-underline">
+                                        {group.name}
+                                    </AccordionTrigger>
+                                    <AccordionContent className="p-4 pt-0">
+                                        <Section paths={group.paths} />
+                                    </AccordionContent>
+                                </AccordionItem>
+                            ))}
+                        </Accordion>
+                    ) : (
+                         <div className="text-center py-20">
+                            <p className="text-muted-foreground">No roadmaps found for this category.</p>
+                        </div>
+                    )}
+                 </div>
               </TabsContent>
               <TabsContent value="dsa">
                  <Section paths={dsa} />
