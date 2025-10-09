@@ -1,4 +1,5 @@
 
+
 "use client";
 
 // This comment explains that this hook is used for managing component state.
@@ -34,15 +35,6 @@ const cardColors = [
 
 // A reusable component for rendering a section of learning paths within a Tab.
 const Section = ({ paths }: { paths: typeof learningPaths }) => {
-  // If there are no matching paths, this section will not be rendered.
-  if (paths.length === 0) {
-      return (
-          <div className="text-center py-20">
-              <p className="text-muted-foreground">No roadmaps found for this category.</p>
-          </div>
-      );
-  }
-
   // This is the JSX that will be rendered for the Section component.
   return (
     // This div is a responsive grid that holds the learning path cards.
@@ -89,6 +81,12 @@ export default function LearnPage() {
     (path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
      path.description.toLowerCase().includes(searchQuery.toLowerCase()))
   );
+  
+  const frameworks = learningPaths.filter(path =>
+    path.category === 'Frameworks & Libraries' &&
+    (path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+     path.description.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
 
   const jobRoleSubCategories = [
     "Core Software Development",
@@ -113,6 +111,17 @@ export default function LearnPage() {
     "Mobile App Development",
     "Blockchain & Smart Contracts",
   ];
+  
+  const frameworkSubCategories = [
+    "Frontend Web Frameworks",
+    "Backend Web Frameworks",
+    "Mobile Frameworks",
+    "Game Development Engines",
+    "Data Science & ML Libraries",
+    "DevOps & Infrastructure Tools",
+    "Cloud SDKs",
+    "Blockchain/Smart Contract Tools"
+  ];
 
   const groupedJobRoles = jobRoleSubCategories.map(subCategory => ({
     name: subCategory,
@@ -123,10 +132,14 @@ export default function LearnPage() {
     name: subCategory,
     paths: programmingLanguages.filter(path => path.subCategory === subCategory)
   }));
+  
+  const groupedFrameworks = frameworkSubCategories.map(subCategory => ({
+    name: subCategory,
+    paths: frameworks.filter(path => path.subCategory === subCategory)
+  }));
 
 
   // This line filters the 'learningPaths' array to get only the paths for each category.
-  const frameworks = filterPaths("Frameworks & Libraries");
   const dsa = filterPaths("Data Structures & Algorithms");
 
   const allFilteredPaths = [...programmingLanguages, ...frameworks, ...jobRoles, ...dsa];
@@ -196,7 +209,26 @@ export default function LearnPage() {
                 </div>
               </TabsContent>
               <TabsContent value="frameworks">
-                 <Section paths={frameworks} />
+                 <div className="pt-6">
+                    <Accordion type="multiple" defaultValue={['item-Frontend Web Frameworks']} className="w-full space-y-4">
+                        {groupedFrameworks.map(group => (
+                            <AccordionItem value={`item-${group.name}`} key={group.name} className="border rounded-lg">
+                                <AccordionTrigger className="p-4 text-lg font-semibold hover:no-underline">
+                                    {group.name}
+                                </AccordionTrigger>
+                                <AccordionContent className="p-4 pt-0">
+                                  {group.paths.length > 0 ? (
+                                    <Section paths={group.paths} />
+                                  ) : (
+                                    <div className="text-center py-10">
+                                        <p className="text-muted-foreground">No roadmaps available for this category yet.</p>
+                                    </div>
+                                  )}
+                                </AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
+                 </div>
               </TabsContent>
               <TabsContent value="roles">
                  <div className="pt-6">
@@ -221,12 +253,18 @@ export default function LearnPage() {
                  </div>
               </TabsContent>
               <TabsContent value="dsa">
-                 <Section paths={dsa} />
+                 {dsa.length > 0 ? (
+                    <Section paths={dsa} />
+                  ) : (
+                    <div className="text-center py-10">
+                      <p className="text-muted-foreground">No roadmaps available for this category yet.</p>
+                    </div>
+                  )}
               </TabsContent>
             </Tabs>
             
            {/* This block checks if the search returned no results and displays a message if true. */}
-           {allFilteredPaths.length === 0 && searchQuery && (
+           {searchQuery && allFilteredPaths.length === 0 && (
             // A container for the "no results" message, centered and styled.
             <div className="col-span-full text-center py-20">
                 {/* The text to display when no learning paths match the search query. */}

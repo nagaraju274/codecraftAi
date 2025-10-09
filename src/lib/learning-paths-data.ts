@@ -304,7 +304,7 @@ export const learningPaths = [
     title: "Full Stack Web Development",
     description: "Become a full-stack developer by mastering both front-end and back-end technologies.",
     category: "Job Roles",
-    subCategory: "Web & UI",
+    subCategory: "Core Software Development",
     topics: [
       {
         title: "Frontend Frameworks (React, Next.js)",
@@ -1418,6 +1418,7 @@ export const learningPaths = [
     title: "Ruby on Rails",
     description: "Learn Ruby, the dynamic, open-source programming language with a focus on simplicity and productivity, and its most popular framework, Rails.",
     category: "Frameworks & Libraries",
+    subCategory: "Backend Web Frameworks",
     topics: [
         {
             title: "Ruby Fundamentals",
@@ -2169,6 +2170,7 @@ export const learningPaths = [
     title: "TensorFlow",
     description: "Learn the open-source library for machine learning and artificial intelligence.",
     category: "Frameworks & Libraries",
+    subCategory: "Data Science & ML Libraries",
     topics: [
       {
         title: "Basics",
@@ -2187,6 +2189,7 @@ export const learningPaths = [
     title: "PyTorch",
     description: "Learn the open-source machine learning library based on the Torch library.",
     category: "Frameworks & Libraries",
+    subCategory: "Data Science & ML Libraries",
     topics: [
       {
         title: "Fundamentals",
@@ -2205,6 +2208,7 @@ export const learningPaths = [
     title: "Flutter",
     description: "Learn Google's UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.",
     category: "Frameworks & Libraries",
+    subCategory: "Mobile Frameworks",
     topics: [
       {
         title: "Core Concepts",
