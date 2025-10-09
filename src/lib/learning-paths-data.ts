@@ -6,6 +6,7 @@ export const learningPaths = [
     title: "Beginner's Guide to Python",
     description: "These tutorials will provide you with a solid foundation in Python and prepare you for your career goals.",
     category: "Programming Languages",
+    subCategory: "General-Purpose Languages",
     topics: [
       {
         title: "Introduction",
@@ -83,6 +84,7 @@ export const learningPaths = [
     title: "JavaScript for Beginners",
     description: "Start your web development journey by mastering the fundamentals of JavaScript, the language of the web.",
     category: "Programming Languages",
+    subCategory: "Web Development Languages",
     topics: [
         {
             title: "Introduction to JavaScript",
@@ -160,6 +162,7 @@ export const learningPaths = [
     title: "C++",
     description: "Learn the powerful, high-performance C++ language, used in game development, systems programming, and financial applications.",
     category: "Programming Languages",
+    subCategory: "Systems & Embedded Programming",
     topics: [
       {
         title: "Introduction to C++",
@@ -759,6 +762,7 @@ export const learningPaths = [
     title: "Git Version Control",
     description: "Master Git for tracking changes in your code and collaborating with others.",
     category: "Programming Languages",
+    subCategory: "Scripting & Automation",
     topics: [
         {
             title: "Git Basics",
@@ -813,6 +817,7 @@ export const learningPaths = [
     title: "SQL",
     description: "Learn the standard language for managing and querying relational databases.",
     category: "Programming Languages",
+    subCategory: "Data Science & Analytics",
     topics: [
       {
         title: "Introduction to SQL and Databases",
@@ -906,6 +911,7 @@ export const learningPaths = [
     title: "C",
     description: "Learn the foundational C programming language, known for its performance and low-level memory access.",
     category: "Programming Languages",
+    subCategory: "Systems & Embedded Programming",
     topics: [
       {
         title: "Introduction to C",
@@ -997,6 +1003,7 @@ export const learningPaths = [
     title: "R",
     description: "Learn R, the premier language for statistical computing, data analysis, and graphical representation.",
     category: "Programming Languages",
+    subCategory: "Data Science & Analytics",
     topics: [
       {
         title: "Foundations of R (Beginner)",
@@ -1076,6 +1083,7 @@ export const learningPaths = [
     title: "Java",
     description: "Learn the robust, object-oriented Java programming language, a mainstay in enterprise-level applications, Android development, and large-scale systems.",
     category: "Programming Languages",
+    subCategory: "General-Purpose Languages",
     topics: [
       {
         title: "Introduction to Java",
@@ -1150,6 +1158,7 @@ export const learningPaths = [
     title: "C#",
     description: "Learn the modern, object-oriented C# language from Microsoft.",
     category: "Programming Languages",
+    subCategory: "General-Purpose Languages",
     topics: [
       {
         title: "Stage 1: Beginner - C# and .NET Foundations",
@@ -1202,6 +1211,7 @@ export const learningPaths = [
     title: "Swift",
     description: "Learn Swift, the modern, powerful, and intuitive language for building apps for Apple platforms (iOS, macOS, watchOS, and tvOS).",
     category: "Programming Languages",
+    subCategory: "Mobile App Development",
     topics: [
         {
             title: "Swift Fundamentals",
@@ -1269,6 +1279,7 @@ export const learningPaths = [
     title: "Kotlin",
     description: "Learn Kotlin, the modern, official language for Android development.",
     category: "Programming Languages",
+    subCategory: "Mobile App Development",
     topics: [
         {
             title: "Kotlin Fundamentals",
@@ -1330,6 +1341,7 @@ export const learningPaths = [
     title: "PHP for Web Development",
     description: "A comprehensive guide to learning PHP, from the basics to building dynamic web applications with a modern framework.",
     category: "Programming Languages",
+    subCategory: "Web Development Languages",
     topics: [
       {
         title: "Introduction to PHP",
@@ -1464,6 +1476,7 @@ export const learningPaths = [
     title: "Rust",
     description: "Learn Rust, a language empowering everyone to build reliable and efficient software.",
     category: "Programming Languages",
+    subCategory: "Systems & Embedded Programming",
     topics: [
       {
         title: "Getting Started with Rust",
@@ -1533,6 +1546,7 @@ export const learningPaths = [
     title: "Dart for Cross-Platform Development",
     description: "Learn Dart, the language for building mobile, desktop, and web applications with Flutter.",
     category: "Programming Languages",
+    subCategory: "Mobile App Development",
     topics: [
       {
         title: "Dart Fundamentals",
@@ -1610,6 +1624,7 @@ export const learningPaths = [
     title: "HTML: The Language of the Web",
     description: "Master the fundamental language for creating and structuring web pages.",
     category: "Programming Languages",
+    subCategory: "Web Development Languages",
     topics: [
       {
         title: "Introduction to HTML",
@@ -1671,6 +1686,7 @@ export const learningPaths = [
     title: "CSS: Styling the Web",
     description: "Learn the language for styling and laying out web pages, from basic selectors to advanced layouts and animations.",
     category: "Programming Languages",
+    subCategory: "Web Development Languages",
     topics: [
       {
         title: "CSS Fundamentals",
@@ -1731,6 +1747,7 @@ export const learningPaths = [
     title: "Bash/Shell Scripting",
     description: "Learn to automate tasks, manage systems, and master the command line with Bash.",
     category: "Programming Languages",
+    subCategory: "Scripting & Automation",
     topics: [
       {
         title: "Introduction to the Command Line",
@@ -1791,6 +1808,7 @@ export const learningPaths = [
     title: "Perl",
     description: "Learn Perl, the versatile, high-level 'Swiss Army chainsaw' of scripting languages, renowned for its powerful text processing capabilities.",
     category: "Programming Languages",
+    subCategory: "Scripting & Automation",
     topics: [
       {
         title: "Introduction to Perl",
@@ -1863,6 +1881,7 @@ export const learningPaths = [
     title: "PowerShell for Automation and Administration",
     description: "Learn the command-line shell and scripting language from Microsoft to automate tasks and manage systems.",
     category: "Programming Languages",
+    subCategory: "Scripting & Automation",
     topics: [
       {
         title: "Introduction to PowerShell",
@@ -1916,6 +1935,7 @@ export const learningPaths = [
     title: "MATLAB for Engineers and Scientists",
     description: "Learn the high-performance language for technical computing, used extensively by engineers and scientists.",
     category: "Programming Languages",
+    subCategory: "Data Science & Analytics",
     topics: [
       {
         title: "Introduction to the MATLAB Environment",
@@ -1968,6 +1988,7 @@ export const learningPaths = [
     title: "SAS Programming for Data Analysis",
     description: "Learn the fundamentals of SAS, the powerful software suite for advanced analytics, business intelligence, data management, and predictive analytics.",
     category: "Programming Languages",
+    subCategory: "Data Science & Analytics",
     topics: [
       {
         title: "Introduction to the SAS Environment",
@@ -2027,6 +2048,7 @@ export const learningPaths = [
     title: "SPSS for Statistical Analysis",
     description: "Learn to use SPSS, the powerful software package for statistical analysis, through its user-friendly interface and syntax-based commands.",
     category: "Programming Languages",
+    subCategory: "Data Science & Analytics",
     topics: [
       {
         title: "SPSS Fundamentals",
@@ -2088,6 +2110,7 @@ export const learningPaths = [
     title: "Prolog",
     description: "Learn the logic programming language, renowned for its role in artificial intelligence and computational linguistics.",
     category: "Programming Languages",
+    subCategory: "Functional Programming",
     topics: [
       {
         title: "Introduction to Logic Programming",

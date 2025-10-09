@@ -84,6 +84,12 @@ export default function LearnPage() {
      path.description.toLowerCase().includes(searchQuery.toLowerCase()))
   );
 
+  const programmingLanguages = learningPaths.filter(path =>
+    path.category === 'Programming Languages' &&
+    (path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+     path.description.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
+
   const jobRoleSubCategories = [
     "Core Software Development",
     "Data & AI",
@@ -97,18 +103,33 @@ export default function LearnPage() {
     "Miscellaneous / Emerging",
   ];
 
+  const languageSubCategories = [
+    "General-Purpose Languages",
+    "Web Development Languages",
+    "Scripting & Automation",
+    "Data Science & Analytics",
+    "Systems & Embedded Programming",
+    "Functional Programming",
+    "Mobile App Development",
+    "Blockchain & Smart Contracts",
+  ];
+
   const groupedJobRoles = jobRoleSubCategories.map(subCategory => ({
     name: subCategory,
     paths: jobRoles.filter(path => path.subCategory === subCategory)
   }));
 
+  const groupedLanguages = languageSubCategories.map(subCategory => ({
+    name: subCategory,
+    paths: programmingLanguages.filter(path => path.subCategory === subCategory)
+  }));
+
 
   // This line filters the 'learningPaths' array to get only the paths for each category.
-  const languages = filterPaths("Programming Languages");
   const frameworks = filterPaths("Frameworks & Libraries");
   const dsa = filterPaths("Data Structures & Algorithms");
 
-  const allFilteredPaths = [...languages, ...frameworks, ...jobRoles, ...dsa];
+  const allFilteredPaths = [...programmingLanguages, ...frameworks, ...jobRoles, ...dsa];
 
   // The main JSX structure for the page.
   return (
@@ -153,37 +174,50 @@ export default function LearnPage() {
                 <TabsTrigger value="dsa" className="py-2.5"><BrainCircuit className="mr-2"/>DSA</TabsTrigger>
               </TabsList>
               <TabsContent value="languages">
-                <Section paths={languages} />
+                <div className="pt-6">
+                    <Accordion type="multiple" defaultValue={['item-General-Purpose Languages']} className="w-full space-y-4">
+                        {groupedLanguages.map(group => (
+                            <AccordionItem value={`item-${group.name}`} key={group.name} className="border rounded-lg">
+                                <AccordionTrigger className="p-4 text-lg font-semibold hover:no-underline">
+                                    {group.name}
+                                </AccordionTrigger>
+                                <AccordionContent className="p-4 pt-0">
+                                  {group.paths.length > 0 ? (
+                                    <Section paths={group.paths} />
+                                  ) : (
+                                    <div className="text-center py-10">
+                                        <p className="text-muted-foreground">No roadmaps available for this category yet.</p>
+                                    </div>
+                                  )}
+                                </AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
+                </div>
               </TabsContent>
               <TabsContent value="frameworks">
                  <Section paths={frameworks} />
               </TabsContent>
               <TabsContent value="roles">
                  <div className="pt-6">
-                    {jobRoles.length > 0 || searchQuery === '' ? (
-                        <Accordion type="multiple" defaultValue={groupedJobRoles.length > 0 ? [`item-${groupedJobRoles.find(g => g.paths.length > 0)?.name}`] : []} className="w-full space-y-4">
-                            {groupedJobRoles.map(group => (
-                                <AccordionItem value={`item-${group.name}`} key={group.name} className="border rounded-lg">
-                                    <AccordionTrigger className="p-4 text-lg font-semibold hover:no-underline">
-                                        {group.name}
-                                    </AccordionTrigger>
-                                    <AccordionContent className="p-4 pt-0">
-                                      {group.paths.length > 0 ? (
-                                        <Section paths={group.paths} />
-                                      ) : (
-                                        <div className="text-center py-10">
-                                            <p className="text-muted-foreground">No roadmaps available for this category yet.</p>
-                                        </div>
-                                      )}
-                                    </AccordionContent>
-                                </AccordionItem>
-                            ))}
-                        </Accordion>
-                    ) : (
-                         <div className="text-center py-20">
-                            <p className="text-muted-foreground">No roadmaps found for this category.</p>
-                        </div>
-                    )}
+                    <Accordion type="multiple" defaultValue={['item-Core Software Development']} className="w-full space-y-4">
+                        {groupedJobRoles.map(group => (
+                            <AccordionItem value={`item-${group.name}`} key={group.name} className="border rounded-lg">
+                                <AccordionTrigger className="p-4 text-lg font-semibold hover:no-underline">
+                                    {group.name}
+                                </AccordionTrigger>
+                                <AccordionContent className="p-4 pt-0">
+                                  {group.paths.length > 0 ? (
+                                    <Section paths={group.paths} />
+                                  ) : (
+                                    <div className="text-center py-10">
+                                        <p className="text-muted-foreground">No roadmaps available for this category yet.</p>
+                                    </div>
+                                  )}
+                                </AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
                  </div>
               </TabsContent>
               <TabsContent value="dsa">
