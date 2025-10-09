@@ -13,18 +13,14 @@ import {
 // Import the input component for the search bar.
 import { Input } from "@/components/ui/input";
 // Import the Search icon from the lucide-react library.
-import { Search } from "lucide-react";
+import { Search, Code, Library, Briefcase, BrainCircuit } from "lucide-react";
 // Import the mock data for learning paths.
 import { learningPaths } from "@/lib/learning-paths-data";
 // Import a component to protect the route, ensuring only authenticated users can see it.
 import { AuthGuard } from "@/components/auth/auth-guard";
-// Import accordion components for creating collapsible sections.
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+// Import Tabs components for the new layout.
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 
 // An array of background color classes to be applied to the learning path cards for visual variety.
 const cardColors = [
@@ -35,58 +31,36 @@ const cardColors = [
   "bg-pink-200/50 hover:bg-pink-200/70 dark:bg-pink-800/20 dark:hover:bg-pink-800/40",
 ];
 
-// A reusable component for rendering a section of learning paths within an accordion.
-const Section = ({ title, paths, searchQuery, value }: { title: string, paths: typeof learningPaths, searchQuery: string, value: string }) => {
-  // This line filters the learning paths based on the user's search query.
-  const filteredPaths = paths.filter(path =>
-    // This line checks if the path's title includes the search query.
-    path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    // This line checks if the path's description includes the search query.
-    path.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  // If there are no matching paths after filtering and the user has typed a search query, this section will not be rendered.
-  if (filteredPaths.length === 0 && searchQuery) {
-    // This line returns null to prevent rendering an empty section.
-    return null;
-  }
-  
-  // This line checks if there are any paths to display in this section.
-  if (filteredPaths.length === 0) {
-      // This line returns null if there are no paths, effectively hiding the section.
-      return null;
+// A reusable component for rendering a section of learning paths within a Tab.
+const Section = ({ paths }: { paths: typeof learningPaths }) => {
+  // If there are no matching paths, this section will not be rendered.
+  if (paths.length === 0) {
+      return (
+          <div className="text-center py-20">
+              <p className="text-muted-foreground">No roadmaps found for this category.</p>
+          </div>
+      );
   }
 
   // This is the JSX that will be rendered for the Section component.
   return (
-     // This line defines an item within the accordion.
-     <AccordionItem value={value}>
-      {/* This line creates the clickable header for the accordion section. */}
-      <AccordionTrigger className="text-2xl font-bold tracking-tight mb-4 hover:no-underline">
-        {/* This line displays the title of the section. */}
-        {title}
-      </AccordionTrigger>
-      {/* This line defines the content that is shown when the accordion item is expanded. */}
-      <AccordionContent>
-        {/* This div is a responsive grid that holds the learning path cards. */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-6">
-          {/* This line maps over the filtered learning paths to create a card for each one. */}
-          {filteredPaths.map((path, index) => (
-            // This Link component makes the entire card a clickable link to the specific learning path page.
-            <Link href={`/learn/${path.id}`} key={path.id}>
-              {/* This Card component is the visual container for each learning path. */}
-              <Card className={`flex items-center justify-center h-32 transition-all duration-300 ${cardColors[index % cardColors.length]}`}>
-                {/* This is the content area inside the card. */}
-                <CardContent className="p-4">
-                  {/* This heading displays the title of the learning path. */}
-                  <h2 className="text-lg font-semibold text-foreground text-center">{path.title}</h2>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </div>
-      </AccordionContent>
-    </AccordionItem>
+    // This div is a responsive grid that holds the learning path cards.
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-6">
+      {/* This line maps over the filtered learning paths to create a card for each one. */}
+      {paths.map((path, index) => (
+        // This Link component makes the entire card a clickable link to the specific learning path page.
+        <Link href={`/learn/${path.id}`} key={path.id}>
+          {/* This Card component is the visual container for each learning path. */}
+          <Card className={`flex items-center justify-center h-32 transition-all duration-300 ${cardColors[index % cardColors.length]}`}>
+            {/* This is the content area inside the card. */}
+            <CardContent className="p-4">
+              {/* This heading displays the title of the learning path. */}
+              <h2 className="text-lg font-semibold text-foreground text-center">{path.title}</h2>
+            </CardContent>
+          </Card>
+        </Link>
+      ))}
+    </div>
   );
 };
 
@@ -96,22 +70,20 @@ export default function LearnPage() {
   // This line initializes a state variable 'searchQuery' to hold the user's search input.
   const [searchQuery, setSearchQuery] = useState("");
 
-  // This line filters the 'learningPaths' array to get only the paths with the category "Programming Languages".
-  const languages = learningPaths.filter(p => p.category === "Programming Languages");
-  // This line filters for paths with the category "Frameworks & Libraries".
-  const frameworks = learningPaths.filter(p => p.category === "Frameworks & Libraries");
-  // This line filters for paths with the category "Job Roles".
-  const roles = learningPaths.filter(p => p.category === "Job Roles");
-  // This line filters for paths with the category "Data Structures & Algorithms".
-  const dsa = learningPaths.filter(p => p.category === "Data Structures & Algorithms");
+  const filterPaths = (category: string) =>
+    learningPaths.filter(path =>
+      (path.category === category) &&
+      (path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+       path.description.toLowerCase().includes(searchQuery.toLowerCase()))
+    );
 
-  // This line filters all learning paths based on the current search query, to be used for the "no results" message.
-  const allFilteredPaths = learningPaths.filter(path =>
-    // This checks if the path's title contains the search query (case-insensitive).
-    path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    // This checks if the path's description contains the search query (case-insensitive).
-    path.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // This line filters the 'learningPaths' array to get only the paths for each category.
+  const languages = filterPaths("Programming Languages");
+  const frameworks = filterPaths("Frameworks & Libraries");
+  const roles = filterPaths("Job Roles");
+  const dsa = filterPaths("Data Structures & Algorithms");
+
+  const allFilteredPaths = [...languages, ...frameworks, ...roles, ...dsa];
 
   // The main JSX structure for the page.
   return (
@@ -122,7 +94,7 @@ export default function LearnPage() {
         {/* This section contains the page title and description. */}
         <div className="space-y-2">
           {/* The main heading for the page. */}
-          <h1 className="text-3xl font-bold tracking-tight">Road maps</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Roadmap</h1>
           {/* A paragraph describing the page's purpose. */}
           <p className="text-muted-foreground">
             Our structured learning paths will help you master new skills and advance your career.
@@ -137,7 +109,7 @@ export default function LearnPage() {
             // The input type is 'search', which can provide a clear button in some browsers.
             type="search"
             // The placeholder text shown when the input is empty.
-            placeholder="Search all learning paths..."
+            placeholder="Search all roadmaps..."
             // The CSS classes for styling the input, including padding to make space for the icon.
             className="pl-10 w-full"
             // The value of the input is bound to the 'searchQuery' state variable.
@@ -148,31 +120,33 @@ export default function LearnPage() {
         </div>
         {/* This div allows the main content area to scroll vertically if it overflows. */}
         <div className="flex-1 overflow-y-auto pr-4">
-            {/* The Accordion component allows sections to be collapsed and expanded. */}
-            <Accordion 
-                // 'type="multiple"' allows more than one section to be open at the same time.
-                type="multiple" 
-                // 'defaultValue' sets which accordion items are open by default when the page loads.
-                defaultValue={["item-1", "item-2", "item-3", "item-4"]} 
-                // CSS classes for styling the accordion container.
-                className="w-full space-y-4"
-            >
-                {/* Render the "Programming Languages" section using the reusable Section component. */}
-                <Section title="Programming Languages" paths={languages} searchQuery={searchQuery} value="item-1" />
-                {/* Render the "Frameworks & Libraries" section. */}
-                <Section title="Frameworks & Libraries" paths={frameworks} searchQuery={searchQuery} value="item-2" />
-                {/* Render the "Job Roles" section. */}
-                <Section title="Job Roles" paths={roles} searchQuery={searchQuery} value="item-3" />
-                {/* Render the "Data Structures & Algorithms" section. */}
-                <Section title="Data Structures & Algorithms" paths={dsa} searchQuery={searchQuery} value="item-4" />
-            </Accordion>
+            <Tabs defaultValue="languages" className="w-full">
+              <TabsList className="grid w-full grid-cols-1 md:grid-cols-4 h-auto md:h-12">
+                <TabsTrigger value="languages" className="py-2.5"><Code className="mr-2"/> SECTION 1: PROGRAMMING LANGUAGES</TabsTrigger>
+                <TabsTrigger value="frameworks" className="py-2.5"><Library className="mr-2"/> SECTION 2: FRAMEWORKS & LIBRARIES</TabsTrigger>
+                <TabsTrigger value="roles" className="py-2.5"><Briefcase className="mr-2"/> SECTION 3: JOB ROLES IN TECH</TabsTrigger>
+                <TabsTrigger value="dsa" className="py-2.5"><BrainCircuit className="mr-2"/> SECTION 4: DSA</TabsTrigger>
+              </TabsList>
+              <TabsContent value="languages">
+                <Section paths={languages} />
+              </TabsContent>
+              <TabsContent value="frameworks">
+                 <Section paths={frameworks} />
+              </TabsContent>
+              <TabsContent value="roles">
+                 <Section paths={roles} />
+              </TabsContent>
+              <TabsContent value="dsa">
+                 <Section paths={dsa} />
+              </TabsContent>
+            </Tabs>
             
            {/* This block checks if the search returned no results and displays a message if true. */}
-           {allFilteredPaths.length === 0 && (
+           {allFilteredPaths.length === 0 && searchQuery && (
             // A container for the "no results" message, centered and styled.
             <div className="col-span-full text-center py-20">
                 {/* The text to display when no learning paths match the search query. */}
-                <p className="text-muted-foreground">No learning paths found for "{searchQuery}".</p>
+                <p className="text-muted-foreground">No roadmaps found for "{searchQuery}".</p>
             </div>
            )}
         </div>
