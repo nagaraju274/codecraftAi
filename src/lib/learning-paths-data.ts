@@ -1,4 +1,5 @@
 
+
 export const learningPaths = [
   {
     id: "beginners-guide-to-python",
@@ -2453,5 +2454,71 @@ export const learningPaths = [
         ]
       }
     ]
-  }
+  },
+  {
+    id: "software-engineer",
+    title: "Software Engineer",
+    description: "A comprehensive path to becoming a proficient software engineer, covering fundamentals, frontend, backend, databases, and DevOps.",
+    category: "Job Roles",
+    topics: [
+        {
+            title: "Programming Fundamentals",
+            points: [
+                { text: "Choose a primary programming language (e.g., Python, JavaScript, Java, C++).", resources: [{ name: "Choosing a Language", url: "https://www.freecodecamp.org/news/how-to-choose-your-first-programming-language/" }] },
+                { text: "Master core concepts: variables, data types, control flow (if/else, loops), and functions.", resources: [] },
+                { text: "Learn Object-Oriented Programming (OOP) principles: encapsulation, inheritance, polymorphism.", resources: [] },
+            ],
+        },
+        {
+            title: "Data Structures & Algorithms",
+            points: [
+                { text: "Understand fundamental data structures: Arrays, Linked Lists, Stacks, Queues, Hash Tables.", resources: [{ name: "DSA Path", url: "/dsa-learning-path" }] },
+                { text: "Learn common algorithms: Sorting (Merge Sort, Quick Sort), Searching (Binary Search), and graph traversals (BFS, DFS).", resources: [] },
+                { text: "Practice solving problems on platforms like LeetCode or HackerRank.", resources: [{ name: "LeetCode", url: "https://leetcode.com/" }] },
+            ],
+        },
+        {
+            title: "Web Development Foundations",
+            points: [
+                { text: "Learn HTML for structure, CSS for styling, and JavaScript for interactivity.", resources: [{ name: "Web Dev Foundations", url: "/learn/web-development-foundations" }] },
+                { text: "Understand how the internet works: HTTP/HTTPS, DNS, and the client-server model.", resources: [] },
+                { text: "Master version control with Git and host your code on GitHub.", resources: [{ name: "Git Guide", url: "/learn/git-version-control" }] },
+            ],
+        },
+        {
+            title: "Front-End Development",
+            points: [
+                { text: "Learn a modern JavaScript framework like React.", resources: [{ name: "React Docs", url: "https://react.dev/" }] },
+                { text: "Build powerful web applications with a React framework like Next.js.", resources: [{ name: "Next.js Docs", url: "https://nextjs.org/docs" }] },
+            ],
+        },
+        {
+            title: "Back-End Development",
+            points: [
+                { text: "Learn a back-end language and framework, such as Node.js with Express.", resources: [{ name: "Node.js Guide", url: "https://nodejs.org/en/docs/guides" }] },
+                { text: "Build RESTful APIs to serve data to your front-end application.", resources: [] },
+            ],
+        },
+        {
+            title: "Databases",
+            points: [
+                { text: "Understand and use SQL databases like PostgreSQL.", resources: [{ name: "PostgreSQL Tutorial", url: "https://www.postgresqltutorial.com/" }] },
+                { text: "Learn about NoSQL databases like MongoDB.", resources: [{ name: "MongoDB University", url: "https://learn.mongodb.com/" }] },
+            ],
+        },
+        {
+            title: "DevOps & Deployment",
+            points: [
+                { text: "Learn to containerize your applications with Docker.", resources: [{ name: "Docker Get Started", url: "https://docs.docker.com/get-started/" }] },
+                { text: "Understand CI/CD principles to automate your build and deployment pipeline.", resources: [] },
+                { text: "Deploy your applications on a cloud platform like AWS, Google Cloud, or Vercel.", resources: [{ name: "Vercel", url: "https://vercel.com/docs" }] },
+            ],
+        },
+    ],
+    assignments: [
+        { title: "Build a Full-Stack Blog", description: "Create a complete blog application with a React frontend, a Node.js/Express backend API, and a PostgreSQL database. Users should be able to create, read, update, and delete posts." },
+        { title: "Containerize an Application", description: "Take a simple web application you've built and write a Dockerfile for it. Then, use Docker Compose to run the application along with its database in separate containers." },
+        { title: "Set Up a CI/CD Pipeline", description: "Create a project on GitHub and set up a basic CI/CD pipeline using GitHub Actions that automatically runs tests every time you push a new commit." }
+    ]
+  },
 ];
