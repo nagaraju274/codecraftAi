@@ -160,18 +160,23 @@ export default function LearnPage() {
               </TabsContent>
               <TabsContent value="roles">
                  <div className="pt-6">
-                    {groupedJobRoles.length > 0 ? (
-                        <Accordion type="multiple" defaultValue={[`item-${groupedJobRoles[0].name}`]} className="w-full space-y-4">
-                            {groupedJobRoles.map(group => (
-                                <AccordionItem value={`item-${group.name}`} key={group.name} className="border rounded-lg">
-                                    <AccordionTrigger className="p-4 text-lg font-semibold hover:no-underline">
-                                        {group.name}
-                                    </AccordionTrigger>
-                                    <AccordionContent className="p-4 pt-0">
-                                        <Section paths={group.paths} />
-                                    </AccordionContent>
-                                </AccordionItem>
-                            ))}
+                    {jobRoles.length > 0 ? (
+                        <Accordion type="multiple" defaultValue={groupedJobRoles.length > 0 ? [`item-${groupedJobRoles[0].name}`] : []} className="w-full space-y-4">
+                            {jobRoleSubCategories.map(groupName => {
+                                const group = groupedJobRoles.find(g => g.name === groupName);
+                                if (!group) return null; // Don't render if no roadmaps match search
+
+                                return (
+                                    <AccordionItem value={`item-${group.name}`} key={group.name} className="border rounded-lg">
+                                        <AccordionTrigger className="p-4 text-lg font-semibold hover:no-underline">
+                                            {group.name}
+                                        </AccordionTrigger>
+                                        <AccordionContent className="p-4 pt-0">
+                                            <Section paths={group.paths} />
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                );
+                            })}
                         </Accordion>
                     ) : (
                          <div className="text-center py-20">
