@@ -125,7 +125,7 @@ export default function LearnPage() {
                 <TabsTrigger value="languages" className="py-2.5"><Code className="mr-2"/>Programming Languages</TabsTrigger>
                 <TabsTrigger value="frameworks" className="py-2.5"><Library className="mr-2"/>Frameworks & Libraries</TabsTrigger>
                 <TabsTrigger value="roles" className="py-2.5"><Briefcase className="mr-2"/>Job Roles</TabsTrigger>
-                <TabsTrigger value="dsa" className="py-2.5"><BrainCircuit className="mr-2"/> SECTION 4: DSA</TabsTrigger>
+                <TabsTrigger value="dsa" className="py-2.5"><BrainCircuit className="mr-2"/>DSA</TabsTrigger>
               </TabsList>
               <TabsContent value="languages">
                 <Section paths={languages} />
