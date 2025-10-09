@@ -1,3 +1,4 @@
+
 // Import the Next.js Link component.
 import Link from 'next/link';
 // Import icons from the lucide-react library.
@@ -35,7 +36,7 @@ export function Footer() {
             <div>
               <h4 className="font-semibold text-foreground mb-4">Products</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/playground" className="hover:text-foreground">Interactive Playground</Link></li>
+                <li><Link href="/playground" className="hover:text-foreground">Practice JavaScript</Link></li>
                 <li><Link href="/projects" className="hover:text-foreground">AI Project Builder</Link></li>
                 <li><Link href="/learn" className="hover:text-foreground">Guided Learning Paths</Link></li>
                 <li><Link href="/academics" className="hover:text-foreground">Academics</Link></li>

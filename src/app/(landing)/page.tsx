@@ -8,8 +8,8 @@ import Image from 'next/image';
 const features = [
     {
         icon: <Code className="w-10 h-10 text-primary" />,
-        title: "Interactive Playground",
-        description: "Experiment with code in a real-time editor with an integrated console. Run JavaScript or Python snippets instantly.",
+        title: "Practice JavaScript",
+        description: "Experiment with code in a real-time editor with an integrated console. Run JavaScript snippets instantly.",
         href: "/playground"
     },
     {

@@ -1,3 +1,4 @@
+
 // This directive marks this component as a Client Component.
 "use client"
 
@@ -25,7 +26,7 @@ const mainLinks = [
     { href: "/profile", label: "Dashboard", icon: Home },
     { href: "/learn", label: "Learning Paths", icon: Compass },
     { href: "/projects", label: "Projects", icon: FolderKanban },
-    { href: "/playground", label: "Playground", icon: Code },
+    { href: "/playground", label: "Practice JavaScript", icon: Code },
     { href: "/academics", label: "Academics", icon: GraduationCap },
     { href: "/placement", label: "Placement", icon: Briefcase },
     { href: "/treasure", label: "Treasure Trove", icon: Gem },

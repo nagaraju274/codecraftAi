@@ -15,7 +15,7 @@ const navLinks = [
     // Each object represents a link with its URL, label, and an optional icon.
     { href: "/learn", label: "Road maps", icon: null },
     { href: "/projects", label: "Projects", icon: null },
-    { href: "/playground", label: "Playground", icon: null },
+    { href: "/playground", label: "Practice JavaScript", icon: null },
     { href: "/academics", label: "Academics", icon: GraduationCap },
     { href: "/placement", label: "Placement", icon: Briefcase },
     { href: "/treasure", label: "Treasure Trove", icon: Gem },
