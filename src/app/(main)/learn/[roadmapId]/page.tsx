@@ -129,7 +129,7 @@ export default function RoadmapPage() {
           {/* A container for the roadmap topics with top padding. */}
           <div className="space-y-4 pt-4">
               {/* This div ensures the card takes up the available height. */}
-              <div className="p-1 h-full">
+              <div className="h-full">
                 {/* A card component that contains the roadmap's topics. */}
                 <Card className="hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
                   {/* The content area of the card. */}
@@ -155,7 +155,7 @@ export default function RoadmapPage() {
                           {/* The content that is revealed when the accordion item is open. */}
                           <AccordionContent className="text-muted-foreground pt-2 pl-8">
                               {/* A bulleted list for the key points of the topic. */}
-                              <ul className="list-disc pl-5 space-y-4">
+                              <ul className="list-disc space-y-4">
                                   {/* This line maps over the 'points' array for the current topic. */}
                                   {topic.points.map((point, i) => (
                                       <li key={i}>
