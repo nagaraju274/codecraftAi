@@ -108,7 +108,7 @@ export default function RoadmapPage() {
     // This component ensures that only authenticated users can view this page.
     <AuthGuard>
         {/* This div is the main container for the page content, with vertical spacing. */}
-        <div className="space-y-2">
+        <div className="space-y-2 p-4 md:p-0">
             {/* A "Back" button that links to the main learning paths page. */}
             <Button asChild variant="ghost" className="mb-4">
               <Link href="/learn">
@@ -155,7 +155,7 @@ export default function RoadmapPage() {
                           {/* The content that is revealed when the accordion item is open. */}
                           <AccordionContent className="text-muted-foreground pt-2 pl-8">
                               {/* A bulleted list for the key points of the topic. */}
-                              <ul className="list-disc space-y-4">
+                              <ul className="list-disc pl-5 space-y-4">
                                   {/* This line maps over the 'points' array for the current topic. */}
                                   {topic.points.map((point, i) => (
                                       <li key={i}>
