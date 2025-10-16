@@ -108,7 +108,7 @@ export default function RoadmapPage() {
     // This component ensures that only authenticated users can view this page.
     <AuthGuard>
         {/* This div is the main container for the page content, with vertical spacing. */}
-        <div className="p-4 space-y-2">
+        <div className="space-y-2">
             {/* A "Back" button that links to the main learning paths page. */}
             <Button asChild variant="ghost" className="mb-4">
               <Link href="/learn">
@@ -125,7 +125,7 @@ export default function RoadmapPage() {
           </p>
         </div>
         {/* A scrollable area for the main content of the roadmap. */}
-        <ScrollArea className="flex-1 px-4">
+        <ScrollArea className="flex-1">
           {/* A container for the roadmap topics with top padding. */}
           <div className="space-y-4 pt-4">
               {/* This div ensures the card takes up the available height. */}
@@ -145,7 +145,7 @@ export default function RoadmapPage() {
                               {/* The clickable trigger to open/close the accordion item. */}
                               <AccordionTrigger className="text-base font-medium hover:no-underline py-3 flex-1 text-left">
                                   {/* The title of the topic. */}
-                                  <span>{topic.title}</span>
+                                  <span className="text-sm md:text-base whitespace-nowrap">{topic.title}</span>
                               </AccordionTrigger>
                               {/* The button that triggers the AI explanation dialog. */}
                               <Button size="sm" variant="ghost" onClick={() => handleExplainTopic(topic)} className="ml-4">
@@ -221,7 +221,7 @@ export default function RoadmapPage() {
          {/* The dialog component for displaying the AI-generated explanation. */}
          <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           {/* The content of the dialog. Added responsive classes for better mobile view. */}
-          <AlertDialogContent className="max-w-3xl w-full max-h-[90vh]">
+          <AlertDialogContent className="w-[95vw] max-w-3xl h-[90vh] flex flex-col">
             {/* The header of the dialog. */}
             <AlertDialogHeader>
               {/* The title of the dialog, set dynamically. */}
@@ -229,7 +229,7 @@ export default function RoadmapPage() {
               {/* The description area, which contains the scrollable content. */}
               <AlertDialogDescription asChild>
                   {/* A scrollable area for the explanation content, with a max height. */}
-                  <ScrollArea className="max-h-[70vh] pr-4">
+                  <ScrollArea className="flex-1 pr-4">
                     {/* This checks if the AI is currently loading. */}
                     {isLoading ? (
                       // If loading, display a centered spinner icon.
