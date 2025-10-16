@@ -220,35 +220,22 @@ export default function RoadmapPage() {
         </ScrollArea>
          {/* The dialog component for displaying the AI-generated explanation. */}
          <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          {/* The content of the dialog. Added responsive classes for better mobile view. */}
           <AlertDialogContent className="w-[95vw] max-w-3xl h-[90vh] flex flex-col">
-            {/* The header of the dialog. */}
             <AlertDialogHeader>
-              {/* The title of the dialog, set dynamically. */}
               <AlertDialogTitle>{explanationTitle}</AlertDialogTitle>
-              {/* The description area, which contains the scrollable content. */}
-              <AlertDialogDescription asChild>
-                  {/* A scrollable area for the explanation content, with a max height. */}
-                  <ScrollArea className="flex-1 pr-4">
-                    {/* This checks if the AI is currently loading. */}
-                    {isLoading ? (
-                      // If loading, display a centered spinner icon.
-                      <div className="flex items-center justify-center py-8">
-                        <Loader className="h-8 w-8 animate-spin text-primary" />
-                      </div>
-                    ) : (
-                      // If not loading, display the Markdown content.
-                      <div className="prose prose-sm dark:prose-invert max-w-none">
-                        {/* The component that renders the Markdown string as formatted HTML. */}
-                        <ReactMarkdown>{explanation}</ReactMarkdown>
-                      </div>
-                    )}
-                  </ScrollArea>
-              </AlertDialogDescription>
             </AlertDialogHeader>
-            {/* The footer of the dialog. */}
+            <div className="flex-1 overflow-y-auto pr-4">
+              {isLoading ? (
+                <div className="flex items-center justify-center h-full">
+                  <Loader className="h-8 w-8 animate-spin text-primary" />
+                </div>
+              ) : (
+                <div className="prose prose-sm dark:prose-invert max-w-none">
+                  <ReactMarkdown>{explanation}</ReactMarkdown>
+                </div>
+              )}
+            </div>
             <AlertDialogFooter>
-              {/* A "Close" button to dismiss the dialog. */}
               <AlertDialogCancel>Close</AlertDialogCancel>
             </AlertDialogFooter>
           </AlertDialogContent>
