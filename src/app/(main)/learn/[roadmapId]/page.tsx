@@ -149,8 +149,6 @@ export default function RoadmapPage() {
                               </AccordionTrigger>
                               {/* The button that triggers the AI explanation dialog. */}
                               <Button size="sm" variant="ghost" onClick={() => handleExplainTopic(topic)} className="ml-4">
-                                  {/* An icon for the button. */}
-                                  <Sparkles className="h-4 w-4 mr-2" />
                                   Explain
                               </Button>
                           </div>
