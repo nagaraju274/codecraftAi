@@ -15,7 +15,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Skeleton } from '@/components/ui/skeleton';
-import  ResumeGuide  from '../resume-builder-guide/page';
+import { ResumeGuide } from '@/components/feature/resume-guide';
 
 const serviceBasedMaterials = {
     title: "Service-Based Interview Prep",
