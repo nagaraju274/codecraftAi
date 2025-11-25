@@ -151,4 +151,4 @@ export default function ResumeGuidePage() {
     )
 };
 
-export { ResumeGuide };
+
