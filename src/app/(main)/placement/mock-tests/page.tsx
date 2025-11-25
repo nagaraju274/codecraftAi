@@ -8,14 +8,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { ArrowLeft, ArrowRight, BrainCircuit, Code, FileX2 } from "lucide-react";
 import Link from "next/link";
-import { serviceBasedMockTests, productBasedMockTests } from "@/lib/mock-tests-data";
+import { serviceBasedMockTests, productBasedMockTests, MockTest } from "@/lib/mock-tests-data";
 import { Skeleton } from '@/components/ui/skeleton';
 
 const MockTestsContent = () => {
     const searchParams = useSearchParams();
     const type = searchParams.get('type');
 
-    let tests = [];
+    let tests: MockTest[] = [];
     let pageTitle = "Mock Tests";
 
     if (type === 'service') {
@@ -60,7 +60,7 @@ const MockTestsContent = () => {
                         <CardContent className="flex-grow"></CardContent>
                         <CardFooter>
                             <Button asChild className="w-full">
-                                <Link href={`/placement/mock-tests/${test.id}`}>
+                                <Link href={`/placement/mock-tests/${test.id}?type=${type}`}>
                                     Start Test <ArrowRight className="ml-2 h-4 w-4" />
                                 </Link>
                             </Button>
