@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
+import { Analytics } from '@/components/analytics';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codecraft-ai.com';
 
@@ -98,6 +99,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         {children}
+        <Analytics />
         <Toaster />
       </body>
     </html>
