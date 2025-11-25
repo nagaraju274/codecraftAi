@@ -151,5 +151,4 @@ export default function ResumeGuidePage() {
     )
 };
 
-export default ResumeGuidePage;
-
+// export default ResumeGuidePage; // THIS IS THE DUPLICATE I AM REMOVING
