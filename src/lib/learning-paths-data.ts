@@ -2566,4 +2566,13 @@ export const learningPaths = [
     topics: [],
     assignments: []
   },
+  {
+    id: "nextjs",
+    title: "Next.js: The React Framework",
+    description: "Master the features of Next.js to build fast, scalable, and SEO-friendly React applications.",
+    category: "Frameworks & Libraries",
+    subCategory: "Frontend Web Frameworks",
+    topics: [],
+    assignments: [],
+  },
 ];
