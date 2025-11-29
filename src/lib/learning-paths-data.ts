@@ -307,7 +307,7 @@ export const learningPaths = [
     subCategory: "Core Software Development",
     topics: [
       {
-        title: "Frontend Frameworks (React, Next.js)",
+        title: "Frontend Frameworks",
         points: [
             { text: "Build dynamic and interactive user interfaces using the component-based architecture of React.", resources: [{ name: "React Docs", url: "https://react.dev/" }] },
             { text: "Learn Next.js, a powerful React framework that adds features like server-side rendering, static site generation, and file-based routing.", resources: [{ name: "Next.js Docs", url: "https://nextjs.org/docs" }] },
@@ -315,7 +315,7 @@ export const learningPaths = [
         ],
       },
       {
-        title: "Backend Development (Node.js, Express)",
+        title: "Backend Development",
         points: [
             { text: "Use the Node.js runtime environment to build fast and scalable server-side applications with JavaScript.", resources: [{ name: "Node.js Intro", url: "https://nodejs.org/en/about" }] },
             { text: "Build robust and flexible RESTful APIs using Express, a minimal and unopinionated web framework for Node.js.", resources: [{ name: "Express.js", url: "https://expressjs.com/" }] },
@@ -323,7 +323,7 @@ export const learningPaths = [
         ],
       },
       {
-        title: "Databases (SQL, NoSQL)",
+        title: "Databases",
         points: [
             { text: "Learn the fundamental differences between relational (SQL) and non-relational (NoSQL) databases and when to choose one over the other.", resources: [{ name: "SQL vs NoSQL", url: "https://www.mongodb.com/nosql-explained/nosql-vs-sql" }] },
             { text: "Get hands-on with a SQL database like PostgreSQL, learning essential commands for creating tables, querying data, and establishing relationships.", resources: [{ name: "PostgreSQL", url: "https://www.postgresql.org/" }] },
@@ -2556,5 +2556,14 @@ export const learningPaths = [
         { title: "Containerize an Application", description: "Take a simple web application you've built and write a Dockerfile for it. Then, use Docker Compose to run the application along with its database in separate containers." },
         { title: "Set Up a CI/CD Pipeline", description: "Create a project on GitHub and set up a basic CI/CD pipeline using GitHub Actions that automatically runs tests every time you push a new commit." }
     ]
+  },
+  {
+    id: "ai-ml-engineer",
+    title: "AI/ML Engineer",
+    description: "Learn to design, build, and deploy machine learning models to solve real-world problems.",
+    category: "Job Roles",
+    subCategory: "Data & AI",
+    topics: [],
+    assignments: []
   },
 ];
