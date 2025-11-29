@@ -432,73 +432,12 @@ export const learningPaths = [
   },
   {
     id: "mobile-app-development",
-    title: "Mobile App Development",
+    title: "Mobile App Developer",
     description: "Build applications for iOS and Android using modern cross-platform frameworks.",
     category: "Job Roles",
     subCategory: "Mobile App Development",
-    topics: [
-      {
-        title: "Introduction to Mobile Development",
-        points: [
-            { text: "Understand the pros and cons of native development (Swift for iOS, Kotlin for Android) versus cross-platform frameworks like React Native or Flutter.", resources: [{ name: "Native vs Cross-Platform", url: "https://www.geeksforgeeks.org/native-vs-cross-platform-app-development/" }] },
-            { text: "Get an overview of the mobile app landscape, including app stores, design guidelines (Material Design, Human Interface Guidelines), and monetization strategies.", resources: [] },
-            { text: "Learn how to evaluate project requirements to choose the most suitable technology stack for your mobile app.", resources: [] },
-        ],
-      },
-      {
-        title: "React Native or Flutter Fundamentals",
-        points: [
-            { text: "Install the necessary tools, SDKs, and emulators/simulators for your chosen framework (React Native or Flutter).", resources: [{ name: "React Native Setup", url: "https://reactnative.dev/docs/environment-setup" }, { name: "Flutter Setup", url: "https://docs.flutter.dev/get-started/install" }] },
-            { text: "Learn the core concepts of building UIs. In React Native, you'll use components like `<View>` and `<Text>`. In Flutter, you'll work with widgets.", resources: [{ name: "React Native Components", url: "https://reactnative.dev/docs/components-and-apis" }, { name: "Flutter Widgets", url: "https://docs.flutter.dev/ui" }] },
-            { text: "Implement touch controls and gestures to make your app interactive and responsive to user input.", resources: [{ name: "React Native Gestures", url: "https://reactnative.dev/docs/handling-touches" }, { name: "Flutter Gestures", url: "https://docs.flutter.dev/development/ui/advanced/gestures" }] },
-        ],
-      },
-      {
-        title: "State Management",
-        points: [
-            { text: "Grasp the concept of state in a mobile app and why it's crucial for building dynamic and interactive UIs.", resources: [{ name: "React State", url: "https://react.dev/learn/managing-state" }, { name: "Flutter State Management", url: "https://docs.flutter.dev/data-and-backend/state-mgmt/options" }] },
-            { text: "Explore popular state management libraries like Redux or Zustand for React Native, and Riverpod or Provider for Flutter.", resources: [{ name: "Redux", url: "https://redux.js.org/" }, { name: "Riverpod", url: "https://riverpod.dev/" }] },
-            { text: "Learn techniques to ensure your UI automatically updates whenever the underlying application data changes.", resources: [] },
-        ],
-      },
-      {
-        title: "Navigation",
-        points: [
-            { text: "Learn to manage navigation between different screens using libraries like React Navigation for React Native or Flutter's built-in Navigator.", resources: [{ name: "React Navigation", url: "https://reactnavigation.org/" }, { name: "Flutter Navigation", url: "https://docs.flutter.dev/ui/navigation" }] },
-            { text: "Implement common navigation patterns like stack navigators (for sequential screens), tab navigators (for bottom tabs), and drawer navigators (for side menus).", resources: [] },
-            { text: "Understand how to pass data and parameters between different screens in your application.", resources: [] },
-        ],
-      },
-      {
-        title: "Working with APIs",
-        points: [
-            { text: "Use libraries like `fetch` or `axios` in React Native, or `http` in Flutter, to make network requests to a backend server.", resources: [{ name: "React Native Networking", url: "https://reactnative.dev/docs/network" }, { name: "Flutter Networking", url: "https://docs.flutter.dev/cookbook/networking/fetch-data" }] },
-            { text: "Learn how to parse JSON responses from an API and display the data in your app's UI.", resources: [] },
-            { text: "Implement loading indicators and error messages to provide a smooth user experience while fetching data.", resources: [] },
-        ],
-      },
-      {
-        title: "Push Notifications",
-        points: [
-            { text: "Learn the importance of push notifications for user engagement and retention.", resources: [] },
-            { text: "Integrate services like Firebase Cloud Messaging (FCM) to send and receive push notifications on both iOS and Android.", resources: [{ name: "Firebase Cloud Messaging", url: "https://firebase.google.com/docs/cloud-messaging" }] },
-            { text: "Learn to handle user interactions with notifications, whether the app is in the foreground, background, or closed.", resources: [] },
-        ],
-      },
-      {
-        title: "Publishing to App Stores",
-        points: [
-            { text: "Generate the necessary build artifacts (APK/AAB for Android, IPA for iOS) and prepare app store listings with screenshots and descriptions.", resources: [{ name: "React Native Publishing", url: "https://reactnative.dev/docs/publishing-to-app-store" }, { name: "Flutter Publishing", url: "https://docs.flutter.dev/deployment/android" }] },
-            { text: "Familiarize yourself with the specific review guidelines and policies for both the Apple App Store and Google Play Store to avoid rejection.", resources: [{ name: "App Store Guidelines", url: "https://developer.apple.com/app-store/review/guidelines/" }, { name: "Play Store Policies", url: "https://play.google.com/about/developer-distribution-agreement.html" }] },
-            { text: "Go through the process of creating a developer account, submitting your app for review, and managing its release.", resources: [] },
-        ],
-      },
-    ],
-    assignments: [
-        { title: "Multi-Screen App", description: "Build a simple two-screen app using either React Native or Flutter. The first screen should have a button that navigates to the second screen, passing a piece of data to be displayed." },
-        { title: "Quote of the Day App", description: "Create an app that fetches a random quote from a public API and displays it. Include a button to fetch a new quote." },
-        { title: "Basic Contact List", description: "Design an app that displays a list of contacts (from a hardcoded array). Tapping on a contact should navigate to a detail screen showing more information about that person." }
-    ]
+    topics: [],
+    assignments: []
   },
   {
     id: "devops-engineer",
