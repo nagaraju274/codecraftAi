@@ -15,6 +15,8 @@ import { suggestNextSteps } from './suggest-next-steps';
 import { askMentor } from './ask-a-mentor';
 // Import the generateStudyPlan function from its module.
 import { generateStudyPlan } from './generate-study-plan';
+// Import the generateNotes function from its module.
+import { generateNotes } from './generate-notes';
 
 // Export all the imported functions so they can be easily accessed from other parts of the application.
 export {
@@ -25,4 +27,5 @@ export {
     suggestNextSteps,
     askMentor,
     generateStudyPlan,
+    generateNotes,
 };
