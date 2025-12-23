@@ -76,6 +76,7 @@ export const academicsData: AcademicsData = {
             { id: "cs601", name: "Compiler Design", description: "Learn how compilers are designed and built." },
             { id: "cs602", name: "Cryptography & Network Security", description: "Study of encryption and network security." },
             { id: "cs603", name: "Data Warehousing & Data Mining", description: "Concepts of data storage and analysis." },
+            { id: "cs606", name: "Artificial Intelligence", description: "Introduction to AI, search algorithms, and knowledge representation.", relatedRoadmapId: "ai-ml-engineer" },
             { id: "cs604", name: "Professional Elective - II", description: "Choose a subject of interest." },
             { id: "cs605", name: "Open Elective - II", description: "Choose a subject from other disciplines." },
         ],
