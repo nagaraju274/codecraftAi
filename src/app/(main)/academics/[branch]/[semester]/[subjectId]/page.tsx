@@ -24,6 +24,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogCancel,
+  AlertDialogFooter,
 } from "@/components/ui/alert-dialog"
 import { ScrollArea } from "@/components/ui/scroll-area";
 import ReactMarkdown from "react-markdown";
