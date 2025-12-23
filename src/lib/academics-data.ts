@@ -76,7 +76,57 @@ export const academicsData: AcademicsData = {
             { id: "cs601", name: "Compiler Design", description: "Learn how compilers are designed and built." },
             { id: "cs602", name: "Cryptography & Network Security", description: "Study of encryption and network security." },
             { id: "cs603", name: "Data Warehousing & Data Mining", description: "Concepts of data storage and analysis." },
-            { id: "cs606", name: "Artificial Intelligence", description: "Introduction to AI, search algorithms, and knowledge representation.", relatedRoadmapId: "ai-ml-engineer" },
+            { 
+                id: "cs606", 
+                name: "Artificial Intelligence", 
+                description: "Introduction to AI, search algorithms, and knowledge representation.", 
+                relatedRoadmapId: "ai-ml-engineer",
+                syllabus: [
+                    { 
+                        unit: "UNIT - I", 
+                        topics: [
+                            "Introduction to AI", 
+                            "Intelligent Agents", 
+                            "Problem-Solving Agents", 
+                            "Searching for Solutions", 
+                            "Uninformed Search Strategies: Breadth-first search, Uniform cost search, Depth-first search, Iterative deepening Depth-first search, Bidirectional search",
+                            "Informed (Heuristic) Search Strategies: Greedy best-first search, A* search, Heuristic Functions",
+                            "Beyond Classical Search: Hill-climbing search, Simulated annealing search, Local Search in Continuous Spaces"
+                        ] 
+                    },
+                    { 
+                        unit: "UNIT - II", 
+                        topics: [
+                            "Problem Solving by Search-II and Propositional Logic",
+                            "Adversarial Search: Games, Optimal Decisions in Games, Alpha-Beta Pruning, Imperfect Real-Time Decisions",
+                            "Constraint Satisfaction Problems: Defining CSPs, Constraint Propagation, Backtracking Search for CSPs, Local Search for CSPs",
+                            "Propositional Logic: Knowledge-Based Agents, The Wumpus World, Logic, Propositional Theorem Proving, Forward and backward chaining"
+                        ] 
+                    },
+                    { 
+                        unit: "UNIT - III", 
+                        topics: [
+                            "Logic and Knowledge Representation",
+                            "First-Order Logic: Representation, Syntax and Semantics, Using First-Order Logic, Knowledge Engineering",
+                            "Inference in First-Order Logic: Propositional vs. First-Order Inference, Unification and Lifting, Forward Chaining, Backward Chaining, Resolution"
+                        ] 
+                    },
+                    { 
+                        unit: "UNIT - IV", 
+                        topics: [
+                            "Knowledge Representation: Ontological Engineering, Categories and Objects, Events, Mental Events and Mental Objects, Reasoning Systems for Categories, Reasoning with Default Information",
+                            "Classical Planning: Definition, Algorithms for Planning with State-Space Search, Planning Graphs, other Classical Planning Approaches, Analysis of Planning approaches"
+                        ] 
+                    },
+                    { 
+                        unit: "UNIT - V", 
+                        topics: [
+                            "Uncertain knowledge and Learning Uncertainty: Acting under Uncertainty, Basic Probability Notation, Inference Using Full Joint Distributions, Independence, Bayes' Rule and Its Use",
+                            "Probabilistic Reasoning: Representing Knowledge in an Uncertain Domain, The Semantics of Bayesian Networks, Efficient Representation of Conditional Distributions, Approximate Inference in Bayesian Networks, Relational and First-Order Probability, Other Approaches to Uncertain Reasoning: Dempster-Shafer theory"
+                        ] 
+                    }
+                ]
+            },
             { id: "cs604", name: "Professional Elective - II", description: "Choose a subject of interest." },
             { id: "cs605", name: "Open Elective - II", description: "Choose a subject from other disciplines." },
         ],
