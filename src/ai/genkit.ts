@@ -8,5 +8,5 @@ export const ai = genkit({
   // A list of plugins to use. Here, we're using the Google AI plugin.
   plugins: [googleAI()],
   // Set the default model to be used for generation requests.
-  model: 'googleai/gemini-pro',
+  model: 'gemini-pro',
 });
