@@ -4,7 +4,7 @@
 import { useParams, notFound } from "next/navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Loader2, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { AuthGuard } from "@/components/auth/auth-guard";
 import { academicsData, branchNames } from "@/lib/academics-data";
@@ -15,11 +15,27 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Checkbox } from "@/components/ui/checkbox";
-import { learningPaths } from "@/lib/learning-paths-data";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogCancel,
+} from "@/components/ui/alert-dialog";
+import ReactMarkdown from "react-markdown";
+
 
 export default function SubjectPage() {
   const params = useParams();
+  const { toast } = useToast();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [explanation, setExplanation] = useState("");
+  const [explanationTitle, setExplanationTitle] = useState("");
 
   const branch = params.branch as string;
   const semester = params.semester as string;
@@ -102,16 +118,13 @@ export default function SubjectPage() {
                                     <AccordionItem value={`item-${index}`} key={index}>
                                         <AccordionTrigger className="text-lg">{item.unit}</AccordionTrigger>
                                         <AccordionContent>
-                                            <ul className="space-y-3 pl-4">
+                                            <div className="space-y-3 pl-4 prose prose-sm dark:prose-invert max-w-none">
                                                 {item.topics.map((topic, topicIndex) => (
-                                                    <li key={topicIndex} className="flex items-center gap-3">
-                                                         <Checkbox id={`topic-${index}-${topicIndex}`} />
-                                                        <label htmlFor={`topic-${index}-${topicIndex}`} className="text-base font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                                                            {topic}
-                                                        </label>
-                                                    </li>
+                                                    <p key={topicIndex} className="text-base text-muted-foreground">
+                                                        {topic}
+                                                    </p>
                                                 ))}
-                                            </ul>
+                                            </div>
                                         </AccordionContent>
                                     </AccordionItem>
                                 ))}
@@ -127,8 +140,8 @@ export default function SubjectPage() {
                         <CardHeader>
                             <CardTitle>Notes & Materials</CardTitle>
                         </CardHeader>
-                        <CardContent className="space-y-2">
-                            <p className="text-muted-foreground">Notes content coming soon.</p>
+                        <CardContent className="space-y-4">
+                          <p className="text-muted-foreground">Notes content coming soon.</p>
                         </CardContent>
                     </Card>
                 </TabsContent>
