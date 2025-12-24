@@ -76,6 +76,8 @@ export const academicsData: AcademicsData = {
             { id: "cs601", name: "Compiler Design", description: "Learn how compilers are designed and built." },
             { id: "cs602", name: "Cryptography & Network Security", description: "Study of encryption and network security." },
             { id: "cs603", name: "Data Warehousing & Data Mining", description: "Concepts of data storage and analysis." },
+            { id: "cs604", name: "Professional Elective - II", description: "Choose a subject of interest." },
+            { id: "cs605", name: "Open Elective - II", description: "Choose a subject from other disciplines." },
             { 
                 id: "cs606", 
                 name: "Artificial Intelligence", 
@@ -83,8 +85,16 @@ export const academicsData: AcademicsData = {
                 relatedRoadmapId: "ai-ml-engineer",
                 syllabus: [
                     { 
-                        unit: "UNIT - I", 
-                        topics: [] 
+                        unit: "UNIT - I: Introduction to AI & Search", 
+                        topics: [
+                            "Introduction to Artificial Intelligence: AI is the field of making machines intelligent, enabling them to think, learn, and make decisions.",
+                            "Intelligent Agents: An agent is an entity that perceives its environment and acts to achieve goals. Performance depends on how well goals are achieved.",
+                            "Problem-Solving Agents: These agents use search to find solutions, defining problems with an initial state and a goal state.",
+                            "Searching for Solutions: The process of finding a sequence of actions to reach a goal. Search space includes all possible states.",
+                            "Uninformed Search Strategies: Blind search methods like Breadth-First Search (BFS), Uniform Cost Search (UCS), Depth-First Search (DFS), and Iterative Deepening Search (IDS).",
+                            "Informed (Heuristic) Search Strategies: Search methods that use domain knowledge, including Greedy Best-First Search and the A* Search Algorithm.",
+                            "Beyond Classical Search: Techniques for large search spaces, like Hill-Climbing Search, Simulated Annealing, and Local Search in Continuous Spaces."
+                        ] 
                     },
                     { 
                         unit: "UNIT - II", 
@@ -119,8 +129,6 @@ export const academicsData: AcademicsData = {
                     }
                 ]
             },
-            { id: "cs604", name: "Professional Elective - II", description: "Choose a subject of interest." },
-            { id: "cs605", name: "Open Elective - II", description: "Choose a subject from other disciplines." },
         ],
         "7": [
             { id: "cs701", name: "Cloud Computing", description: "Learn about cloud infrastructure and services.", relatedRoadmapId: "devops-engineer" },
