@@ -84,15 +84,7 @@ export const academicsData: AcademicsData = {
                 syllabus: [
                     { 
                         unit: "UNIT - I", 
-                        topics: [
-                            "Introduction to AI", 
-                            "Intelligent Agents", 
-                            "Problem-Solving Agents", 
-                            "Searching for Solutions", 
-                            "Uninformed Search Strategies: Breadth-first search, Uniform cost search, Depth-first search, Iterative deepening Depth-first search, Bidirectional search",
-                            "Informed (Heuristic) Search Strategies: Greedy best-first search, A* search, Heuristic Functions",
-                            "Beyond Classical Search: Hill-climbing search, Simulated annealing search, Local Search in Continuous Spaces"
-                        ] 
+                        topics: [] 
                     },
                     { 
                         unit: "UNIT - II", 
