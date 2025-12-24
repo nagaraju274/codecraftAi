@@ -1,11 +1,10 @@
 
 "use client";
 
-import { useState } from "react";
 import { useParams, notFound } from "next/navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { AuthGuard } from "@/components/auth/auth-guard";
 import { academicsData, branchNames } from "@/lib/academics-data";
@@ -18,27 +17,9 @@ import {
 } from "@/components/ui/accordion";
 import { Checkbox } from "@/components/ui/checkbox";
 import { learningPaths } from "@/lib/learning-paths-data";
-import {
-  AlertDialog,
-  AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogCancel,
-  AlertDialogFooter,
-} from "@/components/ui/alert-dialog"
-import { ScrollArea } from "@/components/ui/scroll-area";
-import ReactMarkdown from "react-markdown";
-import { generateNotes } from "@/ai/flows";
-import { useToast } from "@/hooks/use-toast";
 
 export default function SubjectPage() {
   const params = useParams();
-  const { toast } = useToast();
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [dialogContent, setDialogContent] = useState("");
-  const [dialogTitle, setDialogTitle] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [generatingTopic, setGeneratingTopic] = useState<string | null>(null);
 
   const branch = params.branch as string;
   const semester = params.semester as string;
@@ -57,29 +38,6 @@ export default function SubjectPage() {
     : null;
 
   const fullBranchName = branchNames[branch] || "Unknown Branch";
-
-  const handleGenerateNotes = async (topic: string) => {
-    setGeneratingTopic(topic);
-    setIsLoading(true);
-    setDialogContent("");
-    setDialogTitle(`Notes for: ${topic}`);
-    setIsDialogOpen(true);
-
-    try {
-        const result = await generateNotes({ subject: subject.name, topic });
-        setDialogContent(result.notes);
-    } catch(e) {
-        toast({
-            variant: "destructive",
-            title: "Error",
-            description: "Failed to generate notes from AI."
-        });
-        setIsDialogOpen(false);
-    } finally {
-        setIsLoading(false);
-        setGeneratingTopic(null);
-    }
-  }
 
   return (
     <AuthGuard>
@@ -168,34 +126,9 @@ export default function SubjectPage() {
                     <Card>
                         <CardHeader>
                             <CardTitle>Notes & Materials</CardTitle>
-                             <CardDescription>Generate AI-powered notes for any topic in the syllabus.</CardDescription>
                         </CardHeader>
-                        <CardContent className="space-y-4">
-                            {subject.syllabus && subject.syllabus.length > 0 ? (
-                                subject.syllabus.map((unit, unitIndex) => (
-                                    <div key={unitIndex}>
-                                        <h3 className="font-semibold text-lg mb-2">{unit.unit}</h3>
-                                        <ul className="space-y-2">
-                                            {unit.topics.map((topic, topicIndex) => (
-                                                <li key={topicIndex} className="flex items-center justify-between p-3 bg-muted/50 rounded-md">
-                                                    <span>{topic}</span>
-                                                    <Button 
-                                                        variant="secondary" 
-                                                        size="sm"
-                                                        onClick={() => handleGenerateNotes(topic)}
-                                                        disabled={isLoading}
-                                                    >
-                                                         {isLoading && generatingTopic === topic ? <Loader2 className="mr-2 h-4 w-4 animate-spin"/> : null}
-                                                         Generate Notes
-                                                    </Button>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                ))
-                            ) : (
-                                <p className="text-muted-foreground">No syllabus topics available to generate notes from.</p>
-                            )}
+                        <CardContent className="space-y-2">
+                            <p className="text-muted-foreground">Notes content coming soon.</p>
                         </CardContent>
                     </Card>
                 </TabsContent>
@@ -221,28 +154,6 @@ export default function SubjectPage() {
                 </TabsContent>
             </Tabs>
         </div>
-
-        <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          <AlertDialogContent className="w-[95vw] max-w-3xl h-[90vh] flex flex-col">
-            <AlertDialogHeader>
-              <AlertDialogTitle>{dialogTitle}</AlertDialogTitle>
-            </AlertDialogHeader>
-            <div className="flex-1 overflow-y-auto pr-4">
-              {isLoading ? (
-                <div className="flex items-center justify-center h-full">
-                  <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                </div>
-              ) : (
-                <div className="prose prose-sm dark:prose-invert max-w-none overflow-x-auto" style={{ wordWrap: 'break-word' }}>
-                  <ReactMarkdown>{dialogContent}</ReactMarkdown>
-                </div>
-              )}
-            </div>
-            <AlertDialogFooter>
-              <AlertDialogCancel>Close</AlertDialogCancel>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
     </AuthGuard>
   );
 }

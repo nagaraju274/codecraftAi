@@ -17,5 +17,3 @@ import '@/ai/flows/generate-code-from-prompt.ts';
 import '@/ai/flows/ask-a-mentor.ts';
 // Import the AI flow for generating a personalized study plan.
 import '@/ai/flows/generate-study-plan.ts';
-// Import the AI flow for generating study notes.
-import '@/ai/flows/generate-notes.ts';
