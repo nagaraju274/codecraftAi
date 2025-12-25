@@ -102,11 +102,13 @@ export default function SubjectPage() {
                                     <AccordionItem value={`item-${index}`} key={index}>
                                         <AccordionTrigger className="text-lg">{item.unit}</AccordionTrigger>
                                         <AccordionContent>
-                                            <div className="space-y-3 pl-4 prose prose-sm dark:prose-invert max-w-none">
+                                            <div className="space-y-6 pl-4">
                                                 {item.topics.map((topic, topicIndex) => (
-                                                    <p key={topicIndex} className="text-base text-muted-foreground">
-                                                        {topic}
-                                                    </p>
+                                                    <div key={topicIndex}>
+                                                        <h4 className="font-semibold text-base mb-1">{topic.topic}</h4>
+                                                        <p className="text-muted-foreground text-base mb-2">{topic.explanation}</p>
+                                                        {topic.example && <p className="text-sm text-muted-foreground italic"><span className="font-semibold not-italic">Example:</span> {topic.example}</p>}
+                                                    </div>
                                                 ))}
                                             </div>
                                         </AccordionContent>

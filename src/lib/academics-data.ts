@@ -1,4 +1,9 @@
 
+export interface SyllabusTopic {
+    topic: string;
+    explanation: string;
+    example?: string;
+}
 
 export interface Subject {
     id: string;
@@ -7,7 +12,7 @@ export interface Subject {
     relatedRoadmapId?: string;
     syllabus?: {
         unit: string;
-        topics: string[];
+        topics: SyllabusTopic[];
     }[];
 }
 
@@ -42,11 +47,11 @@ export const academicsData: AcademicsData = {
                 description: "Learn about fundamental data structures using C.",
                 relatedRoadmapId: "dsa-with-cpp",
                 syllabus: [
-                    { unit: "Unit 1: Introduction", topics: ["Data Structures, Abstract Data Types (ADTs)", "Introduction to C++ Classes", "Asymptotic Notations"] },
-                    { unit: "Unit 2: Stacks and Queues", topics: ["Stacks ADT", "Queues ADT", "Circular Queues"] },
-                    { unit: "Unit 3: Linked Lists", topics: ["Singly Linked Lists", "Doubly Linked Lists", "Circular Linked Lists"] },
-                    { unit: "Unit 4: Trees", topics: ["Introduction to Trees", "Binary Trees", "Binary Search Trees (BST)"] },
-                    { unit: "Unit 5: Graphs", topics: ["Graph Terminology", "Graph Representation", "Graph Traversal (BFS, DFS)"] },
+                    { unit: "Unit 1: Introduction", topics: [{ topic: "Data Structures, Abstract Data Types (ADTs)", explanation: "Explanation coming soon."}] },
+                    { unit: "Unit 2: Stacks and Queues", topics: [{ topic: "Stacks ADT", explanation: "Explanation coming soon."}] },
+                    { unit: "Unit 3: Linked Lists", topics: [{ topic: "Singly Linked Lists", explanation: "Explanation coming soon."}] },
+                    { unit: "Unit 4: Trees", topics: [{ topic: "Introduction to Trees", explanation: "Explanation coming soon."}] },
+                    { unit: "Unit 5: Graphs", topics: [{ topic: "Graph Terminology", explanation: "Explanation coming soon."}] },
                 ]
             },
             { 
@@ -86,37 +91,38 @@ export const academicsData: AcademicsData = {
                 syllabus: [
                     { 
                         unit: "UNIT - I: Introduction to AI & Search", 
-                        topics: [] 
+                        topics: [
+                          { topic: "Introduction to Artificial Intelligence", explanation: "Artificial Intelligence (AI) is the field of making machines intelligent. AI enables systems to think, learn, and make decisions. It focuses on problem solving, reasoning, and learning. AI tries to imitate human intelligence in machines.", example: "Google Maps suggesting the fastest route or YouTube recommending videos automatically." },
+                          { topic: "Intelligent Agents", explanation: "An agent is an entity that perceives its environment using sensors to observe and actuators to act. Intelligent agents choose actions to achieve goals. Performance depends on how well goals are achieved.", example: "A self-driving car using cameras (sensors) and brakes (actuators)." },
+                          { topic: "Problem-Solving Agents", explanation: "Problem-solving agents use search to find solutions. They define problems using an initial state and a goal state. Actions move the agent from one state to another. They aim to find the best solution path.", example: "Finding the shortest path in a maze." },
+                          { topic: "Searching for Solutions", explanation: "Searching is finding a sequence of actions to reach a goal. The search space includes all possible states. A solution is a path from start to goal. Different search strategies give different results.", example: "Searching a contact name in a phone list." },
+                          { topic: "Uninformed Search Strategies", explanation: "These strategies do not use extra knowledge. They explore the search space blindly. Simple but less efficient. Examples include Breadth-First Search (BFS), Depth-First Search (DFS), and Uniform Cost Search (UCS).", example: "BFS explores nodes level by level, like checking all rooms floor-by-floor in a building." },
+                          { topic: "Informed (Heuristic) Search Strategies", explanation: "Uses heuristic information to guide search, making it faster than uninformed search. It uses domain knowledge. Examples include Greedy Best-First Search and the A* Search Algorithm.", example: "Google Maps using distance travelled plus estimated remaining distance to find the best route (A*)." },
+                          { topic: "Beyond Classical Search", explanation: "Used when the search space is very large, focusing on optimization rather than an exact solution. Examples include Hill-Climbing, Simulated Annealing, and Local Search in Continuous Spaces.", example: "Hill-climbing search is like climbing a hill blindfolded, always moving toward a better neighboring state." }
+                        ] 
                     },
                     { 
                         unit: "UNIT - II", 
                         topics: [
-                            "Problem Solving by Search-II and Propositional Logic",
-                            "Adversarial Search: Games, Optimal Decisions in Games, Alpha-Beta Pruning, Imperfect Real-Time Decisions",
-                            "Constraint Satisfaction Problems: Defining CSPs, Constraint Propagation, Backtracking Search for CSPs, Local Search for CSPs",
-                            "Propositional Logic: Knowledge-Based Agents, The Wumpus World, Logic, Propositional Theorem Proving, Forward and backward chaining"
+                          { topic: "Adversarial Search and Propositional Logic", explanation: "Explanation coming soon." }
                         ] 
                     },
                     { 
                         unit: "UNIT - III", 
                         topics: [
-                            "Logic and Knowledge Representation",
-                            "First-Order Logic: Representation, Syntax and Semantics, Using First-Order Logic, Knowledge Engineering",
-                            "Inference in First-Order Logic: Propositional vs. First-Order Inference, Unification and Lifting, Forward Chaining, Backward Chaining, Resolution"
+                          { topic: "Logic and Knowledge Representation", explanation: "Explanation coming soon." }
                         ] 
                     },
                     { 
                         unit: "UNIT - IV", 
                         topics: [
-                            "Knowledge Representation: Ontological Engineering, Categories and Objects, Events, Mental Events and Mental Objects, Reasoning Systems for Categories, Reasoning with Default Information",
-                            "Classical Planning: Definition, Algorithms for Planning with State-Space Search, Planning Graphs, other Classical Planning Approaches, Analysis of Planning approaches"
+                          { topic: "Knowledge Representation and Classical Planning", explanation: "Explanation coming soon." }
                         ] 
                     },
                     { 
                         unit: "UNIT - V", 
                         topics: [
-                            "Uncertain knowledge and Learning Uncertainty: Acting under Uncertainty, Basic Probability Notation, Inference Using Full Joint Distributions, Independence, Bayes' Rule and Its Use",
-                            "Probabilistic Reasoning: Representing Knowledge in an Uncertain Domain, The Semantics of Bayesian Networks, Efficient Representation of Conditional Distributions, Approximate Inference in Bayesian Networks, Relational and First-Order Probability, Other Approaches to Uncertain Reasoning: Dempster-Shafer theory"
+                          { topic: "Uncertain knowledge and Learning Uncertainty", explanation: "Explanation coming soon." }
                         ] 
                     }
                 ]
