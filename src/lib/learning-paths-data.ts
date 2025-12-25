@@ -379,6 +379,15 @@ export const learningPaths = [
     assignments: []
   },
   {
+    id: "data-scientist",
+    title: "Data Scientist",
+    description: "Learn to build and deploy machine learning models, and use data to make predictions and drive business decisions.",
+    category: "Job Roles",
+    subCategory: "Data & AI",
+    topics: [],
+    assignments: []
+  },
+  {
     id: "mobile-app-development",
     title: "Mobile App Developer",
     description: "Build applications for iOS and Android using modern cross-platform frameworks.",
@@ -2420,3 +2429,4 @@ export const learningPaths = [
     assignments: [],
   }
 ];
+
