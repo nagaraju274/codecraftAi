@@ -13,30 +13,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-// Import alert dialog components for showing modal pop-ups.
-import {
-  AlertDialog,
-  AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogCancel,
-} from "@/components/ui/alert-dialog";
 // Import the Button component.
 import { Button } from "@/components/ui/button";
 // Import card components for styling content containers.
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 // Import various icons from the lucide-react library.
-import { Link as LinkIcon, Search, Sparkles, Loader, CheckSquare, ArrowLeft } from "lucide-react";
+import { Link as LinkIcon, CheckSquare, ArrowLeft } from "lucide-react";
 // Import the ScrollArea component for creating scrollable containers.
 import { ScrollArea } from "@/components/ui/scroll-area";
-// Import the ReactMarkdown component to render Markdown content as HTML.
-import ReactMarkdown from "react-markdown";
-// Import the AI flow function for explaining learning topics.
-import { explainLearningTopic } from "@/ai/flows";
-// Import the custom hook for showing toast notifications.
-import { useToast } from "@/hooks/use-toast";
 // Import a component to protect the route, ensuring only authenticated users can see it.
 import { AuthGuard } from "@/components/auth/auth-guard";
 // Import the mock data for learning paths.
@@ -53,55 +37,10 @@ export default function RoadmapPage() {
   // This line finds the specific learning path object from the data that matches the current roadmapId.
   const path = learningPaths.find(p => p.id === roadmapId);
 
-  // This state variable controls whether the "Learn More" dialog is open or closed.
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  // This state variable stores the Markdown explanation fetched from the AI.
-  const [explanation, setExplanation] = useState("");
-  // This state variable stores the title for the "Learn More" dialog.
-  const [explanationTitle, setExplanationTitle] = useState("");
-  // This state variable tracks whether the AI is currently generating an explanation.
-  const [isLoading, setIsLoading] = useState(false);
-  // This hook provides the 'toast' function to show notifications.
-  const { toast } = useToast();
-
   // If no learning path is found for the given ID, this function will render the 404 "Not Found" page.
   if (!path) {
     notFound();
   }
-
-  // This asynchronous function is called when the user clicks the "Learn More" button for a topic.
-  const handleExplainTopic = async (topic: (typeof path.topics)[0]) => {
-    // This sets the loading state to true, which can be used to show a spinner.
-    setIsLoading(true);
-    // This clears any previous explanation content.
-    setExplanation("");
-    // This sets the title for the dialog to the current topic's title.
-    setExplanationTitle(topic.title);
-    // This opens the dialog.
-    setIsDialogOpen(true);
-    try {
-      // This line calls the AI flow with the topic title and its key points.
-      const result = await explainLearningTopic({
-        topicTitle: topic.title,
-        points: topic.points.map(p => p.text),
-      });
-      // This updates the state with the explanation received from the AI.
-      setExplanation(result.explanation);
-    } catch (e) {
-      // If there's an error during the AI call, show a destructive toast notification.
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: "Failed to get explanation from AI.",
-      });
-      // This closes the dialog if an error occurs.
-      setIsDialogOpen(false);
-    } finally {
-      // This sets the loading state back to false once the process is complete (either success or failure).
-      setIsLoading(false);
-    }
-  };
-
 
   // The main JSX structure for the page.
   return (
@@ -147,10 +86,6 @@ export default function RoadmapPage() {
                                   {/* The title of the topic. */}
                                   <span className="text-sm md:text-base whitespace-nowrap">{topic.title}</span>
                               </AccordionTrigger>
-                              {/* The button that triggers the AI explanation dialog. */}
-                              <Button size="sm" variant="ghost" onClick={() => handleExplainTopic(topic)} className="ml-4">
-                                  Explain
-                              </Button>
                           </div>
                           {/* The content that is revealed when the accordion item is open. */}
                           <AccordionContent className="text-muted-foreground pt-2 pl-8">
@@ -218,28 +153,6 @@ export default function RoadmapPage() {
               </div>
           </div>
         </ScrollArea>
-         {/* The dialog component for displaying the AI-generated explanation. */}
-         <AlertDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          <AlertDialogContent className="w-[95vw] max-w-3xl h-[90vh] flex flex-col">
-            <AlertDialogHeader>
-              <AlertDialogTitle>{explanationTitle}</AlertDialogTitle>
-            </AlertDialogHeader>
-            <div className="flex-1 overflow-y-auto pr-4">
-              {isLoading ? (
-                <div className="flex items-center justify-center h-full">
-                  <Loader className="h-8 w-8 animate-spin text-primary" />
-                </div>
-              ) : (
-                <div className="prose prose-sm dark:prose-invert max-w-none">
-                  <ReactMarkdown>{explanation}</ReactMarkdown>
-                </div>
-              )}
-            </div>
-            <AlertDialogFooter>
-              <AlertDialogCancel>Close</AlertDialogCancel>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
     </AuthGuard>
   );
 }

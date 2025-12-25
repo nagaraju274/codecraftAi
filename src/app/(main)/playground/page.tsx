@@ -1,13 +1,12 @@
 
+
 "use client"
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
-import { Play, Trash2, Bot, Loader } from "lucide-react"
-import { fixCodeError, explainCode } from "@/ai/flows"
-import { useToast } from "@/hooks/use-toast"
+import { Play, Trash2, Loader } from "lucide-react"
 import { AuthGuard } from "@/components/auth/auth-guard"
 
 const placeholderCode = `// You can write JavaScript code here!
@@ -20,9 +19,7 @@ greet('Student');`;
 export default function PlaygroundPage() {
   const [code, setCode] = useState(placeholderCode)
   const [output, setOutput] = useState<string[]>([])
-  const [isAiLoading, setIsAiLoading] = useState(false)
   const [isRunning, setIsRunning] = useState(false)
-  const { toast } = useToast()
 
   const runCode = async () => {
     setOutput([]);
@@ -48,46 +45,6 @@ export default function PlaygroundPage() {
     }
   }
 
-  const handleFixCode = async () => {
-    setIsAiLoading(true);
-    try {
-      const result = await fixCodeError({ code, language: "javascript" });
-      setCode(result.fixedCode);
-      toast({
-        title: "AI Code Fix",
-        description: result.explanation,
-      });
-    } catch (e) {
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: "Failed to fix code with AI.",
-      });
-    } finally {
-      setIsAiLoading(false);
-    }
-  };
-
-  const handleExplainCode = async () => {
-    setIsAiLoading(true);
-    try {
-      const result = await explainCode({ code });
-      toast({
-        title: "AI Code Explanation",
-        description: (<p className="whitespace-pre-wrap">{result.explanation}</p>),
-      });
-    } catch (e) {
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: "Failed to get explanation from AI.",
-      });
-    } finally {
-      setIsAiLoading(false);
-    }
-  };
-
-
   return (
     <AuthGuard>
       <div className="flex flex-col h-[calc(100vh-10rem)] gap-4">
@@ -102,14 +59,6 @@ export default function PlaygroundPage() {
                 <Button onClick={runCode} size="sm" disabled={isRunning}>
                   {isRunning ? <Loader className="mr-2 h-4 w-4 animate-spin" /> : <Play className="mr-2 h-4 w-4" />}
                   Run
-                </Button>
-                <Button onClick={handleFixCode} size="sm" variant="secondary" disabled={isAiLoading}>
-                  {isAiLoading ? <Loader className="mr-2 h-4 w-4 animate-spin" /> : <Bot className="mr-2 h-4 w-4" />}
-                  Fix with AI
-                </Button>
-                <Button onClick={handleExplainCode} size="sm" variant="secondary" disabled={isAiLoading}>
-                   {isAiLoading ? <Loader className="mr-2 h-4" /> : <Bot className="mr-2 h-4" />}
-                  Explain
                 </Button>
               </div>
             </CardHeader>

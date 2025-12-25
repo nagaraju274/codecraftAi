@@ -1,8 +1,9 @@
 
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Code, Bot, BookOpenCheck, ArrowRight } from 'lucide-react';
+import { Code, BookOpenCheck, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 
 const features = [
@@ -13,16 +14,16 @@ const features = [
         href: "/playground"
     },
     {
-        icon: <Bot className="w-10 h-10 text-primary" />,
-        title: "AI-Powered Assistance",
-        description: "Get unstuck with AI-powered code fixing, explanations, and generation, right within your development workflow.",
-        href: "/ask-a-mentor"
+        icon: <BookOpenCheck className="w-10 h-10 text-primary" />,
+        title: "Guided Road maps",
+        description: "Follow structured learning paths and build projects step-by-step to master new technologies.",
+        href: "/learn"
     },
     {
         icon: <BookOpenCheck className="w-10 h-10 text-primary" />,
-        title: "Guided Road maps",
-        description: "Follow structured learning paths and build projects step-by-step with AI hints to master new technologies.",
-        href: "/learn"
+        title: "Build Projects",
+        description: "Build projects step-by-step to master new technologies.",
+        href: "/projects"
     }
 ];
 
