@@ -2410,6 +2410,15 @@ export const learningPaths = [
     topics: [],
     assignments: []
   },
+    {
+    id: "ai-researcher",
+    title: "AI Researcher",
+    description: "Dive deep into the theory and mathematics of AI to create novel algorithms and advance the field.",
+    category: "Job Roles",
+    subCategory: "Research & Academia",
+    topics: [],
+    assignments: []
+  },
   {
     id: "nextjs",
     title: "Next.js: The React Framework",
@@ -2430,3 +2439,6 @@ export const learningPaths = [
   }
 ];
 
+
+
+    
