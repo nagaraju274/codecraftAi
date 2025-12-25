@@ -1,8 +1,9 @@
 
 export interface SyllabusTopic {
     topic: string;
-    explanation: string;
+    explanation: string[];
     example?: string;
+    examFocus: string[];
 }
 
 export interface Subject {
@@ -12,6 +13,7 @@ export interface Subject {
     relatedRoadmapId?: string;
     syllabus?: {
         unit: string;
+        priority?: 'High' | 'Medium' | 'Low';
         topics: SyllabusTopic[];
     }[];
 }
@@ -47,11 +49,11 @@ export const academicsData: AcademicsData = {
                 description: "Learn about fundamental data structures using C.",
                 relatedRoadmapId: "dsa-with-cpp",
                 syllabus: [
-                    { unit: "Unit 1: Introduction", topics: [{ topic: "Data Structures, Abstract Data Types (ADTs)", explanation: "Explanation coming soon."}] },
-                    { unit: "Unit 2: Stacks and Queues", topics: [{ topic: "Stacks ADT", explanation: "Explanation coming soon."}] },
-                    { unit: "Unit 3: Linked Lists", topics: [{ topic: "Singly Linked Lists", explanation: "Explanation coming soon."}] },
-                    { unit: "Unit 4: Trees", topics: [{ topic: "Introduction to Trees", explanation: "Explanation coming soon."}] },
-                    { unit: "Unit 5: Graphs", topics: [{ topic: "Graph Terminology", explanation: "Explanation coming soon."}] },
+                    { unit: "Unit 1: Introduction", topics: [{ topic: "Data Structures, Abstract Data Types (ADTs)", explanation: ["Explanation coming soon."], examFocus: []}] },
+                    { unit: "Unit 2: Stacks and Queues", topics: [{ topic: "Stacks ADT", explanation: ["Explanation coming soon."], examFocus: []}] },
+                    { unit: "Unit 3: Linked Lists", topics: [{ topic: "Singly Linked Lists", explanation: ["Explanation coming soon."], examFocus: []}] },
+                    { unit: "Unit 4: Trees", topics: [{ topic: "Introduction to Trees", explanation: ["Explanation coming soon."], examFocus: []}] },
+                    { unit: "Unit 5: Graphs", topics: [{ topic: "Graph Terminology", explanation: ["Explanation coming soon."], examFocus: []}] },
                 ]
             },
             { 
@@ -90,40 +92,108 @@ export const academicsData: AcademicsData = {
                 relatedRoadmapId: "ai-ml-engineer",
                 syllabus: [
                     { 
-                        unit: "UNIT - I: Introduction to AI & Search", 
+                        unit: "UNIT - I: Introduction to AI & Search",
+                        priority: "High",
                         topics: [
-                          { topic: "Introduction to Artificial Intelligence", explanation: "Artificial Intelligence (AI) is the field of making machines intelligent. AI enables systems to think, learn, and make decisions. It focuses on problem solving, reasoning, and learning. AI tries to imitate human intelligence in machines.", example: "Google Maps suggesting the fastest route or YouTube recommending videos automatically." },
-                          { topic: "Intelligent Agents", explanation: "An agent is an entity that perceives its environment using sensors to observe and actuators to act. Intelligent agents choose actions to achieve goals. Performance depends on how well goals are achieved.", example: "A self-driving car using cameras (sensors) and brakes (actuators)." },
-                          { topic: "Problem-Solving Agents", explanation: "Problem-solving agents use search to find solutions. They define problems using an initial state and a goal state. Actions move the agent from one state to another. They aim to find the best solution path.", example: "Finding the shortest path in a maze." },
-                          { topic: "Searching for Solutions", explanation: "Searching is finding a sequence of actions to reach a goal. The search space includes all possible states. A solution is a path from start to goal. Different search strategies give different results.", example: "Searching a contact name in a phone list." },
-                          { topic: "Uninformed Search Strategies", explanation: "These strategies do not use extra knowledge. They explore the search space blindly. Simple but less efficient. Examples include Breadth-First Search (BFS), Depth-First Search (DFS), and Uniform Cost Search (UCS).", example: "BFS explores nodes level by level, like checking all rooms floor-by-floor in a building." },
-                          { topic: "Informed (Heuristic) Search Strategies", explanation: "Uses heuristic information to guide search, making it faster than uninformed search. It uses domain knowledge. Examples include Greedy Best-First Search and the A* Search Algorithm.", example: "Google Maps using distance travelled plus estimated remaining distance to find the best route (A*)." },
-                          { topic: "Beyond Classical Search", explanation: "Used when the search space is very large, focusing on optimization rather than an exact solution. Examples include Hill-Climbing, Simulated Annealing, and Local Search in Continuous Spaces.", example: "Hill-climbing search is like climbing a hill blindfolded, always moving toward a better neighboring state." }
-                        ] 
+                            {
+                                topic: "Introduction to Artificial Intelligence",
+                                explanation: [
+                                    "AI is the field of creating intelligent machines.",
+                                    "It enables systems to think, learn, and make decisions.",
+                                    "It focuses on solving problems, reasoning, and learning.",
+                                    "AI aims to imitate human intelligence in computers."
+                                ],
+                                example: "YouTube recommending videos or Google Maps suggesting the fastest route.",
+                                examFocus: ["Definition of AI", "Goals and applications of AI"]
+                            },
+                            {
+                                topic: "Intelligent Agents",
+                                explanation: [
+                                    "An agent is anything that can perceive its environment.",
+                                    "It uses sensors to observe and actuators to act.",
+                                    "Intelligent agents act to best achieve their goals.",
+                                    "Performance is measured by the success of its actions."
+                                ],
+                                example: "A self-driving car uses cameras (sensors) to see and brakes (actuators) to stop.",
+                                examFocus: ["Definition of an agent", "Concept of sensors and actuators"]
+                            },
+                            {
+                                topic: "Problem-Solving Agents",
+                                explanation: [
+                                    "These agents use search algorithms to find solutions.",
+                                    "A problem is defined by an initial state and a goal state.",
+                                    "Actions allow the agent to move from one state to another.",
+                                    "The aim is to find an optimal sequence of actions."
+                                ],
+                                example: "Solving a maze by finding a path from the start to the finish.",
+                                examFocus: ["Components of a problem definition (initial state, actions, goal test)"]
+                            },
+                            {
+                                topic: "Searching for Solutions",
+                                explanation: [
+                                    "Searching is the process of finding a sequence of actions to reach a goal.",
+                                    "The search space consists of all possible states.",
+                                    "A solution is a path through the search space.",
+                                    "Different search strategies are used for different problems."
+                                ],
+                                example: "Finding a contact in a phone book by looking through the names.",
+                                examFocus: ["Definition of search space and solution path"]
+                            },
+                            {
+                                topic: "Uninformed Search Strategies",
+                                explanation: [
+                                    "These strategies explore the search space without any extra information.",
+                                    "They are also known as blind search.",
+                                    "Examples include BFS, DFS, and UCS.",
+                                    "They are simple but can be inefficient."
+                                ],
+                                example: "In a building, checking every room on one floor before going to the next floor (BFS).",
+                                examFocus: ["Difference between BFS and DFS", "Memory and time complexity"]
+                            },
+                            {
+                                topic: "Informed (Heuristic) Search Strategies",
+                                explanation: [
+                                    "These strategies use problem-specific knowledge (heuristics) to guide the search.",
+                                    "A heuristic is an 'educated guess' to find the goal.",
+                                    "They are generally much more efficient than uninformed search.",
+                                    "Examples include Greedy Best-First Search and A* Search."
+                                ],
+
+                                example: "When navigating, choosing the road that appears to head most directly towards the destination.",
+                                examFocus: ["Definition of a heuristic", "Greedy Best-First Search vs. A* Search"]
+                            },
+                            {
+                                topic: "A* Search Algorithm",
+                                explanation: [
+                                    "A* is the most widely-used informed search algorithm.",
+                                    "It combines the path cost so far (g(n)) with an estimated cost to the goal (h(n)).",
+                                    "The evaluation function is f(n) = g(n) + h(n).",
+                                    "It is both complete and optimal, meaning it always finds the best solution."
+                                ],
+                                example: "Google Maps uses it to find the fastest route by considering the distance already traveled and the estimated remaining distance.",
+                                examFocus: ["The formula f(n) = g(n) + h(n)", "Why A* is optimal"]
+                            }
+                        ]
                     },
                     { 
-                        unit: "UNIT - II", 
-                        topics: [
-                          { topic: "Adversarial Search and Propositional Logic", explanation: "Explanation coming soon." }
-                        ] 
+                        unit: "UNIT - II: Adversarial Search and Propositional Logic",
+                        priority: "Medium", 
+                        topics: [{ topic: "Placeholder Topic", explanation: ["Explanation coming soon."], examFocus: [] }]
                     },
                     { 
-                        unit: "UNIT - III", 
-                        topics: [
-                          { topic: "Logic and Knowledge Representation", explanation: "Explanation coming soon." }
-                        ] 
+                        unit: "UNIT - III: Logic and Knowledge Representation", 
+                        priority: "High",
+                        topics: [{ topic: "Placeholder Topic", explanation: ["Explanation coming soon."], examFocus: [] }]
                     },
                     { 
-                        unit: "UNIT - IV", 
-                        topics: [
-                          { topic: "Knowledge Representation and Classical Planning", explanation: "Explanation coming soon." }
-                        ] 
+                        unit: "UNIT - IV: Classical Planning", 
+                        priority: "Medium",
+                        topics: [{ topic: "Placeholder Topic", explanation: ["Explanation coming soon."], examFocus: [] }]
                     },
                     { 
-                        unit: "UNIT - V", 
-                        topics: [
-                          { topic: "Uncertain knowledge and Learning Uncertainty", explanation: "Explanation coming soon." }
-                        ] 
+                        unit: "UNIT - V: Learning", 
+                        priority: "Low",
+                        topics: [{ topic: "Placeholder Topic", explanation: ["Explanation coming soon."], examFocus: [] }]
                     }
                 ]
             },
