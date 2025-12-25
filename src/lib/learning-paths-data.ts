@@ -2462,4 +2462,13 @@ export const learningPaths = [
     topics: [],
     assignments: [],
   },
+  {
+    id: "express-js",
+    title: "Express.js",
+    description: "Learn the fast, unopinionated, minimalist web framework for Node.js.",
+    category: "Frameworks & Libraries",
+    subCategory: "Backend Web Frameworks",
+    topics: [],
+    assignments: [],
+  }
 ];
