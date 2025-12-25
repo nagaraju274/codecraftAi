@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import { AuthGuard } from "@/components/auth/auth-guard";
@@ -364,7 +365,7 @@ const mistakes = [
     "Not understanding the difference between `==` and `is`.",
     "Modifying a list while iterating over it.",
     "Ignoring virtual environments, leading to dependency hell.",
-from `requests` and `BeautifulSoup`.",
+    "Thinking Python is slow without understanding how to use optimized libraries like NumPy.",
     "Not following the PEP 8 style guide, making code harder to read.",
     "Re-inventing the wheel instead of using Python's extensive standard library.",
     "Using floating-point numbers for financial calculations without using the `Decimal` type.",
