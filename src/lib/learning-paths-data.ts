@@ -2,82 +2,13 @@
 
 export const learningPaths = [
   {
-    id: "beginners-guide-to-python",
-    title: "Beginner's Guide to Python",
-    description: "These tutorials will provide you with a solid foundation in Python and prepare you for your career goals.",
+    id: "python",
+    title: "Python",
+    description: "Learn the versatile Python language, from fundamentals to advanced specialization.",
     category: "Programming Languages",
     subCategory: "General-Purpose Languages",
-    topics: [
-      {
-        title: "Introduction",
-        points: [
-            { text: "Explore the origins of Python, its evolution since the late 1980s, and understand its design philosophy emphasizing code readability and simplicity. Discover key features like dynamic typing, automatic memory management, and its extensive standard library.", resources: [{ name: "Python History", url: "https://en.wikipedia.org/wiki/History_of_Python" }] },
-            { text: "Delve into the reasons for Python's widespread adoption, including its versatility in web development, data science, AI, and automation. Learn about its large and supportive community.", resources: [{ name: "Why Python?", url: "https://www.python.org/doc/essays/blurb/" }] },
-            { text: "Get everything you need to start coding in Python on your computer. This includes installing the Python interpreter and setting up a code editor like VS Code with helpful extensions.", resources: [{ name: "Download Python", url: "https://www.python.org/downloads/" }, { name: "VS Code Setup", url: "https://code.visualstudio.com/docs/python/python-tutorial" }] },
-        ],
-      },
-      {
-        title: "Python Fundamentals",
-        points: [
-            { text: "Understand how to store and manage different kinds of information. You'll learn about fundamental data types such as integers for whole numbers, floats for decimal numbers, strings for text, and booleans for true/false values.", resources: [{ name: "Data Types", url: "https://www.w3schools.com/python/python_datatypes.asp" }] },
-            { text: "Learn to make your programs interactive by getting input from the user and displaying information back to them in the console.", resources: [{ name: "Input and Output", url: "https://www.geeksforgeeks.org/taking-input-in-python/" }] },
-            { text: "Master the basic building blocks of Python expressions. This includes arithmetic operators (+, -, *, /), string concatenation, and comparison operators (==, !=, <, >).", resources: [{ name: "Operators", url: "https://www.w3schools.com/python/python_operators.asp" }] },
-        ],
-      },
-      {
-        title: "Python Flow Control",
-        points: [
-            { text: "Learn how to make decisions in your code. Use 'if', 'elif' (else if), and 'else' statements to execute different blocks of code based on specific conditions.", resources: [{ name: "If...Else", url: "https://www.w3schools.com/python/python_conditions.asp" }] },
-            { text: "Discover how to perform repetitive tasks efficiently. You'll learn about 'for' loops, which are great for iterating over a sequence of items, and 'while' loops, which continue as long as a condition is true.", resources: [{ name: "For Loops", url: "https://www.w3schools.com/python/python_for_loops.asp" }, { name: "While Loops", url: "https://www.w3schools.com/python/python_while_loops.asp" }] },
-            { text: "Gain more control over your loops. The 'break' statement allows you to exit a loop early, while 'continue' lets you skip the current iteration and move to the next.", resources: [{ name: "Break and Continue", url: "https://www.w3schools.com/python/python_for_loops.asp" }] },
-        ],
-      },
-      {
-        title: "Python Data Types",
-        points: [
-            { text: "Learn to use lists to store collections of items that can be changed (mutable). You'll practice adding, removing, and accessing elements in a list.", resources: [{ name: "Lists", url: "https://www.w3schools.com/python/python_lists.asp" }] },
-            { text: "Understand tuples, which are similar to lists but cannot be changed (immutable). They are useful for storing data that should not be modified.", resources: [{ name: "Tuples", url: "https://www.w3schools.com/python/python_tuples.asp" }] },
-            { text: "Explore dictionaries for storing data in key-value pairs, allowing for fast lookups. Also, learn about sets for storing unique elements and performing mathematical set operations.", resources: [{ name: "Dictionaries", url: "https://www.w3schools.com/python/python_dictionaries.asp" }, { name: "Sets", url: "https://www.w3schools.com/python/python_sets.asp" }] },
-        ],
-      },
-      {
-        title: "Python Functions",
-        points: [
-            { text: "Learn to write reusable blocks of code called functions. This helps in organizing your code and making it more modular and readable.", resources: [{ name: "Functions", url: "https://www.w3schools.com/python/python_functions.asp" }] },
-            { text: "Understand how to pass information into functions using arguments and how to get results back using return values.", resources: [{ name: "Function Arguments", url: "https://www.w3schools.com/python/python_functions.asp#Arguments" }] },
-            { text: "Grasp the concept of variable scope, which determines where variables can be accessed. Also, learn about lambda functions for creating small, anonymous functions.", resources: [{ name: "Scope", url: "https://www.w3schools.com/python/python_scope.asp" }, { name: "Lambda", url: "https://www.w3schools.com/python/python_lambda.asp" }] },
-        ],
-      },
-      {
-        title: "Python Files",
-        points: [
-            { text: "Learn how to open and read data from text files, allowing your programs to work with external data sources.", resources: [{ name: "Read Files", url: "https://www.w3schools.com/python/python_file_read.asp" }] },
-            { text: "Discover how to write new data to files or append content to existing ones, enabling you to save program output and create logs.", resources: [{ name: "Write/Create Files", url: "https://www.w3schools.com/python/python_file_write.asp" }] },
-            { text: "Understand the different modes for file handling (read, write, append) and learn best practices, such as using the 'with' statement to ensure files are closed properly.", resources: [{ name: "File Handling", url: "https://www.w3schools.com/python/python_file_handling.asp" }] },
-        ],
-      },
-      {
-        title: "Python Exception Handling",
-        points: [
-            { text: "Learn to anticipate and manage errors in your code using 'try...except' blocks. This prevents your program from crashing and allows you to handle issues gracefully.", resources: [{ name: "Try...Except", url: "https://www.w3schools.com/python/python_try_except.asp" }] },
-            { text: "Go beyond generic error handling by catching specific types of exceptions. This allows you to respond differently to different error scenarios.", resources: [{ name: "Exception Handling", url: "https://realpython.com/python-exceptions/" }] },
-            { text: "Understand the 'finally' clause, which lets you execute cleanup code (like closing a file) regardless of whether an error occurred or not.", resources: [{ name: "Finally", url: "https://www.w3schools.com/python/python_try_except.asp#Finally" }] },
-        ],
-      },
-      {
-        title: "Python Object and Class",
-        points: [
-            { text: "Get an introduction to the core principles of Object-Oriented Programming (OOP), a powerful paradigm for structuring your code.", resources: [{ name: "Python OOP", url: "https://www.w3schools.com/python/python_oop.asp" }] },
-            { text: "Learn how to define your own custom data types using classes and how to create instances of those classes, called objects.", resources: [{ name: "Classes/Objects", url: "https://www.w3schools.com/python/python_classes.asp" }] },
-            { text: "Explore advanced OOP concepts like inheritance (creating new classes from existing ones), encapsulation (bundling data and methods), and polymorphism (using a single interface for different data types).", resources: [{ name: "Inheritance", url: "https://www.w3schools.com/python/python_inheritance.asp" }] },
-        ],
-      },
-    ],
-    assignments: [
-        { title: "Simple Calculator", description: "Create a command-line program that takes two numbers and an operator (+, -, *, /) as input and prints the result." },
-        { title: "Guess the Number Game", description: "Write a program where the computer picks a random number and the user has to guess it. The program should give hints like 'too high' or 'too low'." },
-        { title: "To-Do List Manager", description: "Build a simple to-do list application that can add tasks, view all tasks, and mark tasks as complete. Store the tasks in a list." }
-    ]
+    topics: [],
+    assignments: []
   },
   {
     id: "javascript-for-beginners",
@@ -530,7 +461,7 @@ export const learningPaths = [
         { title: "URL Shortener API", description: "Using Node.js/Express or Python/Flask, build a REST API that takes a long URL and returns a unique short URL. When a user visits the short URL, they should be redirected to the original long URL." },
         { title: "Database-Backed Blog API", description: "Create a REST API for a blog. It should have endpoints for creating, reading, updating, and deleting posts. All post data must be stored in a SQL database like PostgreSQL." },
         { title: "Basic User Authentication", description: "Build an API with two endpoints: `/register` and `/login`. The register endpoint should save a new user with a hashed password to a database. The login endpoint should authenticate the user and return a JWT." }
-    ]
+    ],
   },
   {
     id: "database-administrator",
@@ -1722,113 +1653,6 @@ export const learningPaths = [
     ]
   },
   {
-    id: "powershell-for-automation-and-administration",
-    title: "PowerShell for Automation and Administration",
-    description: "Learn the command-line shell and scripting language from Microsoft to automate tasks and manage systems.",
-    category: "Programming Languages",
-    subCategory: "Scripting & Automation",
-    topics: [
-      {
-        title: "Introduction to PowerShell",
-        points: [
-          { text: "Understand what PowerShell is, its core concepts (cmdlets, objects, pipeline), and its role in system administration.", resources: [{ name: "What is PowerShell?", url: "https://learn.microsoft.com/en-us/powershell/scripting/overview" }] },
-          { text: "Learn to use the integrated help system with `Get-Help` to discover commands and understand their usage.", resources: [{ name: "Discovering commands", url: "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/05-discovering-commands" }] },
-        ],
-      },
-      {
-        title: "Core Concepts",
-        points: [
-          { text: "Master working with cmdlets and understanding the Verb-Noun naming convention.", resources: [{ name: "Understanding cmdlets", url: "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/04-cmdlets" }] },
-          { text: "Grasp the power of the pipeline to chain commands together, passing objects from one cmdlet to the next.", resources: [{ name: "The Pipeline", url: "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/06-pipeline" }] },
-          { text: "Learn how to filter (`Where-Object`) and select (`Select-Object`) objects in the pipeline.", resources: [{ name: "Filtering and Selecting", url: "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/07-working-with-objects" }] },
-        ],
-      },
-      {
-        title: "PowerShell Scripting",
-        points: [
-          { text: "Learn how to declare and use variables, and understand PowerShell's data types.", resources: [{ name: "Variables", url: "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_variables" }] },
-          { text: "Use control flow operators like `if`, `else`, and `switch` to make decisions in your scripts.", resources: [{ name: "If/Else", url: "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_if" }] },
-          { text: "Learn to use loops like `ForEach-Object`, `for`, and `while` to perform repetitive tasks.", resources: [{ name: "Loops", url: "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_loops" }] },
-          { text: "Write your own functions to create reusable and modular scripts.", resources: [{ name: "Functions", url: "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions" }] },
-        ],
-      },
-      {
-        title: "Advanced Topics",
-        points: [
-          { text: "Learn to handle errors in your scripts using `Try-Catch-Finally` blocks.", resources: [{ name: "Error Handling", url: "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally" }] },
-          { text: "Explore PowerShell Remoting to run commands and scripts on remote computers.", resources: [{ name: "Running Remote Commands", url: "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/08-running-remote-commands" }] },
-          { text: "Understand how to work with different data formats like CSV, JSON, and XML.", resources: [{ name: "Working with data", url: "https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/13-working-with-data" }] },
-        ],
-      },
-      {
-        title: "Administration and Modules",
-        points: [
-          { text: "Learn how to find, install, and use modules from the PowerShell Gallery to extend PowerShell's capabilities.", resources: [{ name: "PowerShellGet", url: "https://learn.microsoft.com/en-us/powershell/module/powershellget" }] },
-          { text: "Use PowerShell to manage Windows systems, including working with services, processes, and the event log.", resources: [] },
-          { text: "Get an introduction to managing Active Directory with the dedicated PowerShell module.", resources: [{ name: "Active Directory Cmdlets", url: "https://learn.microsoft.com/en-us/powershell/module/activedirectory" }] },
-        ],
-      },
-    ],
-    assignments: [
-        { title: "Get Running Processes", description: "Write a PowerShell script that gets all the running processes on your computer, filters them to show only those consuming more than 100MB of memory, and sorts the result by memory usage." },
-        { title: "Check Service Status", description: "Create a script that checks if a specific Windows service (e.g., 'Spooler') is running. If it's running, it should print 'Service is running'; otherwise, it should print 'Service is stopped'." },
-        { title: "Export Data to CSV", description: "Write a script that retrieves a list of all services on the system and exports their Name, Status, and StartType to a CSV file." }
-    ]
-  },
-  {
-    id: "matlab-for-engineers-and-scientists",
-    title: "MATLAB for Engineers and Scientists",
-    description: "Learn the high-performance language for technical computing, used extensively by engineers and scientists.",
-    category: "Programming Languages",
-    subCategory: "Data Science & Analytics",
-    topics: [
-      {
-        title: "Introduction to the MATLAB Environment",
-        points: [
-          { text: "Familiarize yourself with the MATLAB desktop, including the Command Window, Workspace, Current Folder, and Editor.", resources: [{ name: "MATLAB Environment", url: "https://www.mathworks.com/help/matlab/learn_matlab/desktop.html" }] },
-          { text: "Learn how to use MATLAB as a calculator, defining variables and using basic arithmetic operators.", resources: [{ name: "Entering Commands", url: "https://www.mathworks.com/help/matlab/learn_matlab/entering-commands.html" }] },
-        ],
-      },
-      {
-        title: "Matrices and Arrays",
-        points: [
-          { text: "Understand that the fundamental data type in MATLAB is the array. Learn how to create row vectors, column vectors, and matrices.", resources: [{ name: "Creating Matrices", url: "https://www.mathworks.com/help/matlab/learn_matlab/creating-matrices-and-arrays.html" }] },
-          { text: "Perform matrix and array operations, including addition, subtraction, and element-wise operations.", resources: [{ name: "Array Indexing", url: "https://www.mathworks.com/help/matlab/learn_matlab/array-indexing.html" }] },
-          { text: "Learn about matrix multiplication, division, and inverse operations, which are fundamental to linear algebra.", resources: [{ name: "Matrix Operations", url: "https://www.mathworks.com/help/matlab/learn_matlab/matrix-and-array-operations.html" }] },
-        ],
-      },
-      {
-        title: "Data Visualization",
-        points: [
-          { text: "Create 2-D plots using the `plot` function to visualize your data. Learn to add titles, labels, and legends to your graphs.", resources: [{ name: "2-D Plots", url: "https://www.mathworks.com/help/matlab/learn_matlab/plots.html" }] },
-          { text: "Explore other types of plots, including bar charts, histograms, and scatter plots, to represent different kinds of data.", resources: [] },
-          { text: "Learn to create 3-D plots using functions like `surf` and `mesh` to visualize data in three dimensions.", resources: [{ name: "3-D Plots", url: "https://www.mathworks.com/help/matlab/visualize/creating-3-d-plots.html" }] },
-        ],
-      },
-      {
-        title: "Programming with MATLAB",
-        points: [
-          { text: "Learn to write scripts to automate sequences of commands. Understand the difference between scripts and functions.", resources: [{ name: "Scripts and Functions", url: "https://www.mathworks.com/help/matlab/learn_matlab/scripts-and-functions.html" }] },
-          { text: "Use relational and logical operators to make decisions in your code.", resources: [{ name: "Logical Operations", url: "https://www.mathworks.com/help/matlab/learn_matlab/logical-operations.html" }] },
-          { text: "Control the flow of your programs with conditional statements (`if/else`) and loops (`for`, `while`).", resources: [{ name: "Control Flow", url: "https://www.mathworks.com/help/matlab/control-flow.html" }] },
-        ],
-      },
-      {
-        title: "Data Analysis",
-        points: [
-          { text: "Learn to import data from various file types, such as text files, spreadsheets, and MAT-files.", resources: [{ name: "Data Import and Export", url: "https://www.mathworks.com/help/matlab/import_export/supported-file-formats.html" }] },
-          { text: "Perform basic statistical analysis, including calculating mean, standard deviation, and correlation.", resources: [{ name: "Descriptive Statistics", url: "https://www.mathworks.com/help/matlab/data_analysis/descriptive-statistics.html" }] },
-          { text: "Explore data fitting techniques to model the relationship between variables, including polynomial and linear regression.", resources: [{ name: "Curve Fitting", url: "https://www.mathworks.com/help/curvefit/curve-fitting.html" }] },
-        ],
-      },
-    ],
-    assignments: [
-        { title: "Vector Operations", description: "Create two vectors in MATLAB. Calculate their sum, the element-wise product, and the dot product." },
-        { title: "Plot a Sine Wave", description: "Create a vector of values from 0 to 2*pi. Calculate the sine of these values and create a 2D plot of the results. Add a title and labels for the x and y axes." },
-        { title: "Simple MATLAB Function", description: "Write a MATLAB function that takes a vector of numbers as input and returns the average of those numbers without using the built-in `mean` function." }
-    ]
-  },
-  {
     id: "sas-programming-for-data-analysis",
     title: "SAS Programming for Data Analysis",
     description: "Learn the fundamentals of SAS, the powerful software suite for advanced analytics, business intelligence, data management, and predictive analytics.",
@@ -2399,7 +2223,7 @@ export const learningPaths = [
         { title: "Build a Full-Stack Blog", description: "Create a complete blog application with a React frontend, a Node.js/Express backend API, and a PostgreSQL database. Users should be able to create, read, update, and delete posts." },
         { title: "Containerize an Application", description: "Take a simple web application you've built and write a Dockerfile for it. Then, use Docker Compose to run the application along with its database in separate containers." },
         { title: "Set Up a CI/CD Pipeline", description: "Create a project on GitHub and set up a basic CI/CD pipeline using GitHub Actions that automatically runs tests every time you push a new commit." }
-    ]
+    ],
   },
   {
     id: "ai-ml-engineer",
