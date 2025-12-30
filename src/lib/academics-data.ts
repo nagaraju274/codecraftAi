@@ -80,7 +80,6 @@ export const academicsData: AcademicsData = {
             { id: "cs505", name: "Open Elective - I", description: "Choose a subject from other disciplines." },
         ],
         "6": [
-            { id: "cs601", name: "Compiler Design", description: "Learn how compilers are designed and built." },
             { id: "cs602", name: "Cryptography & Network Security", description: "Study of encryption and network security." },
             { id: "cs603", name: "Data Warehousing & Data Mining", description: "Concepts of data storage and analysis." },
             { id: "cs604", name: "Professional Elective - II", description: "Choose a subject of interest." },
@@ -237,7 +236,7 @@ export const academicsData: AcademicsData = {
             { id: "cs402", name: "Software Engineering", description: "Principles of software development." },
             { id: "ai403", name: "Foundations of AI & ML", description: "Introduction to core AI and ML concepts." },
             { id: "cs404", name: "Formal Languages and Automata Theory", description: "Study of abstract machines." },
-            { id: "py405", name: "Python for Data Science", description: "Python libraries for data science.", relatedRoadmapId: "beginners-guide-to-python" },
+            { id: "py405", name: "Python for Data Science", description: "Python libraries for data science.", relatedRoadmapId: "python" },
         ],
         "5": [
             { id: "ai501", name: "Machine Learning", description: "Supervised, unsupervised, and reinforcement learning.", relatedRoadmapId: "data-analyst" },
@@ -248,7 +247,6 @@ export const academicsData: AcademicsData = {
         ],
         "6": [
             { id: "ai601", name: "Deep Learning", description: "Neural networks and deep learning architectures." },
-            { id: "cs602", name: "Compiler Design", description: "Principles of compiler construction." },
             { id: "ai603", name: "AI Ethics and Governance", description: "Ethical implications of AI." },
             { id: "cs604", name: "Professional Elective - II (e.g., Reinforcement Learning)", description: "Advanced elective." },
             { id: "cs605", name: "Open Elective - II", description: "Interdisciplinary subject." },
@@ -290,7 +288,7 @@ export const academicsData: AcademicsData = {
         "4": [
             { id: "cs401", name: "Operating Systems", description: "Core concepts of an OS." },
             { id: "cs402", name: "Database Management Systems", description: "Database design and SQL.", relatedRoadmapId: "sql" },
-            { id: "py403", name: "Python for Data Science", description: "Using Python libraries like Pandas, NumPy, and Matplotlib.", relatedRoadmapId: "beginners-guide-to-python" },
+            { id: "py403", name: "Python for Data Science", description: "Using Python libraries like Pandas, NumPy, and Matplotlib.", relatedRoadmapId: "python" },
             { id: "cs404", name: "Software Engineering", description: "Principles of software development." },
             { id: "ds405", name: "Data Warehousing", description: "Concepts of data storage for analytics." },
         ],
@@ -347,7 +345,7 @@ export const academicsData: AcademicsData = {
             { id: "cs402", name: "Computer Networks", description: "Functioning of computer networks.", relatedRoadmapId: "networking-basics" },
             { id: "cy403", name: "Information Security", description: "Fundamentals of cybersecurity." },
             { id: "cs404", name: "Software Engineering", description: "Principles of software development." },
-            { id: "cy405", name: "Python for Security", description: "Using Python for security scripting.", relatedRoadmapId: "beginners-guide-to-python" },
+            { id: "cy405", name: "Python for Security", description: "Using Python for security scripting.", relatedRoadmapId: "python" },
         ],
         "5": [
             { id: "cy501", name: "Cryptography", description: "Symmetric and asymmetric encryption algorithms." },
@@ -358,7 +356,6 @@ export const academicsData: AcademicsData = {
         ],
         "6": [
             { id: "cy601", name: "Cyber Forensics", description: "Investigation of digital crimes." },
-            { id: "cs602", name: "Compiler Design", description: "Principles of compiler construction." },
             { id: "cy603", name: "Application Security", description: "Securing web and mobile applications." },
             { id: "cs604", name: "Professional Elective - II (e.g., Malware Analysis)", description: "Advanced elective." },
             { id: "cs605", name: "Open Elective - II", description: "Interdisciplinary subject." },
@@ -379,7 +376,7 @@ export const academicsData: AcademicsData = {
     "csbs": {
         "1": [
             { id: "ma101", name: "Business Mathematics - I", description: "Calculus and statistical methods for business." },
-            { id: "cs102", name: "Programming for Problem Solving (Python)", description: "Introduction to Python programming.", relatedRoadmapId: "beginners-guide-to-python" },
+            { id: "cs102", name: "Programming for Problem Solving (Python)", description: "Introduction to Python programming.", relatedRoadmapId: "python" },
             { id: "bs103", name: "Principles of Management", description: "Fundamentals of management theory." },
             { id: "ee104", name: "Basic Electrical & Electronics Engineering", description: "Fundamentals of circuits." },
             { id: "en105", name: "Business Communication", description: "Professional communication skills." },
@@ -521,7 +518,7 @@ export const academicsData: AcademicsData = {
         "6": [
             { id: "it601", name: "Cryptography & Network Security", description: "Study of encryption and network security." },
             { id: "it602", name: "Artificial Intelligence", description: "Introduction to AI and expert systems." },
-            { id: "it603", "name": "Python Programming", "description": "Learn the versatile Python language.", "relatedRoadmapId": "beginners-guide-to-python" },
+            { id: "it603", "name": "Python Programming", "description": "Learn the versatile Python language.", "relatedRoadmapId": "python" },
             { id: "it604", name: "Professional Elective - II", description: "Choose a subject of interest." },
             { id: "it605", name: "Open Elective - I", description: "Choose a subject from other disciplines." },
         ],
