@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { BookOpen, Rocket, Target, CheckCircle } from 'lucide-react';
+import { BookOpen, Rocket, Target, CheckCircle, ArrowRight } from 'lucide-react';
 
 const features = [
   {
@@ -10,7 +10,8 @@ const features = [
     title: "Prepare for Exams",
     description: "Subjects, Units, Exam Focus",
     href: "/academics",
-    buttonText: "Start Studying"
+    buttonText: "Start Studying",
+    variant: "default"
   },
   {
     icon: <Rocket className="w-10 h-10 text-primary" />,
@@ -25,7 +26,9 @@ const features = [
     title: "Placement Preparation",
     description: "Resume, Aptitude, DSA, Interview Prep",
     href: "/placement",
-    buttonText: "Start Preparing"
+    buttonText: "Start Preparing",
+    variant: "default",
+    buttonClass: "bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-800"
   }
 ];
 
@@ -63,14 +66,15 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="flex flex-col text-left p-6 bg-background shadow-lg hover:shadow-xl transition-shadow">
-                  {feature.icon}
+              <Card key={index} className="flex flex-col text-center items-center p-6 bg-background shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="flex-shrink-0">{feature.icon}</div>
                   <CardTitle className="mt-4 text-2xl">{feature.title}</CardTitle>
                   <p className="text-muted-foreground mt-1 flex-grow">{feature.description}</p>
-                <div className="mt-6">
-                  <Button asChild className="w-full" variant={feature.variant === 'secondary' ? 'secondary' : 'default'}>
+                <div className="mt-6 w-full">
+                   <Button asChild className={`w-full ${feature.buttonClass || ''}`} variant={feature.variant as "default" | "secondary" | "destructive" | "outline" | "ghost" | "link" | null | undefined}>
                     <Link href={feature.href}>
                       {feature.buttonText}
+                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                 </div>
