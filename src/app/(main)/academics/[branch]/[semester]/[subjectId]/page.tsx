@@ -4,7 +4,7 @@
 import { useParams, notFound } from "next/navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, Check, HelpCircle, Target } from "lucide-react";
 import Link from "next/link";
 import { AuthGuard } from "@/components/auth/auth-guard";
 import { academicsData, branchNames } from "@/lib/academics-data";
@@ -97,20 +97,41 @@ export default function SubjectPage() {
                         </CardHeader>
                         <CardContent className="space-y-2">
                            {subject.syllabus && subject.syllabus.length > 0 ? (
-                            <Accordion type="multiple" className="w-full">
+                            <Accordion type="single" collapsible className="w-full">
                                 {subject.syllabus.map((item, index) => (
                                     <AccordionItem value={`item-${index}`} key={index}>
-                                        <AccordionTrigger className="text-lg">{item.unit}</AccordionTrigger>
-                                        <AccordionContent>
-                                            <div className="space-y-6 pl-4">
-                                                {item.topics.map((topic, topicIndex) => (
-                                                    <div key={topicIndex}>
-                                                        <h4 className="font-semibold text-base mb-1">{topic.topic}</h4>
-                                                        <p className="text-muted-foreground text-base mb-2">{topic.explanation}</p>
-                                                        {topic.example && <p className="text-sm text-muted-foreground italic"><span className="font-semibold not-italic">Example:</span> {topic.example}</p>}
+                                        <AccordionTrigger className="text-lg font-semibold hover:no-underline">
+                                            {item.unit}
+                                        </AccordionTrigger>
+                                        <AccordionContent className="pt-2 space-y-6">
+                                            {item.topics.map((topic, topicIndex) => (
+                                                <div key={topicIndex} className="space-y-4 p-4 border rounded-lg">
+                                                    <h4 className="font-semibold text-base">{topic.topic}</h4>
+                                                    
+                                                    <div className="space-y-2">
+                                                        <p className="font-semibold text-sm flex items-center gap-2"><HelpCircle className="h-4 w-4 text-primary" /> Why it's important:</p>
+                                                        <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
+                                                          {topic.explanation.map((point, i) => <li key={i}>{point}</li>)}
+                                                        </ul>
                                                     </div>
-                                                ))}
-                                            </div>
+
+                                                    {topic.example && (
+                                                      <div className="space-y-2">
+                                                          <p className="font-semibold text-sm flex items-center gap-2"><Lightbulb className="h-4 w-4 text-yellow-400" /> Example:</p>
+                                                          <p className="text-sm text-muted-foreground italic bg-muted/50 p-2 rounded-md">{topic.example}</p>
+                                                      </div>
+                                                    )}
+
+                                                    {topic.examFocus && topic.examFocus.length > 0 && (
+                                                      <div className="space-y-2">
+                                                          <p className="font-semibold text-sm flex items-center gap-2"><Target className="h-4 w-4 text-destructive" /> Exam Focus:</p>
+                                                          <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1">
+                                                              {topic.examFocus.map((focus, i) => <li key={i}>{focus}</li>)}
+                                                          </ul>
+                                                      </div>
+                                                    )}
+                                                </div>
+                                            ))}
                                         </AccordionContent>
                                     </AccordionItem>
                                 ))}
