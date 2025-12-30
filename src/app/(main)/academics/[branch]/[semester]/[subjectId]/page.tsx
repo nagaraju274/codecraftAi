@@ -4,7 +4,7 @@
 import { useParams, notFound } from "next/navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, BookOpen, Check, HelpCircle, Target } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, Check, HelpCircle, Target, Lightbulb } from "lucide-react";
 import Link from "next/link";
 import { AuthGuard } from "@/components/auth/auth-guard";
 import { academicsData, branchNames } from "@/lib/academics-data";
