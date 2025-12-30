@@ -80,7 +80,6 @@ export const academicsData: AcademicsData = {
             { id: "cs505", name: "Open Elective - I", description: "Choose a subject from other disciplines." },
         ],
         "6": [
-            { id: "cs604", name: "Professional Elective - II", description: "Choose a subject of interest." },
             { id: "cs605", name: "Open Elective - II", description: "Choose a subject from other disciplines." },
             { 
                 id: "cs606", 
@@ -246,7 +245,6 @@ export const academicsData: AcademicsData = {
         "6": [
             { id: "ai601", name: "Deep Learning", description: "Neural networks and deep learning architectures." },
             { id: "ai603", name: "AI Ethics and Governance", description: "Ethical implications of AI." },
-            { id: "cs604", name: "Professional Elective - II (e.g., Reinforcement Learning)", description: "Advanced elective." },
             { id: "cs605", name: "Open Elective - II", description: "Interdisciplinary subject." },
         ],
         "7": [
@@ -288,7 +286,6 @@ export const academicsData: AcademicsData = {
             { id: "cs402", name: "Database Management Systems", description: "Database design and SQL.", relatedRoadmapId: "sql" },
             { id: "py403", name: "Python for Data Science", description: "Using Python libraries like Pandas, NumPy, and Matplotlib.", relatedRoadmapId: "python" },
             { id: "cs404", name: "Software Engineering", description: "Principles of software development." },
-            { id: "ds405", name: "Data Warehousing", description: "Concepts of data storage for analytics." },
         ],
         "5": [
             { id: "ds501", name: "Machine Learning", description: "Supervised and unsupervised learning techniques.", relatedRoadmapId: "data-analyst" },
@@ -300,7 +297,6 @@ export const academicsData: AcademicsData = {
         "6": [
             { id: "ds601", name: "Deep Learning", description: "Neural networks and deep learning architectures." },
             { id: "ds602", name: "Business Intelligence", description: "Tools and techniques for BI." },
-            { id: "cs604", name: "Professional Elective - II (e.g., Stream Processing)", description: "Advanced elective." },
             { id: "cs605", name: "Open Elective - II", description: "Interdisciplinary subject." },
         ],
         "7": [
@@ -354,7 +350,6 @@ export const academicsData: AcademicsData = {
         "6": [
             { id: "cy601", name: "Cyber Forensics", description: "Investigation of digital crimes." },
             { id: "cy603", name: "Application Security", description: "Securing web and mobile applications." },
-            { id: "cs604", name: "Professional Elective - II (e.g., Malware Analysis)", description: "Advanced elective." },
             { id: "cs605", name: "Open Elective - II", description: "Interdisciplinary subject." },
         ],
         "7": [
@@ -409,7 +404,6 @@ export const academicsData: AcademicsData = {
             { id: "bs601", name: "Strategic Management", description: "Business strategy and policy." },
             { id: "cs602", name: "Cyber Security", description: "Fundamentals of cybersecurity." },
             { id: "ds603", name: "Predictive Modeling", description: "Building predictive models." },
-            { id: "cs604", name: "Professional Elective - II (e.g., FinTech)", description: "Advanced elective." },
             { id: "cs605", name: "Open Elective - II", description: "Interdisciplinary subject." },
         ],
         "7": [
@@ -462,7 +456,6 @@ export const academicsData: AcademicsData = {
             { id: "ec601", name: "Antennas and Propagation", description: "Study of antenna theory." },
             { id: "ec602", name: "Digital Signal Processing", description: "Processing of digital signals." },
             { id: "ec603", name: "Object Oriented Programming through Java", description: "Core Java and OOP concepts.", relatedRoadmapId: "java" },
-            { id: "ec604", name: "Professional Elective - II", description: "Choose a subject of interest." },
             { id: "ec605", name: "Open Elective - I", description: "Choose a subject from other disciplines." },
         ],
         "7": [
@@ -514,7 +507,6 @@ export const academicsData: AcademicsData = {
         "6": [
             { id: "it602", name: "Artificial Intelligence", description: "Introduction to AI and expert systems." },
             { id: "it603", "name": "Python Programming", "description": "Learn the versatile Python language.", "relatedRoadmapId": "python" },
-            { id: "it604", name: "Professional Elective - II", description: "Choose a subject of interest." },
             { id: "it605", name: "Open Elective - I", description: "Choose a subject from other disciplines." },
         ],
         "7": [
