@@ -81,7 +81,6 @@ export const academicsData: AcademicsData = {
         ],
         "6": [
             { id: "cs602", name: "Cryptography & Network Security", description: "Study of encryption and network security." },
-            { id: "cs603", name: "Data Warehousing & Data Mining", description: "Concepts of data storage and analysis." },
             { id: "cs604", name: "Professional Elective - II", description: "Choose a subject of interest." },
             { id: "cs605", name: "Open Elective - II", description: "Choose a subject from other disciplines." },
             { 
@@ -512,7 +511,6 @@ export const academicsData: AcademicsData = {
         "5": [
             { id: "it501", name: "Computer Networks", description: "Explore how computer networks function.", relatedRoadmapId: "networking-basics" },
             { id: "it502", name: "Web Technologies", description: "Learn to build web applications.", relatedRoadmapId: "full-stack-web-development" },
-            { id: "it503", name: "Data Warehousing and Data Mining", description: "Concepts of data storage and analysis." },
             { id: "cs504", name: "Professional Elective - I", description: "Choose a subject of interest." },
         ],
         "6": [
