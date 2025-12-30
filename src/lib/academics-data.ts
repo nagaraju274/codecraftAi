@@ -80,7 +80,6 @@ export const academicsData: AcademicsData = {
             { id: "cs505", name: "Open Elective - I", description: "Choose a subject from other disciplines." },
         ],
         "6": [
-            { id: "cs602", name: "Cryptography & Network Security", description: "Study of encryption and network security." },
             { id: "cs604", name: "Professional Elective - II", description: "Choose a subject of interest." },
             { id: "cs605", name: "Open Elective - II", description: "Choose a subject from other disciplines." },
             { 
@@ -301,7 +300,6 @@ export const academicsData: AcademicsData = {
         "6": [
             { id: "ds601", name: "Deep Learning", description: "Neural networks and deep learning architectures." },
             { id: "ds602", name: "Business Intelligence", description: "Tools and techniques for BI." },
-            { id: "cs603", name: "Cryptography & Network Security", description: "Study of encryption and network security." },
             { id: "cs604", name: "Professional Elective - II (e.g., Stream Processing)", description: "Advanced elective." },
             { id: "cs605", name: "Open Elective - II", description: "Interdisciplinary subject." },
         ],
@@ -514,7 +512,6 @@ export const academicsData: AcademicsData = {
             { id: "cs504", name: "Professional Elective - I", description: "Choose a subject of interest." },
         ],
         "6": [
-            { id: "it601", name: "Cryptography & Network Security", description: "Study of encryption and network security." },
             { id: "it602", name: "Artificial Intelligence", description: "Introduction to AI and expert systems." },
             { id: "it603", "name": "Python Programming", "description": "Learn the versatile Python language.", "relatedRoadmapId": "python" },
             { id: "it604", name: "Professional Elective - II", description: "Choose a subject of interest." },
