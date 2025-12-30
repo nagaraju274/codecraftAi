@@ -80,6 +80,19 @@ export const academicsData: AcademicsData = {
             { id: "cs505", name: "Open Elective - I", description: "Choose a subject from other disciplines." },
         ],
         "6": [
+            {
+                id: "cs601",
+                name: "Machine Learning",
+                description: "An introduction to the core concepts and algorithms of machine learning.",
+                relatedRoadmapId: "ai-ml-engineer",
+                syllabus: [
+                    { unit: "Unit 1: Introduction", topics: [{ topic: "Introduction to Machine Learning", explanation: ["Explanation coming soon."], examFocus: []}] },
+                    { unit: "Unit 2: Supervised Learning", topics: [{ topic: "Linear & Logistic Regression", explanation: ["Explanation coming soon."], examFocus: []}] },
+                    { unit: "Unit 3: Unsupervised Learning", topics: [{ topic: "Clustering, Dimensionality Reduction", explanation: ["Explanation coming soon."], examFocus: []}] },
+                    { unit: "Unit 4: Neural Networks", topics: [{ topic: "Introduction to Neural Networks", explanation: ["Explanation coming soon."], examFocus: []}] },
+                    { unit: "Unit 5: Advanced Topics", topics: [{ topic: "Introduction to NLP and Computer Vision", explanation: ["Explanation coming soon."], examFocus: []}] },
+                ]
+            },
             { 
                 id: "cs606", 
                 name: "Artificial Intelligence", 
