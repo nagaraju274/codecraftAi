@@ -6,8 +6,6 @@ import { BotMessageSquare, Menu } from 'lucide-react';
 import { Footer } from '@/components/layout/footer';
 // Import the Button component from the UI library.
 import { Button } from '@/components/ui/button';
-// Import the AuthButtons component for handling authentication-related UI.
-import { AuthButtons } from '@/components/layout/auth-buttons';
 // Import Sheet components for the mobile menu drawer.
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 
@@ -58,7 +56,7 @@ export default function LandingLayout({
             </nav>
             {/* Container for authentication buttons on medium screens and up. */}
             <div className="hidden md:flex items-center gap-2">
-                <AuthButtons />
+                {/* AuthButtons removed */}
             </div>
 
             {/* The mobile menu, hidden on medium screens and up. */}
@@ -85,7 +83,7 @@ export default function LandingLayout({
                             ))}
                             {/* Container for authentication buttons inside the mobile menu. */}
                             <div className="flex flex-col gap-2 pt-4">
-                                <AuthButtons />
+                                {/* AuthButtons removed */}
                             </div>
                         </nav>
                     </SheetContent>
