@@ -1,93 +1,76 @@
 
-
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Code, BookOpenCheck, ArrowRight } from 'lucide-react';
-import Image from 'next/image';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { BookOpen, Rocket, Target, CheckCircle } from 'lucide-react';
 
 const features = [
-    {
-        icon: <Code className="w-10 h-10 text-primary" />,
-        title: "Practice JavaScript",
-        description: "Experiment with code in a real-time editor with an integrated console. Run JavaScript snippets instantly.",
-        href: "/playground"
-    },
-    {
-        icon: <BookOpenCheck className="w-10 h-10 text-primary" />,
-        title: "Guided Road maps",
-        description: "Follow structured learning paths and build projects step-by-step to master new technologies.",
-        href: "/learn"
-    },
-    {
-        icon: <BookOpenCheck className="w-10 h-10 text-primary" />,
-        title: "Build Projects",
-        description: "Build projects step-by-step to master new technologies.",
-        href: "/projects"
-    }
+  {
+    icon: <BookOpen className="w-10 h-10 text-primary" />,
+    title: "Prepare for Exams",
+    description: "Subjects, Units, Exam Focus",
+    href: "/academics",
+    buttonText: "Start Studying"
+  },
+  {
+    icon: <Rocket className="w-10 h-10 text-primary" />,
+    title: "Build Career Skills",
+    description: "Job-Based Learning Paths",
+    href: "/learn",
+    buttonText: "Explore Roadmaps",
+    variant: "secondary"
+  },
+  {
+    icon: <Target className="w-10 h-10 text-primary" />,
+    title: "Placement Preparation",
+    description: "Resume, Aptitude, DSA, Interview Prep",
+    href: "/placement",
+    buttonText: "Start Preparing"
+  }
+];
+
+const platformHelps = [
+  "Clear subject-wise syllabus & exam-focused notes",
+  "Step-by-step career roadmaps (no confusion)",
+  "Beginner-friendly explanations with examples",
+  "Free and structured — no random content"
+];
+
+const whoIsThisFor = [
+  "B.Tech / CSE / IT students",
+  "Beginners with zero clarity",
+  "Anyone preparing for placements",
+  "Students confused about careers",
+  "Free and structured — no random content"
 ];
 
 export default function LandingPage() {
   return (
-    <div className="flex flex-col">
-      <section className="bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/20 dark:to-background">
-        <div className="container mx-auto px-4 sm:px-6 py-24 md:py-40 text-center">
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-foreground leading-tight">
-            The Future of Your Code, Reimagined.
+    <div className="flex flex-col bg-muted/20">
+      <section className="bg-background">
+        <div className="container mx-auto px-4 sm:px-6 py-20 md:py-28 text-center">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-foreground leading-tight">
+            Everything a B.Tech Student Needs – <br />
+            <span className="text-primary">Exams, Skills & Placements</span>
           </h1>
           <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
-            it is a free learning platform designed for B.Tech and CSE students. It provides structured roadmaps, skill-based learning paths, and placement assessments to guide students from basics to industry-ready expertise. The platform helps bridge the gap between academics, coding, and placements, empowering students to prepare smarter for their careers.
+            A free learning platform to help you pass semesters, build industry skills, and prepare for placements — step by step.
           </p>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="w-full sm:w-auto">
-              <Link href="/playground">Get Started</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
-              <Link href="#features">Explore More Products</Link>
-            </Button>
-          </div>
         </div>
       </section>
       
-      <section className="py-20">
+      <section className="py-16 -mt-16">
         <div className="container mx-auto px-4 sm:px-6">
-            <div className="relative aspect-video max-w-4xl mx-auto">
-                <Image 
-                    src="/home-hero.png" 
-                    alt="Screenshot of the CodeCraft AI platform showing the interactive playground with AI assistance features."
-                    fill
-                    priority
-                    className="rounded-xl shadow-2xl object-cover"
-                    data-ai-hint="app screenshot"
-                />
-            </div>
-        </div>
-      </section>
-
-      <section id="features" className="py-20 bg-muted">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">Everything You Need to Succeed</h2>
-            <p className="mt-2 max-w-2xl mx-auto text-muted-foreground">
-              A comprehensive toolset to take you from beginner to proficient developer.
-            </p>
-          </div>
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="flex flex-col items-center text-center">
-                <CardHeader>
-                  <div className="mx-auto bg-primary/10 p-4 rounded-full">
-                    {feature.icon}
-                  </div>
-                  <CardTitle className="mt-4">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </CardContent>
-                <div className="p-6 pt-0">
-                  <Button asChild variant="link">
+              <Card key={index} className="flex flex-col text-left p-6 bg-background shadow-lg hover:shadow-xl transition-shadow">
+                  {feature.icon}
+                  <CardTitle className="mt-4 text-2xl">{feature.title}</CardTitle>
+                  <p className="text-muted-foreground mt-1 flex-grow">{feature.description}</p>
+                <div className="mt-6">
+                  <Button asChild className="w-full" variant={feature.variant === 'secondary' ? 'secondary' : 'default'}>
                     <Link href={feature.href}>
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                      {feature.buttonText}
                     </Link>
                   </Button>
                 </div>
@@ -97,39 +80,36 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 p-12 rounded-2xl text-center">
-            <h2 className="text-3xl md:text-4xl font-bold">Explore More Innovations</h2>
-            <p className="mt-2 max-w-xl mx-auto text-muted-foreground">
-              Mine-Yours is where student-led creativity meets professional execution. Discover our full range of products and freelance services.
-            </p>
-            <div className="mt-8">
-                <Button asChild size="lg">
-                <Link href="/about">
-                    Visit Mine-Yours
-                    <ArrowRight className="ml-2" />
-                </Link>
-                </Button>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="bg-background p-8 rounded-lg shadow-sm">
+                <h2 className="text-3xl font-bold mb-6">How this platform helps you:</h2>
+                <ul className="space-y-4">
+                    {platformHelps.map((item, index) => (
+                        <li key={index} className="flex items-start gap-3">
+                            <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                            <span className="text-lg text-muted-foreground">{item}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+             <div className="bg-background p-8 rounded-lg shadow-sm">
+                <h2 className="text-3xl font-bold mb-6">Who is this for?</h2>
+                <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+                    <ul className="space-y-3">
+                        <li className="flex items-start gap-3"><span className="font-bold text-primary mt-1.5">•</span><span className="text-lg text-muted-foreground">B.Tech / CSE / IT students</span></li>
+                        <li className="flex items-start gap-3"><span className="font-bold text-primary mt-1.5">•</span><span className="text-lg text-muted-foreground">Beginners with zero clarity</span></li>
+                        <li className="flex items-start gap-3"><span className="font-bold text-primary mt-1.5">•</span><span className="text-lg text-muted-foreground">Anyone preparing for placements</span></li>
+                    </ul>
+                     <ul className="space-y-3">
+                        <li className="flex items-start gap-3"><span className="font-bold text-primary mt-1.5">•</span><span className="text-lg text-muted-foreground">Students confused about careers</span></li>
+                        <li className="flex items-start gap-3"><span className="font-bold text-primary mt-1.5">•</span><span className="text-lg text-muted-foreground">Free and structured — no random content</span></li>
+                    </ul>
+                </div>
+                <p className="mt-8 text-center font-semibold text-foreground/80">Built by students, for students. Focused on clarity, not content overload.</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold">Ready to Start Building?</h2>
-            <p className="mt-2 max-w-xl mx-auto text-muted-foreground">
-                Jump into the playground and start your coding adventure today.
-            </p>
-            <div className="mt-8">
-                <Button asChild size="lg">
-                <Link href="/playground">
-                    Start Coding Now
-                    <ArrowRight className="ml-2" />
-                </Link>
-                </Button>
-            </div>
         </div>
       </section>
     </div>
