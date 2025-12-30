@@ -24,7 +24,6 @@ import {
 
 // Define the navigation links for the main part of the sidebar.
 const mainLinks = [
-    { href: "/profile", label: "Dashboard", icon: Home },
     { href: "/learn", label: "Learning Paths", icon: Compass },
     { href: "/projects", label: "Projects", icon: FolderKanban },
     { href: "/playground", label: "Practice JavaScript", icon: Code },

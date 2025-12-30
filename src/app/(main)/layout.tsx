@@ -87,13 +87,6 @@ export default function MainLayout({
                         </Link>
                     </Button>
                 ))}
-                {/* A link to the user's profile page, styled as a ghost button. */}
-                <Button asChild variant="ghost">
-                  <Link href="/profile">
-                    <User className="h-5 w-5" />
-                    <span className="sr-only">Profile</span>
-                  </Link>
-                </Button>
             </nav>
         </header>
         {/* The main content area where the page content (children) will be rendered. */}
