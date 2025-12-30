@@ -80,7 +80,6 @@ export const academicsData: AcademicsData = {
             { id: "cs505", name: "Open Elective - I", description: "Choose a subject from other disciplines." },
         ],
         "6": [
-            { id: "cs605", name: "Open Elective - II", description: "Choose a subject from other disciplines." },
             { 
                 id: "cs606", 
                 name: "Artificial Intelligence", 
@@ -245,7 +244,6 @@ export const academicsData: AcademicsData = {
         "6": [
             { id: "ai601", name: "Deep Learning", description: "Neural networks and deep learning architectures." },
             { id: "ai603", name: "AI Ethics and Governance", description: "Ethical implications of AI." },
-            { id: "cs605", name: "Open Elective - II", description: "Interdisciplinary subject." },
         ],
         "7": [
             { id: "ai701", name: "MLOps", description: "DevOps for Machine Learning." },
@@ -297,7 +295,6 @@ export const academicsData: AcademicsData = {
         "6": [
             { id: "ds601", name: "Deep Learning", description: "Neural networks and deep learning architectures." },
             { id: "ds602", name: "Business Intelligence", description: "Tools and techniques for BI." },
-            { id: "cs605", name: "Open Elective - II", description: "Interdisciplinary subject." },
         ],
         "7": [
             { id: "ds701", name: "Big Data Technologies", description: "Hadoop, Spark, and other big data tools." },
@@ -350,7 +347,6 @@ export const academicsData: AcademicsData = {
         "6": [
             { id: "cy601", name: "Cyber Forensics", description: "Investigation of digital crimes." },
             { id: "cy603", name: "Application Security", description: "Securing web and mobile applications." },
-            { id: "cs605", name: "Open Elective - II", description: "Interdisciplinary subject." },
         ],
         "7": [
             { id: "cy701", name: "Cloud Security", description: "Securing cloud infrastructure and services." },
@@ -404,7 +400,6 @@ export const academicsData: AcademicsData = {
             { id: "bs601", name: "Strategic Management", description: "Business strategy and policy." },
             { id: "cs602", name: "Cyber Security", description: "Fundamentals of cybersecurity." },
             { id: "ds603", name: "Predictive Modeling", description: "Building predictive models." },
-            { id: "cs605", name: "Open Elective - II", description: "Interdisciplinary subject." },
         ],
         "7": [
             { id: "bs701", name: "Entrepreneurship", description: "Starting and managing a business." },
@@ -463,7 +458,6 @@ export const academicsData: AcademicsData = {
             { id: "ec702", name: "Embedded Systems", description: "Design of embedded systems." },
             { id: "ec703", name: "Professional Elective - III", description: "Choose a subject of interest." },
             { id: "ec704", name: "Professional Elective - IV", description: "Choose a subject of interest." },
-            { id: "ec705", name: "Open Elective - II", description: "Choose a subject from other disciplines." },
         ],
         "8": [
             { id: "ec801", name: "Professional Elective - V", description: "Final specialized subject." },
