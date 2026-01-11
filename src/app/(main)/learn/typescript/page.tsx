@@ -367,7 +367,6 @@ const mistakes = [
     "Confusing `interface` and `type`. While similar, they have key differences in how they handle extension and implementation.",
     "Fighting the compiler. The compiler's errors are there to help you, not to annoy you.",
     "Not using utility types and reinventing the wheel by creating complex types from scratch.",
-s
     "Forgetting that types are erased at compile time. You can't use `instanceof` with an interface.",
     "Casting with `as` too liberally, which can hide type errors.",
     "Not using the `readonly` keyword for props or state that shouldn't be mutated.",
@@ -531,5 +530,3 @@ export default function TypeScriptRoadmapPage() {
     </AuthGuard>
   );
 }
-
-    
