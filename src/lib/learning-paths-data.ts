@@ -194,7 +194,7 @@ export const learningPaths = [
         title: "Databases",
         points: [
             { text: "Learn the fundamental differences between relational (SQL) and non-relational (NoSQL) databases and when to choose one over the other.", resources: [{ name: "SQL vs NoSQL", url: "https://www.mongodb.com/nosql-explained/nosql-vs-sql" }] },
-            { text: "Get hands-on with a SQL database like PostgreSQL, learning essential commands for creating tables, querying data, and establishing relationships.", resources: [{ name: "PostgreSQL", url: "https://www.postgresql.org/" }] },
+            { text: "Get hands-on experience with a specific SQL database like PostgreSQL, learning essential commands for creating tables, querying data, and establishing relationships.", resources: [{ name: "PostgreSQL", url: "https://www.postgresql.org/" }] },
             { text: "Explore a popular NoSQL database like MongoDB, understanding its document-based data model and flexible schema.", resources: [{ name: "MongoDB", url: "https://www.mongodb.com/" }] },
         ],
       },
@@ -1781,8 +1781,18 @@ export const learningPaths = [
     topics: [],
     assignments: []
   },
+  {
+    id: "typescript",
+    title: "TypeScript",
+    description: "Add static typing to JavaScript to build scalable and robust applications with fewer bugs.",
+    category: "Programming Languages",
+    subCategory: "Web Development Languages",
+    topics: [],
+    assignments: []
+  },
 ];
 
 
 
+    
     
