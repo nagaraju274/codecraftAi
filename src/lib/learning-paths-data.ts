@@ -93,72 +93,9 @@ export const learningPaths = [
     title: "C++",
     description: "Learn the powerful, high-performance C++ language, used in game development, systems programming, and financial applications.",
     category: "Programming Languages",
-    subCategory: "Systems & Embedded Programming",
-    topics: [
-      {
-        title: "Introduction to C++",
-        points: [
-          { text: "Understand C++'s history as an extension of C and its role in performance-critical applications.", resources: [{ name: "C++ History", url: "https://en.cppreference.com/w/cpp/language/history" }] },
-          { text: "Set up a C++ development environment with a compiler like G++ (part of GCC) and a code editor like Visual Studio Code.", resources: [{ name: "C++ on VS Code", url: "https://code.visualstudio.com/docs/languages/cpp" }] },
-          { text: "Compile and run a 'Hello, World!' program to learn the basic structure, including the `main` function and using `iostream` for I/O.", resources: [{ name: "C++ 'Hello, World!'", url: "https://www.w3schools.com/cpp/cpp_getstarted.asp" }] },
-        ],
-      },
-      {
-        title: "C++ Fundamentals",
-        points: [
-          { text: "Learn about variables and fundamental data types like `int`, `double`, `char`, and `bool`.", resources: [{ name: "C++ Data Types", url: "https://www.w3schools.com/cpp/cpp_data_types.asp" }] },
-          { text: "Master operators for arithmetic, assignment, comparison, and logical operations.", resources: [{ name: "C++ Operators", url: "https://www.w3schools.com/cpp/cpp_operators.asp" }] },
-          { text: "Understand how to work with strings using the `std::string` class.", resources: [{ name: "C++ Strings", url: "https://www.w3schools.com/cpp/cpp_strings.asp" }] },
-        ],
-      },
-      {
-        title: "Control Flow",
-        points: [
-          { text: "Use `if-else` and `switch` statements to make decisions and control the flow of your program.", resources: [{ name: "C++ Conditions", url: "https://www.w3schools.com/cpp/cpp_conditions.asp" }] },
-          { text: "Learn to use `while` and `for` loops to execute blocks of code repeatedly.", resources: [{ name: "C++ Loops", url: "https://www.w3schools.com/cpp/cpp_while_loop.asp" }] },
-        ],
-      },
-      {
-        title: "Functions and Pointers",
-        points: [
-          { text: "Define and call functions to structure your code into reusable blocks. Understand function overloading.", resources: [{ name: "C++ Functions", url: "https://www.w3schools.com/cpp/cpp_functions.asp" }] },
-          { text: "Grasp the concept of pointers for direct memory manipulation and learn about references as safer aliases to existing variables.", resources: [{ name: "C++ Pointers", url: "https://www.w3schools.com/cpp/cpp_pointers.asp" }] },
-        ],
-      },
-      {
-        title: "Object-Oriented Programming (OOP)",
-        points: [
-          { text: "Learn how to define classes to create your own types. Understand members (attributes) and methods (functions).", resources: [{ name: "C++ Classes", url: "https://www.w3schools.com/cpp/cpp_classes.asp" }] },
-          { text: "Understand constructors and destructors for object initialization and cleanup.", resources: [{ name: "C++ Constructors", url: "https://www.w3schools.com/cpp/cpp_constructors.asp" }] },
-          { text: "Master the core OOP principles: Encapsulation, Inheritance, and Polymorphism.", resources: [{ name: "OOP Principles", url: "https://www.geeksforgeeks.org/object-oriented-programming-in-cpp/" }] },
-        ],
-      },
-      {
-        title: "Standard Template Library (STL)",
-        points: [
-          { text: "Learn to use STL containers like `std::vector` (dynamic array), `std::list`, `std::stack`, and `std::queue`.", resources: [{ name: "STL Containers", url: "https://www.geeksforgeeks.org/containers-in-c-stl/" }] },
-          { text: "Explore associative containers like `std::map` (key-value pairs) and `std::set` (unique keys).", resources: [{ name: "std::map", url: "https://cplusplus.com/reference/map/map/" }] },
-          { text: "Understand how to use iterators to navigate through containers and how to use algorithms like `sort` and `find` to manipulate data.", resources: [{ name: "STL Algorithms", url: "https://www.geeksforgeeks.org/c-magicians-stl-algorithms/" }] },
-        ],
-      },
-      {
-        title: "Error Handling",
-        points: [
-          { text: "Learn to handle errors using `try`, `catch`, and `throw` blocks for exception handling.", resources: [{ name: "C++ Exceptions", url: "https://www.w3schools.com/cpp/cpp_exceptions.asp" }] },
-        ],
-      },
-      {
-        title: "Modern C++ (C++11 and beyond)",
-        points: [
-          { text: "Explore features from modern C++ standards, such as `auto` for type inference, range-based for loops, and smart pointers (`std::unique_ptr`, `std::shared_ptr`) for safer memory management.", resources: [{ name: "C++11 Features", url: "https://www.geeksforgeeks.org/c11-features-in-cpp/" }] },
-        ],
-      },
-    ],
-    assignments: [
-      { title: "Vector Statistics", description: "Write a C++ program that uses a `std::vector<double>` to store a list of numbers. Calculate and print the sum, mean, and standard deviation of the numbers in the vector." },
-      { title: "Simple Bank Account Class", description: "Create a `BankAccount` class with private member variables for the account holder's name and balance. Implement public methods to deposit money, withdraw money, and check the balance. Ensure the balance cannot become negative." },
-      { title: "Word Frequency Counter", description: "Write a program that reads text from a file, and uses a `std::map` to count the frequency of each word. Print the word counts to the console." }
-    ]
+    subCategory: "General-Purpose Languages",
+    topics: [],
+    assignments: []
   },
   {
     id: "web-development-foundations",
@@ -686,92 +623,9 @@ export const learningPaths = [
     title: "C",
     description: "Learn the foundational C programming language, known for its performance and low-level memory access.",
     category: "Programming Languages",
-    subCategory: "Systems & Embedded Programming",
-    topics: [
-      {
-        title: "Introduction to C",
-        points: [
-          { text: "Discover the history of C, its influence on other languages, and its common use cases in systems programming, embedded systems, and high-performance computing.", resources: [{ name: "History of C", url: "https://en.wikipedia.org/wiki/C_(programming_language)#History" }] },
-          { text: "Set up a C development environment by installing a compiler like GCC (GNU Compiler Collection) and a text editor or IDE like VS Code.", resources: [{ name: "GCC, the GNU Compiler Collection", url: "https://gcc.gnu.org/" }, { name: "C/C++ for Visual Studio Code", url: "https://code.visualstudio.com/docs/languages/cpp" }] },
-          { text: "Compile and run your first 'Hello, World!' program to understand the basic structure of a C program and the compilation process.", resources: [{ name: "C - Hello, World!", url: "https://www.geeksforgeeks.org/c-hello-world-program/" }] },
-        ],
-      },
-      {
-        title: "C Fundamentals",
-        points: [
-          { text: "Learn about C's basic syntax, including statements, comments, and the importance of the semicolon.", resources: [{ name: "C - Basic Syntax", url: "https://www.tutorialspoint.com/cprogramming/c_basic_syntax.htm" }] },
-          { text: "Understand how to declare variables and use C's fundamental data types, such as `int`, `char`, `float`, `double`, and their modifiers (`short`, `long`, `signed`, `unsigned`).", resources: [{ name: "C - Data Types", url: "https://www.geeksforgeeks.org/c-data-types/" }] },
-          { text: "Master C's operators, including arithmetic, relational, logical, bitwise, and assignment operators.", resources: [{ name: "C - Operators", url: "https://www.w3schools.com/c/c_operators.php" }] },
-        ],
-      },
-      {
-        title: "Control Flow",
-        points: [
-          { text: "Control the flow of your program with conditional statements like `if`, `else`, and `else if` to execute different code blocks based on conditions.", resources: [{ name: "C - if...else Statement", url: "https://www.w3schools.com/c/c_if_else.php" }] },
-          { text: "Use the `switch` statement for multi-way branching, providing a clean alternative to a series of `if-else if` statements.", resources: [{ name: "C - switch Statement", url: "https://www.w3schools.com/c/c_switch.php" }] },
-          { text: "Learn how to repeat actions using `for`, `while`, and `do-while` loops.", resources: [{ name: "C - for Loop", url: "https://www.w3schools.com/c/c_for_loop.php" }, { name: "C - while Loop", url: "https://www.w3schools.com/c/c_while_loop.php" }] },
-          { text: "Control loop behavior with the `break` statement to exit a loop early and the `continue` statement to skip to the next iteration.", resources: [{ name: "C - break and continue", url: "https://www.w3schools.com/c/c_break_continue.php" }] },
-        ],
-      },
-      {
-        title: "Functions",
-        points: [
-          { text: "Learn how to define and call functions to create modular, reusable code. Understand the purpose of function prototypes.", resources: [{ name: "C - Functions", url: "https://www.geeksforgeeks.org/c-functions/" }] },
-          { text: "Understand variable scope (local vs. global) and how it affects a variable's visibility and lifetime within a program.", resources: [{ name: "Scope Rules in C", url: "https://www.geeksforgeeks.org/scope-rules-in-c/" }] },
-          { text: "Explore recursion, where a function calls itself to solve a problem. Understand the base case and recursive step.", resources: [{ name: "Recursion in C", url: "https://www.w3schools.com/c/c_recursion.php" }] },
-        ],
-      },
-      {
-        title: "Arrays and Strings",
-        points: [
-          { text: "Learn how to declare, initialize, and access elements in one-dimensional and multi-dimensional arrays.", resources: [{ name: "C - Arrays", url: "https://www.w3schools.com/c/c_arrays.php" }] },
-          { text: "Understand how strings are represented in C as null-terminated character arrays and learn to use common string manipulation functions from the `<string.h>` library.", resources: [{ name: "C - Strings", url: "https://www.w3schools.com/c/c_strings.php" }] },
-        ],
-      },
-      {
-        title: "Pointers",
-        points: [
-          { text: "Grasp the core concept of pointers: variables that store memory addresses. Learn how to declare, initialize, and dereference pointers.", resources: [{ name: "C - Pointers", url: "https://www.w3schools.com/c/c_pointers.php" }] },
-          { text: "Understand the close relationship between pointers and arrays, and learn how to use pointer arithmetic to navigate arrays.", resources: [{ name: "C - Pointers and Arrays", url: "https://www.geeksforgeeks.org/c-pointers-and-arrays/" }] },
-          { text: "Explore function pointers, which allow you to treat functions as arguments to other functions, enabling dynamic function calls.", resources: [{ name: "Function Pointer in C", url: "https://www.geeksforgeeks.org/function-pointer-in-c/" }] },
-        ],
-      },
-      {
-        title: "Memory Management",
-        points: [
-          { text: "Learn to allocate memory dynamically on the heap using `malloc`, `calloc`, and `realloc`.", resources: [{ name: "Dynamic Memory Allocation in C", url: "https://www.geeksforgeeks.org/dynamic-memory-allocation-in-c-using-malloc-calloc-free-and-realloc/" }] },
-          { text: "Understand the importance of freeing dynamically allocated memory using `free` to prevent memory leaks.", resources: [] },
-          { text: "Learn about the stack and heap, the two main memory regions where a C program stores its data.", resources: [{ name: "Stack vs Heap Memory Allocation", url: "https://www.geeksforgeeks.org/stack-vs-heap-memory-allocation/" }] },
-        ],
-      },
-      {
-        title: "Structures and Unions",
-        points: [
-          { text: "Learn how to use `struct` to group different data types together into a single, custom data type.", resources: [{ name: "C - struct", url: "https://www.w3schools.com/c/c_structs.php" }] },
-          { text: "Understand `union`, which allows you to store different data types in the same memory location (but not at the same time).", resources: [{ name: "C - union", url: "https://www.geeksforgeeks.org/union-in-c/" }] },
-          { text: "Use `typedef` to create aliases for complex data types, making your code more readable.", resources: [{ name: "C - typedef", url: "https://www.w3schools.com/c/c_typedef.php" }] },
-        ],
-      },
-      {
-        title: "File I/O",
-        points: [
-          { text: "Learn how to perform file operations, including opening a file with `fopen`, reading with `fscanf` or `fgets`, writing with `fprintf` or `fputs`, and closing with `fclose`.", resources: [{ name: "C - Files I/O", url: "https://www.w3schools.com/c/c_files.php" }] },
-          { text: "Understand how to handle file-related errors by checking the return values of I/O functions and using `perror` and `errno`.", resources: [{ name: "Error Handling in C", url: "https://www.tutorialspoint.com/cprogramming/c_error_handling.htm" }] },
-        ],
-      },
-      {
-        title: "The Preprocessor",
-        points: [
-          { text: "Learn about the C preprocessor and how it processes your source code before compilation.", resources: [{ name: "The C Preprocessor", url: "https://www.geeksforgeeks.org/the-c-preprocessor/" }] },
-          { text: "Use preprocessor directives like `#include` to add header files, `#define` to create macros and symbolic constants, and conditional directives like `#ifdef` and `#endif` for conditional compilation.", resources: [{ name: "C - Preprocessors", url: "https://www.tutorialspoint.com/cprogramming/c_preprocessors.htm" }] },
-        ],
-      },
-    ],
-    assignments: [
-        { title: "String Reverser", description: "Write a C function that takes a string (a character array) as input and reverses it in place without creating a new array." },
-        { title: "Simple Linked List", description: "Implement a basic singly linked list using structs and pointers. Write functions to add a new node to the end of the list and to print all the values in the list." },
-        { title: "File Word Count", description: "Write a program that opens a text file, reads its contents, and counts the total number of words in the file. A word can be defined as any sequence of characters separated by whitespace." }
-    ]
+    subCategory: "General-Purpose Languages",
+    topics: [],
+    assignments: []
   },
   {
     id: "r",
@@ -876,130 +730,18 @@ export const learningPaths = [
     title: "Swift",
     description: "Learn Swift, the modern, powerful, and intuitive language for building apps for Apple platforms (iOS, macOS, watchOS, and tvOS).",
     category: "Programming Languages",
-    subCategory: "Mobile App Development",
-    topics: [
-        {
-            title: "Swift Fundamentals",
-            points: [
-                { text: "Learn the basics of Swift, including constants, variables, and data types like Int, Double, String, and Bool.", resources: [{ name: "The Basics", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics" }] },
-                { text: "Master control flow with conditional statements (if, switch) and loops (for-in, while) to control the execution of your code.", resources: [{ name: "Control Flow", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow" }] },
-                { text: "Understand how to work with collection types, including Arrays, Sets, and Dictionaries, for storing collections of values.", resources: [{ name: "Collection Types", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/collectiontypes" }] },
-                { text: "Grasp the concept of optionals and learn how to safely work with values that might be absent using optional binding and optional chaining.", resources: [{ name: "Optionals", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics#Optionals" }] },
-            ],
-        },
-        {
-            title: "Functions and Closures",
-            points: [
-                { text: "Learn to define and call functions to create reusable blocks of code. Understand parameters, return values, and function argument labels.", resources: [{ name: "Functions", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions" }] },
-                { text: "Explore closures, which are self-contained blocks of functionality that can be passed around and used in your code, similar to lambdas in other languages.", resources: [{ name: "Closures", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures" }] },
-            ],
-        },
-        {
-            title: "Object-Oriented Swift",
-            points: [
-                { text: "Learn to define custom types using Classes and Structures. Understand their differences and when to use each.", resources: [{ name: "Classes and Structures", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures" }] },
-                { text: "Define properties to store values and computed properties to calculate values. Also, understand how to use property observers.", resources: [{ name: "Properties", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/properties" }] },
-                { text: "Understand inheritance to build class hierarchies, and learn how to use protocols to define a 'blueprint' of methods, properties, and other requirements.", resources: [{ name: "Inheritance", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/inheritance" }, { name: "Protocols", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols" }] },
-            ],
-        },
-        {
-            title: "Introduction to SwiftUI",
-            points: [
-                { text: "Learn the fundamentals of SwiftUI, Apple's declarative UI framework for building apps on all Apple platforms.", resources: [{ name: "SwiftUI Tutorials", url: "https://developer.apple.com/tutorials/swiftui" }] },
-                { text: "Build user interfaces using a hierarchy of Views, such as Text, Image, and Button. Learn to compose complex views from simple ones.", resources: [{ name: "Views and Controls", url: "https://developer.apple.com/documentation/swiftui/views-and-controls" }] },
-                { text: "Use stacks (VStack, HStack, ZStack) and spacers to arrange views and create sophisticated layouts.", resources: [{ name: "Layout and Presentation", url: "https://developer.apple.com/documentation/swiftui/layout-and-presentation" }] },
-            ],
-        },
-        {
-            title: "State Management in SwiftUI",
-            points: [
-                { text: "Learn to manage the state of your views using property wrappers like @State, @Binding, @StateObject, and @ObservedObject.", resources: [{ name: "State and Data Flow", url: "https://developer.apple.com/documentation/swiftui/state-and-data-flow" }] },
-                { text: "Understand how SwiftUI automatically updates the view when the state changes, keeping your UI consistent with your data.", resources: [] },
-            ],
-        },
-        {
-            title: "Navigation and Data Flow",
-            points: [
-                { text: "Implement navigation in your app using `NavigationStack` to create hierarchical navigation and `TabView` for tab-based interfaces.", resources: [{ name: "Navigation", url: "https://developer.apple.com/documentation/swiftui/navigation" }] },
-                { text: "Learn how to pass data between views, present modal sheets, and show alerts to the user.", resources: [] },
-            ],
-        },
-        {
-            title: "Networking and Concurrency",
-            points: [
-                { text: "Learn to fetch data from a remote API using `URLSession`.", resources: [{ name: "Fetching Website Data", url: "https://developer.apple.com/documentation/foundation/urlsession" }] },
-                { text: "Understand modern concurrency in Swift with `async/await` to write asynchronous code that is easy to read and maintain.", resources: [{ name: "Concurrency", url: "https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/" }] },
-                { text: "Parse JSON data from an API into your Swift data models using the `Codable` protocol.", resources: [{ name: "Encoding and Decoding", url: "https://developer.apple.com/documentation/swift/encoding-and-decoding-custom-types" }] },
-            ],
-        },
-    ],
-    assignments: [
-        { title: "Tip Calculator UI", description: "Using SwiftUI, build a user interface for a tip calculator. It should have a text field for the bill amount, a picker for the tip percentage, and a text view to display the total amount." },
-        { title: "To-Do List App", description: "Create a simple to-do list app. Users should be able to add new tasks to a list and see them displayed on the screen. Manage the list of tasks using an array and the `@State` property wrapper." },
-        { title: "Simple Master-Detail View", description: "Build an app that displays a list of items (e.g., names of cities). When a user taps an item, it should navigate to a new screen that shows more details about that item." }
-    ]
+    subCategory: "General-Purpose Languages",
+    topics: [],
+    assignments: []
   },
   {
     id: "kotlin",
     title: "Kotlin",
     description: "Learn Kotlin, the modern, official language for Android development.",
     category: "Programming Languages",
-    subCategory: "Mobile App Development",
-    topics: [
-        {
-            title: "Kotlin Fundamentals",
-            points: [
-                { text: "Learn about Kotlin's advantages, such as its conciseness and null safety, and set up your development environment with IntelliJ IDEA or Android Studio.", resources: [{ name: "Get Started with Kotlin", url: "https://kotlinlang.org/docs/home.html" }] },
-                { text: "Master basic syntax, variables (val vs. var), and fundamental types like Int, Double, String, and Boolean.", resources: [{ name: "Basic Syntax", url: "https://kotlinlang.org/docs/basic-syntax.html" }] },
-                { text: "Understand Kotlin's powerful null safety features, including nullable types (?) and the safe call operator (?.) to prevent null pointer exceptions.", resources: [{ name: "Null Safety", url: "https://kotlinlang.org/docs/null-safety.html" }] },
-            ],
-        },
-        {
-            title: "Control Flow and Functions",
-            points: [
-                { text: "Use conditional expressions like if-else and when to control the flow of your program.", resources: [{ name: "Control Flow", url: "https://kotlinlang.org/docs/control-flow.html" }] },
-                { text: "Learn to use for and while loops for iteration. Discover how to work with ranges and progressions.", resources: [] },
-                { text: "Define functions with default arguments and named parameters. Explore higher-order functions and lambda expressions.", resources: [{ name: "Functions", url: "https://kotlinlang.org/docs/functions.html" }, { name: "Lambdas", url: "https://kotlinlang.org/docs/lambdas.html" }] },
-            ],
-        },
-        {
-            title: "Object-Oriented Kotlin",
-            points: [
-                { text: "Learn to create classes and objects. Understand constructors, properties, and initialization.", resources: [{ name: "Classes", url: "https://kotlinlang.org/docs/classes.html" }] },
-                { text: "Explore inheritance and learn how to use open classes and override methods. Understand the role of abstract classes.", resources: [{ name: "Inheritance", url: "https://kotlinlang.org/docs/inheritance.html" }] },
-                { text: "Grasp the power of data classes for creating concise, immutable data holders and sealed classes for representing restricted class hierarchies.", resources: [{ name: "Data Classes", url: "https://kotlinlang.org/docs/data-classes.html" }, { name: "Sealed Classes", url: "https://kotlinlang.org/docs/sealed-classes.html" }] },
-            ],
-        },
-        {
-            title: "Advanced Features",
-            points: [
-                { text: "Learn how to work with collections like lists, sets, and maps, and use powerful extension functions to manipulate them.", resources: [{ name: "Collections", url: "https://kotlinlang.org/docs/collections-overview.html" }] },
-                { text: "Understand generics to create reusable, type-safe components.", resources: [{ name: "Generics", url: "https://kotlinlang.org/docs/generics.html" }] },
-                { text: "Explore delegation to easily reuse and compose behavior in your classes.", resources: [{ name: "Delegation", url: "https://kotlinlang.org/docs/delegation.html" }] },
-            ],
-        },
-        {
-            title: "Coroutines and Concurrency",
-            points: [
-                { text: "Grasp the basics of asynchronous programming with Kotlin Coroutines to write non-blocking code in a sequential style.", resources: [{ name: "Coroutines Basics", url: "https://kotlinlang.org/docs/coroutines-basics.html" }] },
-                { text: "Learn about suspending functions, coroutine builders (like launch and async), and dispatchers for controlling execution threads.", resources: [] },
-                { text: "Understand how to manage coroutine lifecycles and handle exceptions effectively.", resources: [{ name: "Coroutine Context and Dispatchers", url: "https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html" }] },
-            ],
-        },
-        {
-            title: "Android Development with Kotlin",
-            points: [
-                { text: "Get started with Android development by setting up Android Studio and creating your first Kotlin-based Android project.", resources: [{ name: "Build your first Android app", url: "https://developer.android.com/training/basics/firstapp" }] },
-                { text: "Learn to build modern, declarative UIs for your Android apps using Jetpack Compose.", resources: [{ name: "Jetpack Compose", url: "https://developer.android.com/jetpack/compose" }] },
-                { text: "Explore the fundamentals of the Android Architecture Components (ViewModel, LiveData, Room) to build robust and maintainable apps.", resources: [{ name: "Guide to app architecture", url: "https://developer.android.com/jetpack/guide" }] },
-            ],
-        },
-    ],
-    assignments: [
-        { title: "Filter a List of Objects", description: "Create a `data class` for a `Person` (with name and age). Then, create a list of `Person` objects and use a collection function (like `.filter()`) to find all the people who are 18 or older." },
-        { title: "Simple Counter App", description: "Using Jetpack Compose, build a simple Android app with a button and a text field. Each time the button is clicked, the number in the text field should increment." },
-        { title: "Asynchronous Data Fetch", description: "Write a function that simulates a network call using `delay()` inside a coroutine. The function should return a string after 2 seconds, and your main code should launch the coroutine and print the result." }
-    ]
+    subCategory: "General-Purpose Languages",
+    topics: [],
+    assignments: []
   },
   {
     id: "php-for-web-development",
@@ -1142,148 +884,18 @@ export const learningPaths = [
     title: "Rust",
     description: "Learn Rust, a language empowering everyone to build reliable and efficient software.",
     category: "Programming Languages",
-    subCategory: "Systems & Embedded Programming",
-    topics: [
-      {
-        title: "Getting Started with Rust",
-        points: [
-          { text: "Understand Rust's core strengths: performance, reliability, and productivity. Learn about its key features like the ownership system.", resources: [{ name: "What is Rust?", url: "https://www.rust-lang.org/learn" }] },
-          { text: "Install Rust using `rustup`, the official toolchain installer, and set up your development environment.", resources: [{ name: "Installation", url: "https://www.rust-lang.org/tools/install" }] },
-          { text: "Write, compile, and run your first 'Hello, World!' program using Cargo, Rust's build system and package manager.", resources: [{ name: "Hello, World!", url: "https://doc.rust-lang.org/book/ch01-02-hello-world.html" }] },
-        ],
-      },
-      {
-        title: "Common Programming Concepts",
-        points: [
-          { text: "Learn about variables, mutability, and how Rust handles constants and shadowing.", resources: [{ name: "Variables and Mutability", url: "https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html" }] },
-          { text: "Explore Rust's scalar data types (integers, floats, booleans, characters) and compound types (tuples, arrays).", resources: [{ name: "Data Types", url: "https://doc.rust-lang.org/book/ch03-02-data-types.html" }] },
-          { text: "Understand how to define and call functions, including functions with parameters and return values.", resources: [{ name: "Functions", url: "https://doc.rust-lang.org/book/ch03-03-how-functions-work.html" }] },
-          { text: "Master control flow using `if` expressions and various loops (`loop`, `while`, `for`).", resources: [{ name: "Control Flow", url: "https://doc.rust-lang.org/book/ch03-05-control-flow.html" }] },
-        ],
-      },
-      {
-        title: "Understanding Ownership",
-        points: [
-          { text: "Grasp Rust's most unique feature: the ownership system. Learn about the stack, the heap, and Rust's rules for managing memory safety.", resources: [{ name: "What is Ownership?", url: "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html" }] },
-          { text: "Learn how to pass data without transferring ownership using references and borrowing.", resources: [{ name: "References and Borrowing", url: "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html" }] },
-          { text: "Understand slices, which let you reference a contiguous sequence of elements in a collection rather than the whole collection.", resources: [{ name: "The Slice Type", url: "https://doc.rust-lang.org/book/ch04-03-slices.html" }] },
-        ],
-      },
-      {
-        title: "Using Structs",
-        points: [
-          { text: "Learn to create custom data types by defining and instantiating structs.", resources: [{ name: "Defining and Instantiating Structs", url: "https://doc.rust-lang.org/book/ch05-01-defining-structs.html" }] },
-          { text: "Define methods on structs using `impl` blocks to specify the behavior associated with a struct type.", resources: [{ name: "Method Syntax", url: "https://doc.rust-lang.org/book/ch05-03-method-syntax.html" }] },
-        ],
-      },
-      {
-        title: "Enums and Pattern Matching",
-        points: [
-          { text: "Learn how to use enums to define a type that can have one of a few different variants.", resources: [{ name: "Enums", url: "https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html" }] },
-          { text: "Master the powerful `match` control flow operator that allows you to compare a value against a series of patterns and execute code based on which pattern matches.", resources: [{ name: "The match Control Flow Construct", url: "https://doc.rust-lang.org/book/ch06-02-match.html" }] },
-          { text: "Use `if let` for a more concise way to handle a single pattern from a `match`.", resources: [{ name: "Concise Control Flow with if let", url: "https://doc.rust-lang.org/book/ch06-03-if-let.html" }] },
-        ],
-      },
-      {
-        title: "Error Handling",
-        points: [
-          { text: "Understand Rust's approach to error handling, distinguishing between recoverable errors with `Result<T, E>` and unrecoverable errors with the `panic!` macro.", resources: [{ name: "Unrecoverable Errors with panic!", url: "https://doc.rust-lang.org/book/ch09-01-unrecoverable-errors-with-panic.html" }] },
-          { text: "Learn to return and handle recoverable errors using the `Result` enum.", resources: [{ name: "Recoverable Errors with Result", url: "https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html" }] },
-        ],
-      },
-      {
-        title: "Advanced Topics",
-        points: [
-          { text: "Explore generics to reduce code duplication by writing code that can work over a variety of concrete data types.", resources: [{ name: "Generic Data Types", url: "https://doc.rust-lang.org/book/ch10-01-syntax.html" }] },
-          { text: "Learn about traits, which define shared functionality that different types can implement.", resources: [{ name: "Traits: Defining Shared Behavior", url: "https://doc.rust-lang.org/book/ch10-02-traits.html" }] },
-          { text: "Understand lifetimes, which are a way of ensuring that references are valid for as long as we need them to be.", resources: [{ name: "Validating References with Lifetimes", url: "https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html" }] },
-          { text: "Learn how to use Rust's concurrency features to run code in parallel, including using threads and message-passing.", resources: [{ name: "Fearless Concurrency", url: "https://doc.rust-lang.org/book/ch16-00-concurrency.html" }] },
-        ],
-      },
-    ],
-    assignments: [
-        { title: "Temperature Converter", description: "Write a Rust function that takes a temperature in Celsius and returns the equivalent in Fahrenheit. Practice using functions and basic data types." },
-        { title: "Area of a Rectangle", description: "Define a `Rectangle` struct with `width` and `height` fields. Implement a method on the struct called `area` that calculates and returns the rectangle's area." },
-        { title: "Traffic Light Enum", description: "Create an `enum` called `TrafficLight` with variants `Red`, `Yellow`, and `Green`. Write a function that takes a `TrafficLight` and returns how long a car should wait (e.g., 60 for Red, 5 for Yellow, 0 for Green) using a `match` expression." }
-    ]
+    subCategory: "General-Purpose Languages",
+    topics: [],
+    assignments: []
   },
   {
     id: "dart-for-cross-platform-development",
-    title: "Dart for Cross-Platform Development",
+    title: "Dart",
     description: "Learn Dart, the language for building mobile, desktop, and web applications with Flutter.",
     category: "Programming Languages",
-    subCategory: "Mobile App Development",
-    topics: [
-      {
-        title: "Dart Fundamentals",
-        points: [
-            { text: "Understand Dart's core principles, including its type system, variables (var, final, const), and basic operators.", resources: [{ name: "A Tour of the Dart Language", url: "https://dart.dev/guides/language/language-tour" }] },
-            { text: "Learn about control flow statements like if/else, for loops, and while loops to add logic to your applications.", resources: [{ name: "Control Flow Statements", url: "https://dart.dev/language/control-flow" }] },
-            { text: "Explore Dart's collection types: Lists, Sets, and Maps, for storing groups of objects.", resources: [{ name: "Collections", url: "https://dart.dev/language/collections" }] },
-            { text: "Grasp Dart's powerful null safety features to prevent null reference errors.", resources: [{ name: "Null Safety", url: "https://dart.dev/null-safety" }] },
-        ],
-      },
-      {
-        title: "Functions and Object-Oriented Programming",
-        points: [
-          { text: "Learn how to define and use functions. Understand parameters, return values, and anonymous functions (lambdas).", resources: [{ name: "Functions", url: "https://dart.dev/language/functions" }] },
-          { text: "Grasp the fundamentals of Object-Oriented Programming in Dart, including classes, objects, and constructors.", resources: [{ name: "Classes", url: "https://dart.dev/language/classes" }] },
-          { text: "Explore inheritance, abstract classes, and mixins to create reusable and well-structured code.", resources: [{ name: "Inheritance", url: "https://dart.dev/language/inheritance" }] },
-        ],
-      },
-      {
-        title: "Asynchronous Programming",
-        points: [
-          { text: "Understand how to write asynchronous code using Futures and the `async` and `await` keywords.", resources: [{ name: "Asynchrony support", url: "https://dart.dev/language/async" }] },
-          { text: "Learn about Streams for handling sequences of asynchronous events, such as user input or file I/O.", resources: [] },
-        ],
-      },
-      {
-        title: "Introduction to Flutter",
-        points: [
-          { text: "Learn what Flutter is and why it's a powerful framework for building cross-platform applications from a single codebase.", resources: [{ name: "What is Flutter?", url: "https://docs.flutter.dev/overview" }] },
-          { text: "Set up your development environment for Flutter, including the Flutter SDK and an editor like VS Code or Android Studio.", resources: [{ name: "Install Flutter", url: "https://docs.flutter.dev/get-started/install" }] },
-          { text: "Build your first Flutter app and understand the basic project structure and the 'everything is a widget' concept.", resources: [{ name: "Write your first Flutter app", url: "https://docs.flutter.dev/get-started/codelab" }] },
-        ],
-      },
-      {
-        title: "Flutter Widgets and Layouts",
-        points: [
-            { text: "Explore fundamental widgets like `Text`, `Image`, `Icon`, and `Container`.", resources: [{ name: "Basic Widgets", url: "https://docs.flutter.dev/ui/widgets/basics" }] },
-            { text: "Learn how to arrange widgets on the screen using layout widgets like `Row`, `Column`, `Stack`, and `Expanded`.", resources: [{ name: "Layouts in Flutter", url: "https://docs.flutter.dev/ui/layout" }] },
-            { text: "Build interactive elements using widgets like `Button` and `TextField` to handle user input.", resources: [{ name: "Interactive Widgets", url: "https://docs.flutter.dev/ui/widgets/interactive" }] },
-        ],
-      },
-      {
-        title: "State Management in Flutter",
-        points: [
-            { text: "Understand the difference between stateless and stateful widgets and when to use each.", resources: [{ name: "Adding interactivity", url: "https://docs.flutter.dev/ui/interactive" }] },
-            { text: "Learn about lifting state up and using callbacks to manage state in simple applications.", resources: [] },
-            { text: "Explore popular state management solutions like Provider and Riverpod for more complex applications.", resources: [{ name: "State Management Options", url: "https://docs.flutter.dev/data-and-backend/state-mgmt/options" }] },
-        ],
-      },
-      {
-        title: "Navigation and Routing",
-        points: [
-            { text: "Learn to navigate between different screens (or 'routes') using the `Navigator` widget.", resources: [{ name: "Navigation and Routing", url: "https://docs.flutter.dev/ui/navigation" }] },
-            { text: "Understand how to pass data between screens to build multi-page applications.", resources: [] },
-            { text: "Explore named routes for a more organized approach to navigation in larger apps.", resources: [] },
-        ],
-      },
-      {
-        title: "Working with Device Features",
-        points: [
-            { text: "Learn how to make HTTP requests to a web server to fetch data.", resources: [{ name: "Networking", url: "https://docs.flutter.dev/data-and-backend/networking" }] },
-            { text: "Use packages from pub.dev to access device hardware like the camera or GPS.", resources: [{ name: "Packages", url: "https://pub.dev/" }] },
-            { text: "Learn how to store data locally on the device using shared_preferences or a local database like SQLite.", resources: [{ name: "Data persistence", url: "https://docs.flutter.dev/data-and-backend/persistence" }] },
-        ],
-      },
-    ],
-    assignments: [
-        { title: "Sum of a List", description: "Write a Dart function that takes a `List<int>` and returns the sum of all its elements." },
-        { title: "User Profile Class", description: "Create a `User` class in Dart with properties for `name` (String) and `age` (int). Add a method `sayHello()` that prints 'Hello, my name is [name]'. Create an instance of the class and call the method." },
-        { title: "Static Flutter Layout", description: "Using Flutter, build a simple screen layout that displays a user profile picture (using a `CircleAvatar`), with their name and a short bio underneath. Use a `Column` to arrange the widgets vertically." }
-    ]
+    subCategory: "General-Purpose Languages",
+    topics: [],
+    assignments: []
   },
   {
     id: "html-the-language-of-the-web",
@@ -2150,7 +1762,25 @@ export const learningPaths = [
     subCategory: "Backend Web Frameworks",
     topics: [],
     assignments: [],
-  }
+  },
+  {
+    id: "go",
+    title: "Go (Golang)",
+    description: "Learn Go, the open-source programming language designed for building simple, reliable, and efficient software.",
+    category: "Programming Languages",
+    subCategory: "General-Purpose Languages",
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "ruby",
+    title: "Ruby",
+    description: "Learn Ruby, the dynamic, open-source programming language with a focus on simplicity and productivity.",
+    category: "Programming Languages",
+    subCategory: "General-Purpose Languages",
+    topics: [],
+    assignments: []
+  },
 ];
 
 
