@@ -168,74 +168,13 @@ export const learningPaths = [
     ]
   },
   {
-    id: "full-stack-web-development",
-    title: "Full Stack Web Development",
+    id: "full-stack-developer",
+    title: "Full-Stack Developer",
     description: "Become a full-stack developer by mastering both front-end and back-end technologies.",
     category: "Job Roles",
     subCategory: "Core Software Development",
-    topics: [
-      {
-        title: "Frontend Frameworks",
-        points: [
-            { text: "Build dynamic and interactive user interfaces using the component-based architecture of React.", resources: [{ name: "React Docs", url: "https://react.dev/" }] },
-            { text: "Learn Next.js, a powerful React framework that adds features like server-side rendering, static site generation, and file-based routing.", resources: [{ name: "Next.js Docs", url: "https://nextjs.org/docs" }] },
-            { text: "Explore state management solutions like Zustand (simple) or Redux (for large-scale apps) to handle complex application state.", resources: [{ name: "Zustand", url: "https://zustand-demo.pmnd.rs/" }, { name: "Redux", url: "https://redux.js.org/" }] },
-        ],
-      },
-      {
-        title: "Backend Development",
-        points: [
-            { text: "Use the Node.js runtime environment to build fast and scalable server-side applications with JavaScript.", resources: [{ name: "Node.js Intro", url: "https://nodejs.org/en/about" }] },
-            { text: "Build robust and flexible RESTful APIs using Express, a minimal and unopinionated web framework for Node.js.", resources: [{ name: "Express.js", url: "https://expressjs.com/" }] },
-            { text: "Understand the request/response cycle and how to handle different HTTP methods (GET, POST, PUT, DELETE) on your server.", resources: [{ name: "HTTP Requests", url: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview" }] },
-        ],
-      },
-      {
-        title: "Databases",
-        points: [
-            { text: "Learn the fundamental differences between relational (SQL) and non-relational (NoSQL) databases and when to choose one over the other.", resources: [{ name: "SQL vs NoSQL", url: "https://www.mongodb.com/nosql-explained/nosql-vs-sql" }] },
-            { text: "Get hands-on experience with a specific SQL database like PostgreSQL, learning essential commands for creating tables, querying data, and establishing relationships.", resources: [{ name: "PostgreSQL", url: "https://www.postgresql.org/" }] },
-            { text: "Explore a popular NoSQL database like MongoDB, understanding its document-based data model and flexible schema.", resources: [{ name: "MongoDB", url: "https://www.mongodb.com/" }] },
-        ],
-      },
-      {
-        title: "APIs and RESTful services",
-        points: [
-            { text: "Learn the principles of REST (Representational State Transfer) to design clean, predictable, and scalable APIs.", resources: [{ name: "REST API Best Practices", url: "https://www.freecodecamp.org/news/rest-api-best-practices-rest-endpoint-design-examples/" }] },
-            { text: "Master the standard HTTP verbs (GET, POST, PUT, DELETE) and status codes to create a well-defined API.", resources: [{ name: "HTTP Methods", url: "https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods" }] },
-            { text: "Create the API endpoints (routes) that your frontend application will communicate with to fetch, create, update, and delete data.", resources: [] },
-        ],
-      },
-      {
-        title: "Authentication and Authorization",
-        points: [
-            { text: "Implement secure user registration and login functionality, including password hashing and session management.", resources: [{ name: "Authentication Guide", url: "https://supertokens.com/blog/the-best-way-to-secure-your-website-with-http-only-cookies" }] },
-            { text: "Use JSON Web Tokens (JWT) as a stateless, secure way to authenticate users and protect your API endpoints.", resources: [{ name: "JWT", url: "https://jwt.io/" }] },
-            { text: "Create middleware to protect specific routes in your application, ensuring that only authenticated and authorized users can access them.", resources: [] },
-        ],
-      },
-      {
-        title: "Deployment and Hosting",
-        points: [
-            { text: "Deploy your frontend React/Next.js application to a global CDN for optimal performance using platforms like Vercel or Netlify.", resources: [{ name: "Vercel", url: "https://vercel.com/" }, { name: "Netlify", url: "https://www.netlify.com/" }] },
-            { text: "Host your Node.js backend server on a cloud platform like Heroku, AWS (EC2, Lambda), or Google Cloud Run.", resources: [{ name: "Heroku", url: "https://www.heroku.com/" }, { name: "AWS", url: "https://aws.amazon.com/" }] },
-            { text: "Set up and manage a production-ready database using cloud services like Amazon RDS, MongoDB Atlas, or Heroku Postgres.", resources: [] },
-        ],
-      },
-      {
-        title: "Version Control with Git",
-        points: [
-            { text: "Learn the fundamentals of Git, a distributed version control system, to track changes in your code over time.", resources: [{ name: "Git Introduction", url: "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control" }] },
-            { text: "Use platforms like GitHub or GitLab to host your Git repositories, collaborate with other developers, and manage projects.", resources: [{ name: "GitHub", url: "https://github.com/" }, { name: "GitLab", url: "https://about.gitlab.com/" }] },
-            { text: "Master essential Git commands like `commit`, `push`, `pull`, `branch`, and `merge` to effectively manage your codebase.", resources: [{ name: "Basic Git commands", url: "https://www.atlassian.com/git/tutorials/setting-up-a-repository" }] },
-        ],
-      },
-    ],
-    assignments: [
-        { title: "Blog API", description: "Build a RESTful API using Node.js and Express that allows users to create, read, update, and delete blog posts. Store the posts in memory or a JSON file." },
-        { title: "Full-Stack To-Do App", description: "Create a React frontend and a Node.js backend for a to-do list application. The frontend should make API calls to the backend to manage tasks, which are stored in a database like PostgreSQL." },
-        { title: "User Authentication Service", description: "Implement a simple user login and registration system. Build an API with endpoints for signup and login, and protect another endpoint that can only be accessed by authenticated users using JWTs." }
-    ]
+    topics: [],
+    assignments: []
   },
   {
     id: "data-analyst",
@@ -322,9 +261,9 @@ export const learningPaths = [
       {
         title: "Networking Fundamentals",
         points: [
-            { text: "Understand the basics of the TCP/IP protocol suite, how DNS resolution works, and the difference between HTTP and HTTPS.", resources: [{ name: "Computer Networking Tutorial", url: "https://www.geeksforgeeks.org/computer-network-tutorial/" }] },
-            { text: "Learn to design and configure isolated network environments in the cloud using Virtual Private Clouds (VPCs) and subnets.", resources: [{ name: "VPC", url: "https://aws.amazon.com/vpc/" }] },
-            { text: "Implement network security by configuring firewalls, network access control lists (ACLs), and security groups to control inbound and outbound traffic.", resources: [] },
+          { text: "Understand the basics of the TCP/IP protocol suite, how DNS resolution works, and the difference between HTTP and HTTPS.", resources: [{ name: "Computer Networking Tutorial", url: "https://www.geeksforgeeks.org/computer-network-tutorial/" }] },
+          { text: "Learn to design and configure isolated network environments in the cloud using Virtual Private Clouds (VPCs) and subnets.", resources: [{ name: "VPC", url: "https://aws.amazon.com/vpc/" }] },
+          { text: "Implement network security by configuring firewalls, network access control lists (ACLs), and security groups to control inbound and outbound traffic.", resources: [] },
         ],
       },
     ],
