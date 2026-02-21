@@ -28,6 +28,9 @@ import {
   Layout,
   Database,
   ShieldCheck,
+  CheckCircle,
+  ArrowLeft,
+  ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -48,7 +51,7 @@ const stages = [
         practice: "Install Xcode. Create a 'Playground' and print your first 'Hello, World!'. Explore the Xcode interface.",
       },
       {
-        what: "Variables, Constants, and Basic Types",
+         what: "Variables, Constants, and Basic Types",
         why: "Understanding how to store data (Strings, Ints, Bools) is the start of any program.",
         time: "3 Days",
         prereqs: "Step 1",
@@ -453,6 +456,13 @@ export default function SwiftRoadmapPage() {
           </p>
         </header>
 
+        <Button asChild variant="ghost" className="mb-4 self-start">
+          <Link href="/learn">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            <span className="sr-only">Back to roadmaps</span>
+          </Link>
+        </Button>
+
         {stages.map((stage) => (
           <Card key={stage.title} className="border-2">
             <CardHeader>
@@ -618,7 +628,10 @@ export default function SwiftRoadmapPage() {
             iOS development is one of the most rewarding paths in tech. It blends high-level logic with visual creativity. Stay consistent, build daily, and remember: Every great app started with a single line of code. You've got this!
           </p>
           <Button asChild size="lg" className="mt-8 rounded-full">
-            <Link href="/projects">Start Building Your First App</Link>
+            <Link href="/projects">
+              Start Building Your First App
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </Button>
         </div>
       </div>
