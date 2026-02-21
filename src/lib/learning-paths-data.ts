@@ -244,7 +244,7 @@ export const learningPaths = [
   {
     id: "php",
     title: "PHP",
-    description: "Master the fundamental language for creating and structuring web pages.",
+    description: "Learn the server-side language that powers much of the web, from simple scripts to the Laravel framework.",
     category: "Programming Languages",
     subCategory: "Web Development Languages",
     topics: [],
@@ -278,7 +278,7 @@ export const learningPaths = [
     assignments: []
   },
   {
-    id: "html-the-language-of-the-web",
+    id: "html",
     title: "HTML: The Language of the Web",
     description: "Master the fundamental language for creating and structuring web pages.",
     category: "Programming Languages",
