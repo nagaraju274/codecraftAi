@@ -1,5 +1,3 @@
-
-
 "use client";
 
 // This comment explains that this hook is used for managing component state.
@@ -24,13 +22,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 
-// An array of background color classes to be applied to the learning path cards for visual variety.
+// An array of vibrant background color classes to be applied to the learning path cards.
 const cardColors = [
-  "bg-yellow-200/50 hover:bg-yellow-200/70 dark:bg-yellow-800/20 dark:hover:bg-yellow-800/40",
-  "bg-gray-300/50 hover:bg-gray-300/70 dark:bg-gray-700/20 dark:hover:bg-gray-700/40",
-  "bg-green-200/50 hover:bg-green-200/70 dark:bg-green-800/20 dark:hover:bg-green-800/40",
-  "bg-cyan-200/50 hover:bg-cyan-200/70 dark:bg-cyan-800/20 dark:hover:bg-cyan-800/40",
-  "bg-pink-200/50 hover:bg-pink-200/70 dark:bg-pink-800/20 dark:hover:bg-pink-800/40",
+  "bg-amber-400 hover:bg-amber-500 text-amber-950 dark:bg-amber-900/40 dark:hover:bg-amber-900/60 dark:text-amber-100 border-amber-500/20",
+  "bg-sky-400 hover:bg-sky-500 text-sky-950 dark:bg-sky-900/40 dark:hover:bg-sky-900/60 dark:text-sky-100 border-sky-500/20",
+  "bg-emerald-400 hover:bg-emerald-500 text-emerald-950 dark:bg-emerald-900/40 dark:hover:bg-emerald-900/60 dark:text-emerald-100 border-emerald-500/20",
+  "bg-indigo-400 hover:bg-indigo-500 text-indigo-950 dark:bg-indigo-900/40 dark:hover:bg-indigo-900/60 dark:text-indigo-100 border-indigo-500/20",
+  "bg-rose-400 hover:bg-rose-500 text-rose-950 dark:bg-rose-900/40 dark:hover:bg-rose-900/60 dark:text-rose-100 border-rose-500/20",
 ];
 
 // A reusable component for rendering a section of learning paths within a Tab.
@@ -44,11 +42,11 @@ const Section = ({ paths }: { paths: typeof learningPaths }) => {
         // This Link component makes the entire card a clickable link to the specific learning path page.
         <Link href={`/learn/${path.id}`} key={path.id}>
           {/* This Card component is the visual container for each learning path. */}
-          <Card className={`flex items-center justify-center h-32 transition-all duration-300 ${cardColors[index % cardColors.length]}`}>
+          <Card className={`flex items-center justify-center h-32 transition-all duration-300 shadow-lg hover:shadow-xl border-2 ${cardColors[index % cardColors.length]}`}>
             {/* This is the content area inside the card. */}
             <CardContent className="p-4">
               {/* This heading displays the title of the learning path. */}
-              <h2 className="text-lg font-semibold text-foreground text-center">{path.title}</h2>
+              <h2 className="text-lg font-bold text-center leading-tight">{path.title}</h2>
             </CardContent>
           </Card>
         </Link>
@@ -153,10 +151,10 @@ export default function LearnPage() {
         {/* This section contains the page title and description. */}
         <div className="space-y-2">
           {/* The main heading for the page. */}
-          <h1 className="text-3xl font-bold tracking-tight">Roadmap</h1>
+          <h1 className="text-3xl font-extrabold tracking-tight">Roadmaps</h1>
           {/* A paragraph describing the page's purpose. */}
-          <p className="text-muted-foreground">
-            Our structured learning paths will help you master new skills and advance your career.
+          <p className="text-muted-foreground text-lg">
+            Choose a path and master the skills you need to build the future.
           </p>
         </div>
         {/* This container holds the search input field. */}
@@ -170,7 +168,7 @@ export default function LearnPage() {
             // The placeholder text shown when the input is empty.
             placeholder="Search all roadmaps..."
             // The CSS classes for styling the input, including padding to make space for the icon.
-            className="pl-10 w-full"
+            className="pl-10 w-full h-12 text-lg shadow-sm border-2 focus:border-primary transition-all"
             // The value of the input is bound to the 'searchQuery' state variable.
             value={searchQuery}
             // The 'onChange' event handler updates the 'searchQuery' state as the user types.
@@ -180,18 +178,18 @@ export default function LearnPage() {
         {/* This div allows the main content area to scroll vertically if it overflows. */}
         <div className="flex-1 overflow-y-auto pr-4">
             <Tabs defaultValue="languages" className="w-full">
-              <TabsList className="grid w-full grid-cols-1 md:grid-cols-4 h-auto md:h-12">
-                <TabsTrigger value="languages" className="py-2.5"><Code className="mr-2"/>Programming Languages</TabsTrigger>
-                <TabsTrigger value="frameworks" className="py-2.5"><Library className="mr-2"/>Frameworks & Libraries</TabsTrigger>
-                <TabsTrigger value="roles" className="py-2.5"><Briefcase className="mr-2"/>Job Roles</TabsTrigger>
-                <TabsTrigger value="dsa" className="py-2.5"><BrainCircuit className="mr-2"/>DSA</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-1 md:grid-cols-4 h-auto md:h-14 gap-2 bg-muted/50 p-1.5 rounded-xl border-2">
+                <TabsTrigger value="languages" className="py-2.5 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all"><Code className="mr-2"/>Programming</TabsTrigger>
+                <TabsTrigger value="frameworks" className="py-2.5 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all"><Library className="mr-2"/>Frameworks</TabsTrigger>
+                <TabsTrigger value="roles" className="py-2.5 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all"><Briefcase className="mr-2"/>Job Roles</TabsTrigger>
+                <TabsTrigger value="dsa" className="py-2.5 rounded-lg data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all"><BrainCircuit className="mr-2"/>DSA</TabsTrigger>
               </TabsList>
               <TabsContent value="languages">
                 <div className="pt-6">
                     <Accordion type="multiple" defaultValue={['item-General-Purpose Languages']} className="w-full space-y-4">
                         {groupedLanguages.map(group => (
-                            <AccordionItem value={`item-${group.name}`} key={group.name} className="border rounded-lg">
-                                <AccordionTrigger className="p-4 text-lg font-semibold hover:no-underline">
+                            <AccordionItem value={`item-${group.name}`} key={group.name} className="border-2 rounded-xl overflow-hidden shadow-sm">
+                                <AccordionTrigger className="p-4 text-lg font-bold hover:no-underline bg-muted/20">
                                     {group.name}
                                 </AccordionTrigger>
                                 <AccordionContent className="p-4 pt-0">
@@ -212,8 +210,8 @@ export default function LearnPage() {
                  <div className="pt-6">
                     <Accordion type="multiple" defaultValue={['item-Frontend Web Frameworks']} className="w-full space-y-4">
                         {groupedFrameworks.map(group => (
-                            <AccordionItem value={`item-${group.name}`} key={group.name} className="border rounded-lg">
-                                <AccordionTrigger className="p-4 text-lg font-semibold hover:no-underline">
+                            <AccordionItem value={`item-${group.name}`} key={group.name} className="border-2 rounded-xl overflow-hidden shadow-sm">
+                                <AccordionTrigger className="p-4 text-lg font-bold hover:no-underline bg-muted/20">
                                     {group.name}
                                 </AccordionTrigger>
                                 <AccordionContent className="p-4 pt-0">
@@ -234,8 +232,8 @@ export default function LearnPage() {
                  <div className="pt-6">
                     <Accordion type="multiple" defaultValue={['item-Core Software Development']} className="w-full space-y-4">
                         {groupedJobRoles.map(group => (
-                            <AccordionItem value={`item-${group.name}`} key={group.name} className="border rounded-lg">
-                                <AccordionTrigger className="p-4 text-lg font-semibold hover:no-underline">
+                            <AccordionItem value={`item-${group.name}`} key={group.name} className="border-2 rounded-xl overflow-hidden shadow-sm">
+                                <AccordionTrigger className="p-4 text-lg font-bold hover:no-underline bg-muted/20">
                                     {group.name}
                                 </AccordionTrigger>
                                 <AccordionContent className="p-4 pt-0">
@@ -268,7 +266,8 @@ export default function LearnPage() {
             // A container for the "no results" message, centered and styled.
             <div className="col-span-full text-center py-20">
                 {/* The text to display when no learning paths match the search query. */}
-                <p className="text-muted-foreground">No roadmaps found for "{searchQuery}".</p>
+                <p className="text-xl font-semibold text-muted-foreground">No roadmaps found for "{searchQuery}".</p>
+                <p className="text-muted-foreground mt-2">Try searching for a different term or browse categories.</p>
             </div>
            )}
         </div>
