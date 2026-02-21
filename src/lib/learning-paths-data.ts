@@ -338,7 +338,7 @@ export const learningPaths = [
     assignments: []
   },
   {
-    id: "dart-for-cross-platform-development",
+    id: "dart",
     title: "Dart",
     description: "Learn Dart, the language for building mobile, desktop, and web applications with Flutter.",
     category: "Programming Languages",
