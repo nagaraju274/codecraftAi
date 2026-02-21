@@ -242,9 +242,9 @@ export const learningPaths = [
     assignments: []
   },
   {
-    id: "php-for-web-development",
-    title: "PHP for Web Development",
-    description: "A comprehensive guide to learning PHP, from the basics to building dynamic web applications with a modern framework.",
+    id: "php",
+    title: "PHP",
+    description: "Master the fundamental language for creating and structuring web pages.",
     category: "Programming Languages",
     subCategory: "Web Development Languages",
     topics: [],
