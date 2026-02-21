@@ -287,7 +287,7 @@ export const learningPaths = [
     assignments: []
   },
   {
-    id: "css-styling-the-web",
+    id: "css",
     title: "CSS: Styling the Web",
     description: "Learn the language for styling and laying out web pages, from basic selectors to advanced layouts and animations.",
     category: "Programming Languages",
