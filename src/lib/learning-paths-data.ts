@@ -314,9 +314,9 @@ export const learningPaths = [
     assignments: []
   },
   {
-    id: "sas-programming-for-data-analysis",
-    title: "SAS Programming for Data Analysis",
-    description: "Learn the fundamentals of SAS, the powerful software suite for advanced analytics, business intelligence, data management, and predictive analytics.",
+    id: "sas",
+    title: "SAS Programming",
+    description: "Learn the industry standard for analytical data management and reporting in health and finance.",
     category: "Programming Languages",
     subCategory: "Data Science & Analytics",
     topics: [],
