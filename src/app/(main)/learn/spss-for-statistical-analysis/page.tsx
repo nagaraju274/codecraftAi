@@ -23,23 +23,16 @@ import {
   Zap,
   GraduationCap,
   Lightbulb,
-  BarChart3,
-  PieChart,
-  Database,
-  Search,
-  FileText,
   Calculator,
   CheckCircle,
-  XCircle,
   ArrowLeft,
   ArrowRight,
   Monitor,
-  History,
-  Activity,
-  Cpu,
-  Layers,
   Code,
   Workflow,
+  ShieldCheck,
+  Terminal,
+  FileText,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -65,7 +58,7 @@ const stages = [
         time: "2 Days",
         prereqs: "Step 1",
         resources: [
-          { name: "Setting Variable Levels (MDN-style Guide)", url: "https://www.spss-tutorials.com/spss-variable-types-and-measurement-levels/" },
+          { name: "Setting Variable Levels", url: "https://www.spss-tutorials.com/spss-variable-types-and-measurement-levels/" },
         ],
         practice: "Set 'Gender' as Nominal with labels 1=Male, 2=Female. Set 'Education' as Ordinal.",
       },
@@ -318,18 +311,18 @@ const projects = [
 
 const plans = [
   {
-    title: "30-Day Fast Track: The Foundation",
-    description: "Focus on data entry, cleaning, and descriptive reporting for basic research roles.",
+    title: "30-Day Fast Track",
+    description: "Focus on data entry, cleaning, and descriptive reporting.",
     schedule: [
-      "Days 1-7: Environment, Variable properties, and Data Entry.",
+      "Days 1-7: Variable properties and Data Entry.",
       "Days 8-15: Data cleaning and Frequency analysis.",
       "Days 16-23: Cross-tabs, Chi-Square, and basic Chart Builder.",
-      "Days 24-30: Build the 'Student Performance' project and learn ODS export.",
+      "Days 24-30: Build 'Student Performance' project and learn ODS export.",
     ]
   },
   {
-    title: "60-Day Standard Plan: The Analyst",
-    description: "Balanced path for building solid inferential modeling and survey analysis skills.",
+    title: "60-Day Standard Plan",
+    description: "Balanced path for building inferential modeling and survey analysis skills.",
     schedule: [
       "Days 1-20: Thorough coverage of Beginner Stage + 3 projects.",
       "Days 21-45: Mastering T-Tests, ANOVA, and Correlation.",
@@ -337,7 +330,7 @@ const plans = [
     ]
   },
   {
-    title: "90-Day Mastery Plan: The Researcher",
+    title: "90-Day Mastery Plan",
     description: "Comprehensive path for professional data science and clinical research roles.",
     schedule: [
       "Days 1-30: Complete Beginner & Intermediate foundations.",
@@ -348,42 +341,36 @@ const plans = [
 ];
 
 const interviewTopics = [
-  "Difference between Nominal, Ordinal, and Scale measures.",
-  "How do you identify and handle missing values in SPSS?",
-  "When would you use a T-Test versus an ANOVA?",
-  "Explain the difference between a P-value and a Correlation Coefficient (r).",
-  "What is the purpose of a Post-Hoc test in ANOVA?",
-  "How do you check for the 'Normality' assumption in your data?",
-  "What does Cronbach's Alpha measure?",
-  "Explain the difference between a DATA step and a Syntax command.",
-  "When is it appropriate to use Non-Parametric tests?",
-  "How do you interpret an Odds Ratio in Logistic Regression?",
+  "Nominal vs. Ordinal vs. Scale measures.",
+  "Identifying and handling outliers in SPSS.",
+  "When to use T-Test vs. ANOVA.",
+  "Interpreting P-values and Confidence Intervals.",
+  "Purpose of Post-Hoc tests.",
+  "Normality and Homogeneity assumptions.",
+  "Cronbach's Alpha interpretation.",
+  "Data step vs. Syntax command logic.",
+  "Non-Parametric test selection.",
+  "Odds Ratio in Logistic Regression.",
 ];
 
 const codingQuestions = [
-  { question: "Write the SPSS syntax to calculate a new variable 'Total_Score' as the sum of 'Math' and 'Science'.", topic: "Syntax" },
-  { question: "Query to show the mean of 'Salary' for each 'Department' using Syntax.", topic: "Syntax" },
-  { question: "Using Syntax, how would you recode 'Age' (18 thru 25=1) (26 thru 35=2) into 'Age_Group'?", topic: "Recoding" },
-  { question: "Write syntax to filter the dataset to only include cases where 'Score' > 70.", topic: "Filtering" },
-];
-
-const mcqs = [
-  { question: "Which measure of central tendency is most affected by extreme outliers?", options: ["Median", "Mode", "Mean", "Range"], answer: "Mean" },
-  { question: "What is the shortcut key to open the SPSS Syntax window?", options: ["Ctrl+N", "Ctrl+O", "Ctrl+S", "Alt+S"], answer: "Ctrl+N" },
-  { question: "Which test is used to compare the means of exactly two related groups?", options: ["Independent T-Test", "Paired T-Test", "One-way ANOVA", "Pearson Correlation"], answer: "Paired T-Test" },
+  { question: "Write Syntax to compute 'BMI' from 'Weight' and 'Height'.", topic: "Syntax" },
+  { question: "Syntax to filter cases where 'Age' > 18.", topic: "Syntax" },
+  { question: "Recode 'Score' (0-50=0) (51-100=1) into 'Status' using Syntax.", topic: "Recoding" },
+  { question: "Aggregate 'Sales' by 'Region' using Syntax.", topic: "Syntax" },
 ];
 
 const mistakes = [
-  "Ignoring the 'Measure' type: Treating a Scale variable as Nominal results in errors.",
-  "Not checking the LOG: The output viewer shows results, but the log explains why a query failed.",
-  "Mixing up 'Recode into Same' vs 'Recode into Different': Always choose 'Different' to avoid losing original data.",
-  "Forgetting to save the SYNTAX: If your computer crashes, you lose your entire sequence of steps.",
-  "Ignoring the 'N' size: Running complex tests on very small samples leads to unreliable results.",
-  "Over-interpreting non-significant results: A p-value > 0.05 means you cannot reject the null hypothesis.",
-  "Failing to check assumptions: Running a T-test on non-normal data without checking.",
-  "Messy Variable View: Not using 'Labels' makes output tables impossible to read.",
-  "Not using 'Split File': Trying to compare groups by manually running tests multiple times.",
-  "Assuming Correlation equals Causation: Just because two variables move together doesn't mean one causes the other.",
+  "Ignoring Measure type (treating Scale as Nominal).",
+  "Not checking the LOG for errors after running a procedure.",
+  "Recoding into 'Same Variable' (loss of original data).",
+  "Forgetting to save Syntax files.",
+  "Running complex tests on tiny sample sizes.",
+  "Over-interpreting non-significant p-values.",
+  "Failing to check statistical assumptions.",
+  "Messy Variable View (no labels or missing values defined).",
+  "Not using 'Split File' for group comparisons.",
+  "Assuming Correlation equals Causation.",
 ];
 
 export default function SpssRoadmapPage() {
@@ -481,7 +468,7 @@ export default function SpssRoadmapPage() {
                 <CardContent className="text-sm space-y-3">
                   <p className="text-muted-foreground line-clamp-2"><strong>Teaches:</strong> {p.teaches}</p>
                   <div className="flex items-center gap-2 text-xs font-mono bg-muted p-2 rounded text-primary">
-                    <Database className="h-3 w-3"/> {p.tech}
+                    <Terminal className="h-3 w-3"/> {p.tech}
                   </div>
                 </CardContent>
               </Card>
@@ -551,15 +538,15 @@ export default function SpssRoadmapPage() {
                 <div className="bg-primary/5 p-6 rounded-2xl border-2 border-primary/10">
                   <h4 className="font-bold mb-4 flex items-center gap-2"><Workflow className="h-5 w-5 text-primary"/> Essential Keywords</h4>
                   <div className="flex flex-wrap gap-2">
-                    {['SPSS Statistics', 'ANOVA', 'Regression Analysis', 'Hypothesis Testing', 'Data Cleaning', 'SPSS Syntax', 'Factor Analysis', 'Logistic Regression', 'Survey Analysis', 'Reporting', 'AMOS', 'Survival Analysis'].map(kw => <Badge key={kw} variant="secondary" className="px-3 py-1">{kw}</Badge>)}
+                    {['SPSS', 'Statistics', 'ANOVA', 'Regression', 'Data Cleaning', 'SPSS Syntax', 'Factor Analysis', 'Survey Analysis', 'Reporting', 'SEM', 'Survival Analysis'].map(kw => <Badge key={kw} variant="secondary" className="px-3 py-1">{kw}</Badge>)}
                   </div>
                 </div>
                 <div className="bg-primary/5 p-6 rounded-2xl border-2 border-primary/10">
                   <h4 className="font-bold mb-4 flex items-center gap-2"><FileText className="h-5 w-5 text-primary"/> Showcase Like a Pro</h4>
                   <ul className="text-sm space-y-3 text-muted-foreground">
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Provide 'before and after' screenshots of cleaned datasets.</li>
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Host your Syntax scripts on GitHub to show reproducibility.</li>
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Include a link to a professional research report (PDF).</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Provide 'before and after' screenshots of cleaned data.</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Host your Syntax scripts on GitHub.</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Include a link to a professional research report.</li>
                   </ul>
                 </div>
               </div>
@@ -587,14 +574,14 @@ export default function SpssRoadmapPage() {
         </Card>
 
         <div className="text-center py-16 bg-gradient-to-br from-primary/20 via-background to-primary/10 rounded-[3rem] border-2 shadow-inner">
-          <h2 className="text-4xl font-black tracking-tight mb-6">Let the Data Tell Its Story</h2>
+          <h2 className="text-4xl font-black tracking-tight mb-6">Master the Data Narrative</h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto px-6 leading-relaxed">
-            SPSS is more than just a calculation tool; it's a window into human behavior and trends. Mastering it allows you to find certainty in numbers and provide the insights that drive the world forward. Stay consistent, keep questioning your data, and remember: every expert was once a beginner fighting their first 'Measurement' error. Your journey into data mastery starts today!
+            SPSS is your window into the truth behind numbers. Stay consistent, keep questioning your data, and remember: Every expert was once a beginner fighting their first 'Measurement' error. Your journey into data mastery starts today!
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-10">
             <Button asChild size="lg" className="rounded-full px-10 h-14 text-lg font-bold shadow-lg shadow-primary/20">
               <Link href="/projects">
-                Start Analysis Projects
+                Start Building Projects
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
