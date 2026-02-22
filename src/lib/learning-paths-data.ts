@@ -205,7 +205,7 @@ export const learningPaths = [
     topics: [],
     assignments: []
   },
- Java: {
+  {
     id: "java",
     title: "Java",
     description: "Learn the robust, object-oriented Java programming language, a mainstay in enterprise-level applications, Android development, and large-scale systems.",
