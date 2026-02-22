@@ -38,6 +38,8 @@ import {
   Activity,
   Cpu,
   Layers,
+  Code,
+  Workflow,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -547,7 +549,7 @@ export default function SpssRoadmapPage() {
               <h3 className="font-bold text-xl text-center">Resume & Career Optimization</h3>
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="bg-primary/5 p-6 rounded-2xl border-2 border-primary/10">
-                  <h4 className="font-bold mb-4 flex items-center gap-2"><Layers className="h-5 w-5 text-primary"/> Essential Keywords</h4>
+                  <h4 className="font-bold mb-4 flex items-center gap-2"><Workflow className="h-5 w-5 text-primary"/> Essential Keywords</h4>
                   <div className="flex flex-wrap gap-2">
                     {['SPSS Statistics', 'ANOVA', 'Regression Analysis', 'Hypothesis Testing', 'Data Cleaning', 'SPSS Syntax', 'Factor Analysis', 'Logistic Regression', 'Survey Analysis', 'Reporting', 'AMOS', 'Survival Analysis'].map(kw => <Badge key={kw} variant="secondary" className="px-3 py-1">{kw}</Badge>)}
                   </div>
