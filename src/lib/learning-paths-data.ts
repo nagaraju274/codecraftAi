@@ -37,8 +37,8 @@ export const learningPaths = [
       {
         title: "HTML5: Structuring the Web",
         points: [
-          { text: "Learn the fundamental boilerplate required for every HTML page, including `<!DOCTYPE>`, `<html>`, `<head>`, and `<body>` tags.", resources: [{ name: "HTML basics", url: "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics" }] },
-          { text: "Use semantic tags like `<header>`, `<nav>`, `<main>`, `<article>`, and `<footer>` to give your web content meaning and improve SEO.", resources: [{ name: "Semantic HTML", url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element#content_sectioning" }] },
+          { text: "Learn the fundamental boilerplate required for every HTML page, including \`<!DOCTYPE>\`, \`<html>\`, \`<head>\`, and \`<body>\` tags.", resources: [{ name: "HTML basics", url: "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics" }] },
+          { text: "Use semantic tags like \`<header>\`, \`<nav>\`, \`<main>\`, \`<article>\`, and \`<footer>\` to give your web content meaning and improve SEO.", resources: [{ name: "Semantic HTML", url: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element#content_sectioning" }] },
           { text: "Build interactive forms to collect user data using various input types, labels for accessibility, and buttons for submission.", resources: [{ name: "HTML Forms", url: "https://developer.mozilla.org/en-US/docs/Learn/Forms" }] },
         ],
       },
@@ -71,15 +71,15 @@ export const learningPaths = [
         points: [
           { text: "Learn to create and compose your own React components, which are the fundamental building blocks of a React application.", resources: [{ name: "Your First Component", url: "https://react.dev/learn/your-first-component" }] },
           { text: "Understand how to pass data from a parent component to a child component using 'props', making your components dynamic and reusable.", resources: [{ name: "Passing Props to a Component", url: "https://react.dev/learn/passing-props-to-a-component" }] },
-          { text: "Manage data that changes over time within a component using the `useState` hook. Learn how state triggers re-renders to update the UI.", resources: [{ name: "State: A Component's Memory", url: "https://react.dev/learn/state-a-components-memory" }] },
+          { text: "Manage data that changes over time within a component using the \`useState\` hook. Learn how state triggers re-renders to update the UI.", resources: [{ name: "State: A Component's Memory", url: "https://react.dev/learn/state-a-components-memory" }] },
         ],
       },
       {
         title: "React Hooks",
         points: [
-          { text: "Use the `useEffect` hook to perform side effects in your components, such as fetching data from an API or setting up subscriptions.", resources: [{ name: "useEffect", url: "https://react.dev/reference/react/useEffect" }] },
-          { text: "Manage application-wide state that needs to be shared between many components without prop drilling by using the `useContext` hook.", resources: [{ name: "useContext", url: "https://react.dev/reference/react/useContext" }] },
-          { text: "Explore other essential hooks like `useRef` for accessing DOM elements directly and `useReducer` for managing complex state logic.", resources: [{ name: "useRef", url: "https://react.dev/reference/react/useRef" }, { name: "useReducer", url: "https://react.dev/reference/react/useReducer" }] },
+          { text: "Use the \`useEffect\` hook to perform side effects in your components, such as fetching data from an API or setting up subscriptions.", resources: [{ name: "useEffect", url: "https://react.dev/reference/react/useEffect" }] },
+          { text: "Manage application-wide state that needs to be shared between many components without prop drilling by using the \`useContext\` hook.", resources: [{ name: "useContext", url: "https://react.dev/reference/react/useContext" }] },
+          { text: "Explore other essential hooks like \`useRef\` for accessing DOM elements directly and \`useReducer\` for managing complex state logic.", resources: [{ name: "useRef", url: "https://react.dev/reference/react/useRef" }, { name: "useReducer", url: "https://react.dev/reference/react/useReducer" }] },
         ],
       },
       {
@@ -93,8 +93,8 @@ export const learningPaths = [
     ],
     assignments: [
         { title: "Personal Portfolio Page", description: "Build a single-page portfolio using HTML and CSS. Use Flexbox or Grid to create a responsive layout for your projects and contact information." },
-        { title: "Interactive To-Do List", description: "Create a to-do list application using React. Users should be able to add tasks, mark them as complete, and delete them. Manage the list of tasks using the `useState` hook." },
-        { title: "Simple Weather App", description: "Build a React component that fetches and displays the current weather for a city using a free weather API. Use the `useEffect` hook to handle the data fetching." }
+        { title: "Interactive To-Do List", description: "Create a to-do list application using React. Users should be able to add tasks, mark them as complete, and delete them. Manage the list of tasks using the \`useState\` hook." },
+        { title: "Simple Weather App", description: "Build a React component that fetches and displays the current weather for a city using a free weather API. Use the \`useEffect\` hook to handle the data fetching." }
     ]
   },
   {
@@ -181,7 +181,7 @@ export const learningPaths = [
   {
     id: "sql",
     title: "SQL",
-    description: "Learn the standard language for managing and querying relational databases.",
+    description: "Master the language of data. Learn to design, query, and optimize relational databases for powerful insights.",
     category: "Programming Languages",
     subCategory: "Data Science & Analytics",
     topics: [],
@@ -457,7 +457,7 @@ export const learningPaths = [
     category: "Programming Languages",
     subCategory: "General-Purpose Languages",
     topics: [],
-    assignments: []
+    assignments: [],
   },
   {
     id: "ruby",
