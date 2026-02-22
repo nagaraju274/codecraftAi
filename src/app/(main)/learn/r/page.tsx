@@ -38,6 +38,7 @@ import {
   History,
   Activity,
   Cpu,
+  Workflow,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -560,7 +561,7 @@ export default function RRoadmapPage() {
         <Card className="border-2 border-accent bg-accent/5">
           <CardHeader>
             <CardTitle className="text-3xl flex items-center gap-3"><MessageSquare className="h-8 w-8 text-primary"/>Interview Preparation</CardTitle>
-            <CardDescription>Master the questions that prove you can handle real-world data science problems.</CardDescription>
+            <CardDescription>Expert guidance to help you land your dream R developer role.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-10">
             <div className="grid md:grid-cols-2 gap-10">
