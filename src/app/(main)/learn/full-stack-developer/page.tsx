@@ -22,7 +22,22 @@ import {
   Zap,
   GraduationCap,
   Lightbulb,
+  Code,
+  Layout,
+  Database,
+  ShieldCheck,
+  CheckCircle,
+  ArrowLeft,
+  ArrowRight,
+  Terminal,
+  Cpu,
+  Layers,
+  Globe,
+  Monitor,
+  Workflow,
+  Server,
 } from "lucide-react";
+import Link from "next/link";
 
 const stages = [
     {
@@ -109,7 +124,7 @@ const stages = [
                 time: "1 Week",
                 prereqs: "None",
                 resources: [
-                    { name: "SQL vs. NoSQL Explained (YouTube)", url: "https://www.youtube.com/watch?v= başkan" },
+                    { name: "SQL vs. NoSQL Explained (YouTube)", url: "https://www.youtube.com/watch?v=başkan" },
                 ],
                 practice: "Write a short summary comparing when you might choose a SQL database (like PostgreSQL) versus a NoSQL database (like MongoDB).",
             },
@@ -327,7 +342,7 @@ const plans = [
     },
     {
         title: "90-Day Mastery Plan",
-        description: "A comprehensive plan for in-depth knowledge and production-readiness.",
+        description: "A comprehensive plan for in-depth knowledge, specialization, and production-readiness.",
         schedule: [
             "Days 1-30: Complete the Beginner and Intermediate stages.",
             "Days 31-60: Cover the Advanced Stage, mastering Docker, CI/CD, and advanced backend concepts like WebSockets and caching.",
@@ -348,6 +363,13 @@ const interviewTopics = [
     "What is the difference between a class component and a functional component in React?",
     "Explain the purpose of the `useEffect` hook in React.",
     "High-level system design: How would you design a simple blogging platform?",
+];
+
+const codingQuestions = [
+    { question: "Implement a function to reverse a string in JavaScript without using .reverse().", topic: "JavaScript Strings" },
+    { question: "Write a function that determines if two strings are anagrams of each other.", topic: "JavaScript Logic" },
+    { question: "Create a simple Express middleware that logs the timestamp of every request.", topic: "Backend Middleware" },
+    { question: "Explain how you would handle race conditions in a database update.", topic: "Databases" }
 ];
 
 const mcqs = [
@@ -382,34 +404,61 @@ export default function FullStackDeveloperRoadmapPage() {
           </p>
         </header>
 
+        <Button asChild variant="ghost" className="mb-4 self-start">
+          <Link href="/learn">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to roadmaps
+          </Link>
+        </Button>
+
         {stages.map((stage) => (
-          <Card key={stage.title}>
+          <Card key={stage.title} className="border-2 shadow-sm">
             <CardHeader>
               <CardTitle className="text-3xl flex items-center gap-3">
                 <Brain className="h-8 w-8 text-primary" />
                 {stage.title}
               </CardTitle>
+              <CardDescription>Follow these {stage.steps.length} steps to progress from {stage.level}.</CardDescription>
             </CardHeader>
             <CardContent>
               <Accordion type="single" collapsible className="w-full">
                 {stage.steps.map((step, index) => (
                   <AccordionItem value={`item-${index}`} key={index}>
-                    <AccordionTrigger className="text-lg font-semibold">
-                      Step {index + 1}: {step.what}
+                    <AccordionTrigger className="text-lg font-semibold hover:no-underline">
+                      <div className="flex items-center gap-3 text-left">
+                        <span className="bg-primary text-primary-foreground h-6 w-6 rounded-full flex items-center justify-center text-xs shrink-0">{index + 1}</span>
+                        {step.what}
+                      </div>
                     </AccordionTrigger>
-                    <AccordionContent className="pt-2">
+                    <AccordionContent className="pt-4">
                       <div className="prose prose-sm dark:prose-invert max-w-none space-y-4">
-                        <p><strong>Why it’s important:</strong> {step.why}</p>
-                        <p><strong>Time to complete:</strong> {step.time}</p>
-                        <p><strong>Prerequisites:</strong> {step.prereqs}</p>
-                        <h4 className="font-semibold">Free Resources:</h4>
-                        <ul>
-                          {step.resources.map(res => (
-                            <li key={res.url}><a href={res.url} target="_blank" rel="noopener noreferrer">{res.name}</a></li>
-                          ))}
-                        </ul>
-                         <h4 className="font-semibold">Practice Tasks:</h4>
-                        <p>{step.practice}</p>
+                        <div className="grid md:grid-cols-2 gap-6">
+                          <div className="space-y-3">
+                            <p><strong>Why it’s important:</strong> {step.why}</p>
+                            <p><strong>Time Estimate:</strong> {step.time}</p>
+                            <p><strong>Prerequisites:</strong> {step.prereqs}</p>
+                          </div>
+                          <div className="bg-muted/50 p-4 rounded-xl border border-border">
+                            <h4 className="font-semibold text-sm mb-2 flex items-center gap-2 text-primary"><Monitor className="h-4 w-4"/> Practice Task:</h4>
+                            <p className="text-sm leading-relaxed">{step.practice}</p>
+                          </div>
+                        </div>
+                        
+                        <div className="pt-4 border-t">
+                          <h4 className="font-semibold mb-3 text-sm flex items-center gap-2"><Code className="h-4 w-4 text-primary"/> Free Resources:</h4>
+                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {step.resources.map(res => (
+                              <li key={res.url} className="list-none">
+                                <a href={res.url} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 p-2 rounded-lg hover:bg-primary/5 transition-colors border border-transparent hover:border-primary/20">
+                                  <div className="bg-primary/10 p-1.5 rounded-md group-hover:bg-primary/20">
+                                    <Zap className="h-3 w-3 text-primary"/>
+                                  </div>
+                                  <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">{res.name}</span>
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </AccordionContent>
                   </AccordionItem>
@@ -418,110 +467,141 @@ export default function FullStackDeveloperRoadmapPage() {
             </CardContent>
           </Card>
         ))}
-         <Card>
+         <Card className="border-2 border-primary/20 bg-primary/[0.02]">
             <CardHeader>
                 <CardTitle className="text-3xl flex items-center gap-3"><Zap className="h-8 w-8 text-primary"/>Project Ideas</CardTitle>
                 <CardDescription>Apply your knowledge with these hands-on projects, from beginner to advanced.</CardDescription>
             </CardHeader>
             <CardContent className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {projects.map(p => (
-                     <Card key={p.title}>
-                        <CardHeader>
+                     <Card key={p.title} className="bg-card hover:shadow-md transition-all border-2">
+                        <CardHeader className="pb-3">
                             <Badge variant={p.level === 'Beginner' ? 'default' : p.level === 'Intermediate' ? 'secondary' : 'destructive'} className="w-fit">{p.level}</Badge>
                             <CardTitle className="text-xl pt-2">{p.title}</CardTitle>
                         </CardHeader>
-                        <CardContent>
-                            <p className="text-sm text-muted-foreground mb-4"><strong>What it teaches:</strong> {p.teaches}</p>
-                            <p className="text-sm"><strong>Tech:</strong> {p.tech}</p>
+                        <CardContent className="text-sm space-y-3">
+                            <p className="text-muted-foreground line-clamp-2"><strong>Teaches:</strong> {p.teaches}</p>
+                            <div className="flex items-center gap-2 text-xs font-mono bg-muted p-2 rounded text-primary">
+                                <Terminal className="h-3 w-3"/> {p.tech}
+                            </div>
                         </CardContent>
                     </Card>
                 ))}
             </CardContent>
         </Card>
-        <Card>
+        <Card className="border-2">
             <CardHeader>
                 <CardTitle className="text-3xl flex items-center gap-3"><GraduationCap className="h-8 w-8 text-primary"/>Learning Plans</CardTitle>
                 <CardDescription>Choose a plan that fits your schedule and goals.</CardDescription>
             </CardHeader>
             <CardContent>
-                 <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
+                <div className="grid md:grid-cols-3 gap-6">
                     {plans.map((plan, index) => (
-                    <AccordionItem value={`item-${index}`} key={index}>
-                        <AccordionTrigger className="text-lg font-semibold">{plan.title}</AccordionTrigger>
-                        <AccordionContent className="pt-2">
-                            <p className="text-muted-foreground mb-4">{plan.description}</p>
-                             <ul className="list-disc pl-5 space-y-2">
-                                {plan.schedule.map(item => <li key={item}>{item}</li>)}
+                        <div key={index} className="p-6 border-2 rounded-2xl bg-card shadow-sm hover:border-primary/50 transition-colors">
+                            <h3 className="font-bold text-xl mb-3 text-primary">{plan.title}</h3>
+                            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">{plan.description}</p>
+                            <ul className="space-y-3">
+                                {plan.schedule.map(item => (
+                                    <li key={item} className="text-sm flex items-start gap-3">
+                                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 shrink-0" />
+                                        <span className="text-foreground/80">{item}</span>
+                                    </li>
+                                ))}
                             </ul>
-                        </AccordionContent>
-                    </AccordionItem>
+                        </div>
                     ))}
-                </Accordion>
+                </div>
             </CardContent>
         </Card>
-        <Card>
+        <Card className="border-2 border-accent bg-accent/5">
             <CardHeader>
                 <CardTitle className="text-3xl flex items-center gap-3"><MessageSquare className="h-8 w-8 text-primary"/>Interview Preparation</CardTitle>
                 <CardDescription>Key topics, questions, and resume tips to land a full-stack developer job.</CardDescription>
             </CardHeader>
-             <CardContent className="space-y-6">
-                <div>
-                    <h3 className="font-semibold text-lg mb-2">Important Interview Topics</h3>
-                    <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                        {interviewTopics.map(topic => <li key={topic}>{topic}</li>)}
-                    </ul>
-                </div>
-                <div>
-                    <h3 className="font-semibold text-lg mb-2">Sample Coding Questions</h3>
-                     {codingQuestions.map(q => (
-                        <div key={q.question} className="p-3 border rounded-md mb-2">
-                            <p className="font-medium">[{q.topic}] {q.question}</p>
+             <CardContent className="space-y-10">
+                <div className="grid md:grid-cols-2 gap-10">
+                    <div className="space-y-4">
+                        <h3 className="font-bold text-lg flex items-center gap-2"><ShieldCheck className="h-5 w-5 text-primary"/> Important Interview Topics</h3>
+                        <ul className="grid grid-cols-1 gap-2">
+                            {interviewTopics.map(topic => (
+                                <li key={topic} className="flex items-center gap-2 text-sm bg-background p-2 rounded-lg border shadow-sm">
+                                    <div className="h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                                    {topic}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="space-y-4">
+                        <h3 className="font-bold text-lg flex items-center gap-2"><Code className="h-5 w-5 text-primary"/> Sample Coding Questions</h3>
+                        <div className="space-y-3">
+                            {codingQuestions.map(q => (
+                                <div key={q.question} className="p-4 border rounded-xl bg-card hover:border-primary/30 transition-colors">
+                                    <p className="font-semibold text-xs uppercase tracking-wider text-primary mb-1">{q.topic}</p>
+                                    <p className="text-sm leading-relaxed">{q.question}</p>
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-                 <div>
-                    <h3 className="font-semibold text-lg mb-2">Sample Multiple Choice Questions (MCQs)</h3>
-                     {mcqs.map(q => (
-                        <div key={q.question} className="p-3 border rounded-md mb-2">
-                            <p className="font-medium">{q.question}</p>
-                            <p className="text-sm text-muted-foreground">Correct Answer: {q.answer}</p>
-                        </div>
-                    ))}
-                </div>
-                <div>
-                    <h3 className="font-semibold text-lg mb-2">Resume Keywords</h3>
-                    <div className="flex flex-wrap gap-2">
-                        {['React', 'Node.js', 'Express', 'Next.js', 'PostgreSQL', 'MongoDB', 'REST API', 'JavaScript', 'TypeScript', 'HTML/CSS', 'Docker', 'AWS'].map(kw => <Badge key={kw} variant="secondary">{kw}</Badge>)}
                     </div>
                 </div>
-                <div>
-                    <h3 className="font-semibold text-lg mb-2">How to Showcase Projects on GitHub</h3>
-                     <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-                        <li>Have a single repository with a clear `README.md` that links to the live frontend and backend applications.</li>
-                        <li>Alternatively, use a monorepo structure to house both frontend and backend code in one repository.</li>
-                        <li>Document your API endpoints clearly in the backend's README.</li>
-                        <li>Include setup and installation instructions for both services.</li>
-                        <li>Write clean and well-organized commit history.</li>
-                    </ul>
+
+                <div className="pt-8 border-t space-y-6">
+                    <h3 className="font-bold text-xl text-center">Resume & Career Optimization</h3>
+                    <div className="grid sm:grid-cols-2 gap-6">
+                        <div className="bg-primary/5 p-6 rounded-2xl border-2 border-primary/10">
+                            <h4 className="font-bold mb-4 flex items-center gap-2"><Layers className="h-5 w-5 text-primary"/> Essential Keywords</h4>
+                            <div className="flex flex-wrap gap-2">
+                                {['React', 'Node.js', 'Express', 'Next.js', 'PostgreSQL', 'MongoDB', 'REST API', 'JavaScript', 'TypeScript', 'HTML/CSS', 'Docker', 'AWS', 'WebSockets', 'Redis', 'CI/CD'].map(kw => <Badge key={kw} variant="secondary" className="px-3 py-1">{kw}</Badge>)}
+                            </div>
+                        </div>
+                        <div className="bg-primary/5 p-6 rounded-2xl border-2 border-primary/10">
+                            <h4 className="font-bold mb-4 flex items-center gap-2"><Workflow className="h-5 w-5 text-primary"/> Showcase Like a Pro</h4>
+                            <ul className="text-sm space-y-3 text-muted-foreground">
+                                <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Provide links to live demos for all major projects.</li>
+                                <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Include a well-structured 'README.md' explaining your tech stack and architectural decisions.</li>
+                                <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Showcase your ability to handle full-stack integration (frontend to backend).</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </CardContent>
         </Card>
-        <Card>
-            <CardHeader>
-                <CardTitle className="text-3xl flex items-center gap-3"><Lightbulb className="h-8 w-8 text-primary"/>10 Common Mistakes to Avoid</CardTitle>
+        <Card className="border-2 border-destructive/20 bg-destructive/5 overflow-hidden">
+            <CardHeader className="bg-destructive/10 border-b border-destructive/10 py-4">
+                <CardTitle className="text-2xl flex items-center gap-3 text-destructive">
+                    <Lightbulb className="h-6 w-6"/>
+                    10 Common Mistakes to Avoid
+                </CardTitle>
             </CardHeader>
-            <CardContent>
-                <ol className="list-decimal list-inside space-y-2">
-                    {mistakes.map(mistake => <li key={mistake}>{mistake}</li>)}
-                </ol>
+            <CardContent className="p-6">
+                <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-3">
+                    {mistakes.map((mistake, i) => (
+                        <li key={i} className="text-sm flex items-start gap-3 text-foreground/80">
+                            <span className="text-destructive font-black shrink-0">{i + 1}.</span>
+                            {mistake}
+                        </li>
+                    ))}
+                </ul>
             </CardContent>
         </Card>
 
-        <div className="text-center pt-8">
-            <h2 className="text-2xl font-bold">Your Journey Starts Now</h2>
-            <p className="mt-2 text-muted-foreground max-w-xl mx-auto">
-                Becoming a full-stack developer is a challenging but incredibly versatile path. This roadmap is your guide, but true mastery comes from building complete, end-to-end projects. Stay curious, be persistent, and enjoy creating things for the web. Happy coding!
+        <div className="text-center py-16 bg-gradient-to-br from-primary/20 via-background to-primary/10 rounded-[3rem] border-2 shadow-inner">
+            <h2 className="text-4xl font-black tracking-tight mb-6">Your Full-Stack Journey Starts Now</h2>
+            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto px-6 leading-relaxed">
+                Becoming a full-stack developer is a challenging but immensely versatile path. This roadmap is your guide, but true mastery comes from building complete, end-to-end projects. Stay curious, be persistent, and enjoy creating things for the web. Happy coding!
             </p>
+            <div className="flex flex-wrap justify-center gap-4 mt-10">
+                <Button asChild size="lg" className="rounded-full px-10 h-14 text-lg font-bold shadow-lg shadow-primary/20">
+                    <Link href="/projects">
+                        Start Building Projects
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="rounded-full px-10 h-14 text-lg font-bold border-2">
+                    <Link href="/learn">
+                        Explore Other Roadmaps
+                    </Link>
+                </Button>
+            </div>
         </div>
 
       </div>
