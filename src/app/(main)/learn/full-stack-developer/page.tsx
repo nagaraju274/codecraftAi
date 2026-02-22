@@ -1,4 +1,3 @@
-
 "use client";
 
 import { AuthGuard } from "@/components/auth/auth-guard";
@@ -9,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -414,8 +414,8 @@ export default function FullStackDeveloperRoadmapPage() {
         {stages.map((stage) => (
           <Card key={stage.title} className="border-2 shadow-sm">
             <CardHeader>
-              <CardTitle className="text-3xl flex items-center gap-3">
-                <Brain className="h-8 w-8 text-primary" />
+              <CardTitle className="text-3xl flex items-center gap-3 text-primary">
+                <Brain className="h-8 w-8" />
                 {stage.title}
               </CardTitle>
               <CardDescription>Follow these {stage.steps.length} steps to progress from {stage.level}.</CardDescription>
