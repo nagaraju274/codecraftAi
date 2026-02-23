@@ -129,7 +129,7 @@ export const learningPaths = [
     title: "Mobile App Developer (iOS)",
     description: "Build applications for iPhone and iPad using Swift and SwiftUI.",
     category: "Job Roles",
-    subCategory: "Mobile App Development",
+    subCategory: "Core Software Development",
     topics: [],
     assignments: []
   },
