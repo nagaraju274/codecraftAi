@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Search, Library, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,10 +11,11 @@ import { learningPaths } from "@/lib/learning-paths-data";
 import { AuthGuard } from "@/components/auth/auth-guard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-const cardColors = [
-  "bg-sky-400 hover:bg-sky-500 text-sky-950 dark:bg-sky-900/40 dark:text-sky-100 border-sky-500/20",
-  "bg-indigo-400 hover:bg-indigo-500 text-indigo-950 dark:bg-indigo-900/40 dark:text-indigo-100 border-indigo-500/20",
-  "bg-violet-400 hover:bg-violet-500 text-violet-950 dark:bg-violet-900/40 dark:text-violet-100 border-violet-500/20",
+const glassGradients = [
+  "from-sky-500/20 to-sky-500/5 border-sky-500/20 text-sky-950 dark:text-sky-100",
+  "from-indigo-500/20 to-indigo-500/5 border-indigo-500/20 text-indigo-950 dark:text-indigo-100",
+  "from-violet-500/20 to-violet-500/5 border-violet-500/20 text-violet-950 dark:text-violet-100",
+  "from-purple-500/20 to-purple-500/5 border-purple-500/20 text-purple-950 dark:text-purple-100",
 ];
 
 const frameworkSubCategories = [
@@ -84,7 +85,7 @@ export default function FrameworksPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-6">
                     {group.paths.map((path, index) => (
                       <Link href={`/learn/${path.id}`} key={path.id}>
-                        <Card className={`flex items-center justify-center h-32 transition-all duration-300 shadow-lg hover:shadow-xl border-2 ${cardColors[index % cardColors.length]}`}>
+                        <Card className={`flex items-center justify-center h-32 transition-all duration-300 shadow-lg hover:shadow-2xl border-2 bg-gradient-to-br backdrop-blur-md hover:scale-105 ${glassGradients[index % glassGradients.length]}`}>
                           <CardContent className="p-4">
                             <h2 className="text-lg font-bold text-center leading-tight">{path.title}</h2>
                           </CardContent>

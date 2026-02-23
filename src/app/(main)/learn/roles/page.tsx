@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Search, Briefcase, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,11 +11,11 @@ import { learningPaths } from "@/lib/learning-paths-data";
 import { AuthGuard } from "@/components/auth/auth-guard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-const cardColors = [
-  "bg-emerald-400 hover:bg-emerald-500 text-emerald-950 dark:bg-emerald-900/40 dark:text-emerald-100 border-emerald-500/20",
-  "bg-rose-400 hover:bg-rose-500 text-rose-950 dark:bg-rose-900/40 dark:text-rose-100 border-rose-500/20",
-  "bg-indigo-400 hover:bg-indigo-500 text-indigo-950 dark:bg-indigo-900/40 dark:text-indigo-100 border-indigo-500/20",
-  "bg-amber-400 hover:bg-amber-500 text-amber-950 dark:bg-amber-900/40 dark:text-amber-100 border-amber-500/20",
+const glassGradients = [
+  "from-emerald-500/20 to-emerald-500/5 border-emerald-500/20 text-emerald-950 dark:text-emerald-100",
+  "from-rose-500/20 to-rose-500/5 border-rose-500/20 text-rose-950 dark:text-rose-100",
+  "from-indigo-500/20 to-indigo-500/5 border-indigo-500/20 text-indigo-950 dark:text-indigo-100",
+  "from-amber-500/20 to-amber-500/5 border-amber-500/20 text-amber-950 dark:text-amber-100",
 ];
 
 const jobRoleSubCategories = [
@@ -93,7 +93,7 @@ export default function JobRolesPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-6">
                     {group.paths.map((path, index) => (
                       <Link href={`/learn/${path.id}`} key={path.id}>
-                        <Card className={`flex items-center justify-center h-32 transition-all duration-300 shadow-lg hover:shadow-xl border-2 ${cardColors[index % cardColors.length]}`}>
+                        <Card className={`flex items-center justify-center h-32 transition-all duration-300 shadow-lg hover:shadow-2xl border-2 bg-gradient-to-br backdrop-blur-md hover:scale-105 ${glassGradients[index % glassGradients.length]}`}>
                           <CardContent className="p-4">
                             <h2 className="text-lg font-bold text-center leading-tight">{path.title}</h2>
                           </CardContent>

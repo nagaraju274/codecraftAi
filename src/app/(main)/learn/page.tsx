@@ -2,7 +2,7 @@
 "use client";
 
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Code, Library, Briefcase, BrainCircuit, ArrowRight } from "lucide-react";
 import { AuthGuard } from "@/components/auth/auth-guard";
 
@@ -13,7 +13,8 @@ const categories = [
     description: "Master the syntax and core concepts of popular languages like Python, JavaScript, C++, and more.",
     icon: Code,
     href: "/learn/languages",
-    color: "bg-amber-400 text-amber-950 dark:bg-amber-900/40 dark:text-amber-100",
+    color: "from-amber-500/20 to-amber-500/5 border-amber-500/20 text-amber-900 dark:text-amber-100",
+    iconBg: "bg-amber-500/20",
   },
   {
     id: "frameworks",
@@ -21,7 +22,8 @@ const categories = [
     description: "Learn to build powerful applications using modern frameworks like React, Next.js, and Flutter.",
     icon: Library,
     href: "/learn/frameworks",
-    color: "bg-sky-400 text-sky-950 dark:bg-sky-900/40 dark:text-sky-100",
+    color: "from-sky-500/20 to-sky-500/5 border-sky-500/20 text-sky-900 dark:text-sky-100",
+    iconBg: "bg-sky-500/20",
   },
   {
     id: "roles",
@@ -29,7 +31,8 @@ const categories = [
     description: "Explore 100+ specialized career paths from Software Engineering to AI Research and Cybersecurity.",
     icon: Briefcase,
     href: "/learn/roles",
-    color: "bg-emerald-400 text-emerald-950 dark:bg-emerald-900/40 dark:text-emerald-100",
+    color: "from-emerald-500/20 to-emerald-500/5 border-emerald-500/20 text-emerald-900 dark:text-emerald-100",
+    iconBg: "bg-emerald-500/20",
   },
   {
     id: "dsa",
@@ -37,7 +40,8 @@ const categories = [
     description: "Build a strong foundation in problem-solving and prepare for top-tier technical interviews.",
     icon: BrainCircuit,
     href: "/learn/dsa",
-    color: "bg-indigo-400 text-indigo-950 dark:bg-indigo-900/40 dark:text-indigo-100",
+    color: "from-indigo-500/20 to-indigo-500/5 border-indigo-500/20 text-indigo-900 dark:text-indigo-100",
+    iconBg: "bg-indigo-500/20",
   },
 ];
 
@@ -57,10 +61,10 @@ export default function LearnPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {categories.map((category) => (
             <Link href={category.href} key={category.id}>
-              <Card className={`h-full transition-all duration-300 hover:shadow-xl border-2 group ${category.color}`}>
+              <Card className={`h-full transition-all duration-300 hover:shadow-2xl border-2 group bg-gradient-to-br backdrop-blur-md ${category.color}`}>
                 <CardHeader>
                   <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-xl bg-background/20 group-hover:bg-background/40 transition-colors">
+                    <div className={`p-3 rounded-xl ${category.iconBg} group-hover:scale-110 transition-transform`}>
                       <category.icon className="h-8 w-8" />
                     </div>
                     <CardTitle className="text-2xl">{category.title}</CardTitle>
