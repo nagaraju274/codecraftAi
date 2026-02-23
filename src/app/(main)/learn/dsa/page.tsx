@@ -11,9 +11,9 @@ import { learningPaths } from "@/lib/learning-paths-data";
 import { AuthGuard } from "@/components/auth/auth-guard";
 
 const glassGradients = [
-  "from-indigo-500/20 to-indigo-500/5 border-indigo-500/20 text-indigo-950 dark:text-indigo-100",
-  "from-violet-500/20 to-violet-500/5 border-violet-500/20 text-violet-950 dark:text-violet-100",
-  "from-purple-500/20 to-purple-500/5 border-purple-500/20 text-purple-950 dark:text-purple-100",
+  "from-indigo-600/40 to-indigo-600/10 border-indigo-600/30 text-indigo-950 dark:text-indigo-100",
+  "from-violet-600/40 to-violet-600/10 border-violet-600/30 text-violet-950 dark:text-violet-100",
+  "from-purple-600/40 to-purple-600/10 border-purple-600/30 text-purple-950 dark:text-purple-100",
 ];
 
 export default function DsaPage() {

@@ -12,10 +12,10 @@ import { AuthGuard } from "@/components/auth/auth-guard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const glassGradients = [
-  "from-emerald-500/20 to-emerald-500/5 border-emerald-500/20 text-emerald-950 dark:text-emerald-100",
-  "from-rose-500/20 to-rose-500/5 border-rose-500/20 text-rose-950 dark:text-rose-100",
-  "from-indigo-500/20 to-indigo-500/5 border-indigo-500/20 text-indigo-950 dark:text-indigo-100",
-  "from-amber-500/20 to-amber-500/5 border-amber-500/20 text-amber-950 dark:text-amber-100",
+  "from-emerald-600/40 to-emerald-600/10 border-emerald-600/30 text-emerald-950 dark:text-emerald-100",
+  "from-rose-600/40 to-rose-600/10 border-rose-600/30 text-rose-950 dark:text-rose-100",
+  "from-indigo-600/40 to-indigo-600/10 border-indigo-600/30 text-indigo-950 dark:text-indigo-100",
+  "from-amber-600/40 to-amber-600/10 border-amber-600/30 text-amber-950 dark:text-amber-100",
 ];
 
 const jobRoleSubCategories = [

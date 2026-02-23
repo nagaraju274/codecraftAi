@@ -13,8 +13,8 @@ const categories = [
     description: "Master the syntax and core concepts of popular languages like Python, JavaScript, C++, and more.",
     icon: Code,
     href: "/learn/languages",
-    color: "from-amber-500/20 to-amber-500/5 border-amber-500/20 text-amber-900 dark:text-amber-100",
-    iconBg: "bg-amber-500/20",
+    color: "from-amber-500/30 to-amber-500/10 border-amber-500/30 text-amber-900 dark:text-amber-100",
+    iconBg: "bg-amber-500/30",
   },
   {
     id: "frameworks",
@@ -22,8 +22,8 @@ const categories = [
     description: "Learn to build powerful applications using modern frameworks like React, Next.js, and Flutter.",
     icon: Library,
     href: "/learn/frameworks",
-    color: "from-sky-500/20 to-sky-500/5 border-sky-500/20 text-sky-900 dark:text-sky-100",
-    iconBg: "bg-sky-500/20",
+    color: "from-sky-500/30 to-sky-500/10 border-sky-500/30 text-sky-900 dark:text-sky-100",
+    iconBg: "bg-sky-500/30",
   },
   {
     id: "roles",
@@ -31,8 +31,8 @@ const categories = [
     description: "Explore 100+ specialized career paths from Software Engineering to AI Research and Cybersecurity.",
     icon: Briefcase,
     href: "/learn/roles",
-    color: "from-emerald-500/20 to-emerald-500/5 border-emerald-500/20 text-emerald-900 dark:text-emerald-100",
-    iconBg: "bg-emerald-500/20",
+    color: "from-emerald-500/30 to-emerald-500/10 border-emerald-500/30 text-emerald-900 dark:text-emerald-100",
+    iconBg: "bg-emerald-500/30",
   },
   {
     id: "dsa",
@@ -40,8 +40,8 @@ const categories = [
     description: "Build a strong foundation in problem-solving and prepare for top-tier technical interviews.",
     icon: BrainCircuit,
     href: "/learn/dsa",
-    color: "from-indigo-500/20 to-indigo-500/5 border-indigo-500/20 text-indigo-900 dark:text-indigo-100",
-    iconBg: "bg-indigo-500/20",
+    color: "from-indigo-500/30 to-indigo-500/10 border-indigo-500/30 text-indigo-900 dark:text-indigo-100",
+    iconBg: "bg-indigo-500/30",
   },
 ];
 
