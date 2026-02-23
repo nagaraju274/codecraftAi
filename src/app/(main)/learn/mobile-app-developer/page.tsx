@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -22,355 +23,414 @@ import {
   Zap,
   GraduationCap,
   Lightbulb,
+  Smartphone,
+  Code,
+  Layout,
+  Database,
+  ShieldCheck,
+  CheckCircle,
+  ArrowLeft,
+  ArrowRight,
+  Terminal,
+  Cpu,
+  Layers,
+  Globe,
+  Monitor,
+  Workflow,
+  Server,
+  History,
+  Activity,
+  Search,
+  Box,
+  Infinity,
+  FlaskConical,
+  Lock,
 } from "lucide-react";
+import Link from "next/link";
 
 const stages = [
   {
-    title: "Beginner Stage: Flutter and Dart Foundations",
+    title: "Beginner Stage: Flutter & Dart foundations",
     level: "Beginner",
     steps: [
       {
-        what: "Dart Programming Fundamentals",
-        why: "Dart is the language used by Flutter. A strong foundation in its syntax, types, and control flow is essential before building apps.",
-        time: "2 Weeks",
-        prereqs: "Basic programming concepts",
+        what: "Introduction to Dart & Tooling",
+        why: "Dart is the language behind Flutter. Mastering its basics (syntax, types, compiler) is mandatory before writing a single line of UI.",
+        time: "1 Week",
+        prereqs: "None",
         resources: [
-          { name: "Dart Language Tour (Official)", url: "https://dart.dev/guides/language/language-tour" },
-          { name: "freeCodeCamp - Dart for Beginners", url: "https://www.youtube.com/watch?v=Ej_Pcr4uC2Q" },
+          { name: "Dart Tour (Official Docs)", url: "https://dart.dev/guides/language/language-tour" },
+          { name: "Dart for Beginners (freeCodeCamp)", url: "https://www.youtube.com/watch?v=Ej_Pcr4uC2Q" },
         ],
-        practice: "Write simple Dart console applications to practice variables, loops, and functions. Solve basic problems on a platform like Exercism.",
+        practice: "Install Flutter SDK. Use DartPad to solve 10 logic puzzles. Set up VS Code with Flutter extension.",
       },
       {
-        what: "Introduction to Mobile Development",
-        why: "To understand the landscape and choose the right tools. Learn the difference between native, web, and cross-platform development.",
+        what: "Variables, Types & Sound Null Safety",
+        why: "To write stable apps. Null safety prevents the 'billion dollar mistake' of null pointer crashes.",
         time: "3 Days",
+        prereqs: "Step 1",
+        resources: [
+          { name: "Understanding Null Safety", url: "https://dart.dev/null-safety" },
+        ],
+        practice: "Practice declaring nullable vs non-nullable variables. Use '?' and '!' operators correctly in DartPad.",
+      },
+      {
+        what: "Control Flow & Functional Dart",
+        why: "Logic allows apps to make decisions. Arrow functions and higher-order functions make code modern and clean.",
+        time: "4 Days",
+        prereqs: "Step 2",
+        resources: [
+          { name: "Dart Control Flow", url: "https://dart.dev/language/control-flow" },
+        ],
+        practice: "Build a program that filters a list of objects based on multiple conditions using '.where()' and '.map()'.",
+      },
+      {
+        what: "The Widget Tree & Core Widgets",
+        why: "In Flutter, 'Everything is a Widget'. You must understand how UI is a nested tree of immutable objects.",
+        time: "1 Week",
+        prereqs: "Step 1",
+        resources: [
+          { name: "Introduction to Widgets", url: "https://docs.flutter.dev/ui/widgets/basics" },
+        ],
+        practice: "Build a static UI layout using Scaffold, AppBar, Center, and Text widgets.",
+      },
+      {
+        what: "Layout Mastery: Row & Column",
+        why: "The primary ways to arrange UI. Mastering alignment and spacing is 80% of layout design.",
+        time: "4 Days",
+        prereqs: "Step 4",
+        resources: [
+          { name: "Building Layouts in Flutter", url: "https://docs.flutter.dev/ui/layout" },
+        ],
+        practice: "Create a complex profile header with nested Rows and Columns using MainAxisAlignment and CrossAxisAlignment.",
+      },
+      {
+        what: "Stateful vs Stateless Widgets",
+        why: "To build interactivity. Learn when a widget needs to rebuild (Stateful) vs when it's static (Stateless).",
+        time: "5 Days",
+        prereqs: "Step 4",
+        resources: [
+          { name: "State Management Intro", url: "https://docs.flutter.dev/data-and-backend/state-mgmt/intro" },
+        ],
+        practice: "Build a counter app that also changes colors and text based on the count value using 'setState'.",
+      },
+      {
+        what: "User Input: Buttons & TextFields",
+        why: "Apps are interactive. You must know how to collect data and respond to taps.",
+        time: "3 Days",
+        prereqs: "Step 6",
+        resources: [
+          { name: "Handling User Input", url: "https://docs.flutter.dev/ui/interactive" },
+        ],
+        practice: "Build a simple login screen with validation (check if email is valid and password length).",
+      },
+      {
+        what: "Assets, Images & Custom Fonts",
+        why: "Visuals define an app's identity. Learn to manage 'pubspec.yaml' and load resources.",
+        time: "2 Days",
         prereqs: "None",
         resources: [
-          { name: "Native vs. Cross-Platform (GeeksforGeeks)", url: "https://www.geeksforgeeks.org/native-vs-cross-platform-app-development/" },
+          { name: "Adding Assets", url: "https://docs.flutter.dev/ui/assets-and-images" },
         ],
-        practice: "Write a short summary comparing the pros and cons of building an app natively versus using a cross-platform framework like Flutter.",
+        practice: "Add a local asset image and a custom Google Font to your app and use them in a custom theme.",
       },
       {
-        what: "Setting Up Your Flutter Environment",
-        why: "A correct setup is crucial for a smooth development experience. This includes the Flutter SDK, an editor, and device emulators/simulators.",
-        time: "1 Day",
-        prereqs: "None",
-        resources: [
-          { name: "Flutter Installation Docs (Official)", url: "https://docs.flutter.dev/get-started/install" },
-          { name: "VS Code Setup for Flutter", url: "https://docs.flutter.dev/get-started/editor?tab=vscode" },
-        ],
-        practice: "Install the Flutter SDK, set up either Android Studio or VS Code with the Flutter extension, and successfully run `flutter doctor` with no errors.",
-      },
-      {
-        what: "Understanding Widgets",
-        why: "In Flutter, 'everything is a widget.' Understanding this core concept is the key to building any UI.",
+        what: "Lists & Scrolling (ListView.builder)",
+        why: "Most apps are just lists of things. Mastering performant, dynamic lists is a daily requirement.",
         time: "1 Week",
-        prereqs: "Dart Basics",
+        prereqs: "Step 5",
         resources: [
-          { name: "Introduction to Widgets (Official)", url: "https://docs.flutter.dev/ui/widgets/basics" },
-          { name: "Flutter Widget of the Week (YouTube Playlist)", url: "https://www.youtube.com/playlist?list=PLjxrf2q8roU23XGwz38rZeyCFNcVM3KFo" },
+          { name: "Working with Lists", url: "https://docs.flutter.dev/ui/widgets/scrolling" },
         ],
-        practice: "Build a simple 'Hello World' app. Experiment with basic widgets like `Container`, `Text`, `Icon`, and `Scaffold`.",
+        practice: "Create an app that displays a list of 100 items using a builder pattern for efficient memory usage.",
       },
       {
-        what: "Building Layouts",
-        why: "To arrange your widgets on the screen. `Row` and `Column` are the most fundamental layout widgets.",
-        time: "1 Week",
-        prereqs: "Flutter Widgets",
+        what: "Navigation & Simple Routing",
+        why: "To move users through screens. Learn Navigator.push and standard Material routes.",
+        time: "3 Days",
+        prereqs: "Step 4",
         resources: [
-          { name: "Building Layouts in Flutter (Official)", url: "https://docs.flutter.dev/ui/layout" },
+          { name: "Navigation Basics", url: "https://docs.flutter.dev/ui/navigation" },
         ],
-        practice: "Create a simple user profile layout with an `Image` at the top, followed by a `Text` widget for the name, and another `Text` widget for a bio, all arranged vertically in a `Column`.",
-      },
-      {
-        what: "Handling User Input and Gestures",
-        why: "To make your app interactive and respond to user actions like taps, drags, and swipes.",
-        time: "1 Week",
-        prereqs: "Layouts",
-        resources: [
-          { name: "Adding Interactivity (Official)", url: "https://docs.flutter.dev/ui/interactive" },
-        ],
-        practice: "Create a button that, when pressed, prints a message to the console. Wrap a `Container` in a `GestureDetector` to handle tap events.",
-      },
-      {
-        what: "State Management: `StatefulWidget`",
-        why: "To build UIs that can change dynamically over time. Learn the difference between `StatelessWidget` and `StatefulWidget`.",
-        time: "1 Week",
-        prereqs: "User Input",
-        resources: [
-          { name: "State management Introduction (Official)", url: "https://docs.flutter.dev/data-and-backend/state-mgmt/intro" },
-        ],
-        practice: "Build a simple counter app. The screen should display a number and a button. Each time the button is pressed, the number should increment.",
-      },
-      {
-        what: "Version Control with Git",
-        why: "Essential for tracking changes, managing different versions of your app, and collaborating with others.",
-        time: "1 Week",
-        prereqs: "None",
-        resources: [
-          { name: "Git & GitHub for Beginners - Crash Course (YouTube)", url: "https://www.youtube.com/watch?v=RGOj5yH7evk" },
-        ],
-        practice: "Create a new GitHub repository for your Flutter counter app and push your code to it.",
+        practice: "Build a two-screen app: A list of products that navigates to a detail page when an item is tapped.",
       },
     ],
   },
   {
-    title: "Intermediate Stage: Building Functional Apps",
+    title: "Intermediate Stage: Networking & State Management",
     level: "Intermediate",
     steps: [
       {
-        what: "Navigation and Routing",
-        why: "To allow users to move between different screens in your app.",
+        what: "Async Dart: Futures & Await",
+        why: "Mobile apps cannot freeze. All time-consuming tasks (API, DB) must happen asynchronously.",
         time: "1 Week",
-        prereqs: "StatefulWidgets",
+        prereqs: "Beginner Stage",
         resources: [
-          { name: "Navigation and routing (Official)", url: "https://docs.flutter.dev/ui/navigation" },
-          { name: "Flutter Navigation 2.0 (YouTube)", url: "https://www.youtube.com/watch?v=1g0_l4i_T44" },
+          { name: "Asynchronous Programming", url: "https://dart.dev/codelabs/async-await" },
         ],
-        practice: "Create a two-screen app. The first screen has a button that, when pressed, navigates to the second screen. The second screen has a back button.",
+        practice: "Write a function that simulates a data fetch with Future.delayed and returns a result after 2 seconds.",
       },
       {
-        what: "Networking with HTTP",
-        why: "To fetch data from the internet, which is a requirement for most modern apps.",
+        what: "JSON Parsing & Data Models",
+        why: "To turn raw data from the web into safe, typed Dart objects.",
+        time: "4 Days",
+        prereqs: "Step 11",
+        resources: [
+          { name: "JSON and Serialization", url: "https://docs.flutter.dev/data-and-backend/json" },
+        ],
+        practice: "Create a User model with 'fromJson' and 'toJson' methods for a typical API response.",
+      },
+      {
+        what: "Networking with HTTP Package",
+        why: "To fetch live data from external services (Weather, News, Finance).",
+        time: "1 Week",
+        prereqs: "Step 12",
+        resources: [
+          { name: "Fetch data from the internet", url: "https://docs.flutter.dev/cookbook/networking/fetch-data" },
+        ],
+        practice: "Build an app that fetches a list of titles from JSONPlaceholder and displays them in a list.",
+      },
+      {
+        what: "Advanced State Management: Provider",
+        why: "'setState' becomes unmanageable in large apps. Provider is the easiest professional way to share data across the app.",
+        time: "1 Week",
+        prereqs: "Step 6",
+        resources: [
+          { name: "Provider Package Tutorial", url: "https://www.youtube.com/watch?v=look-up-provider" },
+        ],
+        practice: "Build a 'Shopping Cart' where adding items on one screen updates a counter in the navbar on all screens.",
+      },
+      {
+        what: "Local Persistence: SQLite & Preferences",
+        why: "To allow users to use your app offline or remember their settings.",
+        time: "1 Week",
+        prereqs: "Step 11",
+        resources: [
+          { name: "Persist data with SQLite", url: "https://docs.flutter.dev/cookbook/persistence/sqlite" },
+        ],
+        practice: "Build a 'Notes' app where entries are saved to a local database and persist across restarts.",
+      },
+      {
+        what: "Firebase Auth & Cloud Firestore",
+        why: "To add user logins and real-time database syncing without building a custom backend.",
         time: "2 Weeks",
-        prereqs: "Dart Async",
+        prereqs: "Step 13",
         resources: [
-          { name: "Fetch data from the internet (Official)", url: "https://docs.flutter.dev/cookbook/networking/fetch-data" },
-          { name: "Flutter HTTP Requests (freeCodeCamp)", url: "https://www.youtube.com/watch?v=8GG_dGz1n40" },
+          { name: "Firebase for Flutter", url: "https://firebase.google.com/docs/flutter/setup" },
         ],
-        practice: "Build an app that fetches a list of posts from the JSONPlaceholder API and displays their titles in a `ListView`.",
+        practice: "Implement a 'Sign in with Google' flow and allow users to post status updates to a live feed.",
       },
       {
-        what: "Working with JSON",
-        why: "JSON is the standard format for data exchange on the web. You need to know how to parse it into usable Dart objects.",
+        what: "Responsive & Adaptive UI",
+        why: "Apps run on small phones, tablets, and web browsers. Learn to use LayoutBuilder and MediaQuery.",
+        time: "5 Days",
+        prereqs: "Step 5",
+        resources: [
+          { name: "Adaptive Apps Guide", url: "https://docs.flutter.dev/ui/layout/adaptive-responsive" },
+        ],
+        practice: "Create a dashboard that shows a grid on tablets but a single-column list on phones.",
+      },
+      {
+        what: "Implicit & Explicit Animations",
+        why: "Animations make an app feel alive and high-quality. Learn AnimatedContainer and Hero transitions.",
         time: "1 Week",
-        prereqs: "Networking",
+        prereqs: "None",
         resources: [
-          { name: "JSON and serialization (Official)", url: "https://docs.flutter.dev/data-and-backend/json" },
+          { name: "Introduction to Animations", url: "https://docs.flutter.dev/ui/animations" },
         ],
-        practice: "Create Dart model classes for the data you fetched in the previous step and parse the JSON response into a list of these objects.",
-      },
-      {
-        what: "Advanced State Management (Provider/Riverpod)",
-        why: "`setState` is not suitable for complex apps. Learning a dedicated state management solution is crucial for scalability.",
-        time: "2 Weeks",
-        prereqs: "StatefulWidgets",
-        resources: [
-          { name: "State management options (Official)", url: "https://docs.flutter.dev/data-and-backend/state-mgmt/options" },
-          { name: "Riverpod Official Documentation", url: "https://riverpod.dev/" },
-        ],
-        practice: "Refactor your counter app to use Provider or Riverpod instead of `setState`.",
-      },
-      {
-        what: "Data Persistence (Shared Preferences/SQLite)",
-        why: "To save data locally on the user's device so it persists between app launches.",
-        time: "1 Week",
-        prereqs: "Dart Basics",
-        resources: [
-          { name: "Store key-value data (shared_preferences)", url: "https://docs.flutter.dev/cookbook/persistence/key-value" },
-          { name: "Persist data with SQLite (sqflite)", url: "https://docs.flutter.dev/cookbook/persistence/sqlite" },
-        ],
-        practice: "Create a simple notes app where the notes are saved locally using SQLite.",
-      },
-      {
-        what: "Working with Forms",
-        why: "To collect and validate user input for things like login, registration, or settings.",
-        time: "1 Week",
-        prereqs: "Widgets",
-        resources: [
-          { name: "Build a form with validation (Official)", url: "https://docs.flutter.dev/cookbook/forms/validation" },
-        ],
-        practice: "Build a login screen with email and password fields, including validation to ensure the fields are not empty and the email is in a valid format.",
-      },
-      {
-        what: "Using Device Hardware (Camera, GPS)",
-        why: "To build rich applications that leverage the phone's native capabilities.",
-        time: "2 Weeks",
-        prereqs: "Basic Flutter",
-        resources: [
-          { name: "Take a picture using the camera (Official)", url: "https://docs.flutter.dev/cookbook/plugins/picture-using-camera" },
-          { name: "Fetching location (geolocator package)", url: "https://pub.dev/packages/geolocator" },
-        ],
-        practice: "Build an app with a button that, when pressed, opens the camera. Once a picture is taken, display it on the screen.",
-      },
-      {
-        what: "Testing Fundamentals",
-        why: "To ensure your app is reliable and to catch bugs before they reach users.",
-        time: "1 Week",
-        prereqs: "Dart, Flutter",
-        resources: [
-          { name: "Testing Flutter apps (Official)", url: "https://docs.flutter.dev/testing" },
-        ],
-        practice: "Write a unit test for a simple Dart function and a widget test for your counter app to verify that tapping the button increments the count.",
+        practice: "Build a gallery where images expand smoothly from a thumbnail to a full-screen view.",
       },
     ],
   },
   {
-    title: "Advanced Stage: Production and Polish",
+    title: "Advanced Stage: Architecture & Performance",
     level: "Advanced",
     steps: [
       {
-        what: "Advanced UI and Animations",
-        why: "To create beautiful, fluid, and engaging user experiences that set your app apart.",
-        time: "2-3 Weeks",
-        prereqs: "Intermediate Flutter",
-        resources: [
-          { name: "Introduction to animations (Official)", url: "https://docs.flutter.dev/ui/animations" },
-          { name: "Flutter animations tutorials (Fireship)", url: "https://www.youtube.com/watch?v=j_mQ-sA0g54" },
-        ],
-        practice: "Create a loading spinner animation. Animate a widget's properties (like size or color) when a user taps it.",
-      },
-      {
-        what: "App Architecture Patterns (BLoC, Clean Architecture)",
-        why: "To structure large and complex applications in a way that is scalable, testable, and maintainable.",
+        what: "The BLoC Pattern",
+        why: "The industry standard for large enterprise apps. It strictly separates business logic from the UI.",
         time: "2 Weeks",
-        prereqs: "State Management",
+        prereqs: "Step 14",
         resources: [
-          { name: "BLoC Library Official Documentation", url: "https://bloclibrary.dev/" },
-          { name: "Clean Architecture for Flutter (YouTube)", url: "https://www.youtube.com/watch?v=KjE27w-h2kU" },
+          { name: "BLoC Library Documentation", url: "https://bloclibrary.dev/" },
         ],
-        practice: "Refactor a small project to use the BLoC pattern for state management.",
+        practice: "Refactor a medium-sized project to use 'flutter_bloc' for all its state transitions.",
       },
       {
-        what: "Push Notifications",
-        why: "To engage and retain users by sending them timely and relevant information.",
-        time: "1 Week",
-        prereqs: "Networking",
-        resources: [
-          { name: "Firebase Cloud Messaging for Flutter", url: "https://firebase.flutter.dev/docs/messaging/overview" },
-        ],
-        practice: "Integrate Firebase into your app and set up a basic system to receive a test notification.",
-      },
-      {
-        what: "Firebase Integration",
-        why: "Firebase provides a powerful backend-as-a-service platform for authentication, databases, storage, and more, significantly speeding up development.",
+        what: "Unit, Widget & Integration Testing",
+        why: "Professional apps must be tested. You cannot rely on manual clicks to ensure quality.",
         time: "2 Weeks",
-        prereqs: "Networking",
+        prereqs: "Intermediate Stage",
         resources: [
-          { name: "Get started with Firebase for Flutter", url: "https://firebase.flutter.dev/docs/overview" },
+          { name: "Testing Flutter Apps", url: "https://docs.flutter.dev/testing" },
         ],
-        practice: "Add Firebase Authentication to your app to allow users to sign up and log in with email and password.",
+        practice: "Write 10 unit tests for your models and 2 widget tests for your core UI screens.",
       },
       {
-        what: "CI/CD for Mobile",
-        why: "To automate the process of building, testing, and deploying your app, ensuring faster and more reliable releases.",
+        what: "Streams & Reactive Programming",
+        why: "To handle continuous data sources like user locations, chat messages, or stock tickers.",
         time: "1 Week",
-        prereqs: "Git, Testing",
+        prereqs: "Step 11",
         resources: [
-          { name: "Continuous delivery with Flutter (Official)", url: "https://docs.flutter.dev/deployment/cd" },
-          { name: "Codemagic CI/CD for Flutter", url: "https://codemagic.io/" },
+          { name: "Streams in Dart", url: "https://dart.dev/tutorials/language/streams" },
         ],
-        practice: "Set up a GitHub Actions workflow that automatically builds your Flutter app and runs tests on every push.",
+        practice: "Build a simple real-time stock price tracker using a Stream that emits fake data every second.",
       },
       {
-        what: "Performance Optimization",
-        why: "To ensure your app runs smoothly, avoids dropping frames, and provides a great user experience.",
+        what: "Isolates & Multithreading",
+        why: "Heavy computations (like image processing) will freeze the UI thread. Isolates move tasks to separate CPU cores.",
         time: "1 Week",
-        prereqs: "Intermediate Flutter",
+        prereqs: "Step 11",
         resources: [
-          { name: "Flutter performance best practices (Official)", url: "https://docs.flutter.dev/perf" },
+          { name: "Concurrency in Dart", url: "https://dart.dev/language/concurrency" },
         ],
-        practice: "Use Flutter's DevTools to profile a list-based app and identify performance bottlenecks.",
+        practice: "Implement a function that calculates a large prime number in an Isolate without dropping any frames.",
       },
       {
-        what: "Platform-Specific Code (Platform Channels)",
-        why: "To access native device APIs that are not available through a Flutter package.",
+        what: "Platform Channels (Native Code)",
+        why: "To access phone features not yet in a plugin. You'll need basic knowledge of Swift (iOS) or Kotlin (Android).",
         time: "1 Week",
-        prereqs: "Native (Kotlin/Swift) basics",
+        prereqs: "None",
         resources: [
-          { name: "Writing platform-specific code (Official)", url: "https://docs.flutter.dev/platform-integration/platform-channels" },
+          { name: "Platform-specific code", url: "https://docs.flutter.dev/platform-integration/platform-channels" },
         ],
-        practice: "Create a simple platform channel to get the device's battery level from the native side and display it in your Flutter UI.",
+        practice: "Write a bridge to fetch the device's battery level from native code and display it in Flutter.",
       },
       {
-        what: "Publishing to App Stores",
-        why: "The final step to get your app into the hands of users.",
+        what: "Custom Painter & Canvas API",
+        why: "For unique, complex UIs and data visualizations that standard widgets can't handle.",
         time: "1 Week",
-        prereqs: "Completed App",
+        prereqs: "None",
         resources: [
-          { name: "Publishing to Google Play Store (Official)", url: "https://docs.flutter.dev/deployment/android" },
-          { name: "Publishing to Apple App Store (Official)", url: "https://docs.flutter.dev/deployment/ios" },
+          { name: "CustomPaint Class", url: "https://api.flutter.dev/flutter/widgets/CustomPaint-class.html" },
         ],
-        practice: "Go through the entire process of creating app store listings, generating necessary certificates and build files, and submitting a simple app for review.",
+        practice: "Draw a custom 'Star' or 'Heart' shape using the Canvas API.",
+      },
+      {
+        what: "App Performance & DevTools",
+        why: "To detect 'jank' (stuttering) and memory leaks. Pro developers use DevTools to profile their apps.",
+        time: "1 Week",
+        prereqs: "None",
+        resources: [
+          { name: "Performance Profiling", url: "https://docs.flutter.dev/perf/rendering/ui-performance" },
+        ],
+        practice: "Use the 'Performance' tab in DevTools to find and fix a frame-drop in a long scrolling list.",
+      },
+      {
+        what: "CI/CD & Deployment",
+        why: "To automate the build and release process. Essential for team environments.",
+        time: "1 Week",
+        prereqs: "Git basics",
+        resources: [
+          { name: "Continuous Delivery", url: "https://docs.flutter.dev/deployment/cd" },
+        ],
+        practice: "Set up a GitHub Action that runs your tests and builds an APK/IPA on every push to main.",
+      },
+      {
+        what: "App Store & Play Store Submission",
+        why: "The final hurdle. You must master certificates, identifiers, and the review process.",
+        time: "1 Week",
+        prereqs: "A finished project",
+        resources: [
+          { name: "Release Guide", url: "https://docs.flutter.dev/deployment/android" },
+        ],
+        practice: "Generate a release build and upload it to TestFlight (iOS) or Internal Testing (Android).",
+      },
+      {
+        what: "Flutter for Web & Desktop",
+        why: "To leverage Flutter's 'multi-platform' power. One codebase for everything.",
+        time: "Ongoing",
+        prereqs: "Advanced Flutter",
+        resources: [
+          { name: "Flutter Multi-Platform", url: "https://docs.flutter.dev/platform-integration/web" },
+        ],
+        practice: "Run your finished project as a Web App and fix any layout issues using responsive patterns.",
       },
     ],
   },
 ];
 
 const projects = [
-    { level: "Beginner", title: "Tip Calculator", teaches: "Basic widgets, layout, state management with `setState`.", tech: "Dart, Flutter" },
-    { level: "Beginner", title: "Simple To-Do List", teaches: "Managing a list in state, user input, updating UI based on state changes.", tech: "Dart, Flutter" },
-    { level: "Beginner", title: "Quiz App", teaches: "Handling user interaction, conditional UI rendering, state management.", tech: "Dart, Flutter" },
-    { level: "Intermediate", title: "Weather App", teaches: "Networking, parsing JSON, asynchronous programming, displaying data from an API.", tech: "Dart, Flutter, HTTP, API" },
-    { level: "Intermediate", title: "Recipe Finder App", teaches: "Building complex UIs with lists/grids, navigation between screens, passing data.", tech: "Dart, Flutter, Navigation" },
-    { level: "Intermediate", title: "Expense Tracker", teaches: "Forms, data persistence with SQLite or Shared Preferences, creating charts.", tech: "Dart, Flutter, sqflite" },
-    { level: "Intermediate", title: "Simple Chat App", teaches: "Real-time database integration (Firebase Firestore), stream-based UI updates.", tech: "Dart, Flutter, Firebase" },
-    { level: "Advanced", title: "E-commerce App", teaches: "Complex state management, user authentication, payment gateway integration, advanced UI.", tech: "Dart, Flutter, Firebase, BLoC/Riverpod" },
-    { level: "Advanced", title: "Social Media App Clone", teaches: "User profiles, photo uploads (Firebase Storage), feeds, notifications, clean architecture.", tech: "Dart, Flutter, Firebase, Clean Architecture" },
-    { level: "Advanced", title: "Ride-Sharing App (UI Clone)", teaches: "Google Maps integration, real-time location tracking, advanced UI with stacked widgets.", tech: "Dart, Flutter, Google Maps API" },
+  { level: "Beginner", title: "Personal Budget Tracker", teaches: "CRUD, setState, simple lists, and basic forms.", tech: "Flutter, Dart" },
+  { level: "Beginner", title: "Quiz Master", teaches: "Conditional logic, widget modularity, and theme data.", tech: "Flutter" },
+  { level: "Beginner", title: "Tip Calculator", teaches: "Text editing controllers, arithmetic, and basic layouts.", tech: "Flutter" },
+  { level: "Intermediate", title: "Weather Forecast Dashboard", teaches: "Networking (HTTP), JSON parsing, and async/await UI states.", tech: "Flutter, OpenWeather API" },
+  { level: "Intermediate", title: "Recipe Finder", teaches: "Provider state management, image assets, and complex navigation.", tech: "Flutter, Provider" },
+  { level: "Intermediate", title: "Real-time Chat App", teaches: "Firebase Auth, Firestore, and Streams for live messages.", tech: "Flutter, Firebase" },
+  { level: "Intermediate", title: "Expense Tracker with Charts", teaches: "Local storage (SQLite) and data visualization.", tech: "Flutter, Sqflite, FL Charts" },
+  { level: "Advanced", title: "E-commerce Store with Checkout", teaches: "Riverpod/BLoC architecture, payment integration, and Hero animations.", tech: "Flutter, Stripe, Riverpod" },
+  { level: "Advanced", title: "Fitness Tracker with Sensors", teaches: "Platform channels, hardware access (GPS/Steps), and background tasks.", tech: "Flutter, Native Interop" },
+  { level: "Advanced", title: "Social Media Platform", teaches: "Cloud storage, push notifications, pagination, and clean architecture.", tech: "Flutter, Firebase, BLoC" },
 ];
 
 const plans = [
-    {
-        title: "30-Day Fast Track",
-        description: "An intensive plan to get you from zero to building your first simple app.",
-        schedule: [
-            "Days 1-10: Master Dart Fundamentals and Flutter's basic widgets and layouts.",
-            "Days 11-20: Focus on state management with `StatefulWidget`, navigation, and build the To-Do List project.",
-            "Days 21-30: Learn networking by building the Weather App project. Deploy it to a device.",
-        ]
-    },
-    {
-        title: "60-Day Standard Plan",
-        description: "A balanced approach covering core concepts and preparing you for junior developer roles.",
-        schedule: [
-            "Days 1-20: Complete the entire Beginner Stage, building all practice projects.",
-            "Days 21-40: Dive deep into the Intermediate Stage, focusing on networking, advanced state management (Provider/Riverpod), and data persistence.",
-            "Days 41-60: Build a more complex project like the Expense Tracker or Chat App, and learn the basics of testing and Firebase integration.",
-        ]
-    },
-    {
-        title: "90-Day Mastery Plan",
-        description: "A comprehensive plan for in-depth knowledge, specialization, and production-readiness.",
-        schedule: [
-            "Days 1-30: Complete the Beginner and Intermediate stages thoroughly.",
-            "Days 31-60: Focus on the Advanced Stage, mastering app architecture (BLoC), performance optimization, and animations.",
-            "Days 61-75: Build an advanced, portfolio-worthy project like the E-commerce or Social Media app.",
-            "Days 76-90: Focus on CI/CD, publishing to app stores, and interview preparation.",
-        ]
-    }
+  {
+    title: "30-Day Fast Track: The Builder",
+    description: "Focus on syntax and basic app building to get productive quickly.",
+    schedule: [
+      "Days 1-7: Dart Basics, Flutter Setup, and Layouts.",
+      "Days 8-15: State management (setState), Forms, and Assets.",
+      "Days 16-23: Networking (HTTP) and building the 'Weather App'.",
+      "Days 24-30: Local Persistence and Deploying to a real device.",
+    ]
+  },
+  {
+    title: "60-Day Standard Plan: The Junior Dev",
+    description: "Balanced path for building a solid foundation and a portfolio.",
+    schedule: [
+      "Days 1-20: Thorough coverage of Beginner Stage + 3 projects.",
+      "Days 21-45: Mastering Provider, Firebase, and Animations.",
+      "Days 46-60: Introduction to Testing and CI/CD.",
+    ]
+  },
+  {
+    title: "90-Day Mastery Plan: The Professional",
+    description: "Comprehensive path for total career readiness and enterprise-level skills.",
+    schedule: [
+      "Days 1-30: Core Development & UI Layouts.",
+      "Days 31-60: Professional Data handling, Architecture (BLoC), and Testing.",
+      "Days 61-90: Performance, Security, Native Interop, and Job Prep.",
+    ]
+  }
 ];
 
 const interviewTopics = [
-    "What is the difference between a `StatelessWidget` and a `StatefulWidget`?",
-    "Explain the widget tree, element tree, and render object tree in Flutter.",
-    "What are keys in Flutter and when should you use them?",
-    "Explain the difference between `main()` and `runApp()`.",
-    "What is the purpose of the `pubspec.yaml` file?",
-    "Describe different state management approaches you have used (setState, Provider, BLoC, Riverpod, etc.).",
-    "How does `async/await` work in Dart?",
-    "Explain the difference between hot reload and hot restart.",
-,"What are mixins in Dart and why are they useful?",
-,"How do you handle different screen sizes and densities in Flutter?",
+  "Stateless vs Stateful Widgets.",
+  "How Flutter handles the 'build' method and tree reconciliation.",
+  "Explaining the different State Management options (Provider, BLoC, Riverpod).",
+  "How async/await works in Dart.",
+  "What is the 'pubspec.yaml' file?",
+  "Difference between Hot Reload and Hot Restart.",
+  "Explaining 'Key' in Flutter and when to use them.",
+  "How does Flutter talk to native code (Platform Channels)?",
+  "The role of BuildContext.",
+  "Unit vs Widget vs Integration testing.",
+];
+
+const codingQuestions = [
+  { question: "Implement a counter using a StatefulWidget.", topic: "State Management" },
+  { question: "Reverse a list in Dart without using built-in helper functions.", topic: "Dart Logic" },
+  { question: "Write a function that fetches JSON and parses it into a model.", topic: "Networking" },
+  { question: "Create a custom widget that takes a child and adds a shadow to it.", topic: "UI Design" },
 ];
 
 const mcqs = [
-    { question: "In Flutter, what is the primary function of a `StatefulWidget`?", options: ["To create a widget with a fixed appearance", "To manage mutable state that can change over the lifetime of the widget", "To perform animations", "To handle user gestures only"], answer: "To manage mutable state that can change over the lifetime of the widget" },
-    { question: "Which layout widget arranges its children in a vertical line?", options: ["Row", "Stack", "Column", "Container"], answer: "Column" },
-    { question: "In Dart, what keyword is used to declare a variable that can hold a null value?", options: ["`nullable`", "`optional`", "`?` (question mark)", "`!` (exclamation mark)"], answer: "`?` (question mark)" },
+  { question: "Which command installs project dependencies?", options: ["flutter add", "flutter sync", "flutter pub get", "flutter install"], answer: "flutter pub get" },
+  { question: "What is the return type of a build method?", options: ["Widget", "void", "Element", "BuildContext"], answer: "Widget" },
+  { question: "Which widget is used for absolute positioning?", options: ["Column", "Row", "Stack", "List"], answer: "Stack" },
 ];
 
 const mistakes = [
-    "Overusing `setState`, leading to poor performance and complex widget trees.",
-    "Not understanding the difference between `Row`/`Column`'s `mainAxisAlignment` and `crossAxisAlignment`.",
-    "Building deeply nested widget trees without breaking them down into smaller, reusable widgets.",
-    "Ignoring state management solutions for anything beyond a very simple app.",
-    "Making network or database calls directly in the build method.",
-    "Not handling loading and error states when fetching data from an API.",
-    "Forgetting to dispose of controllers (like `TextEditingController` or `AnimationController`) to prevent memory leaks.",
-    "Using `Row` or `Column` inside another `Row` or `Column` without wrapping the inner one in an `Expanded` or `Flexible` widget, causing layout overflows.",
-    "Not using `const` constructors for widgets that don't change, which prevents performance optimizations.",
-    "Ignoring the power of Flutter DevTools for debugging layouts and performance."
+  "Overusing 'setState' everywhere, leading to poor performance.",
+  "Not using 'const' for widgets that never change.",
+  "Mixing business logic with UI code (keep them separate!).",
+  "Ignoring Sound Null Safety by using '!' force-unwraps too often.",
+  "Forgetting to handle error cases in network requests (loading/error states).",
+  "Deeply nesting widgets instead of breaking them into smaller, reusable ones.",
+  "Forgetting to dispose of controllers (Animation, Text) causing memory leaks.",
+  "Ignoring Flutter DevTools during development.",
+  "Hardcoding strings instead of using localization.",
+  "Trying to build a complex app before mastering Dart logic.",
 ];
 
 export default function MobileAppDeveloperRoadmapPage() {
@@ -378,42 +438,72 @@ export default function MobileAppDeveloperRoadmapPage() {
     <AuthGuard>
       <div className="container mx-auto py-10 space-y-12">
         <header className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
+          <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit mb-4">
+            <Smartphone className="h-12 w-12 text-primary" />
+          </div>
+          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl text-foreground">
             The Mobile App Developer Roadmap
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-            Your comprehensive, step-by-step guide to building beautiful, natively compiled applications for mobile with Flutter.
+            Your comprehensive journey to mastering the art of building natively compiled applications for mobile, web, and desktop from a single codebase using Flutter.
           </p>
         </header>
 
+        <Button asChild variant="ghost" className="mb-4 self-start">
+          <Link href="/learn">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to roadmaps
+          </Link>
+        </Button>
+
         {stages.map((stage) => (
-          <Card key={stage.title}>
+          <Card key={stage.title} className="border-2 shadow-sm">
             <CardHeader>
-              <CardTitle className="text-3xl flex items-center gap-3">
-                <Brain className="h-8 w-8 text-primary" />
+              <CardTitle className="text-3xl flex items-center gap-3 text-primary">
+                <Brain className="h-8 w-8" />
                 {stage.title}
               </CardTitle>
+              <CardDescription>Follow these {stage.steps.length} steps to progress from {stage.level}.</CardDescription>
             </CardHeader>
             <CardContent>
               <Accordion type="single" collapsible className="w-full">
                 {stage.steps.map((step, index) => (
                   <AccordionItem value={`item-${index}`} key={index}>
-                    <AccordionTrigger className="text-lg font-semibold">
-                      Step {index + 1}: {step.what}
+                    <AccordionTrigger className="text-lg font-semibold hover:no-underline text-left">
+                      <div className="flex items-center gap-3">
+                        <span className="bg-primary text-primary-foreground h-6 w-6 rounded-full flex items-center justify-center text-xs shrink-0">{index + 1}</span>
+                        {step.what}
+                      </div>
                     </AccordionTrigger>
-                    <AccordionContent className="pt-2">
+                    <AccordionContent className="pt-4">
                       <div className="prose prose-sm dark:prose-invert max-w-none space-y-4">
-                        <p><strong>Why it’s important:</strong> {step.why}</p>
-                        <p><strong>Time to complete:</strong> {step.time}</p>
-                        <p><strong>Prerequisites:</strong> {step.prereqs}</p>
-                        <h4 className="font-semibold">Free Resources:</h4>
-                        <ul>
-                          {step.resources.map(res => (
-                            <li key={res.url}><a href={res.url} target="_blank" rel="noopener noreferrer">{res.name}</a></li>
-                          ))}
-                        </ul>
-                         <h4 className="font-semibold">Practice Tasks:</h4>
-                        <p>{step.practice}</p>
+                        <div className="grid md:grid-cols-2 gap-6">
+                          <div className="space-y-3">
+                            <p><strong>Why it’s important:</strong> {step.why}</p>
+                            <p><strong>Time Estimate:</strong> {step.time}</p>
+                            <p><strong>Prerequisites:</strong> {step.prereqs}</p>
+                          </div>
+                          <div className="bg-muted/50 p-4 rounded-xl border border-border">
+                            <h4 className="font-semibold text-sm mb-2 flex items-center gap-2 text-primary"><Monitor className="h-4 w-4"/> Practice Task:</h4>
+                            <p className="text-sm leading-relaxed">{step.practice}</p>
+                          </div>
+                        </div>
+                        
+                        <div className="pt-4 border-t">
+                          <h4 className="font-semibold mb-3 text-sm flex items-center gap-2"><Code className="h-4 w-4 text-primary"/> Free Resources:</h4>
+                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {step.resources.map(res => (
+                              <li key={res.url} className="list-none">
+                                <a href={res.url} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 p-2 rounded-lg hover:bg-primary/5 transition-colors border border-transparent hover:border-primary/20">
+                                  <div className="bg-primary/10 p-1.5 rounded-md group-hover:bg-primary/20">
+                                    <Zap className="h-3 w-3 text-primary"/>
+                                  </div>
+                                  <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">{res.name}</span>
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
                     </AccordionContent>
                   </AccordionItem>
@@ -422,103 +512,146 @@ export default function MobileAppDeveloperRoadmapPage() {
             </CardContent>
           </Card>
         ))}
-         <Card>
-            <CardHeader>
-                <CardTitle className="text-3xl flex items-center gap-3"><Zap className="h-8 w-8 text-primary"/>Project Ideas</CardTitle>
-                <CardDescription>Apply your knowledge with these hands-on projects, from beginner to advanced.</CardDescription>
-            </CardHeader>
-            <CardContent className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {projects.map(p => (
-                     <Card key={p.title}>
-                        <CardHeader>
-                            <Badge variant={p.level === 'Beginner' ? 'default' : p.level === 'Intermediate' ? 'secondary' : 'destructive'} className="w-fit">{p.level}</Badge>
-                            <CardTitle className="text-xl pt-2">{p.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <p className="text-sm text-muted-foreground mb-4"><strong>What it teaches:</strong> {p.teaches}</p>
-                            <p className="text-sm"><strong>Tech:</strong> {p.tech}</p>
-                        </CardContent>
-                    </Card>
-                ))}
-            </CardContent>
+
+        <Card className="border-2 border-primary/20 bg-primary/[0.02]">
+          <CardHeader>
+            <CardTitle className="text-3xl flex items-center gap-3"><Zap className="h-8 w-8 text-primary"/>Project Ideas</CardTitle>
+            <CardDescription>Apply your knowledge with these hands-on projects designed for your portfolio.</CardDescription>
+          </CardHeader>
+          <CardContent className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map(p => (
+              <Card key={p.title} className="bg-card hover:shadow-md transition-all border-2">
+                <CardHeader className="pb-3">
+                  <Badge variant={p.level === 'Beginner' ? 'default' : p.level === 'Intermediate' ? 'secondary' : 'destructive'} className="w-fit">{p.level}</Badge>
+                  <CardTitle className="text-xl pt-2">{p.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="text-sm space-y-3">
+                  <p className="text-muted-foreground line-clamp-2"><strong>Teaches:</strong> {p.teaches}</p>
+                  <div className="flex items-center gap-2 text-xs font-mono bg-muted p-2 rounded text-primary">
+                    <Terminal className="h-3 w-3"/> {p.tech}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </CardContent>
         </Card>
-        <Card>
-            <CardHeader>
-                <CardTitle className="text-3xl flex items-center gap-3"><GraduationCap className="h-8 w-8 text-primary"/>Learning Plans</CardTitle>
-                <CardDescription>Choose a plan that fits your schedule and goals.</CardDescription>
-            </CardHeader>
-            <CardContent>
-                 <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
-                    {plans.map((plan, index) => (
-                    <AccordionItem value={`item-${index}`} key={index}>
-                        <AccordionTrigger className="text-lg font-semibold">{plan.title}</AccordionTrigger>
-                        <AccordionContent className="pt-2">
-                            <p className="text-muted-foreground mb-4">{plan.description}</p>
-                             <ul className="list-disc pl-5 space-y-2">
-                                {plan.schedule.map(item => <li key={item}>{item}</li>)}
-                            </ul>
-                        </AccordionContent>
-                    </AccordionItem>
+
+        <Card className="border-2">
+          <CardHeader>
+            <CardTitle className="text-3xl flex items-center gap-3"><GraduationCap className="h-8 w-8 text-primary"/>Learning Plans</CardTitle>
+            <CardDescription>Pick a timeline that matches your availability and goals.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid md:grid-cols-3 gap-6">
+              {plans.map((plan, index) => (
+                <div key={index} className="p-6 border-2 rounded-2xl bg-card shadow-sm hover:border-primary/50 transition-colors">
+                  <h3 className="font-bold text-xl mb-3 text-primary">{plan.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-6 leading-relaxed">{plan.description}</p>
+                  <ul className="space-y-3">
+                    {plan.schedule.map(item => (
+                      <li key={item} className="text-sm flex items-start gap-3">
+                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 shrink-0" />
+                        <span className="text-foreground/80">{item}</span>
+                      </li>
                     ))}
-                </Accordion>
-            </CardContent>
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </CardContent>
         </Card>
-        <Card>
-            <CardHeader>
-                <CardTitle className="text-3xl flex items-center gap-3"><MessageSquare className="h-8 w-8 text-primary"/>Interview Preparation</CardTitle>
-                <CardDescription>Key topics, questions, and resume tips to land a mobile developer job.</CardDescription>
-            </CardHeader>
-             <CardContent className="space-y-6">
-                <div>
-                    <h3 className="font-semibold text-lg mb-2">Important Interview Topics</h3>
-                    <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                        {interviewTopics.map(topic => <li key={topic}>{topic}</li>)}
-                    </ul>
-                </div>
-                 <div>
-                    <h3 className="font-semibold text-lg mb-2">Sample Multiple Choice Questions (MCQs)</h3>
-                     {mcqs.map(q => (
-                        <div key={q.question} className="p-3 border rounded-md mb-2">
-                            <p className="font-medium">{q.question}</p>
-                            <p className="text-sm text-muted-foreground">Correct Answer: {q.answer}</p>
-                        </div>
-                    ))}
-                </div>
-                <div>
-                    <h3 className="font-semibold text-lg mb-2">Resume Keywords</h3>
-                    <div className="flex flex-wrap gap-2">
-                        {['Flutter', 'Dart', 'Mobile App Development', 'iOS', 'Android', 'Cross-Platform', 'State Management', 'BLoC', 'Riverpod', 'Firebase', 'REST APIs', 'UI/UX'].map(kw => <Badge key={kw} variant="secondary">{kw}</Badge>)}
+
+        <Card className="border-2 border-accent bg-accent/5">
+          <CardHeader>
+            <CardTitle className="text-3xl flex items-center gap-3"><MessageSquare className="h-8 w-8 text-primary"/>Interview Preparation</CardTitle>
+            <CardDescription>Expert guidance to help you land your dream mobile developer role.</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-10">
+            <div className="grid md:grid-cols-2 gap-10">
+              <div className="space-y-4">
+                <h3 className="font-bold text-lg flex items-center gap-2"><ShieldCheck className="h-5 w-5 text-primary"/> Critical Interview Topics</h3>
+                <ul className="grid grid-cols-1 gap-2">
+                  {interviewTopics.map(topic => (
+                    <li key={topic} className="flex items-center gap-2 text-sm bg-background p-2 rounded-lg border shadow-sm">
+                      <div className="h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                      {topic}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="space-y-4">
+                <h3 className="font-bold text-lg flex items-center gap-2"><Code className="h-5 w-5 text-primary"/> Live Coding & Logic Challenges</h3>
+                <div className="space-y-3">
+                  {codingQuestions.map(q => (
+                    <div key={q.question} className="p-4 border rounded-xl bg-card hover:border-primary/30 transition-colors">
+                      <p className="font-semibold text-xs uppercase tracking-wider text-primary mb-1">{q.topic}</p>
+                      <p className="text-sm leading-relaxed">{q.question}</p>
                     </div>
+                  ))}
                 </div>
-                <div>
-                    <h3 className="font-semibold text-lg mb-2">How to Showcase Projects on GitHub</h3>
-                     <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
-                        <li>Create a clear `README.md` with a project overview, features, and setup instructions.</li>
-                        <li>Include animated GIFs or screenshots to quickly demonstrate what your app does. A GIF is more effective than a static image.</li>
-                        <li>Ensure your code is well-organized into logical folders (e.g., `lib/src`, `lib/widgets`, `lib/models`).</li>
-                        <li>Provide a link to the app on the Google Play Store or Apple App Store if it's published.</li>
-                    </ul>
+              </div>
+            </div>
+
+            <div className="pt-8 border-t space-y-6">
+              <h3 className="font-bold text-xl text-center">Resume & Career Optimization</h3>
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div className="bg-primary/5 p-6 rounded-2xl border-2 border-primary/10">
+                  <h4 className="font-bold mb-4 flex items-center gap-2"><Layers className="h-5 w-5 text-primary"/> Essential Keywords</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {['Flutter', 'Dart', 'BLoC', 'Riverpod', 'Firebase', 'REST APIs', 'Unit Testing', 'CI/CD', 'Git', 'Clean Architecture', 'Adaptive UI', 'SQLite', 'Streams', 'Async/Await'].map(kw => <Badge key={kw} variant="secondary" className="px-3 py-1">{kw}</Badge>)}
+                  </div>
                 </div>
-            </CardContent>
-        </Card>
-        <Card>
-            <CardHeader>
-                <CardTitle className="text-3xl flex items-center gap-3"><Lightbulb className="h-8 w-8 text-primary"/>10 Common Mistakes to Avoid</CardTitle>
-            </CardHeader>
-            <CardContent>
-                <ol className="list-decimal list-inside space-y-2">
-                    {mistakes.map(mistake => <li key={mistake}>{mistake}</li>)}
-                </ol>
-            </CardContent>
+                <div className="bg-primary/5 p-6 rounded-2xl border-2 border-primary/10">
+                  <h4 className="font-bold mb-4 flex items-center gap-2"><Globe className="h-5 w-5 text-primary"/> Showcase Like a Pro</h4>
+                  <ul className="text-sm space-y-3 text-muted-foreground">
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Provide high-quality GIFs of your app animations in GitHub READMEs.</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Explain your architectural choices (e.g., 'Why I chose BLoC for state management').</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Link to live App Store/Play Store apps if available.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </CardContent>
         </Card>
 
-        <div className="text-center pt-8">
-            <h2 className="text-2xl font-bold">Your Journey Starts Now</h2>
-            <p className="mt-2 text-muted-foreground max-w-xl mx-auto">
-                Building mobile apps is a challenging but incredibly rewarding journey. This roadmap is your guide, but the real learning happens when you start building and solving problems. Stay curious, be persistent, and celebrate your progress along the way. Happy coding!
-            </p>
+        <Card className="border-2 border-destructive/20 bg-destructive/5 overflow-hidden">
+          <CardHeader className="bg-destructive/10 border-b border-destructive/10 py-4">
+            <CardTitle className="text-2xl flex items-center gap-3 text-destructive">
+              <Lightbulb className="h-6 w-6"/>
+              10 Mistakes to Avoid
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="p-6">
+            <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-3">
+              {mistakes.map((mistake, i) => (
+                <li key={i} className="text-sm flex items-start gap-3 text-foreground/80">
+                  <span className="text-destructive font-black shrink-0">{i + 1}.</span>
+                  {mistake}
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+
+        <div className="text-center py-16 bg-gradient-to-br from-primary/20 via-background to-primary/10 rounded-[3rem] border-2 shadow-inner">
+          <h2 className="text-4xl font-black tracking-tight mb-6">Build the Future of Mobile</h2>
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto px-6 leading-relaxed">
+            Mobile development is a journey of creativity and precision. You are building tools that people will carry in their pockets and use every day. Stay consistent, keep building even when the state gets complex, and always stay curious. The world is waiting for your next great app. You've got this!
+          </p>
+          <div className="flex flex-wrap justify-center gap-4 mt-10">
+            <Button asChild size="lg" className="rounded-full px-10 h-14 text-lg font-bold shadow-lg shadow-primary/20">
+              <Link href="/projects">
+                Start Building Apps
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="rounded-full px-10 h-14 text-lg font-bold border-2">
+              <Link href="/learn">
+                Explore Other Roadmaps
+              </Link>
+            </Button>
+          </div>
         </div>
-
       </div>
     </AuthGuard>
   );
