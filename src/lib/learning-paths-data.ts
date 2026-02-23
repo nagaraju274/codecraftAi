@@ -125,6 +125,15 @@ export const learningPaths = [
     assignments: []
   },
   {
+    id: "mobile-app-developer-ios",
+    title: "Mobile App Developer (iOS)",
+    description: "Build applications for iPhone and iPad using Swift and SwiftUI.",
+    category: "Job Roles",
+    subCategory: "Mobile App Development",
+    topics: [],
+    assignments: []
+  },
+  {
     id: "mobile-app-development",
     title: "Mobile App Developer",
     description: "Build applications for iOS and Android using modern cross-platform frameworks.",
