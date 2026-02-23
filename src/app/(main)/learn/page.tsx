@@ -1,3 +1,4 @@
+
 "use client";
 
 // This comment explains that this hook is used for managing component state.
@@ -65,38 +66,44 @@ export default function LearnPage() {
     learningPaths.filter(path =>
       (path.category === category) &&
       (path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-       path.description.toLowerCase().includes(searchQuery.toLowerCase()))
+       (path.description && path.description.toLowerCase().includes(searchQuery.toLowerCase())))
     );
   
   const jobRoles = learningPaths.filter(path =>
     path.category === 'Job Roles' &&
     (path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-     path.description.toLowerCase().includes(searchQuery.toLowerCase()))
+     (path.description && path.description.toLowerCase().includes(searchQuery.toLowerCase())))
   );
 
   const programmingLanguages = learningPaths.filter(path =>
     path.category === 'Programming Languages' &&
     (path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-     path.description.toLowerCase().includes(searchQuery.toLowerCase()))
+     (path.description && path.description.toLowerCase().includes(searchQuery.toLowerCase())))
   );
   
   const frameworks = learningPaths.filter(path =>
     path.category === 'Frameworks & Libraries' &&
     (path.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-     path.description.toLowerCase().includes(searchQuery.toLowerCase()))
+     (path.description && path.description.toLowerCase().includes(searchQuery.toLowerCase())))
   );
 
   const jobRoleSubCategories = [
-    "Core Software Development",
-    "Data & AI",
-    "Web & UI",
-    "Cybersecurity",
-    "DevOps & Cloud",
-    "Embedded / IoT / Robotics",
-    "Testing & QA",
-    "Product & Management",
+    "Core Software Development Jobs",
+    "Artificial Intelligence & Machine Learning",
+    "Data & Database Roles",
+    "Web Technology Jobs",
+    "Cloud & Infrastructure Jobs",
+    "Cybersecurity Jobs",
+    "Blockchain & Web3 Jobs",
+    "Robotics, IoT & Hardware Integration",
     "Research & Academia",
-    "Miscellaneous / Emerging",
+    "Testing & Quality Assurance",
+    "Design & Product Roles",
+    "Management & Business Roles",
+    "Technical Support & Infrastructure",
+    "Interdisciplinary & Specialized Roles",
+    "Other Opportunities",
+    "Government & Public Sector"
   ];
 
   const languageSubCategories = [
@@ -230,7 +237,7 @@ export default function LearnPage() {
               </TabsContent>
               <TabsContent value="roles">
                  <div className="pt-6">
-                    <Accordion type="multiple" defaultValue={['item-Core Software Development']} className="w-full space-y-4">
+                    <Accordion type="multiple" defaultValue={['item-Core Software Development Jobs']} className="w-full space-y-4">
                         {groupedJobRoles.map(group => (
                             <AccordionItem value={`item-${group.name}`} key={group.name} className="border-2 rounded-xl overflow-hidden shadow-sm">
                                 <AccordionTrigger className="p-4 text-lg font-bold hover:no-underline bg-muted/20">
