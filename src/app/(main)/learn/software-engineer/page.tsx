@@ -1,4 +1,3 @@
-
 "use client";
 
 import { AuthGuard } from "@/components/auth/auth-guard";
@@ -372,7 +371,7 @@ const projects = [
   { level: "Intermediate", title: "Blogging Platform with Auth", teaches: "Authentication, authorization, JWT, and relational data.", tech: "Django / Next.js, Prisma" },
   { level: "Intermediate", title: "Weather Dashboard", teaches: "Asynchronous programming, API integration, and data visualization.", tech: "React, OpenWeather API" },
   { level: "Advanced", title: "Microservices-based Task Manager", teaches: "Distributed systems, Docker, inter-service communication, and CI/CD.", tech: "Go / Node.js, Docker, GitHub Actions" },
-  { level: "Advanced", title: "Serverless Image Processor", teaches: "Cloud functions, event-driven architecture, and blob storage.", tech: "AWS Lambda, S3, Python" },
+  { level: "Advanced", title: "Serverless Image Processor", teaches: "Cloud functions, event-driven architecture, and brop storage.", tech: "AWS Lambda, S3, Python" },
   { level: "Advanced", title: "AI-Powered Customer Support Bot", teaches: "Integrating LLMs, prompt engineering, and conversational UI.", tech: "Genkit, Next.js, Firebase" },
 ];
 

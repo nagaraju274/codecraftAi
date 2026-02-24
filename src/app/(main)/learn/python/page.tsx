@@ -1,4 +1,3 @@
-
 "use client";
 
 import { AuthGuard } from "@/components/auth/auth-guard";
@@ -9,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -395,7 +395,7 @@ export default function PythonRoadmapPage() {
         </header>
 
         <Button asChild variant="ghost" className="mb-4 self-start">
-          <Link href="/learn/languages?section=item-General-Purpose Languages">
+          <Link href="/learn/languages?section=item-Popular and Widely Used Languages">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Languages
           </Link>
