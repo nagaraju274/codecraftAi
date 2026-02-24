@@ -141,7 +141,7 @@ export const learningPaths: LearningPath[] = [
   {
     id: "scala",
     title: "Scala",
-    description: "Combine object-oriented and functional programming in one language.",
+    description: "Master the most sophisticated language on the JVM, blending OO and Functional programming.",
     category: "Programming Languages",
     subCategories: ["Popular and Widely Used Languages", "Enterprise / Backend / JVM Languages"],
     topics: [],
