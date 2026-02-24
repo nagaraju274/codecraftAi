@@ -36,6 +36,8 @@ import {
   Cpu,
   Server,
   Search,
+  ShieldAlert,
+  FileCode,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -126,16 +128,6 @@ const stages = [
         practice: "Write a script that checks if a file exists. If it does, print 'Found'; otherwise, create the file.",
       },
       {
-        what: "Standard I/O Streams (0, 1, 2)",
-        why: "To handle errors separately from output. Understanding 'stdout' and 'stderr' is vital for debugging.",
-        time: "2 Days",
-        prereqs: "Step 7",
-        resources: [
-          { name: "Bash Stdout and Stderr", url: "https://linuxize.com/post/bash-redirect-stderr-stdout/" },
-        ],
-        practice: "Run a command that you know will fail. Redirect the error message to a file named 'error.log'.",
-      },
-      {
         what: "Shell Expansion & Wildcards",
         why: "To perform bulk operations. Master '*', '?', and '{}' to target multiple files efficiently.",
         time: "2 Days",
@@ -144,6 +136,16 @@ const stages = [
           { name: "Filename Expansion", url: "https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html" },
         ],
         practice: "Use a single command to create files named 'test1.txt', 'test2.txt', and 'test3.txt'.",
+      },
+      {
+        what: "Exit Codes & Command Substitution",
+        why: "To make scripts react to success or failure. Use '$?' to check status and '$()' to capture command output.",
+        time: "3 Days",
+        prereqs: "Step 8",
+        resources: [
+          { name: "Bash Exit Codes", url: "https://linuxize.com/post/bash-exit/" },
+        ],
+        practice: "Write a script that runs a command. If it fails (exit code != 0), print a custom error message.",
       },
     ],
   },
@@ -213,16 +215,6 @@ const stages = [
         practice: "Given a system output, use 'awk' to print only the 2nd and 4th columns of data.",
       },
       {
-        what: "Exit Codes & Command Substitution",
-        why: "To make scripts react to success or failure. Use '$?' to check status and '$()' to capture command output.",
-        time: "3 Days",
-        prereqs: "Step 8",
-        resources: [
-          { name: "Bash Exit Codes", url: "https://linuxize.com/post/bash-exit/" },
-        ],
-        practice: "Write a script that runs a command. If it fails (exit code != 0), send an email alert (or print an error).",
-      },
-      {
         what: "Environment & Config Files",
         why: "To customize your shell and set path variables. Understand '.bashrc' vs '.bash_profile'.",
         time: "3 Days",
@@ -253,6 +245,16 @@ const stages = [
         ],
         practice: "Schedule a simple 'date' command to append the current time to a file every minute for 5 minutes.",
       },
+      {
+        what: "Process Management",
+        why: "To monitor and control running programs. Learn 'ps', 'top', 'kill', and background jobs '&'.",
+        time: "5 Days",
+        prereqs: "None",
+        resources: [
+          { name: "Linux Process Management", url: "https://www.youtube.com/watch?v=766_sh_vW3Y" },
+        ],
+        practice: "Start a long-running process in the background. Find its PID and terminate it safely.",
+      },
     ],
   },
   {
@@ -268,16 +270,6 @@ const stages = [
           { name: "SSH and SCP Basics", url: "https://www.youtube.com/watch?v=hQWRp-FdTpc" },
         ],
         practice: "Write a script that logs into a remote server via SSH and reports its disk usage.",
-      },
-      {
-        what: "Process Management",
-        why: "To monitor and control running programs. Learn 'ps', 'top', 'kill', and background jobs '&'.",
-        time: "5 Days",
-        prereqs: "None",
-        resources: [
-          { name: "Linux Process Management", url: "https://www.youtube.com/watch?v=766_sh_vW3Y" },
-        ],
-        practice: "Start a long-running process in the background. Find its PID and terminate it safely.",
       },
       {
         what: "Handling JSON with jq",
@@ -297,7 +289,7 @@ const stages = [
         resources: [
           { name: "Using trap in Bash", url: "https://www.tutorialspoint.com/unix/unix-signals-traps.htm" },
         ],
-        practice: "Write a script that creates temporary files. Use 'trap' to ensure those files are deleted even if the user cancels the script.",
+        practice: "Write a script that creates temporary files. Use 'trap' to ensure those files are deleted even if the user cancels.",
       },
       {
         what: "Advanced String Manipulation",
@@ -330,14 +322,42 @@ const stages = [
         practice: "Audit a previous script. Ensure all variables used in commands are wrapped in double quotes.",
       },
       {
-        what: "Infrastructure as Code (Ansible/Terraform Intro)",
+        what: "Infrastructure as Code (Ansible Intro)",
         why: "Shell scripts are the foundation of configuration management. Understanding this link leads to DevOps roles.",
-        time: "Ongoing",
+        time: "1 Week",
         prereqs: "Advanced Stage",
         resources: [
           { name: "Ansible for Absolute Beginners", url: "https://www.youtube.com/watch?v=gocwRvLhDfI" },
         ],
         practice: "Identify a repetitive task you've scripted and research how it would be handled in Ansible.",
+      },
+      {
+        what: "System Calls & strace",
+        why: "To debug complex interactions between your script and the OS kernel.",
+        time: "5 Days",
+        prereqs: "Linux Basics",
+        resources: [
+          { name: "Strace Tutorial", url: "https://linux.die.net/man/1/strace" },
+        ],
+        practice: "Use 'strace' on a simple script to see every system call it makes during execution.",
+      },
+      {
+        what: "Advanced I/O: Redirecting File Descriptors",
+        why: "To handle complex logging and custom data streams (e.g., 3>&1).",
+        time: "1 Week",
+        prereqs: "Step 7",
+        resources: [
+          { name: "Advanced I/O Redirection", url: "https://www.gnu.org/software/bash/manual/html_node/Redirections.html" },
+        ],
+        practice: "Write a script that redirects stderr to a log file and stdout to both the console and a separate file.",
+      },
+      {
+        what: "Final Mastery: The Systems Dashboard",
+        why: "To synthesize all skills: automation, networking, parsing, and scheduling into a professional tool.",
+        time: "Ongoing",
+        prereqs: "All stages",
+        resources: [],
+        practice: "Build a 'Server Status Dashboard' that periodically checks CPU, disk, and network stats across multiple servers and generates an HTML report.",
       },
     ],
   },
@@ -348,12 +368,12 @@ const projects = [
   { level: "Beginner", title: "Automated Directory Organizer", teaches: "Loops, conditionals, and file movement.", tech: "Bash, mv, mkdir" },
   { level: "Beginner", title: "Personal Password Generator", teaches: "Randomness, string manipulation, and standard I/O.", tech: "Bash, /dev/urandom" },
   { level: "Intermediate", title: "Log File Analyzer", teaches: "Grep, awk, and generating reports from data.", tech: "Bash, grep, awk" },
-  { level: "Intermediate", title: "Multi-Server Ping Monitor", teaches: "Arrays, loops, and basic networking.", tech: "Bash, ping" },
-  { level: "Intermediate", title: "Automated MySQL Backup", teaches: "Database interaction and file compression.", tech: "Bash, mysqldump, tar" },
   { level: "Intermediate", title: "Website Status Checker", teaches: "Networking (curl), exit codes, and alerts.", tech: "Bash, curl" },
+  { level: "Intermediate", title: "Automated MySQL Backup", teaches: "Database interaction and file compression.", tech: "Bash, mysqldump, tar" },
+  { level: "Intermediate", title: "Disk Usage Alert System", teaches: "Cron jobs, system monitoring, and terminal notifications.", tech: "Bash, crontab" },
   { level: "Advanced", title: "GitHub Auto-Backup Tool", teaches: "APIs (curl/jq), Git interaction, and secure token handling.", tech: "Bash, Git, curl, jq" },
-  { level: "Advanced", title: "Disk Space Alert System", teaches: "Cron jobs, system monitoring, and email notifications.", tech: "Bash, crontab, mail" },
-  { level: "Advanced", title: "Automated Server Hardening Script", teaches: "User management, firewall config, and security best practices.", tech: "Bash, ufw, useradd" },
+  { level: "Advanced", title: "Automated Server Hardening", teaches: "User management, firewall config, and security best practices.", tech: "Bash, ufw, useradd" },
+  { level: "Advanced", title: "Batch Image Processor", teaches: "External tool integration, parallel processing, and complex file handling.", tech: "Bash, ImageMagick" },
 ];
 
 const plans = [
@@ -369,9 +389,9 @@ const plans = [
   },
   {
     title: "60-Day Standard Plan",
-    description: "Balanced path for solid text processing and reporting skills.",
+    description: "A balanced path for solid text processing and reporting skills.",
     schedule: [
-      "Days 1-20: Thorough coverage of Beginner Stage.",
+      "Days 1-20: Thorough coverage of Beginner Stage + 3 projects.",
       "Days 21-45: Deep dive into grep, sed, and awk for log analysis.",
       "Days 46-60: Functions, environment config, and building the 'Log Analyzer' project.",
     ]
@@ -380,7 +400,7 @@ const plans = [
     title: "90-Day Mastery Plan",
     description: "Comprehensive path for professional System Admin and DevOps readiness.",
     schedule: [
-      "Days 1-30: Complete Beginner & Intermediate fundamentals.",
+      "Days 1-30: Complete Beginner & Intermediate foundations.",
       "Days 31-60: Advanced Concurrency, SSH automation, and JSON parsing with jq.",
       "Days 61-90: Secure scripting, Cron scheduling, and final advanced server project.",
     ]
@@ -396,8 +416,8 @@ const interviewTopics = [
   "How do you handle a script being cancelled by a user? (trap).",
   "Explain the difference between Hard Links and Symbolic Links.",
   "How would you find and replace a word in 100 files simultaneously?",
-  "What are the 3 standard I/O streams?",
-  "How do you pass arguments to a Bash function?",
+  "What are the 3 standard I/O streams (stdin, stdout, stderr)?",
+  "How do you pass and handle arguments in a Bash function?",
 ];
 
 const codingQuestions = [
@@ -419,11 +439,11 @@ const mistakes = [
   "Using 'rm -rf' without double-checking the target path.",
   "Hardcoding passwords or sensitive tokens directly in scripts.",
   "Not handling error conditions (scripts that keep running after a failure).",
-  "Writing complex logic in Bash when Python or another language would be more readable.",
+  "Writing complex logic in Bash when Python would be more readable.",
   "Ignoring shell check tools (like 'shellcheck') during development.",
   "Confusing the '=' assignment operator with '==' comparison.",
   "Not cleaning up temporary files created during script execution.",
-  "Writing long, monolithic scripts instead of using functions.",
+  "Writing long, monolithic scripts instead of using modular functions.",
 ];
 
 export default function BashRoadmapPage() {
@@ -434,18 +454,18 @@ export default function BashRoadmapPage() {
           <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit mb-4">
             <Terminal className="h-12 w-12 text-primary" />
           </div>
-          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
+          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl text-foreground">
             The Bash & Shell Scripting Roadmap
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Master the terminal and the art of automation. From basic commands to complex system administration and DevOps workflows.
           </p>
         </header>
 
         <Button asChild variant="ghost" className="mb-4 self-start">
-          <Link href="/learn">
+          <Link href="/learn/languages?section=item-Scripting & Automation Languages">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to roadmaps
+            Back to Languages
           </Link>
         </Button>
 
@@ -462,8 +482,8 @@ export default function BashRoadmapPage() {
               <Accordion type="single" collapsible className="w-full">
                 {stage.steps.map((step, index) => (
                   <AccordionItem value={`item-${index}`} key={index}>
-                    <AccordionTrigger className="text-lg font-semibold hover:no-underline">
-                      <div className="flex items-center gap-3 text-left">
+                    <AccordionTrigger className="text-lg font-semibold hover:no-underline text-left">
+                      <div className="flex items-center gap-3">
                         <span className="bg-primary text-primary-foreground h-6 w-6 rounded-full flex items-center justify-center text-xs shrink-0">{index + 1}</span>
                         {step.what}
                       </div>
@@ -521,7 +541,7 @@ export default function BashRoadmapPage() {
                 <CardContent className="text-sm space-y-3">
                   <p className="text-muted-foreground line-clamp-2"><strong>Teaches:</strong> {p.teaches}</p>
                   <div className="flex items-center gap-2 text-xs font-mono bg-muted p-2 rounded text-primary">
-                    <Cpu className="h-3 w-3"/> {p.tech}
+                    <Terminal className="h-3 w-3"/> {p.tech}
                   </div>
                 </CardContent>
               </Card>
@@ -591,14 +611,14 @@ export default function BashRoadmapPage() {
                 <div className="bg-primary/5 p-6 rounded-2xl border-2 border-primary/10">
                   <h4 className="font-bold mb-4 flex items-center gap-2"><Workflow className="h-5 w-5 text-primary"/> Essential Keywords</h4>
                   <div className="flex flex-wrap gap-2">
-                    {['Bash', 'Linux', 'Shell Scripting', 'Automation', 'Grep', 'Awk', 'Sed', 'Cron Jobs', 'Process Management', 'RegEx', 'DevOps', 'CI/CD'].map(kw => <Badge key={kw} variant="secondary" className="px-3 py-1">{kw}</Badge>)}
+                    {['Bash', 'Shell Scripting', 'Automation', 'Linux Internals', 'Grep', 'Awk', 'Sed', 'Cron Jobs', 'SSH', 'jq', 'Ansible', 'CI/CD'].map(kw => <Badge key={kw} variant="secondary" className="px-3 py-1">{kw}</Badge>)}
                   </div>
                 </div>
                 <div className="bg-primary/5 p-6 rounded-2xl border-2 border-primary/10">
-                  <h4 className="font-bold mb-4 flex items-center gap-2"><Server className="h-5 w-5 text-primary"/> Showcase Like a Pro</h4>
+                  <h4 className="font-bold mb-4 flex items-center gap-2"><Globe className="h-5 w-5 text-primary"/> Showcase Like a Pro</h4>
                   <ul className="text-sm space-y-3 text-muted-foreground">
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Maintain a 'scripts' repository on GitHub.</li>
-                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Use 'ShellCheck' to show your code is high-quality.</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Maintain a 'scripts' repository on GitHub with useful automation.</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Use 'ShellCheck' to show your code adheres to industry standards.</li>
                     <li className="flex items-start gap-2"><CheckCircle className="h-4 w-4 text-green-500 shrink-0 mt-0.5"/> Document every script with a clear README and usage examples.</li>
                   </ul>
                 </div>
@@ -610,7 +630,7 @@ export default function BashRoadmapPage() {
         <Card className="border-2 border-destructive/20 bg-destructive/5 overflow-hidden">
           <CardHeader className="bg-destructive/10 border-b border-destructive/10 py-4">
             <CardTitle className="text-2xl flex items-center gap-3 text-destructive">
-              <Lightbulb className="h-6 w-6"/>
+              <ShieldAlert className="h-6 w-6"/>
               10 Mistakes to Avoid
             </CardTitle>
           </CardHeader>
@@ -629,7 +649,7 @@ export default function BashRoadmapPage() {
         <div className="text-center py-16 bg-gradient-to-br from-primary/20 via-background to-primary/10 rounded-[3rem] border-2 shadow-inner">
           <h2 className="text-4xl font-black tracking-tight mb-6">Automate the Boring Stuff</h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto px-6 leading-relaxed">
-            Bash is the glue that holds the internet together. Mastering it means you can control servers, automate complex workflows, and process data with unmatched speed. Stay consistent, keep typing, and soon the terminal will feel like your home. You've got this!
+            Bash is the glue that holds the modern internet together. Mastering it means you can control servers, automate complex workflows, and process data with unmatched speed. Stay consistent, keep typing, and soon the terminal will feel like home. You've got this!
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-10">
             <Button asChild size="lg" className="rounded-full px-10 h-14 text-lg font-bold shadow-lg shadow-primary/20">
