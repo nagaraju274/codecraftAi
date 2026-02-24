@@ -22,7 +22,12 @@ import {
   Zap,
   GraduationCap,
   Lightbulb,
+  ArrowLeft,
+  ArrowRight,
+  Code,
+  Monitor,
 } from "lucide-react";
+import Link from "next/link";
 
 const stages = [
     {
@@ -339,6 +344,9 @@ export default function NextJsRoadmapPage() {
     <AuthGuard>
       <div className="container mx-auto py-10 space-y-12">
         <header className="text-center">
+          <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit mb-4">
+            <Brain className="h-12 w-12 text-primary" />
+          </div>
           <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
             The Next.js Roadmap
           </h1>
@@ -346,6 +354,13 @@ export default function NextJsRoadmapPage() {
             Your step-by-step guide to mastering Next.js, the React framework for production web applications.
           </p>
         </header>
+
+        <Button asChild variant="ghost" className="mb-4 self-start">
+          <Link href="/learn/frameworks?section=item-Frontend Web Frameworks">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Frameworks
+          </Link>
+        </Button>
 
         {stages.map((stage) => (
           <Card key={stage.title}>
@@ -435,8 +450,8 @@ export default function NextJsRoadmapPage() {
                         {interviewTopics.map(topic => <li key={topic}>{topic}</li>)}
                     </ul>
                 </div>
-                 <div>
-                    <h3 className="font-semibold text-lg mb-2">Sample Multiple Choice Questions (MCQs)</h3>
+                <div>
+                    <h3 className="font-semibold text-lg mb-2"><Monitor className="h-5 w-5 mr-2 inline-block text-primary"/>Sample Multiple Choice Questions (MCQs)</h3>
                      {mcqs.map(q => (
                         <div key={q.question} className="p-3 border rounded-md mb-2">
                             <p className="font-medium">{q.question}</p>
@@ -468,6 +483,19 @@ export default function NextJsRoadmapPage() {
             <p className="mt-2 text-muted-foreground max-w-xl mx-auto">
                 Next.js is a powerful and rewarding framework to learn. This roadmap is your guide, but the real learning happens when you build. Stay consistent, be curious, and don't be afraid to experiment. Happy coding!
             </p>
+            <div className="flex flex-wrap justify-center gap-4 mt-10">
+                <Button asChild size="lg" className="rounded-full px-10 h-14 text-lg font-bold shadow-lg shadow-primary/20">
+                    <Link href="/projects">
+                        Start Building Projects
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="rounded-full px-10 h-14 text-lg font-bold border-2">
+                    <Link href="/learn">
+                        Explore Other Roadmaps
+                    </Link>
+                </Button>
+            </div>
         </div>
 
       </div>

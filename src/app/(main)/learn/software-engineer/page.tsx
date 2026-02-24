@@ -434,7 +434,7 @@ const mcqs = [
 ];
 
 const mistakes = [
-  "Learning too many frameworks without mastering the fundamentals (HTML/CSS/JS/Logic).",
+  "Learning too many frameworks at once instead of mastering the basics.",
   "Writing code without tests and only testing manually in the browser.",
   "Hardcoding API keys and sensitive secrets directly into source code.",
   "Ignoring Big O complexity until the app slows down in production.",
@@ -454,18 +454,18 @@ export default function SoftwareEngineerRoadmapPage() {
           <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit mb-4">
             <Cpu className="h-12 w-12 text-primary" />
           </div>
-          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
+          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl text-foreground">
             The Software Engineer Roadmap
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Your definitive path to mastering the art and science of building scalable, reliable, and high-performance software systems.
           </p>
         </header>
 
         <Button asChild variant="ghost" className="mb-4 self-start">
-          <Link href="/learn">
+          <Link href="/learn/roles?section=item-Core Software Development Jobs">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to roadmaps
+            Back to Job Roles
           </Link>
         </Button>
 
@@ -482,8 +482,8 @@ export default function SoftwareEngineerRoadmapPage() {
               <Accordion type="single" collapsible className="w-full">
                 {stage.steps.map((step, index) => (
                   <AccordionItem value={`item-${index}`} key={index}>
-                    <AccordionTrigger className="text-lg font-semibold hover:no-underline">
-                      <div className="flex items-center gap-3 text-left">
+                    <AccordionTrigger className="text-lg font-semibold hover:no-underline text-left">
+                      <div className="flex items-center gap-3">
                         <span className="bg-primary text-primary-foreground h-6 w-6 rounded-full flex items-center justify-center text-xs shrink-0">{index + 1}</span>
                         {step.what}
                       </div>

@@ -400,9 +400,9 @@ export default function JavascriptRoadmapPage() {
         </header>
 
         <Button asChild variant="ghost" className="mb-4 self-start">
-          <Link href="/learn">
+          <Link href="/learn/languages?section=item-Web Development Languages">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to roadmaps
+            Back to Languages
           </Link>
         </Button>
 
@@ -477,7 +477,7 @@ export default function JavascriptRoadmapPage() {
                 </CardHeader>
                 <CardContent className="text-sm space-y-3">
                   <p className="text-muted-foreground line-clamp-2"><strong>Teaches:</strong> {p.teaches}</p>
-                  <div className="flex items-center gap-2 text-xs font-mono bg-muted p-2 rounded">
+                  <div className="flex items-center gap-2 text-xs font-mono bg-muted p-2 rounded text-primary">
                     <Terminal className="h-3 w-3"/> {p.tech}
                   </div>
                 </CardContent>
@@ -596,8 +596,8 @@ export default function JavascriptRoadmapPage() {
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full px-10 h-14 text-lg font-bold border-2">
-              <Link href="/playground">
-                Try the Playground
+              <Link href="/learn">
+                Explore Other Roadmaps
               </Link>
             </Button>
           </div>

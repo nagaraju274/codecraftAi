@@ -1,5 +1,4 @@
 
-
 "use client";
 
 import { AuthGuard } from "@/components/auth/auth-guard";
@@ -23,7 +22,13 @@ import {
   Zap,
   GraduationCap,
   Lightbulb,
+  ArrowLeft,
+  ArrowRight,
+  Terminal,
+  Code,
+  Monitor,
 } from "lucide-react";
+import Link from "next/link";
 
 const stages = [
     {
@@ -378,6 +383,9 @@ export default function PythonRoadmapPage() {
     <AuthGuard>
       <div className="container mx-auto py-10 space-y-12">
         <header className="text-center">
+          <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit mb-4">
+            <Brain className="h-12 w-12 text-primary" />
+          </div>
           <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
             The Python Developer Roadmap
           </h1>
@@ -385,6 +393,13 @@ export default function PythonRoadmapPage() {
             Your step-by-step guide to mastering Python, from fundamentals to advanced specialization.
           </p>
         </header>
+
+        <Button asChild variant="ghost" className="mb-4 self-start">
+          <Link href="/learn/languages?section=item-General-Purpose Languages">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Languages
+          </Link>
+        </Button>
 
         {stages.map((stage) => (
           <Card key={stage.title}>
@@ -474,8 +489,8 @@ export default function PythonRoadmapPage() {
                         {interviewTopics.map(topic => <li key={topic}>{topic}</li>)}
                     </ul>
                 </div>
-                 <div>
-                    <h3 className="font-semibold text-lg mb-2">Sample Coding Questions</h3>
+                <div>
+                    <h3 className="font-semibold text-lg mb-2"><Monitor className="h-5 w-5 mr-2 inline-block text-primary"/>Sample Coding Questions</h3>
                      {codingQuestions.map(q => (
                         <div key={q.question} className="p-3 border rounded-md mb-2">
                             <p className="font-medium">[{q.topic}] {q.question}</p>
@@ -525,6 +540,19 @@ export default function PythonRoadmapPage() {
             <p className="mt-2 text-muted-foreground max-w-xl mx-auto">
                 Python is a versatile and powerful language that opens doors to many career paths. This roadmap is a guide, but true mastery comes from consistent practice and building projects you're passionate about. Stay curious, be persistent, and enjoy the process. Happy coding!
             </p>
+            <div className="flex flex-wrap justify-center gap-4 mt-10">
+                <Button asChild size="lg" className="rounded-full px-10 h-14 text-lg font-bold shadow-lg shadow-primary/20">
+                    <Link href="/projects">
+                        Start Building Projects
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="rounded-full px-10 h-14 text-lg font-bold border-2">
+                    <Link href="/learn">
+                        Explore Other Roadmaps
+                    </Link>
+                </Button>
+            </div>
         </div>
 
       </div>
