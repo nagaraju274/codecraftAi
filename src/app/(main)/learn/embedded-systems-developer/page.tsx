@@ -40,6 +40,7 @@ import {
   HardDrive,
   CircuitBoard,
   Waves,
+  Layers,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -192,7 +193,7 @@ const stages = [
         time: "2 Weeks",
         prereqs: "Step 1, Step 5",
         resources: [
-          { name: "FreeRTOS Tutorial (YouTube)", url: "https://www.youtube.com/playlist?list=PLPW886-8bbnwI6atda_AnWhvtnt_IDisS" },
+          { name: "FreeRTOS Tutorial (YouTube)", url: "https://www.youtube.com/playlist?list=PLPW886-8bbnyweE06iZ4Zis6bcZ6_Yks6" },
         ],
         practice: "Create two tasks in FreeRTOS: one to blink an LED and one to send data over UART simultaneously.",
       },
@@ -425,12 +426,6 @@ const codingQuestions = [
   { question: "Implement a circular buffer (ring buffer) in C.", topic: "Data Structures" },
   { question: "Write code to set the 5th bit of a 32-bit register without changing others.", topic: "Bitwise Ops" },
   { question: "How would you implement a simple debouncing logic for a button in an ISR?", topic: "Interrupts" },
-];
-
-const mcqs = [
-  { question: "Which protocol uses a Master-Slave architecture with a Chip Select line?", options: ["I2C", "UART", "SPI", "CAN"], answer: "SPI" },
-  { question: "Where are local variables typically stored in a microcontroller?", options: ["Flash", "EEPROM", "Stack (RAM)", "Heap"], answer: "Stack (RAM)" },
-  { question: "What is the purpose of a pull-up resistor on a button pin?", options: ["To limit current", "To ensure a default 'High' state", "To speed up the button", "To filter noise"], answer: "To ensure a default 'High' state" },
 ];
 
 const mistakes = [
