@@ -1,39 +1,59 @@
 
-export const learningPaths = [
+export interface LearningPath {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  subCategory?: string;
+  subCategories?: string[];
+  topics: any[];
+  assignments: any[];
+}
+
+export const learningPaths: LearningPath[] = [
   // --- Programming Languages ---
   {
     id: "python",
     title: "Python",
     description: "Learn the versatile Python language, from fundamentals to advanced specialization.",
     category: "Programming Languages",
-    subCategory: "General-Purpose Languages",
+    subCategories: ["Popular and Widely Used Languages", "Scripting & Automation Languages", "AI, ML, & Research Languages"],
     topics: [],
     assignments: []
   },
   {
     id: "javascript",
     title: "JavaScript",
-    description: "Master the language of the web, from basic interactivity to advanced asynchronous patterns and performance optimization.",
+    description: "Master the language of the web, from basic interactivity to advanced asynchronous patterns.",
     category: "Programming Languages",
-    subCategory: "Web Development Languages",
-    topics: [],
-    assignments: []
-  },
-  {
-    id: "c-plus-plus",
-    title: "C++",
-    description: "Learn the powerful, high-performance C++ language, used in game development, systems programming, and financial applications.",
-    category: "Programming Languages",
-    subCategory: "General-Purpose Languages",
+    subCategories: ["Popular and Widely Used Languages", "Web Development Languages"],
     topics: [],
     assignments: []
   },
   {
     id: "java",
     title: "Java",
-    description: "Learn the robust, object-oriented Java programming language, a mainstay in enterprise-level applications, Android development, and large-scale systems.",
+    description: "Learn the robust, object-oriented Java programming language.",
     category: "Programming Languages",
-    subCategory: "General-Purpose Languages",
+    subCategories: ["Popular and Widely Used Languages", "Mobile App Development Languages", "Enterprise / Backend / JVM Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "c",
+    title: "C",
+    description: "Learn the foundational language for systems and performance-critical programming.",
+    category: "Programming Languages",
+    subCategories: ["Popular and Widely Used Languages", "Systems Programming Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "c-plus-plus",
+    title: "C++",
+    description: "Learn the powerful, high-performance C++ language.",
+    category: "Programming Languages",
+    subCategories: ["Popular and Widely Used Languages", "Systems Programming Languages", "Game Development Languages"],
     topics: [],
     assignments: []
   },
@@ -42,34 +62,61 @@ export const learningPaths = [
     title: "C#",
     description: "Learn the modern, object-oriented C# language from Microsoft.",
     category: "Programming Languages",
-    subCategory: "General-Purpose Languages",
+    subCategories: ["Popular and Widely Used Languages", "Web Development Languages", "Game Development Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "go",
+    title: "Go (Golang)",
+    description: "Learn Go, designed for building simple, reliable, and efficient software.",
+    category: "Programming Languages",
+    subCategories: ["Popular and Widely Used Languages"],
+    topics: [],
+    assignments: [],
+  },
+  {
+    id: "typescript",
+    title: "TypeScript",
+    description: "Add static typing to JavaScript for scalable applications.",
+    category: "Programming Languages",
+    subCategories: ["Popular and Widely Used Languages", "Web Development Languages"],
     topics: [],
     assignments: []
   },
   {
     id: "swift",
     title: "Swift",
-    description: "Learn Swift, the modern, powerful, and intuitive language for building apps for Apple platforms (iOS, macOS, watchOS, and tvOS).",
+    description: "Learn Swift for building apps for Apple platforms.",
     category: "Programming Languages",
-    subCategory: "General-Purpose Languages",
+    subCategories: ["Popular and Widely Used Languages", "Mobile App Development Languages"],
     topics: [],
     assignments: []
   },
   {
     id: "kotlin",
     title: "Kotlin",
-    description: "Learn Kotlin, the modern, official language for Android development and a powerful alternative for server-side programming.",
+    description: "Learn Kotlin, the modern language for Android and more.",
     category: "Programming Languages",
-    subCategory: "General-Purpose Languages",
+    subCategories: ["Popular and Widely Used Languages", "Mobile App Development Languages", "Enterprise / Backend / JVM Languages"],
     topics: [],
     assignments: []
   },
   {
     id: "php",
     title: "PHP",
-    description: "Learn the server-side language that powers much of the web, from simple scripts to the Laravel framework.",
+    description: "Learn the server-side language that powers much of the web.",
     category: "Programming Languages",
-    subCategory: "Web Development Languages",
+    subCategories: ["Popular and Widely Used Languages", "Web Development Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "ruby",
+    title: "Ruby",
+    description: "Learn Ruby, focused on simplicity and productivity.",
+    category: "Programming Languages",
+    subCategories: ["Popular and Widely Used Languages", "Web Development Languages"],
     topics: [],
     assignments: []
   },
@@ -78,106 +125,745 @@ export const learningPaths = [
     title: "Rust",
     description: "Learn Rust, a language empowering everyone to build reliable and efficient software.",
     category: "Programming Languages",
-    subCategory: "General-Purpose Languages",
+    subCategories: ["Popular and Widely Used Languages", "Systems Programming Languages", "Blockchain / Smart Contract Languages"],
     topics: [],
     assignments: []
   },
   {
     id: "dart",
     title: "Dart",
-    description: "Learn Dart, the language for building mobile, desktop, and web applications with Flutter.",
+    description: "Learn Dart for building multi-platform applications.",
     category: "Programming Languages",
-    subCategory: "General-Purpose Languages",
+    subCategories: ["Popular and Widely Used Languages", "Mobile App Development Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "scala",
+    title: "Scala",
+    description: "Combine object-oriented and functional programming in one language.",
+    category: "Programming Languages",
+    subCategories: ["Popular and Widely Used Languages", "Enterprise / Backend / JVM Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "assembly",
+    title: "Assembly (ASM)",
+    description: "Low-level programming interacting directly with the CPU.",
+    category: "Programming Languages",
+    subCategories: ["Systems Programming Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "zig",
+    title: "Zig",
+    description: "A general-purpose programming language and toolchain for maintaining robust software.",
+    category: "Programming Languages",
+    subCategories: ["Systems Programming Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "nim",
+    title: "Nim",
+    description: "Efficient, expressive, and elegant programming language.",
+    category: "Programming Languages",
+    subCategories: ["Systems Programming Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "ada",
+    title: "Ada",
+    description: "Designed for high-integrity, mission-critical systems.",
+    category: "Programming Languages",
+    subCategories: ["Systems Programming Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "modula-2",
+    title: "Modula-2",
+    description: "A systems programming language designed by Niklaus Wirth.",
+    category: "Programming Languages",
+    subCategories: ["Systems Programming Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "oberon",
+    title: "Oberon",
+    description: "The successor to Modula-2, focusing on simplicity.",
+    category: "Programming Languages",
+    subCategories: ["Systems Programming Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "vala",
+    title: "Vala",
+    description: "Modern language using the GNOME platform libraries.",
+    category: "Programming Languages",
+    subCategories: ["Systems Programming Languages"],
     topics: [],
     assignments: []
   },
   {
     id: "html",
-    title: "HTML: The Language of the Web",
-    description: "Master the fundamental language for creating and structuring web pages.",
+    title: "HTML",
+    description: "The standard markup language for web pages.",
     category: "Programming Languages",
-    subCategory: "Web Development Languages",
+    subCategories: ["Web Development Languages"],
     topics: [],
     assignments: []
   },
   {
     id: "css",
-    title: "CSS: Styling the Web",
-    description: "Learn the language for styling and laying out web pages, from basic selectors to advanced layouts and animations.",
+    title: "CSS",
+    description: "The language for styling web content.",
     category: "Programming Languages",
-    subCategory: "Web Development Languages",
+    subCategories: ["Web Development Languages"],
     topics: [],
     assignments: []
   },
   {
-    id: "bash-shell-scripting",
-    title: "Bash/Shell Scripting",
-    description: "Learn to automate tasks, manage systems, and master the command line with Bash.",
+    id: "elixir",
+    title: "Elixir",
+    description: "Dynamic, functional language for building scalable applications.",
     category: "Programming Languages",
-    subCategory: "Scripting & Automation",
+    subCategories: ["Web Development Languages", "Functional Programming Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "erlang",
+    title: "Erlang",
+    description: "Used to build massively scalable soft real-time systems.",
+    category: "Programming Languages",
+    subCategories: ["Web Development Languages", "Functional Programming Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "hack",
+    title: "Hack",
+    description: "Programming language for the HipHop Virtual Machine by Meta.",
+    category: "Programming Languages",
+    subCategories: ["Web Development Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "asp-net",
+    title: "ASP.NET (C#)",
+    description: "Web framework for building modern web apps and services.",
+    category: "Programming Languages",
+    subCategories: ["Web Development Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "bash",
+    title: "Bash",
+    description: "Unix shell and command language.",
+    category: "Programming Languages",
+    subCategories: ["Scripting & Automation Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "shell-script",
+    title: "Shell Script (sh)",
+    description: "Fundamental scripting for Unix-like systems.",
+    category: "Programming Languages",
+    subCategories: ["Scripting & Automation Languages"],
     topics: [],
     assignments: []
   },
   {
     id: "perl",
     title: "Perl",
-    description: "Learn Perl, the versatile, high-level 'Swiss Army chainsaw' of scripting languages, renowned for its powerful text processing capabilities.",
+    description: "Highly capable, feature-rich programming language.",
     category: "Programming Languages",
-    subCategory: "Scripting & Automation",
+    subCategories: ["Scripting & Automation Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "powershell",
+    title: "PowerShell",
+    description: "Task automation and configuration management framework.",
+    category: "Programming Languages",
+    subCategories: ["Scripting & Automation Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "lua",
+    title: "Lua",
+    description: "Lightweight, high-level, multi-paradigm programming language.",
+    category: "Programming Languages",
+    subCategories: ["Scripting & Automation Languages", "Game Development Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "groovy",
+    title: "Groovy",
+    description: "Powerful, multi-faceted language for the Java platform.",
+    category: "Programming Languages",
+    subCategories: ["Scripting & Automation Languages", "Enterprise / Backend / JVM Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "rexx",
+    title: "Rexx",
+    description: "Structured, high-level programming language.",
+    category: "Programming Languages",
+    subCategories: ["Scripting & Automation Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "tcl",
+    title: "Tcl",
+    description: "Tool Command Language, a powerful dynamic language.",
+    category: "Programming Languages",
+    subCategories: ["Scripting & Automation Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "awk",
+    title: "AWK",
+    description: "Domain-specific language for text processing.",
+    category: "Programming Languages",
+    subCategories: ["Scripting & Automation Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "zsh",
+    title: "Zsh",
+    description: "Shell designed for interactive use and scripting.",
+    category: "Programming Languages",
+    subCategories: ["Scripting & Automation Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "r",
+    title: "R",
+    description: "Language and environment for statistical computing.",
+    category: "Programming Languages",
+    subCategories: ["Data Science / Stats / Math-Oriented"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "matlab",
+    title: "MATLAB",
+    description: "Numerical computing environment and programming language.",
+    category: "Programming Languages",
+    subCategories: ["Data Science / Stats / Math-Oriented"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "julia",
+    title: "Julia",
+    description: "High-level, high-performance language for numerical computing.",
+    category: "Programming Languages",
+    subCategories: ["Data Science / Stats / Math-Oriented", "AI, ML, & Research Languages"],
     topics: [],
     assignments: []
   },
   {
     id: "sas",
-    title: "SAS Programming",
-    description: "Learn the industry standard for analytical data management and reporting in health and finance.",
+    title: "SAS",
+    description: "Statistical software suite for data management and analysis.",
     category: "Programming Languages",
-    subCategory: "Data Science & Analytics",
+    subCategories: ["Data Science / Stats / Math-Oriented"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "octave",
+    title: "Octave",
+    description: "Scientific programming language, primarily for numerical computations.",
+    category: "Programming Languages",
+    subCategories: ["Data Science / Stats / Math-Oriented"],
     topics: [],
     assignments: []
   },
   {
     id: "spss-for-statistical-analysis",
-    title: "SPSS for Statistical Analysis",
-    description: "Learn to use SPSS, the powerful software package for statistical analysis, through its user-friendly interface and syntax-based commands.",
+    title: "SPSS",
+    description: "Software package used for interactive statistical analysis.",
     category: "Programming Languages",
-    subCategory: "Data Science & Analytics",
+    subCategories: ["Data Science / Stats / Math-Oriented"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "fortran",
+    title: "Fortran",
+    description: "General-purpose language for scientific and engineering applications.",
+    category: "Programming Languages",
+    subCategories: ["Data Science / Stats / Math-Oriented", "Older / Legacy / Historical Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "lisp",
+    title: "Lisp",
+    description: "The second-oldest high-level programming language, based on symbolic computation.",
+    category: "Programming Languages",
+    subCategories: ["AI, ML, & Research Languages", "Functional Programming Languages", "Older / Legacy / Historical Languages"],
     topics: [],
     assignments: []
   },
   {
     id: "prolog",
     title: "Prolog",
-    description: "Learn the logic programming language, renowned for its role in artificial intelligence and computational linguistics.",
+    description: "Logic programming language associated with AI.",
     category: "Programming Languages",
-    subCategory: "Functional Programming",
+    subCategories: ["AI, ML, & Research Languages"],
     topics: [],
     assignments: []
   },
   {
-    id: "go",
-    title: "Go (Golang)",
-    description: "Learn Go, the open-source programming language designed for building simple, reliable, and efficient software.",
+    id: "haskell",
+    title: "Haskell",
+    description: "Standardized, general-purpose, purely functional language.",
     category: "Programming Languages",
-    subCategory: "General-Purpose Languages",
-    topics: [],
-    assignments: [],
-  },
-  {
-    id: "ruby",
-    title: "Ruby",
-    description: "Learn Ruby, the dynamic, open-source programming language with a focus on simplicity and productivity.",
-    category: "Programming Languages",
-    subCategory: "General-Purpose Languages",
+    subCategories: ["AI, ML, & Research Languages", "Functional Programming Languages"],
     topics: [],
     assignments: []
   },
   {
-    id: "typescript",
-    title: "TypeScript",
-    description: "Add static typing to JavaScript to build scalable and robust applications with fewer bugs.",
+    id: "ocaml",
+    title: "OCaml",
+    description: "General-purpose language with emphasis on expressiveness and safety.",
     category: "Programming Languages",
-    subCategory: "Web Development Languages",
+    subCategories: ["AI, ML, & Research Languages", "Functional Programming Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "scheme",
+    title: "Scheme",
+    description: "Minimalist dialect of Lisp.",
+    category: "Programming Languages",
+    subCategories: ["AI, ML, & Research Languages", "Functional Programming Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "gdscript",
+    title: "GDScript",
+    description: "High-level, dynamically typed language used in Godot Engine.",
+    category: "Programming Languages",
+    subCategories: ["Game Development Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "haxe",
+    title: "Haxe",
+    description: "Open-source high-level multi-platform programming language.",
+    category: "Programming Languages",
+    subCategories: ["Game Development Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "objective-c",
+    title: "Objective-C",
+    description: "Object-oriented language used for OS X and iOS.",
+    category: "Programming Languages",
+    subCategories: ["Mobile App Development Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "clojure",
+    title: "Clojure",
+    description: "Modern, dynamic, and functional dialect of the Lisp language on the JVM.",
+    category: "Programming Languages",
+    subCategories: ["Enterprise / Backend / JVM Languages", "Functional Programming Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "f-sharp",
+    title: "F#",
+    description: "Strongly typed, multi-paradigm programming language for the .NET framework.",
+    category: "Programming Languages",
+    subCategories: ["Functional Programming Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "yaml",
+    title: "YAML",
+    description: "Human-friendly data serialization standard.",
+    category: "Programming Languages",
+    subCategories: ["DevOps / Configuration / Infra-as-Code"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "json",
+    title: "JSON",
+    description: "Lightweight data-interchange format.",
+    category: "Programming Languages",
+    subCategories: ["DevOps / Configuration / Infra-as-Code"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "hcl",
+    title: "HCL",
+    description: "HashiCorp Configuration Language.",
+    category: "Programming Languages",
+    subCategories: ["DevOps / Configuration / Infra-as-Code"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "starlark",
+    title: "Starlark",
+    description: "Language used in Bazel build system.",
+    category: "Programming Languages",
+    subCategories: ["DevOps / Configuration / Infra-as-Code"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "terraform-scripts",
+    title: "Terraform Scripts",
+    description: "Infrastructure as Code using Terraform.",
+    category: "Programming Languages",
+    subCategories: ["DevOps / Configuration / Infra-as-Code"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "ansible-playbooks",
+    title: "Ansible Playbooks",
+    description: "Configuration management using Ansible.",
+    category: "Programming Languages",
+    subCategories: ["DevOps / Configuration / Infra-as-Code"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "solidity",
+    title: "Solidity",
+    description: "Language for writing smart contracts on Ethereum.",
+    category: "Programming Languages",
+    subCategories: ["Blockchain / Smart Contract Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "vyper",
+    title: "Vyper",
+    description: "Pythonic smart contract language for Ethereum.",
+    category: "Programming Languages",
+    subCategories: ["Blockchain / Smart Contract Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "move",
+    title: "Move",
+    description: "Safe and programmable language for the Aptos and Sui blockchains.",
+    category: "Programming Languages",
+    subCategories: ["Blockchain / Smart Contract Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "michelson",
+    title: "Michelson",
+    description: "Stack-based smart contract language for Tezos.",
+    category: "Programming Languages",
+    subCategories: ["Blockchain / Smart Contract Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "cadence",
+    title: "Cadence",
+    description: "Resource-oriented programming language for smart contracts on Flow.",
+    category: "Programming Languages",
+    subCategories: ["Blockchain / Smart Contract Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "scratch",
+    title: "Scratch",
+    description: "Block-based visual programming language for education.",
+    category: "Programming Languages",
+    subCategories: ["Educational / Esoteric / Experimental"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "blockly",
+    title: "Blockly",
+    description: "Library that adds a visual code editor to web and mobile apps.",
+    category: "Programming Languages",
+    subCategories: ["Educational / Esoteric / Experimental"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "logo",
+    title: "Logo",
+    description: "Educational programming language known for turtle graphics.",
+    category: "Programming Languages",
+    subCategories: ["Educational / Esoteric / Experimental"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "alice",
+    title: "Alice",
+    description: "Educational 3D programming environment.",
+    category: "Programming Languages",
+    subCategories: ["Educational / Esoteric / Experimental"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "pico-8",
+    title: "Pico-8",
+    description: "Fantasy console for making, sharing, and playing tiny games.",
+    category: "Programming Languages",
+    subCategories: ["Educational / Esoteric / Experimental"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "brainfuck",
+    title: "Brainfuck",
+    description: "Minimalist esoteric programming language.",
+    category: "Programming Languages",
+    subCategories: ["Educational / Esoteric / Experimental"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "whitespace",
+    title: "Whitespace",
+    description: "Esoteric language that only uses whitespace characters.",
+    category: "Programming Languages",
+    subCategories: ["Educational / Esoteric / Experimental"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "lolcode",
+    title: "LOLCODE",
+    description: "Esoteric language inspired by internet memes.",
+    category: "Programming Languages",
+    subCategories: ["Educational / Esoteric / Experimental"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "befunge",
+    title: "Befunge",
+    description: "Two-dimensional stack-based esoteric language.",
+    category: "Programming Languages",
+    subCategories: ["Educational / Esoteric / Experimental"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "intercal",
+    title: "INTERCAL",
+    description: "Parody esoteric programming language.",
+    category: "Programming Languages",
+    subCategories: ["Educational / Esoteric / Experimental"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "cobol",
+    title: "COBOL",
+    description: "Legacy language used in business, finance, and admin systems.",
+    category: "Programming Languages",
+    subCategories: ["Older / Legacy / Historical Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "pascal",
+    title: "Pascal",
+    description: "Influential imperative and procedural programming language.",
+    category: "Programming Languages",
+    subCategories: ["Older / Legacy / Historical Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "delphi",
+    title: "Delphi",
+    description: "Software development kit using the Object Pascal language.",
+    category: "Programming Languages",
+    subCategories: ["Older / Legacy / Historical Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "visual-basic",
+    title: "Visual Basic (VB)",
+    description: "Event-driven programming language and environment from Microsoft.",
+    category: "Programming Languages",
+    subCategories: ["Older / Legacy / Historical Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "smalltalk",
+    title: "Smalltalk",
+    description: "Purely object-oriented programming language.",
+    category: "Programming Languages",
+    subCategories: ["Older / Legacy / Historical Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "algol",
+    title: "ALGOL",
+    description: "Family of imperative computer programming languages.",
+    category: "Programming Languages",
+    subCategories: ["Older / Legacy / Historical Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "pl-i",
+    title: "PL/I",
+    description: "Procedural, imperative computer programming language.",
+    category: "Programming Languages",
+    subCategories: ["Older / Legacy / Historical Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "clipper",
+    title: "Clipper",
+    description: "Multiple-platform compiler for dBASE III databases.",
+    category: "Programming Languages",
+    subCategories: ["Older / Legacy / Historical Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "foxpro",
+    title: "FoxPro",
+    description: "Object-oriented relational database management system.",
+    category: "Programming Languages",
+    subCategories: ["Older / Legacy / Historical Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "elm",
+    title: "Elm",
+    description: "Functional language for building browser-based GUIs.",
+    category: "Programming Languages",
+    subCategories: ["Other Noteworthy or Specialized Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "crystal",
+    title: "Crystal",
+    description: "Compiled language with Ruby-like syntax and C-like performance.",
+    category: "Programming Languages",
+    subCategories: ["Other Noteworthy or Specialized Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "forth",
+    title: "Forth",
+    description: "Procedural, stack-based programming language.",
+    category: "Programming Languages",
+    subCategories: ["Other Noteworthy or Specialized Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "rebol",
+    title: "Rebol",
+    description: "Cross-platform data exchange language and multi-paradigm language.",
+    category: "Programming Languages",
+    subCategories: ["Other Noteworthy or Specialized Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "io",
+    title: "Io",
+    description: "Pure object-oriented programming language inspired by Smalltalk.",
+    category: "Programming Languages",
+    subCategories: ["Other Noteworthy or Specialized Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "ring",
+    title: "Ring",
+    description: "Practical multi-paradigm programming language.",
+    category: "Programming Languages",
+    subCategories: ["Other Noteworthy or Specialized Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "red",
+    title: "Red",
+    description: "Full-stack programming language inspired by REBOL.",
+    category: "Programming Languages",
+    subCategories: ["Other Noteworthy or Specialized Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "ballerina",
+    title: "Ballerina",
+    description: "Cloud-native programming language for integration.",
+    category: "Programming Languages",
+    subCategories: ["Other Noteworthy or Specialized Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "purescript",
+    title: "PureScript",
+    description: "Strongly-typed, purely-functional language that compiles to JS.",
+    category: "Programming Languages",
+    subCategories: ["Other Noteworthy or Specialized Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "nix",
+    title: "Nix",
+    description: "Purely functional package manager and configuration language.",
+    category: "Programming Languages",
+    subCategories: ["Other Noteworthy or Specialized Languages"],
     topics: [],
     assignments: []
   },
@@ -186,7 +872,7 @@ export const learningPaths = [
   {
     id: "ruby-on-rails",
     title: "Ruby on Rails",
-    description: "Learn Ruby, the dynamic, open-source programming language with a focus on simplicity and productivity, and its most popular framework, Rails.",
+    description: "Master Rails, the powerful MVC framework for Ruby.",
     category: "Frameworks & Libraries",
     subCategory: "Backend Web Frameworks",
     topics: [],
@@ -195,7 +881,7 @@ export const learningPaths = [
   {
     id: "tensorflow",
     title: "TensorFlow",
-    description: "Learn the open-source library for machine learning and artificial intelligence.",
+    description: "Learn the leading library for machine learning and AI.",
     category: "Frameworks & Libraries",
     subCategory: "Data Science & ML Libraries",
     topics: [],
@@ -204,7 +890,7 @@ export const learningPaths = [
   {
     id: "pytorch",
     title: "PyTorch",
-    description: "Learn the open-source machine learning library based on the Torch library.",
+    description: "Master the preferred DL library for researchers and industry.",
     category: "Frameworks & Libraries",
     subCategory: "Data Science & ML Libraries",
     topics: [],
@@ -213,7 +899,7 @@ export const learningPaths = [
   {
     id: "flutter",
     title: "Flutter",
-    description: "Learn Google's UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.",
+    description: "Build multi-platform apps with Google's UI toolkit.",
     category: "Frameworks & Libraries",
     subCategory: "Mobile Frameworks",
     topics: [],
@@ -222,7 +908,7 @@ export const learningPaths = [
   {
     id: "nextjs",
     title: "Next.js: The React Framework",
-    description: "Master the features of Next.js to build fast, scalable, and SEO-friendly React applications.",
+    description: "Master full-stack React with Next.js.",
     category: "Frameworks & Libraries",
     subCategory: "Frontend Web Frameworks",
     topics: [],
@@ -231,7 +917,7 @@ export const learningPaths = [
   {
     id: "express-js",
     title: "Express.js",
-    description: "Learn the fast, unopinionated, minimalist web framework for Node.js.",
+    description: "The minimalist web framework for Node.js.",
     category: "Frameworks & Libraries",
     subCategory: "Backend Web Frameworks",
     topics: [],
@@ -241,34 +927,34 @@ export const learningPaths = [
   // --- Data Structures & Algorithms ---
   {
     id: "dsa-with-java",
-    title: "Data Structures & Algorithms in Java",
-    description: "Master fundamental data structures and algorithms using Java to prepare for technical interviews and build efficient software.",
+    title: "DSA in Java",
+    description: "Master core algorithms using Java.",
     category: "Data Structures & Algorithms",
     topics: [],
     assignments: []
   },
   {
     id: "dsa-with-python",
-    title: "Data Structures & Algorithms in Python",
-    description: "Leverage Python's simplicity to master core data structures and algorithms, a crucial skill for any software engineer.",
+    title: "DSA in Python",
+    description: "Leverage Python for core problem-solving.",
     category: "Data Structures & Algorithms",
     topics: [],
     assignments: []
   },
   {
     id: "dsa-with-cpp",
-    title: "Data Structures & Algorithms in C++",
-    description: "Build a strong foundation in high-performance programming by mastering DSA with C++ and the Standard Template Library (STL).",
+    title: "DSA in C++",
+    description: "High-performance problem solving with C++.",
     category: "Data Structures & Algorithms",
     topics: [],
     assignments: []
   },
 
-  // --- Job Roles: CORE SOFTWARE DEVELOPMENT ---
+  // --- Job Roles ---
   {
     id: "software-engineer",
-    title: "Software Developer / Software Engineer",
-    description: "A comprehensive path to becoming a proficient software engineer, covering fundamentals, architecture, and engineering practices.",
+    title: "Software Engineer",
+    description: "Become a professional software builder.",
     category: "Job Roles",
     subCategory: "Core Software Development Jobs",
     topics: [],
@@ -277,7 +963,7 @@ export const learningPaths = [
   {
     id: "front-end-developer",
     title: "Frontend Developer",
-    description: "Learn to build beautiful and interactive user interfaces for the web.",
+    description: "Build interfaces for the modern web.",
     category: "Job Roles",
     subCategory: "Core Software Development Jobs",
     topics: [],
@@ -286,7 +972,7 @@ export const learningPaths = [
   {
     id: "back-end-developer",
     title: "Backend Developer",
-    description: "Learn to build the server-side logic and infrastructure that powers web applications.",
+    description: "Build server-side infrastructure.",
     category: "Job Roles",
     subCategory: "Core Software Development Jobs",
     topics: [],
@@ -295,7 +981,7 @@ export const learningPaths = [
   {
     id: "full-stack-developer",
     title: "Full Stack Developer",
-    description: "Become a full-stack developer by mastering both front-end and back-end technologies.",
+    description: "Master both ends of the web.",
     category: "Job Roles",
     subCategory: "Core Software Development Jobs",
     topics: [],
@@ -303,17 +989,8 @@ export const learningPaths = [
   },
   {
     id: "mobile-app-development",
-    title: "Mobile App Developer (Android/iOS)",
-    description: "Build applications for iOS and Android using modern cross-platform or native frameworks.",
-    category: "Job Roles",
-    subCategory: "Core Software Development Jobs",
-    topics: [],
-    assignments: []
-  },
-  {
-    id: "mobile-app-developer-ios",
-    title: "Mobile App Developer (iOS)",
-    description: "Master Swift and SwiftUI to build world-class applications for the Apple ecosystem.",
+    title: "Mobile Developer",
+    description: "Build iOS and Android applications.",
     category: "Job Roles",
     subCategory: "Core Software Development Jobs",
     topics: [],
@@ -322,7 +999,7 @@ export const learningPaths = [
   {
     id: "game-developer",
     title: "Game Developer",
-    description: "Learn to build interactive games using popular engines and graphics libraries.",
+    description: "Create interactive digital experiences.",
     category: "Job Roles",
     subCategory: "Core Software Development Jobs",
     topics: [],
@@ -330,8 +1007,8 @@ export const learningPaths = [
   },
   {
     id: "desktop-application-developer",
-    title: "Desktop Application Developer",
-    description: "Build powerful applications for Windows, macOS, and Linux using .NET, Electron, or Tauri.",
+    title: "Desktop Developer",
+    description: "Build software for Windows, Mac, and Linux.",
     category: "Job Roles",
     subCategory: "Core Software Development Jobs",
     topics: [],
@@ -339,8 +1016,8 @@ export const learningPaths = [
   },
   {
     id: "embedded-systems-developer",
-    title: "Embedded Systems Developer",
-    description: "Program hardware and microcontrollers for specialized functionality.",
+    title: "Embedded Developer",
+    description: "Program hardware and microcontrollers.",
     category: "Job Roles",
     subCategory: "Core Software Development Jobs",
     topics: [],
@@ -349,7 +1026,7 @@ export const learningPaths = [
   {
     id: "devops-engineer",
     title: "DevOps Engineer",
-    description: "Learn the practices and tools to automate and streamline the software development lifecycle.",
+    description: "Automate and streamline development life cycles.",
     category: "Job Roles",
     subCategory: "Core Software Development Jobs",
     topics: [],
@@ -357,8 +1034,8 @@ export const learningPaths = [
   },
   {
     id: "site-reliability-engineer",
-    title: "Site Reliability Engineer (SRE)",
-    description: "Ensure that large-scale systems are scalable, reliable, and efficient.",
+    title: "SRE",
+    description: "Ensure massive systems stay reliable.",
     category: "Job Roles",
     subCategory: "Core Software Development Jobs",
     topics: [],
@@ -367,7 +1044,7 @@ export const learningPaths = [
   {
     id: "system-programmer",
     title: "System Programmer",
-    description: "Develop low-level software that provides services to other software.",
+    description: "Develop low-level core software.",
     category: "Job Roles",
     subCategory: "Core Software Development Jobs",
     topics: [],
@@ -376,18 +1053,16 @@ export const learningPaths = [
   {
     id: "firmware-developer",
     title: "Firmware Developer",
-    description: "Master the art of building the digital heartbeat of hardware. From C basics to RTOS, kernel modules, and hardware security.",
+    description: "Build the brains of hardware devices.",
     category: "Job Roles",
     subCategory: "Core Software Development Jobs",
     topics: [],
     assignments: []
   },
-
-  // --- Job Roles: ARTIFICIAL INTELLIGENCE & MACHINE LEARNING ---
   {
     id: "ai-ml-engineer",
-    title: "Machine Learning Engineer",
-    description: "Learn to design, build, and deploy machine learning models to solve real-world problems.",
+    title: "ML Engineer",
+    description: "Design and build AI systems.",
     category: "Job Roles",
     subCategory: "Artificial Intelligence & Machine Learning",
     topics: [],
@@ -396,7 +1071,7 @@ export const learningPaths = [
   {
     id: "data-scientist",
     title: "Data Scientist",
-    description: "Learn to build and deploy machine learning models, and use data to make predictions and drive business decisions.",
+    description: "Extract insights from complex data.",
     category: "Job Roles",
     subCategory: "Artificial Intelligence & Machine Learning",
     topics: [],
@@ -405,7 +1080,7 @@ export const learningPaths = [
   {
     id: "ai-researcher",
     title: "AI Researcher",
-    description: "Dive deep into the theory and mathematics of AI to create novel algorithms and advance the field.",
+    description: "Advance the field of AI through theory.",
     category: "Job Roles",
     subCategory: "Artificial Intelligence & Machine Learning",
     topics: [],
@@ -414,7 +1089,7 @@ export const learningPaths = [
   {
     id: "deep-learning-engineer",
     title: "Deep Learning Engineer",
-    description: "Specialized in building complex neural networks for tasks like vision and speech.",
+    description: "Build complex neural networks.",
     category: "Job Roles",
     subCategory: "Artificial Intelligence & Machine Learning",
     topics: [],
@@ -422,8 +1097,8 @@ export const learningPaths = [
   },
   {
     id: "nlp-engineer",
-    title: "Natural Language Processing (NLP) Engineer",
-    description: "Develop systems that understand, interpret, and generate human language.",
+    title: "NLP Engineer",
+    description: "Teach machines to understand language.",
     category: "Job Roles",
     subCategory: "Artificial Intelligence & Machine Learning",
     topics: [],
@@ -431,8 +1106,8 @@ export const learningPaths = [
   },
   {
     id: "computer-vision-engineer",
-    title: "Computer Vision Engineer",
-    description: "Build systems that can interpret and understand visual information from the world.",
+    title: "CV Engineer",
+    description: "Teach machines to see the world.",
     category: "Job Roles",
     subCategory: "Artificial Intelligence & Machine Learning",
     topics: [],
@@ -440,8 +1115,8 @@ export const learningPaths = [
   },
   {
     id: "robotics-engineer-ai",
-    title: "Robotics Engineer (AI-focused)",
-    description: "Design and build autonomous robots using artificial intelligence.",
+    title: "AI Robotics Engineer",
+    description: "Design intelligent autonomous agents.",
     category: "Job Roles",
     subCategory: "Artificial Intelligence & Machine Learning",
     topics: [],
@@ -450,7 +1125,7 @@ export const learningPaths = [
   {
     id: "ai-ethics-researcher",
     title: "AI Ethics Researcher",
-    description: "Study and advocate for the ethical development and use of AI technology.",
+    description: "Promote safe and fair AI development.",
     category: "Job Roles",
     subCategory: "Artificial Intelligence & Machine Learning",
     topics: [],
@@ -459,7 +1134,7 @@ export const learningPaths = [
   {
     id: "prompt-engineer",
     title: "Prompt Engineer",
-    description: "Master the art of crafting precise instructions for large language models.",
+    description: "Master instruction crafting for LLMs.",
     category: "Job Roles",
     subCategory: "Artificial Intelligence & Machine Learning",
     topics: [],
@@ -467,19 +1142,17 @@ export const learningPaths = [
   },
   {
     id: "reinforcement-learning-engineer",
-    title: "Reinforcement Learning Engineer",
-    description: "Specialized in training agents to make decisions through rewards and penalties.",
+    title: "RL Engineer",
+    description: "Train agents through trial and error.",
     category: "Job Roles",
     subCategory: "Artificial Intelligence & Machine Learning",
     topics: [],
     assignments: []
   },
-
-  // --- Job Roles: DATA & DATABASE ROLES ---
   {
     id: "data-analyst",
     title: "Data Analyst",
-    description: "Learn to collect, clean, and interpret data sets to answer a question or solve a problem.",
+    description: "Translate data into business decisions.",
     category: "Job Roles",
     subCategory: "Data & Database Roles",
     topics: [],
@@ -488,7 +1161,7 @@ export const learningPaths = [
   {
     id: "data-engineer",
     title: "Data Engineer",
-    description: "Build systems that collect, manage, and convert raw data into usable information.",
+    description: "Build data pipelines and infrastructure.",
     category: "Job Roles",
     subCategory: "Data & Database Roles",
     topics: [],
@@ -497,7 +1170,7 @@ export const learningPaths = [
   {
     id: "big-data-developer",
     title: "Big Data Developer",
-    description: "Develop and manage systems that process petabytes of data.",
+    description: "Process and manage petabytes of info.",
     category: "Job Roles",
     subCategory: "Data & Database Roles",
     topics: [],
@@ -505,8 +1178,8 @@ export const learningPaths = [
   },
   {
     id: "bi-analyst",
-    title: "Business Intelligence (BI) Analyst",
-    description: "Use data to provide actionable insights for business decision-making.",
+    title: "BI Analyst",
+    description: "Bridge data and business strategy.",
     category: "Job Roles",
     subCategory: "Data & Database Roles",
     topics: [],
@@ -514,8 +1187,8 @@ export const learningPaths = [
   },
   {
     id: "database-administrator",
-    title: "Database Administrator (DBA)",
-    description: "Learn to manage and maintain databases to ensure data is secure, accessible, and performs efficiently.",
+    title: "DBA",
+    description: "Guard and optimize the databases.",
     category: "Job Roles",
     subCategory: "Data & Database Roles",
     topics: [],
@@ -524,7 +1197,7 @@ export const learningPaths = [
   {
     id: "etl-developer",
     title: "ETL Developer",
-    description: "Specialized in Extract, Transform, Load processes for data integration.",
+    description: "Master data integration processes.",
     category: "Job Roles",
     subCategory: "Data & Database Roles",
     topics: [],
@@ -533,18 +1206,16 @@ export const learningPaths = [
   {
     id: "sql-developer",
     title: "SQL Developer",
-    description: "Master the creation and optimization of database queries and stored procedures.",
+    description: "Optimize queries and logic.",
     category: "Job Roles",
     subCategory: "Data & Database Roles",
     topics: [],
     assignments: []
   },
-
-  // --- Job Roles: WEB TECHNOLOGY JOBS ---
   {
     id: "web-development-foundations",
     title: "Web Developer",
-    description: "Master the foundational technologies for building modern websites.",
+    description: "Build the future of the internet.",
     category: "Job Roles",
     subCategory: "Web Technology Jobs",
     topics: [],
@@ -552,8 +1223,8 @@ export const learningPaths = [
   },
   {
     id: "frontend-framework-developer",
-    title: "React.js / Angular / Vue.js Developer",
-    description: "Specialized in building interactive UIs with modern JS frameworks.",
+    title: "Framework Developer",
+    description: "Specialized in React, Angular, or Vue.",
     category: "Job Roles",
     subCategory: "Web Technology Jobs",
     topics: [],
@@ -561,8 +1232,8 @@ export const learningPaths = [
   },
   {
     id: "ui-ux-web-designer",
-    title: "Web Designer (UI/UX)",
-    description: "Focus on the visual and experiential aspects of web design.",
+    title: "Web Designer",
+    description: "Focus on UI/UX for the web.",
     category: "Job Roles",
     subCategory: "Web Technology Jobs",
     topics: [],
@@ -570,8 +1241,8 @@ export const learningPaths = [
   },
   {
     id: "webflow-no-code-developer",
-    title: "Webflow / No-code Developer",
-    description: "Build high-quality websites using no-code and low-code platforms.",
+    title: "No-code Developer",
+    description: "Build web apps without manual code.",
     category: "Job Roles",
     subCategory: "Web Technology Jobs",
     topics: [],
@@ -580,7 +1251,7 @@ export const learningPaths = [
   {
     id: "wordpress-developer",
     title: "WordPress Developer",
-    description: "Build and customize sites on the world's most popular CMS.",
+    description: "Customizing the world's leading CMS.",
     category: "Job Roles",
     subCategory: "Web Technology Jobs",
     topics: [],
@@ -588,19 +1259,17 @@ export const learningPaths = [
   },
   {
     id: "stack-developer",
-    title: "MEAN / MERN Stack Developer",
-    description: "Full-stack development using MongoDB, Express, React/Angular, and Node.",
+    title: "MERN Stack Developer",
+    description: "Full-stack JS development expertise.",
     category: "Job Roles",
     subCategory: "Web Technology Jobs",
     topics: [],
     assignments: []
   },
-
-  // --- Job Roles: CLOUD & INFRASTRUCTURE JOBS ---
   {
     id: "cloud-engineer",
-    title: "Cloud Engineer (AWS / Azure / GCP)",
-    description: "Manage and deploy applications on major cloud platforms.",
+    title: "Cloud Engineer",
+    description: "Manage AWS, Azure, or GCP infrastructure.",
     category: "Job Roles",
     subCategory: "Cloud & Infrastructure Jobs",
     topics: [],
@@ -609,7 +1278,7 @@ export const learningPaths = [
   {
     id: "cloud-architect",
     title: "Cloud Architect",
-    description: "Design high-level cloud infrastructure and strategies.",
+    description: "Design enterprise-scale cloud systems.",
     category: "Job Roles",
     subCategory: "Cloud & Infrastructure Jobs",
     topics: [],
@@ -618,7 +1287,7 @@ export const learningPaths = [
   {
     id: "cloud-security-engineer",
     title: "Cloud Security Engineer",
-    description: "Specialized in securing cloud environments and assets.",
+    description: "Secure the cloud infrastructure.",
     category: "Job Roles",
     subCategory: "Cloud & Infrastructure Jobs",
     topics: [],
@@ -626,17 +1295,8 @@ export const learningPaths = [
   },
   {
     id: "cloud-devops-engineer",
-    title: "Cloud DevOps Engineer",
-    description: "Integrate DevOps practices with cloud-native tools.",
-    category: "Job Roles",
-    subCategory: "Cloud & Infrastructure Jobs",
-    topics: [],
-    assignments: []
-  },
-  {
-    id: "site-reliability-engineer-cloud",
-    title: "Site Reliability Engineer (SRE)",
-    description: "Ensure that cloud-based systems are scalable and reliable.",
+    title: "Cloud DevOps",
+    description: "Modern deployment automation.",
     category: "Job Roles",
     subCategory: "Cloud & Infrastructure Jobs",
     topics: [],
@@ -645,7 +1305,7 @@ export const learningPaths = [
   {
     id: "platform-engineer",
     title: "Platform Engineer",
-    description: "Build and maintain the internal developer platforms.",
+    description: "Build developer-facing infrastructure.",
     category: "Job Roles",
     subCategory: "Cloud & Infrastructure Jobs",
     topics: [],
@@ -653,19 +1313,17 @@ export const learningPaths = [
   },
   {
     id: "iac-specialist",
-    title: "Infrastructure as Code (IaC) Specialist",
-    description: "Focus on automating infra using Terraform, CloudFormation, etc.",
+    title: "IaC Specialist",
+    description: "Infrastructure as Code mastery.",
     category: "Job Roles",
     subCategory: "Cloud & Infrastructure Jobs",
     topics: [],
     assignments: []
   },
-
-  // --- Job Roles: CYBERSECURITY JOBS ---
   {
     id: "cybersecurity-analyst",
-    title: "Cybersecurity Analyst",
-    description: "Monitor and protect organizations from digital threats.",
+    title: "Security Analyst",
+    description: "Defend against digital threats.",
     category: "Job Roles",
     subCategory: "Cybersecurity Jobs",
     topics: [],
@@ -673,8 +1331,8 @@ export const learningPaths = [
   },
   {
     id: "ethical-hacker",
-    title: "Ethical Hacker / Penetration Tester",
-    description: "Identify vulnerabilities by simulating cyber attacks.",
+    title: "Ethical Hacker",
+    description: "Hack for good to find flaws.",
     category: "Job Roles",
     subCategory: "Cybersecurity Jobs",
     topics: [],
@@ -683,7 +1341,7 @@ export const learningPaths = [
   {
     id: "security-engineer",
     title: "Security Engineer",
-    description: "Design and implement robust security systems.",
+    description: "Build impenetrable systems.",
     category: "Job Roles",
     subCategory: "Cybersecurity Jobs",
     topics: [],
@@ -691,8 +1349,8 @@ export const learningPaths = [
   },
   {
     id: "soc-analyst",
-    title: "SOC Analyst (Security Operations Center)",
-    description: "First line of defense in monitoring and responding to incidents.",
+    title: "SOC Analyst",
+    description: "First line of defense in monitoring.",
     category: "Job Roles",
     subCategory: "Cybersecurity Jobs",
     topics: [],
@@ -700,8 +1358,8 @@ export const learningPaths = [
   },
   {
     id: "digital-forensics-expert",
-    title: "Digital Forensics Expert",
-    description: "Investigate and analyze digital evidence from cyber crimes.",
+    title: "Forensics Expert",
+    description: "Investigate digital crime evidence.",
     category: "Job Roles",
     subCategory: "Cybersecurity Jobs",
     topics: [],
@@ -710,7 +1368,7 @@ export const learningPaths = [
   {
     id: "malware-analyst",
     title: "Malware Analyst",
-    description: "Deconstruct and understand how malicious software works.",
+    description: "Reverse engineer malicious code.",
     category: "Job Roles",
     subCategory: "Cybersecurity Jobs",
     topics: [],
@@ -719,7 +1377,7 @@ export const learningPaths = [
   {
     id: "security-researcher",
     title: "Security Researcher",
-    description: "Find new vulnerabilities and develop security patches.",
+    description: "Discover new zero-day flaws.",
     category: "Job Roles",
     subCategory: "Cybersecurity Jobs",
     topics: [],
@@ -727,19 +1385,17 @@ export const learningPaths = [
   },
   {
     id: "network-security-engineer",
-    title: "Network Security Engineer",
-    description: "Focus on securing network infrastructure and protocols.",
+    title: "Network Security",
+    description: "Protect the data lines.",
     category: "Job Roles",
     subCategory: "Cybersecurity Jobs",
     topics: [],
     assignments: []
   },
-
-  // --- Job Roles: BLOCKCHAIN & WEB3 JOBS ---
   {
     id: "blockchain-developer",
     title: "Blockchain Developer",
-    description: "Build and maintain decentralized ledger systems.",
+    description: "Master decentralized protocols.",
     category: "Job Roles",
     subCategory: "Blockchain & Web3 Jobs",
     topics: [],
@@ -747,8 +1403,8 @@ export const learningPaths = [
   },
   {
     id: "smart-contract-developer",
-    title: "Smart Contract Developer (Solidity, Vyper)",
-    description: "Write code that executes automatically on the blockchain.",
+    title: "Smart Contract Developer",
+    description: "Solidity and Vyper expertise.",
     category: "Job Roles",
     subCategory: "Blockchain & Web3 Jobs",
     topics: [],
@@ -756,8 +1412,8 @@ export const learningPaths = [
   },
   {
     id: "crypto-research-analyst",
-    title: "Crypto Research Analyst",
-    description: "Analyze market trends and technical developments in crypto.",
+    title: "Crypto Analyst",
+    description: "Deep dive into web3 tokens.",
     category: "Job Roles",
     subCategory: "Blockchain & Web3 Jobs",
     topics: [],
@@ -766,7 +1422,7 @@ export const learningPaths = [
   {
     id: "web3-developer",
     title: "Web3 Developer",
-    description: "Build applications that integrate with the decentralized web.",
+    description: "Bridge web2 and decentralized systems.",
     category: "Job Roles",
     subCategory: "Blockchain & Web3 Jobs",
     topics: [],
@@ -774,8 +1430,8 @@ export const learningPaths = [
   },
   {
     id: "nft-app-developer",
-    title: "NFT App Developer",
-    description: "Develop platforms and tools for non-fungible tokens.",
+    title: "NFT Developer",
+    description: "Build non-fungible platforms.",
     category: "Job Roles",
     subCategory: "Blockchain & Web3 Jobs",
     topics: [],
@@ -783,8 +1439,8 @@ export const learningPaths = [
   },
   {
     id: "defi-app-developer",
-    title: "DeFi App Developer",
-    description: "Build decentralized finance applications and protocols.",
+    title: "DeFi Developer",
+    description: "Master decentralized finance.",
     category: "Job Roles",
     subCategory: "Blockchain & Web3 Jobs",
     topics: [],
@@ -792,19 +1448,17 @@ export const learningPaths = [
   },
   {
     id: "blockchain-security-auditor",
-    title: "Blockchain Security Auditor",
-    description: "Review smart contracts and protocols for security flaws.",
+    title: "Web3 Auditor",
+    description: "Review contracts for safety.",
     category: "Job Roles",
     subCategory: "Blockchain & Web3 Jobs",
     topics: [],
     assignments: []
   },
-
-  // --- Job Roles: ROBOTICS, IOT & HARDWARE INTEGRATION ---
   {
     id: "iot-developer",
     title: "IoT Developer",
-    description: "Connect physical devices to the internet and each other.",
+    description: "Connect the physical world.",
     category: "Job Roles",
     subCategory: "Robotics, IoT & Hardware Integration",
     topics: [],
@@ -813,7 +1467,7 @@ export const learningPaths = [
   {
     id: "iot-systems-engineer",
     title: "IoT Systems Engineer",
-    description: "Design and manage complex IoT ecosystems.",
+    description: "Manage complex IoT networks.",
     category: "Job Roles",
     subCategory: "Robotics, IoT & Hardware Integration",
     topics: [],
@@ -822,7 +1476,7 @@ export const learningPaths = [
   {
     id: "embedded-systems-engineer",
     title: "Embedded Systems Engineer",
-    description: "Specialized in designing hardware and firmware for devices.",
+    description: "Design low-level hardware code.",
     category: "Job Roles",
     subCategory: "Robotics, IoT & Hardware Integration",
     topics: [],
@@ -830,8 +1484,8 @@ export const learningPaths = [
   },
   {
     id: "robotics-software-engineer",
-    title: "Robotics Software Engineer",
-    description: "Develop the software that controls robot behavior.",
+    title: "Robotics Programmer",
+    description: "Teach robots how to move.",
     category: "Job Roles",
     subCategory: "Robotics, IoT & Hardware Integration",
     topics: [],
@@ -839,8 +1493,8 @@ export const learningPaths = [
   },
   {
     id: "hardware-design-engineer",
-    title: "Hardware Design Engineer",
-    description: "Focus on the physical architecture of electronic systems.",
+    title: "Hardware Designer",
+    description: "Design the circuits of the future.",
     category: "Job Roles",
     subCategory: "Robotics, IoT & Hardware Integration",
     topics: [],
@@ -848,19 +1502,17 @@ export const learningPaths = [
   },
   {
     id: "automation-engineer-rpa",
-    title: "Automation Engineer (RPA)",
-    description: "Automate repetitive business processes using software robots.",
+    title: "RPA Engineer",
+    description: "Automate business with bots.",
     category: "Job Roles",
     subCategory: "Robotics, IoT & Hardware Integration",
     topics: [],
     assignments: []
   },
-
-  // --- Job Roles: RESEARCH & ACADEMIA ---
   {
     id: "cs-researcher",
-    title: "Computer Science Researcher",
-    description: "Investigate and advance fundamental theories of computing.",
+    title: "CS Researcher",
+    description: "Advance foundational computing theory.",
     category: "Job Roles",
     subCategory: "Research & Academia",
     topics: [],
@@ -869,7 +1521,7 @@ export const learningPaths = [
   {
     id: "ai-research-intern",
     title: "AI Research Intern",
-    description: "Gain experience in research labs focused on AI innovation.",
+    description: "Gain lab-based AI experience.",
     category: "Job Roles",
     subCategory: "Research & Academia",
     topics: [],
@@ -878,7 +1530,7 @@ export const learningPaths = [
   {
     id: "phd-fellow",
     title: "PhD Fellow",
-    description: "Conduct in-depth doctoral research in a specific CS sub-field.",
+    description: "Conduct deep doctoral research.",
     category: "Job Roles",
     subCategory: "Research & Academia",
     topics: [],
@@ -886,8 +1538,8 @@ export const learningPaths = [
   },
   {
     id: "teaching-assistant",
-    title: "Teaching Assistant (TA)",
-    description: "Support university professors in delivering CS education.",
+    title: "Teaching Assistant",
+    description: "Support the next gen of coders.",
     category: "Job Roles",
     subCategory: "Research & Academia",
     topics: [],
@@ -895,19 +1547,17 @@ export const learningPaths = [
   },
   {
     id: "assistant-professor-lecturer",
-    title: "Assistant Professor / Lecturer",
-    description: "Teach and conduct research at the university level.",
+    title: "Professor / Lecturer",
+    description: "Teach and lead in academia.",
     category: "Job Roles",
     subCategory: "Research & Academia",
     topics: [],
     assignments: []
   },
-
-  // --- Job Roles: TESTING & QUALITY ASSURANCE ---
   {
     id: "software-tester",
     title: "Software Tester",
-    description: "Manually verify that software meets its requirements.",
+    description: "Verify quality manually.",
     category: "Job Roles",
     subCategory: "Testing & Quality Assurance",
     topics: [],
@@ -915,8 +1565,8 @@ export const learningPaths = [
   },
   {
     id: "qa-engineer",
-    title: "QA Engineer (Manual / Automation)",
-    description: "Manage the overall quality process of software development.",
+    title: "QA Engineer",
+    description: "Manage quality automated logic.",
     category: "Job Roles",
     subCategory: "Testing & Quality Assurance",
     topics: [],
@@ -924,8 +1574,8 @@ export const learningPaths = [
   },
   {
     id: "sdet",
-    title: "SDET (Software Development Engineer in Test)",
-    description: "Write code to test code, focusing on automation and tools.",
+    title: "SDET",
+    description: "Software Dev in Test mastery.",
     category: "Job Roles",
     subCategory: "Testing & Quality Assurance",
     topics: [],
@@ -934,7 +1584,7 @@ export const learningPaths = [
   {
     id: "performance-tester",
     title: "Performance Tester",
-    description: "Ensure systems remain stable and responsive under heavy loads.",
+    description: "Stress test the system limits.",
     category: "Job Roles",
     subCategory: "Testing & Quality Assurance",
     topics: [],
@@ -942,19 +1592,17 @@ export const learningPaths = [
   },
   {
     id: "security-penetration-tester",
-    title: "Penetration Tester (Security Testing)",
-    description: "Test applications for security vulnerabilities.",
+    title: "Security Tester",
+    description: "Identify software security flaws.",
     category: "Job Roles",
     subCategory: "Testing & Quality Assurance",
     topics: [],
     assignments: []
   },
-
-  // --- Job Roles: DESIGN & PRODUCT ROLES ---
   {
     id: "ui-ux-designer",
     title: "UI/UX Designer",
-    description: "Design the visual and experiential aspects of digital products.",
+    description: "Craft modern user interfaces.",
     category: "Job Roles",
     subCategory: "Design & Product Roles",
     topics: [],
@@ -963,7 +1611,7 @@ export const learningPaths = [
   {
     id: "product-designer",
     title: "Product Designer",
-    description: "Holistic design of a product's function and appearance.",
+    description: "Holistic product experience design.",
     category: "Job Roles",
     subCategory: "Design & Product Roles",
     topics: [],
@@ -972,7 +1620,7 @@ export const learningPaths = [
   {
     id: "ux-researcher",
     title: "UX Researcher",
-    description: "Study user behavior and needs to inform design decisions.",
+    description: "Study users to inform design.",
     category: "Job Roles",
     subCategory: "Design & Product Roles",
     topics: [],
@@ -980,8 +1628,8 @@ export const learningPaths = [
   },
   {
     id: "design-systems-engineer",
-    title: "Design Systems Engineer",
-    description: "Build and maintain reusable components and design tokens.",
+    title: "Design Systems",
+    description: "Build reusable design tokens.",
     category: "Job Roles",
     subCategory: "Design & Product Roles",
     topics: [],
@@ -990,18 +1638,16 @@ export const learningPaths = [
   {
     id: "interaction-designer",
     title: "Interaction Designer",
-    description: "Focus on how users interact with dynamic UI elements.",
+    description: "Master user interaction logic.",
     category: "Job Roles",
     subCategory: "Design & Product Roles",
     topics: [],
     assignments: []
   },
-
-  // --- Job Roles: MANAGEMENT & BUSINESS ROLES ---
   {
     id: "technical-project-manager",
-    title: "Technical Project Manager",
-    description: "Manage complex tech projects from inception to completion.",
+    title: "Technical PM",
+    description: "Lead technical project lifecycles.",
     category: "Job Roles",
     subCategory: "Management & Business Roles",
     topics: [],
@@ -1010,7 +1656,7 @@ export const learningPaths = [
   {
     id: "product-manager",
     title: "Product Manager",
-    description: "Define the strategy, roadmap, and features of a product.",
+    description: "Define the product vision and roadmaps.",
     category: "Job Roles",
     subCategory: "Management & Business Roles",
     topics: [],
@@ -1019,7 +1665,7 @@ export const learningPaths = [
   {
     id: "business-analyst",
     title: "Business Analyst",
-    description: "Bridge the gap between business needs and tech solutions.",
+    description: "Bridge business and technical teams.",
     category: "Job Roles",
     subCategory: "Management & Business Roles",
     topics: [],
@@ -1028,7 +1674,7 @@ export const learningPaths = [
   {
     id: "it-consultant",
     title: "IT Consultant",
-    description: "Provide expert advice on using tech to reach business goals.",
+    description: "Provide expert advisory services.",
     category: "Job Roles",
     subCategory: "Management & Business Roles",
     topics: [],
@@ -1036,8 +1682,8 @@ export const learningPaths = [
   },
   {
     id: "agile-coach-scrum-master",
-    title: "Agile Coach / Scrum Master",
-    description: "Facilitate agile processes and improve team efficiency.",
+    title: "Agile Coach",
+    description: "Lead teams in agile methodologies.",
     category: "Job Roles",
     subCategory: "Management & Business Roles",
     topics: [],
@@ -1045,19 +1691,17 @@ export const learningPaths = [
   },
   {
     id: "customer-success-engineer",
-    title: "Customer Success Engineer",
-    description: "Help customers successfully integrate and use tech products.",
+    title: "Customer Success",
+    description: "Help clients succeed with tech.",
     category: "Job Roles",
     subCategory: "Management & Business Roles",
     topics: [],
     assignments: []
   },
-
-  // --- Job Roles: TECHNICAL SUPPORT & INFRASTRUCTURE ---
   {
     id: "it-support-engineer",
-    title: "IT Support Engineer",
-    description: "Troubleshoot and resolve technical issues for users.",
+    title: "IT Support",
+    description: "Solve technical issues for users.",
     category: "Job Roles",
     subCategory: "Technical Support & Infrastructure",
     topics: [],
@@ -1065,8 +1709,8 @@ export const learningPaths = [
   },
   {
     id: "network-administrator",
-    title: "Network Administrator",
-    description: "Manage and maintain the organization's network systems.",
+    title: "Network Admin",
+    description: "Manage organization-wide networks.",
     category: "Job Roles",
     subCategory: "Technical Support & Infrastructure",
     topics: [],
@@ -1074,8 +1718,8 @@ export const learningPaths = [
   },
   {
     id: "system-administrator",
-    title: "System Administrator (SysAdmin)",
-    description: "Ensure the reliable operation of computer systems.",
+    title: "SysAdmin",
+    description: "Ensure systems remain stable.",
     category: "Job Roles",
     subCategory: "Technical Support & Infrastructure",
     topics: [],
@@ -1083,8 +1727,8 @@ export const learningPaths = [
   },
   {
     id: "technical-support-specialist",
-    title: "Technical Support Specialist",
-    description: "Provide specialized technical assistance to customers.",
+    title: "Technical Support",
+    description: "Provide high-level assistance.",
     category: "Job Roles",
     subCategory: "Technical Support & Infrastructure",
     topics: [],
@@ -1093,18 +1737,16 @@ export const learningPaths = [
   {
     id: "helpdesk-analyst",
     title: "Helpdesk Analyst",
-    description: "The first point of contact for technical support requests.",
+    description: "First contact for tech support.",
     category: "Job Roles",
     subCategory: "Technical Support & Infrastructure",
     topics: [],
     assignments: []
   },
-
-  // --- Job Roles: INTERDISCIPLINARY & SPECIALIZED ROLES ---
   {
     id: "bioinformatics-developer",
-    title: "Bioinformatics Software Developer",
-    description: "Build software tools for analyzing biological data.",
+    title: "Bioinformatics",
+    description: "Code for biological research.",
     category: "Job Roles",
     subCategory: "Interdisciplinary & Specialized Roles",
     topics: [],
@@ -1113,7 +1755,7 @@ export const learningPaths = [
   {
     id: "fintech-developer",
     title: "Fintech Developer",
-    description: "Develop technology for financial services and products.",
+    description: "Build financial technologies.",
     category: "Job Roles",
     subCategory: "Interdisciplinary & Specialized Roles",
     topics: [],
@@ -1121,8 +1763,8 @@ export const learningPaths = [
   },
   {
     id: "quantitative-analyst",
-    title: "Quantitative Analyst (Quant)",
-    description: "Apply math and stats to solve financial and risk problems.",
+    title: "Quant Analyst",
+    description: "Apply math to financial risk.",
     category: "Job Roles",
     subCategory: "Interdisciplinary & Specialized Roles",
     topics: [],
@@ -1130,8 +1772,8 @@ export const learningPaths = [
   },
   {
     id: "xr-developer",
-    title: "AR/VR/MR Developer (XR)",
-    description: "Build immersive experiences for extended reality platforms.",
+    title: "XR Developer",
+    description: "Build AR/VR experiences.",
     category: "Job Roles",
     subCategory: "Interdisciplinary & Specialized Roles",
     topics: [],
@@ -1139,8 +1781,8 @@ export const learningPaths = [
   },
   {
     id: "game-physics-programmer",
-    title: "Game Physics Programmer",
-    description: "Develop the physics engines that simulate reality in games.",
+    title: "Physics Programmer",
+    description: "Master game physics logic.",
     category: "Job Roles",
     subCategory: "Interdisciplinary & Specialized Roles",
     topics: [],
@@ -1149,7 +1791,7 @@ export const learningPaths = [
   {
     id: "graphics-programmer",
     title: "Graphics Programmer",
-    description: "Focus on the low-level code that renders 2D/3D graphics.",
+    description: "Write code for visual rendering.",
     category: "Job Roles",
     subCategory: "Interdisciplinary & Specialized Roles",
     topics: [],
@@ -1158,18 +1800,16 @@ export const learningPaths = [
   {
     id: "simulation-engineer",
     title: "Simulation Engineer",
-    description: "Build computer models to simulate complex physical systems.",
+    description: "Model complex physical events.",
     category: "Job Roles",
     subCategory: "Interdisciplinary & Specialized Roles",
     topics: [],
     assignments: []
   },
-
-  // --- Job Roles: OTHER OPPORTUNITIES ---
   {
     id: "open-source-contributor",
-    title: "Open Source Contributor",
-    description: "Contribute to publicly available software projects.",
+    title: "OSS Contributor",
+    description: "Code for global open projects.",
     category: "Job Roles",
     subCategory: "Other Opportunities",
     topics: [],
@@ -1177,8 +1817,8 @@ export const learningPaths = [
   },
   {
     id: "tech-educator",
-    title: "Tech Blogger / Educator / YouTuber",
-    description: "Share your tech knowledge with the community through content.",
+    title: "Tech Educator",
+    description: "Share knowledge through content.",
     category: "Job Roles",
     subCategory: "Other Opportunities",
     topics: [],
@@ -1186,8 +1826,8 @@ export const learningPaths = [
   },
   {
     id: "freelancer-consultant",
-    title: "Freelancer / Consultant",
-    description: "Work independently on projects for various clients.",
+    title: "Freelancer",
+    description: "Work independently for clients.",
     category: "Job Roles",
     subCategory: "Other Opportunities",
     topics: [],
@@ -1195,8 +1835,8 @@ export const learningPaths = [
   },
   {
     id: "startup-founder",
-    title: "Startup Founder / CTO / Co-founder",
-    description: "Start and lead your own technology company.",
+    title: "Startup Founder",
+    description: "Launch your own tech venture.",
     category: "Job Roles",
     subCategory: "Other Opportunities",
     topics: [],
@@ -1204,28 +1844,26 @@ export const learningPaths = [
   },
   {
     id: "tech-internship",
-    title: "Internships at Tech Giants",
-    description: "Gain experience working at companies like Google or Microsoft.",
+    title: "Big Tech Intern",
+    description: "Gain experience at top giants.",
     category: "Job Roles",
     subCategory: "Other Opportunities",
     topics: [],
     assignments: []
   },
-
-  // --- Job Roles: GOVERNMENT & PUBLIC SECTOR ---
   {
     id: "isro-drdo-scientist",
-    title: "ISRO / DRDO Scientist",
-    description: "Conduct research and development for space and defense.",
+    title: "Govt Scientist",
+    description: "R&D for space and defense.",
     category: "Job Roles",
-    subCategory: "Research & Academia",
+    subCategory: "Government & Public Sector",
     topics: [],
     assignments: []
   },
   {
     id: "upsc-ssc-specialization",
-    title: "UPSC / SSC with CS specialization",
-    description: "Enter government services through competitive exams.",
+    title: "UPSC / SSC Specialist",
+    description: "Enter govt through CS logic.",
     category: "Job Roles",
     subCategory: "Government & Public Sector",
     topics: [],
@@ -1233,8 +1871,8 @@ export const learningPaths = [
   },
   {
     id: "nic-scientist",
-    title: "NIC (National Informatics Centre)",
-    description: "Work on critical government IT infrastructure and services.",
+    title: "NIC Scientist",
+    description: "Guard govt IT infrastructure.",
     category: "Job Roles",
     subCategory: "Government & Public Sector",
     topics: [],
@@ -1242,8 +1880,8 @@ export const learningPaths = [
   },
   {
     id: "psu-gate-hiring",
-    title: "PSUs hiring through GATE",
-    description: "Join public sector units like BARC, BEL, etc. through GATE.",
+    title: "PSU hiring through GATE",
+    description: "Join BARC, BEL, etc via GATE.",
     category: "Job Roles",
     subCategory: "Government & Public Sector",
     topics: [],

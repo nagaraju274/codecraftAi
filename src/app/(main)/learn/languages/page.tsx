@@ -13,34 +13,41 @@ import { AuthGuard } from "@/components/auth/auth-guard";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const glassGradients = [
-  "from-red-500/50 to-red-500/20 border-red-500/40 text-red-950 dark:text-red-50",
-  "from-orange-500/50 to-orange-500/20 border-orange-500/40 text-orange-950 dark:text-orange-50",
-  "from-amber-500/50 to-amber-500/20 border-amber-500/40 text-amber-950 dark:text-amber-50",
-  "from-yellow-500/50 to-yellow-500/20 border-yellow-500/40 text-yellow-950 dark:text-yellow-50",
-  "from-lime-500/50 to-lime-500/20 border-lime-500/40 text-lime-950 dark:text-lime-50",
-  "from-green-500/50 to-green-500/20 border-green-500/40 text-green-950 dark:text-green-50",
-  "from-emerald-500/50 to-emerald-500/20 border-emerald-500/40 text-emerald-950 dark:text-emerald-50",
-  "from-teal-500/50 to-teal-500/20 border-teal-500/40 text-teal-950 dark:text-teal-50",
-  "from-cyan-500/50 to-cyan-500/20 border-cyan-500/40 text-cyan-950 dark:text-cyan-50",
-  "from-sky-500/50 to-sky-500/20 border-sky-500/40 text-sky-950 dark:text-sky-50",
-  "from-blue-500/50 to-blue-500/20 border-blue-500/40 text-blue-950 dark:text-blue-50",
-  "from-indigo-500/50 to-indigo-500/20 border-indigo-500/40 text-indigo-950 dark:text-indigo-50",
-  "from-violet-500/50 to-violet-500/20 border-violet-500/40 text-violet-950 dark:text-violet-50",
-  "from-purple-500/50 to-purple-500/20 border-purple-500/40 text-purple-950 dark:text-purple-50",
-  "from-fuchsia-500/50 to-fuchsia-500/20 border-fuchsia-500/40 text-fuchsia-950 dark:text-fuchsia-50",
-  "from-pink-500/50 to-pink-500/20 border-pink-500/40 text-pink-950 dark:text-pink-50",
-  "from-rose-500/50 to-rose-500/20 border-rose-500/40 text-rose-950 dark:text-rose-50",
+  "from-red-600/40 to-red-600/10 border-red-600/30 text-red-950 dark:text-red-50",
+  "from-orange-600/40 to-orange-600/10 border-orange-600/30 text-orange-950 dark:text-orange-50",
+  "from-amber-600/40 to-amber-600/10 border-amber-600/30 text-amber-950 dark:text-amber-50",
+  "from-yellow-600/40 to-yellow-600/10 border-yellow-600/30 text-yellow-950 dark:text-yellow-50",
+  "from-lime-600/40 to-lime-600/10 border-lime-600/30 text-lime-950 dark:text-lime-50",
+  "from-green-600/40 to-green-600/10 border-green-600/30 text-green-950 dark:text-green-50",
+  "from-emerald-600/40 to-emerald-600/10 border-emerald-600/30 text-emerald-950 dark:text-emerald-50",
+  "from-teal-600/40 to-teal-600/10 border-teal-600/30 text-teal-950 dark:text-teal-50",
+  "from-cyan-600/40 to-cyan-600/10 border-cyan-600/30 text-cyan-950 dark:text-cyan-50",
+  "from-sky-600/40 to-sky-600/10 border-sky-600/30 text-sky-950 dark:text-sky-50",
+  "from-blue-600/40 to-blue-600/10 border-blue-600/30 text-blue-950 dark:text-blue-50",
+  "from-indigo-600/40 to-indigo-600/10 border-indigo-600/30 text-indigo-950 dark:text-indigo-50",
+  "from-violet-600/40 to-violet-600/10 border-violet-600/30 text-violet-950 dark:text-violet-50",
+  "from-purple-600/40 to-purple-600/10 border-purple-600/30 text-purple-950 dark:text-purple-50",
+  "from-fuchsia-600/40 to-fuchsia-600/10 border-fuchsia-600/30 text-fuchsia-950 dark:text-fuchsia-50",
+  "from-pink-600/40 to-pink-600/10 border-pink-600/30 text-pink-950 dark:text-pink-50",
+  "from-rose-600/40 to-rose-600/10 border-rose-600/30 text-rose-950 dark:text-rose-50",
 ];
 
 const languageSubCategories = [
-  "General-Purpose Languages",
+  "Popular and Widely Used Languages",
+  "Systems Programming Languages",
   "Web Development Languages",
-  "Scripting & Automation",
-  "Data Science & Analytics",
-  "Systems & Embedded Programming",
-  "Functional Programming",
-  "Mobile App Development",
-  "Blockchain & Smart Contracts",
+  "Scripting & Automation Languages",
+  "Data Science / Stats / Math-Oriented",
+  "AI, ML, & Research Languages",
+  "Game Development Languages",
+  "Mobile App Development Languages",
+  "Enterprise / Backend / JVM Languages",
+  "Functional Programming Languages",
+  "DevOps / Configuration / Infra-as-Code",
+  "Blockchain / Smart Contract Languages",
+  "Educational / Esoteric / Experimental",
+  "Older / Legacy / Historical Languages",
+  "Other Noteworthy or Specialized Languages"
 ];
 
 function LanguagesContent() {
@@ -50,7 +57,7 @@ function LanguagesContent() {
 
   const sectionParam = searchParams.get("section");
   const [openItems, setOpenItems] = useState<string[]>(
-    sectionParam ? sectionParam.split(",") : ["item-General-Purpose Languages"]
+    sectionParam ? sectionParam.split(",") : ["item-Popular and Widely Used Languages"]
   );
 
   const handleValueChange = (values: string[]) => {
@@ -72,7 +79,10 @@ function LanguagesContent() {
 
   const groupedLanguages = languageSubCategories.map(subCategory => ({
     name: subCategory,
-    paths: filteredPaths.filter(path => path.subCategory === subCategory)
+    paths: filteredPaths.filter(path => 
+      path.subCategory === subCategory || 
+      (path.subCategories && path.subCategories.includes(subCategory))
+    )
   }));
 
   let globalCardIndex = 0;
@@ -92,7 +102,7 @@ function LanguagesContent() {
           Programming Languages
         </h1>
         <p className="text-muted-foreground mt-2 text-lg">
-          Master the core logic and syntax of the world's most popular coding languages.
+          Master the core logic and syntax of the world's most popular and specialized coding languages.
         </p>
       </header>
 
