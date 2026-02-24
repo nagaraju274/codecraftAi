@@ -376,7 +376,7 @@ export const learningPaths = [
   {
     id: "firmware-developer",
     title: "Firmware Developer",
-    description: "Write low-level code that controls hardware devices directly.",
+    description: "Master the art of building the digital heartbeat of hardware. From C basics to RTOS, kernel modules, and hardware security.",
     category: "Job Roles",
     subCategory: "Core Software Development Jobs",
     topics: [],
