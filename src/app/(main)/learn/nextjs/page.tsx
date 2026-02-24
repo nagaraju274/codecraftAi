@@ -299,7 +299,7 @@ const plans = [
         description: "A comprehensive plan for in-depth knowledge, specialization, and production-readiness.",
         schedule: [
             "Days 1-30: Complete the Beginner and Intermediate stages thoroughly.",
-            "Days 31-45: Build a complex intermediate project that involves a database and authentication.",
+            "Days 31-60: Build a complex intermediate project that involves a database and authentication.",
             "Days 46-60: Cover the Advanced Stage concepts (Auth, Metadata, Middleware).",
             "Days 61-75: Cover remaining Advanced topics (Caching, i18n, Deployment).",
             "Days 76-90: Build an Advanced project (e.g., SaaS app) and prepare for interviews.",
@@ -313,7 +313,7 @@ const interviewTopics = [
     "How does file-based routing work in the App Router?",
     "What are Route Handlers and when are they useful?",
     "What is a Server Action and how does it differ from a traditional API endpoint?",
-    "How does the Next.js `<Image>` component optimize images?",
+    "How the Next.js `<Image>` component optimize images?",
     "Explain the purpose of `layout.tsx`, `page.tsx`, `loading.tsx`, and `error.tsx`.",
     "How do you fetch data in a Server Component?",
     "What is the purpose of Next.js Middleware?",

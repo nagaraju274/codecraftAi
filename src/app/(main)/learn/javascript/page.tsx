@@ -1,4 +1,3 @@
-
 "use client";
 
 import { AuthGuard } from "@/components/auth/auth-guard";
@@ -326,7 +325,7 @@ const plans = [
   },
   {
     title: "60-Day Standard Plan",
-    description: "Balanced pace for building a solid foundation and portfolio.",
+    description: "Balanced pace for building a solid foundation and a portfolio.",
     schedule: [
       "Days 1-20: Deep dive into Beginner Stage + 3 projects.",
       "Days 21-45: Mastering Intermediate concepts, OOP, and Async.",

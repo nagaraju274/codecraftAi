@@ -1,5 +1,3 @@
-
-
 "use client";
 
 // This comment explains that this hook is used for managing component state.
@@ -42,6 +40,35 @@ export default function RoadmapPage() {
     notFound();
   }
 
+  // Helper to get the correct back link based on category
+  const getBackLink = () => {
+    if (!path) return "/learn";
+    switch (path.category) {
+      case "Programming Languages":
+        const langSubCat = path.subCategory || (path.subCategories && path.subCategories[0]) || "Popular and Widely Used Languages";
+        return `/learn/languages?section=item-${langSubCat}`;
+      case "Frameworks & Libraries":
+        return `/learn/frameworks?section=item-${path.subCategory}`;
+      case "Job Roles":
+        return `/learn/roles?section=item-${path.subCategory}`;
+      case "Data Structures & Algorithms":
+        return "/learn/dsa";
+      default:
+        return "/learn";
+    }
+  };
+
+  const getBackText = () => {
+    if (!path) return "Back to Road maps";
+    switch (path.category) {
+      case "Programming Languages": return "Back to Languages";
+      case "Frameworks & Libraries": return "Back to Frameworks";
+      case "Job Roles": return "Back to Job Roles";
+      case "Data Structures & Algorithms": return "Back to DSA";
+      default: return "Back to Road maps";
+    }
+  };
+
   // The main JSX structure for the page.
   return (
     // This component ensures that only authenticated users can view this page.
@@ -50,10 +77,10 @@ export default function RoadmapPage() {
         <div className="space-y-2 p-4 md:p-0">
             {/* A "Back" button that links to the main learning paths page. */}
             <Button asChild variant="ghost" className="mb-4">
-              <Link href="/learn">
+              <Link href={getBackLink()}>
                 {/* An arrow icon for the back button. */}
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Road maps
+                {getBackText()}
               </Link>
             </Button>
           {/* The main heading of the page, displaying the roadmap title. */}
