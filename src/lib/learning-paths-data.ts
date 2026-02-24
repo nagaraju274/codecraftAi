@@ -311,6 +311,15 @@ export const learningPaths = [
     assignments: []
   },
   {
+    id: "mobile-app-developer-ios",
+    title: "Mobile App Developer (iOS)",
+    description: "Master Swift and SwiftUI to build world-class applications for the Apple ecosystem.",
+    category: "Job Roles",
+    subCategory: "Core Software Development Jobs",
+    topics: [],
+    assignments: []
+  },
+  {
     id: "game-developer",
     title: "Game Developer",
     description: "Learn to build interactive games using popular engines and graphics libraries.",
@@ -322,7 +331,7 @@ export const learningPaths = [
   {
     id: "desktop-application-developer",
     title: "Desktop Application Developer",
-    description: "Build powerful applications for Windows, macOS, and Linux.",
+    description: "Build powerful applications for Windows, macOS, and Linux using .NET, Electron, or Tauri.",
     category: "Job Roles",
     subCategory: "Core Software Development Jobs",
     topics: [],
@@ -619,6 +628,15 @@ export const learningPaths = [
     id: "cloud-devops-engineer",
     title: "Cloud DevOps Engineer",
     description: "Integrate DevOps practices with cloud-native tools.",
+    category: "Job Roles",
+    subCategory: "Cloud & Infrastructure Jobs",
+    topics: [],
+    assignments: []
+  },
+  {
+    id: "site-reliability-engineer-cloud",
+    title: "Site Reliability Engineer (SRE)",
+    description: "Ensure that cloud-based systems are scalable and reliable.",
     category: "Job Roles",
     subCategory: "Cloud & Infrastructure Jobs",
     topics: [],
@@ -1200,7 +1218,7 @@ export const learningPaths = [
     title: "ISRO / DRDO Scientist",
     description: "Conduct research and development for space and defense.",
     category: "Job Roles",
-    subCategory: "Government & Public Sector",
+    subCategory: "Research & Academia",
     topics: [],
     assignments: []
   },
