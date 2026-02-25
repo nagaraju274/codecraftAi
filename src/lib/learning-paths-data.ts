@@ -47,6 +47,15 @@ export interface LearningPath {
 
 export const learningPaths: LearningPath[] = [
   {
+    id: "deep-learning-engineer",
+    title: "Deep Learning Engineer",
+    description: "Master neural networks, computer vision, and NLP using PyTorch and TensorFlow.",
+    category: "Job Roles",
+    subCategory: "Artificial Intelligence & Machine Learning",
+    topics: [],
+    assignments: []
+  },
+  {
     id: "solidity",
     title: "Solidity",
     description: "Master the language of smart contracts. Build secure, decentralized applications on the Ethereum blockchain.",
@@ -665,7 +674,7 @@ export const learningPaths: LearningPath[] = [
   },
   {
     id: "scratch",
-    title: "Scratch",
+    title: "Lazy Load Scratch",
     description: "Block-based visual programming language for education.",
     category: "Programming Languages",
     subCategories: ["Educational / Esoteric / Experimental"],
@@ -1138,15 +1147,6 @@ export const learningPaths: LearningPath[] = [
     id: "ai-researcher",
     title: "AI Researcher",
     description: "Advance the field of AI through theory.",
-    category: "Job Roles",
-    subCategory: "Artificial Intelligence & Machine Learning",
-    topics: [],
-    assignments: []
-  },
-  {
-    id: "deep-learning-engineer",
-    title: "Deep Learning Engineer",
-    description: "Build complex neural networks.",
     category: "Job Roles",
     subCategory: "Artificial Intelligence & Machine Learning",
     topics: [],
