@@ -1,3 +1,4 @@
+
 import { MetadataRoute } from 'next'
  
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -27,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/dsa-mastery',
     '/login',
     '/signup',
+    '/learn/gdscript',
   ];
 
   return staticRoutes.map((route) => ({
