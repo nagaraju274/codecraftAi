@@ -47,6 +47,15 @@ export interface LearningPath {
 
 export const learningPaths: LearningPath[] = [
   {
+    id: "fortran",
+    title: "Fortran",
+    description: "Master the language of numerical computing and high-performance engineering simulations.",
+    category: "Programming Languages",
+    subCategories: ["Data Science / Stats / Math-Oriented", "Older / Legacy / Historical Languages"],
+    topics: [],
+    assignments: []
+  },
+  {
     id: "bash",
     title: "Bash & Shell Scripting",
     description: "Master the foundation of systems automation. From terminal basics to complex DevOps pipelines.",
@@ -471,15 +480,6 @@ export const learningPaths: LearningPath[] = [
     description: "Software package used for interactive statistical analysis.",
     category: "Programming Languages",
     subCategories: ["Data Science / Stats / Math-Oriented"],
-    topics: [],
-    assignments: []
-  },
-  {
-    id: "fortran",
-    title: "Fortran",
-    description: "General-purpose language for scientific and engineering applications.",
-    category: "Programming Languages",
-    subCategories: ["Data Science / Stats / Math-Oriented", "Older / Legacy / Historical Languages"],
     topics: [],
     assignments: []
   },
@@ -1820,7 +1820,7 @@ export const learningPaths: LearningPath[] = [
   },
   {
     id: "quantitative-analyst",
-    title: "Quant Analyst",
+    title: "Quantitative Analyst",
     description: "Apply math to financial risk.",
     category: "Job Roles",
     subCategory: "Interdisciplinary & Specialized Roles",
