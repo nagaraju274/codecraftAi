@@ -30,6 +30,7 @@ import {
   Workflow,
   CheckCircle,
   ShieldCheck,
+  ShieldAlert,
   Cpu,
   Layers,
   Globe,
@@ -474,7 +475,7 @@ export default function HclRoadmapPage() {
         <Card className="border-2 border-primary/20 bg-primary/[0.02]">
           <CardHeader>
             <CardTitle className="text-3xl flex items-center gap-3"><Zap className="h-8 w-8 text-primary"/>Project Ideas</CardTitle>
-            <CardDescription>Apply your knowledge with these hands-on HCL projects designed for your DevOps portfolio.</CardDescription>
+            <CardDescription>Apply your knowledge with these hands-on projects designed for your DevOps portfolio.</CardDescription>
           </CardHeader>
           <CardContent className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map(p => (
