@@ -1,4 +1,32 @@
 
+export interface RoadmapStep {
+  what: string;
+  why: string;
+  time: string;
+  prereqs: string;
+  resources: { name: string; url: string }[];
+  practice: string;
+}
+
+export interface RoadmapStage {
+  title: string;
+  level: string;
+  steps: RoadmapStep[];
+}
+
+export interface RoadmapProject {
+  level: string;
+  title: string;
+  teaches: string;
+  tech: string;
+}
+
+export interface RoadmapPlan {
+  title: string;
+  description: string;
+  schedule: string[];
+}
+
 export interface LearningPath {
   id: string;
   title: string;
@@ -6,12 +34,59 @@ export interface LearningPath {
   category: string;
   subCategory?: string;
   subCategories?: string[];
-  topics: any[];
-  assignments: any[];
+  iconType?: 'terminal' | 'code' | 'globe' | 'cpu' | 'database' | 'smartphone';
+  stages?: RoadmapStage[];
+  projects?: RoadmapProject[];
+  plans?: RoadmapPlan[];
+  interviewTopics?: string[];
+  codingQuestions?: { question: string; topic: string }[];
+  mistakes?: string[];
+  assignments?: any[];
+  topics?: any[];
 }
 
 export const learningPaths: LearningPath[] = [
-  // --- Programming Languages ---
+  {
+    id: "bash",
+    title: "Bash & Shell Scripting",
+    description: "Master the foundation of systems automation. From terminal basics to complex DevOps pipelines.",
+    category: "Programming Languages",
+    subCategory: "Scripting & Automation Languages",
+    iconType: "terminal",
+    stages: [
+      {
+        title: "Beginner Stage: Terminal Foundations",
+        level: "Beginner",
+        steps: [
+          {
+            what: "Introduction to the Shell & CLI",
+            why: "To understand the interface between you and the kernel.",
+            time: "2 Days",
+            prereqs: "None",
+            resources: [{ name: "Linux Journey: The Shell", url: "https://linuxjourney.com/lesson/the-shell" }],
+            practice: "Practice using 'pwd', 'ls', 'cd', 'mkdir'."
+          },
+          {
+            what: "File Operations & Redirection",
+            why: "To manage files and move data between commands using pipes.",
+            time: "3 Days",
+            prereqs: "Step 1",
+            resources: [{ name: "Redirection & Piping (MDN)", url: "https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Command_line#redirection_and_pipes" }],
+            practice: "Pipe 'ls' output into 'grep'."
+          }
+        ]
+      }
+    ],
+    projects: [
+      { level: "Beginner", title: "Automated Log Cleaner", teaches: "File ops and cron.", tech: "Bash, Cron" }
+    ],
+    plans: [
+      { title: "30-Day Fast Track", description: "Core essentials.", schedule: ["Day 1-7: Syntax", "Day 8-15: Logic"] }
+    ],
+    interviewTopics: ["Explain the Pipeline (|)", "What is a Shebang?"],
+    codingQuestions: [{ question: "Write a script to find large files.", topic: "File I/O" }],
+    mistakes: ["Not using 'set -e'", "Forgetting quotes around variables"]
+  },
   {
     id: "python",
     title: "Python",
@@ -265,15 +340,6 @@ export const learningPaths: LearningPath[] = [
     assignments: []
   },
   {
-    id: "bash",
-    title: "Bash",
-    description: "Unix shell and command language.",
-    category: "Programming Languages",
-    subCategories: ["Scripting & Automation Languages"],
-    topics: [],
-    assignments: []
-  },
-  {
     id: "shell-script",
     title: "Shell Script (sh)",
     description: "Fundamental scripting for Unix-like systems.",
@@ -511,15 +577,6 @@ export const learningPaths: LearningPath[] = [
     id: "yaml",
     title: "YAML",
     description: "Human-friendly data serialization standard.",
-    category: "Programming Languages",
-    subCategories: ["DevOps / Configuration / Infra-as-Code"],
-    topics: [],
-    assignments: []
-  },
-  {
-    id: "json",
-    title: "JSON",
-    description: "Lightweight data-interchange format.",
     category: "Programming Languages",
     subCategories: ["DevOps / Configuration / Infra-as-Code"],
     topics: [],
