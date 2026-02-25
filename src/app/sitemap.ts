@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/login',
     '/signup',
     '/learn/gdscript',
+    '/learn/hcl',
   ];
 
   return staticRoutes.map((route) => ({

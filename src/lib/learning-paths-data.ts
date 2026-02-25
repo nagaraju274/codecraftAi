@@ -47,6 +47,15 @@ export interface LearningPath {
 
 export const learningPaths: LearningPath[] = [
   {
+    id: "hcl",
+    title: "HCL",
+    description: "Master the language of the modern cloud. Build, scale, and secure infrastructure with HCL.",
+    category: "Programming Languages",
+    subCategory: "DevOps / Configuration / Infra-as-Code",
+    topics: [],
+    assignments: []
+  },
+  {
     id: "fortran",
     title: "Fortran",
     description: "Master the language of numerical computing and high-performance engineering simulations.",
@@ -577,15 +586,6 @@ export const learningPaths: LearningPath[] = [
     id: "yaml",
     title: "YAML",
     description: "Human-friendly data serialization standard.",
-    category: "Programming Languages",
-    subCategories: ["DevOps / Configuration / Infra-as-Code"],
-    topics: [],
-    assignments: []
-  },
-  {
-    id: "hcl",
-    title: "HCL",
-    description: "HashiCorp Configuration Language.",
     category: "Programming Languages",
     subCategories: ["DevOps / Configuration / Infra-as-Code"],
     topics: [],
