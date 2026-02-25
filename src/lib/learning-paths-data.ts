@@ -47,6 +47,15 @@ export interface LearningPath {
 
 export const learningPaths: LearningPath[] = [
   {
+    id: "solidity",
+    title: "Solidity",
+    description: "Master the language of smart contracts. Build secure, decentralized applications on the Ethereum blockchain.",
+    category: "Programming Languages",
+    subCategory: "Blockchain / Smart Contract Languages",
+    topics: [],
+    assignments: []
+  },
+  {
     id: "hcl",
     title: "HCL",
     description: "Master the language of the modern cloud. Build, scale, and secure infrastructure with HCL.",
@@ -615,15 +624,6 @@ export const learningPaths: LearningPath[] = [
     description: "Configuration management using Ansible.",
     category: "Programming Languages",
     subCategories: ["DevOps / Configuration / Infra-as-Code"],
-    topics: [],
-    assignments: []
-  },
-  {
-    id: "solidity",
-    title: "Solidity",
-    description: "Language for writing smart contracts on Ethereum.",
-    category: "Programming Languages",
-    subCategories: ["Blockchain / Smart Contract Languages"],
     topics: [],
     assignments: []
   },
