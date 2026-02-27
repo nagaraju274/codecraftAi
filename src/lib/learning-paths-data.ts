@@ -47,6 +47,15 @@ export interface LearningPath {
 
 export const learningPaths: LearningPath[] = [
   {
+    id: "data-engineer",
+    title: "Data Engineer",
+    description: "Master the art of building scalable data pipelines, distributed systems, and cloud infrastructure.",
+    category: "Job Roles",
+    subCategory: "Data & Database Roles",
+    topics: [],
+    assignments: []
+  },
+  {
     id: "deep-learning-engineer",
     title: "Deep Learning Engineer",
     description: "Master neural networks, computer vision, and NLP using PyTorch and TensorFlow.",
